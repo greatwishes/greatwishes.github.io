@@ -4,165 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyApp - أول موقع لتحميل التطبيقات وتحديثها</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to right, #1f1c2c, #928dab);
-      color: #fff;
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    header {
-      padding: 40px 20px;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    h1 {
-      font-size: 3em;
-      color: #ffcc00;
-      text-shadow: 0 0 20px #ffcc00;
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #ffcc00;
-      }
-      to {
-        text-shadow: 0 0 30px #ffd700, 0 0 60px #ff9900;
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      background: #ffcc00;
-      color: #000;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #fff;
-      color: #000;
-      transform: scale(1.1);
-    }
-
-    .image-box {
-      margin-top: 50px;
-      animation: fadeIn 2s ease-in-out 1s both;
-    }
-
-    .image-box img {
-      width: 250px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
-    }
-
-    .image-box img:hover {
-      transform: scale(1.05);
-    }
-
-    .app-description {
-      margin-top: 50px;
-      padding: 0 20px;
-    }
-
-    .app-description h2 {
-      font-size: 2em;
-      color: #ffcc00;
-      text-shadow: 0 0 10px #ffcc00;
-      animation: glow 2s infinite alternate;
-      margin-bottom: 20px;
-    }
-
-    .app-description p {
-      font-size: 1.2em;
-      line-height: 1.8;
-      margin: 20px auto;
-      max-width: 800px;
-      color: #f2f2f2;
-    }
-
-    .app-description ul {
-      list-style: none;
-      padding: 0;
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: right;
-    }
-
-    .app-description ul li {
-      background: rgba(255, 255, 255, 0.1);
-      margin: 10px 0;
-      padding: 15px;
-      border-radius: 10px;
-      position: relative;
-      padding-right: 35px;
-    }
-
-    .app-description ul li::before {
-      content: "★";
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #ffcc00;
-      font-size: 1.2em;
-    }
-
-    .navigation-links {
-      margin-top: 60px;
-    }
-
-    .navigation-links a {
-      margin: 0 10px;
-      color: #ffcc00;
-      text-decoration: none;
-      font-size: 1.1em;
-      transition: 0.3s;
-    }
-
-    .navigation-links a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #ffcc00;
-    }
-
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      font-size: 0.9em;
-      background: rgba(0,0,0,0.3);
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-
-      .image-box img {
-        width: 90%;
-      }
-
-      .btn {
-        font-size: 1em;
-        padding: 10px 20px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -173,34 +15,33 @@
   </header>
 
   <div class="image-box">
-  <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/V%20N%20T.jpg" alt="صورة التطبيق">
-</div>
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/V%20N%20T.jpg" alt="صورة التطبيق">
+  </div>
 
   <div class="app-description">
-  <h2>تطبيق تحويل المذكرة الصوتية إلى ملف: Voice Note to Word</h2>
-  <p>تطبيق <strong>Voice Note to Word</strong> هو أداة ذكية تساعدك على تحويل التسجيلات الصوتية إلى ملفات نصية بدقة وسرعة، مما يسهل عليك حفظ الأفكار، وتفريغ المحاضرات، والاجتماعات، والملاحظات اليومية في شكل مكتوب. يتميز التطبيق بواجهة بسيطة تدعم اللغة العربية والإنجليزية لتناسب جميع المستخدمين.</p>
+    <h2>تطبيق تحويل المذكرة الصوتية إلى ملف: Voice Note to Word</h2>
+    <p>تطبيق <strong>Voice Note to Word</strong> هو أداة ذكية تساعدك على تحويل التسجيلات الصوتية إلى ملفات نصية بدقة وسرعة، مما يسهل عليك حفظ الأفكار، وتفريغ المحاضرات، والاجتماعات، والملاحظات اليومية في شكل مكتوب. يتميز التطبيق بواجهة بسيطة تدعم اللغة العربية والإنجليزية لتناسب جميع المستخدمين.</p>
 
-  <h3>الميزات الرئيسية للتطبيق:</h3>
-  <ul>
-    <li><strong>تحويل الصوت إلى نص:</strong> قم بتسجيل المذكرة الصوتية أو استيراد ملف صوتي، ودع التطبيق يحول الكلام إلى نص مكتوب فورًا.</li>
-    <li><strong>دقة عالية في التعرف على الصوت:</strong> يستخدم التطبيق تقنيات متقدمة لمعالجة وتحليل الصوت بدقة كبيرة.</li>
-    <li><strong>حفظ النصوص:</strong> يمكنك حفظ النص الناتج بصيغة ملف وورد أو نص عادي لاستخدامه لاحقًا.</li>
-    <li><strong>مشاركة النصوص:</strong> شارك النتائج مباشرة عبر البريد الإلكتروني، الواتساب، أو أي تطبيق آخر.</li>
-    <li><strong>دعم اللغتين العربية والإنجليزية:</strong> تجربة استخدام سلسة ومتكاملة لأي مستخدم.</li>
-  </ul>
-</div>
-
-    <a href="https://github.com/greatwishes/myapp/raw/main/voicenotetoword_version.1.1.apk" class="btn">تحميل التطبيق الآن</a>
+    <h3>الميزات الرئيسية للتطبيق:</h3>
+    <ul>
+      <li><strong>تحويل الصوت إلى نص:</strong> قم بتسجيل المذكرة الصوتية أو استيراد ملف صوتي، ودع التطبيق يحول الكلام إلى نص مكتوب فورًا.</li>
+      <li><strong>دقة عالية في التعرف على الصوت:</strong> يستخدم التطبيق تقنيات متقدمة لمعالجة وتحليل الصوت بدقة كبيرة.</li>
+      <li><strong>حفظ النصوص:</strong> يمكنك حفظ النص الناتج بصيغة ملف وورد أو نص عادي لاستخدامه لاحقًا.</li>
+      <li><strong>مشاركة النصوص:</strong> شارك النتائج مباشرة عبر البريد الإلكتروني، الواتساب، أو أي تطبيق آخر.</li>
+      <li><strong>دعم اللغتين العربية والإنجليزية:</strong> تجربة استخدام سلسة ومتكاملة لأي مستخدم.</li>
+    </ul>
   </div>
+
+  <a href="https://github.com/greatwishes/myapp/raw/main/voicenotetoword_version.1.1.apk" class="btn">تحميل التطبيق الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">العودة للصفحة الرئيسية</a> |
     <a href="#another-app">تطبيق آخر</a> |
     <a href="javascript:history.back()">الصفحة السابقة</a>
-</div>
+  </div>
 
   <footer>
     &copy; 2025 MyApp | جميع الحقوق محفوظة
   </footer>
 </body>
-  </html>
+</html>
