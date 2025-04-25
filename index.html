@@ -78,7 +78,10 @@
     &copy; 2025 MyApp | جميع الحقوق محفوظة
   </footer>
 
-  <!-- إضافة ملف الصوت هنا -->
+  <!-- إضافة ملف الصوت الخلفي هنا -->
+  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" autoplay loop preload="auto"></audio>
+
+  <!-- إضافة ملف الصوت عند النقر -->
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
   <!-- إضافة سكربت لتشغيل الصوت عند النقر على الزر -->
@@ -86,7 +89,7 @@
     // إضافة حدث للزر لتشغيل الصوت عند النقر
     document.querySelectorAll('.btn').forEach(function(button) {
       button.addEventListener('click', function() {
-        document.getElementById('clickSound').play();  // تشغيل الصوت
+        document.getElementById('clickSound').play();  // تشغيل الصوت عند النقر
       });
     });
   </script>
