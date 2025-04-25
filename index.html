@@ -93,11 +93,14 @@
       });
     });
 
+    var backgroundSoundPlayed = false; // متغير لتحديد ما إذا تم تشغيل الصوت الخلفي أم لا
+
     // تشغيل الصوت الخلفي عند التمرير عبر الصفحة
     window.addEventListener('scroll', function() {
       var backgroundSound = document.getElementById('backgroundSound');
-      if (backgroundSound.paused) {
+      if (!backgroundSoundPlayed) {
         backgroundSound.play(); // تشغيل الصوت الخلفي عند التمرير
+        backgroundSoundPlayed = true; // تأكيد أن الصوت قد تم تشغيله
       }
     });
   </script>
