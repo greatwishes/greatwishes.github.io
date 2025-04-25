@@ -78,5 +78,18 @@
     &copy; 2025 MyApp | جميع الحقوق محفوظة
   </footer>
 
+  <!-- إضافة ملف الصوت هنا -->
+  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
+
+  <!-- إضافة سكربت لتشغيل الصوت عند النقر على الزر -->
+  <script>
+    // إضافة حدث للزر لتشغيل الصوت عند النقر
+    document.querySelectorAll('.btn').forEach(function(button) {
+      button.addEventListener('click', function() {
+        document.getElementById('clickSound').play();  // تشغيل الصوت
+      });
+    });
+  </script>
+
 </body>
 </html>
