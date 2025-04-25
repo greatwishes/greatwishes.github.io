@@ -4,165 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyApp - أول موقع لتحميل التطبيقات وتحديثها</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to right, #1f1c2c, #928dab);
-      color: #fff;
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    header {
-      padding: 40px 20px;
-      animation: fadeIn 2s ease-in-out;
-    }
-
-    h1 {
-      font-size: 3em;
-      color: #ffcc00;
-      text-shadow: 0 0 20px #ffcc00;
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #ffcc00;
-      }
-      to {
-        text-shadow: 0 0 30px #ffd700, 0 0 60px #ff9900;
-      }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      background: #ffcc00;
-      color: #000;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #fff;
-      color: #000;
-      transform: scale(1.1);
-    }
-
-    .image-box {
-      margin-top: 50px;
-      animation: fadeIn 2s ease-in-out 1s both;
-    }
-
-    .image-box img {
-      width: 250px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      transition: transform 0.3s ease;
-    }
-
-    .image-box img:hover {
-      transform: scale(1.05);
-    }
-
-    .app-description {
-      margin-top: 50px;
-      padding: 0 20px;
-    }
-
-    .app-description h2 {
-      font-size: 2em;
-      color: #ffcc00;
-      text-shadow: 0 0 10px #ffcc00;
-      animation: glow 2s infinite alternate;
-      margin-bottom: 20px;
-    }
-
-    .app-description p {
-      font-size: 1.2em;
-      line-height: 1.8;
-      margin: 20px auto;
-      max-width: 800px;
-      color: #f2f2f2;
-    }
-
-    .app-description ul {
-      list-style: none;
-      padding: 0;
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: right;
-    }
-
-    .app-description ul li {
-      background: rgba(255, 255, 255, 0.1);
-      margin: 10px 0;
-      padding: 15px;
-      border-radius: 10px;
-      position: relative;
-      padding-right: 35px;
-    }
-
-    .app-description ul li::before {
-      content: "★";
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #ffcc00;
-      font-size: 1.2em;
-    }
-
-    .navigation-links {
-      margin-top: 60px;
-    }
-
-    .navigation-links a {
-      margin: 0 10px;
-      color: #ffcc00;
-      text-decoration: none;
-      font-size: 1.1em;
-      transition: 0.3s;
-    }
-
-    .navigation-links a:hover {
-      color: #fff;
-      text-shadow: 0 0 10px #ffcc00;
-    }
-
-    footer {
-      margin-top: 60px;
-      padding: 20px;
-      font-size: 0.9em;
-      background: rgba(0,0,0,0.3);
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-
-      .image-box img {
-        width: 90%;
-      }
-
-      .btn {
-        font-size: 1em;
-        padding: 10px 20px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -173,25 +15,24 @@
   </header>
 
   <div class="image-box">
-  <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/Age%20Calculator.jpg" alt="صورة التطبيق">
-</div>
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/Age%20Calculator.jpg" alt="صورة التطبيق">
+  </div>
 
   <div class="app-description">
-  <h2>تطبيق حساب العمر: Age&nbsp;Calculator</h2>
-  <p>تطبيق <strong>Age&nbsp;Calculator</strong> هو أداة ذكية وسهلة الاستخدام لحساب عمرك بدقة، واستكشاف معلومات شخصية مميزة بناءً على اسمك وتاريخ ميلادك. يقدم التطبيق واجهة جذابة وبسيطة، ويدعم كلاً من اللغة العربية والإنجليزية لتناسب جميع المستخدمين.</p>
+    <h2>تطبيق حساب العمر: Age&nbsp;Calculator</h2>
+    <p>تطبيق <strong>Age&nbsp;Calculator</strong> هو أداة ذكية وسهلة الاستخدام لحساب عمرك بدقة، واستكشاف معلومات شخصية مميزة بناءً على اسمك وتاريخ ميلادك. يقدم التطبيق واجهة جذابة وبسيطة، ويدعم كلاً من اللغة العربية والإنجليزية لتناسب جميع المستخدمين.</p>
 
-  <h3>الميزات الرئيسية للتطبيق:</h3>
-  <ul>
-    <li><strong>حساب العمر:</strong> احسب عمرك بالأيام، الشهور، السنوات، وحتى بالساعات والثواني بدقة فائقة.</li>
-    <li><strong>طاقة الأسماء:</strong> تحليل علمي وشيق لطاقة اسمك وتأثيره على حياتك وشخصيتك.</li>
-    <li><strong>معاني الأسماء:</strong> اكتشف المعاني الجميلة والعميقة لأسماء الأولاد والبنات بأسلوب أدبي جذاب.</li>
-    <li><strong>معرفة الأبراج:</strong> حدد برجك الفلكي من تاريخ ميلادك مع شرح مفصل لصفاته وطباعه.</li>
-    <li><strong>التطبيق عربي وإنجليزي:</strong> يدعم التطبيق اللغتين لتجربة استخدام مرنة وسلسة للجميع.</li>
-  </ul>
-</div>
-
-    <a href="https://github.com/greatwishes/myapp/raw/main/agecalculator_version.1.8.apk" class="btn">تحميل التطبيق الآن</a>
+    <h3>الميزات الرئيسية للتطبيق:</h3>
+    <ul>
+      <li><strong>حساب العمر:</strong> احسب عمرك بالأيام، الشهور، السنوات، وحتى بالساعات والثواني بدقة فائقة.</li>
+      <li><strong>طاقة الأسماء:</strong> تحليل علمي وشيق لطاقة اسمك وتأثيره على حياتك وشخصيتك.</li>
+      <li><strong>معاني الأسماء:</strong> اكتشف المعاني الجميلة والعميقة لأسماء الأولاد والبنات بأسلوب أدبي جذاب.</li>
+      <li><strong>معرفة الأبراج:</strong> حدد برجك الفلكي من تاريخ ميلادك مع شرح مفصل لصفاته وطباعه.</li>
+      <li><strong>التطبيق عربي وإنجليزي:</strong> يدعم التطبيق اللغتين لتجربة استخدام مرنة وسلسة للجميع.</li>
+    </ul>
   </div>
+
+  <a href="https://github.com/greatwishes/myapp/raw/main/agecalculator_version.1.8.apk" class="btn">تحميل التطبيق الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">العودة للصفحة الرئيسية</a> |
