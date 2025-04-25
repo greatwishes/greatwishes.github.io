@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /private/
 Allow: /
-Sitemap: https://greatwishes.github.io/myapp/sitemap.xml
+Sitemap: https://greatwishes.github.io/sitemap.xml
