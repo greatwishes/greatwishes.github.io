@@ -79,7 +79,7 @@
   </footer>
 
   <!-- إضافة ملف الصوت الخلفي هنا -->
-  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" autoplay loop preload="auto"></audio>
+  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto"></audio>
 
   <!-- إضافة ملف الصوت عند النقر -->
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
@@ -91,6 +91,14 @@
       button.addEventListener('click', function() {
         document.getElementById('clickSound').play();  // تشغيل الصوت عند النقر
       });
+    });
+
+    // تشغيل الصوت الخلفي عند التفاعل مع الصفحة
+    document.body.addEventListener('click', function() {
+      var backgroundSound = document.getElementById('backgroundSound');
+      if (backgroundSound.paused) {
+        backgroundSound.play(); // تشغيل الصوت الخلفي بعد النقر على الصفحة
+      }
     });
   </script>
 
