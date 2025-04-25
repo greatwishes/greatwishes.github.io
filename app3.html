@@ -60,12 +60,12 @@
   </footer>
 
   <!-- إضافة ملف الصوت الخلفي هنا -->
-  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto"></audio>
+  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto" loop></audio>
 
   <!-- إضافة ملف الصوت عند النقر -->
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
-  <!-- إضافة سكربت لتشغيل الصوت عند النقر عبر الزر -->
+  <!-- إضافة سكربت لتشغيل الصوت عند التمرير عبر الصفحة -->
   <script>
     // إضافة حدث للزر لتشغيل الصوت عند النقر
     document.querySelectorAll('.btn').forEach(function(button) {
@@ -74,14 +74,17 @@
       });
     });
 
+    var backgroundSoundPlayed = false; // متغير لتحديد ما إذا تم تشغيل الصوت الخلفي أم لا
+
     // تشغيل الصوت الخلفي عند التمرير عبر الصفحة
     window.addEventListener('scroll', function() {
       var backgroundSound = document.getElementById('backgroundSound');
-      if (backgroundSound.paused) {
+      if (!backgroundSoundPlayed) {
         backgroundSound.play(); // تشغيل الصوت الخلفي عند التمرير
+        backgroundSoundPlayed = true; // تأكيد أن الصوت قد تم تشغيله
       }
     });
   </script>
 
 </body>
-      </html>
+</html>
