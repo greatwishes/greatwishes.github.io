@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyApp - أول موقع لتحميل التطبيقات وتحديثها</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PKM1330E7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-5PKM1330E7');
+  </script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to right, #1f1c2c, #928dab);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 40px 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #ffcc00;
+      text-shadow: 0 0 20px #ffcc00;
+      animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ffcc00;
+      }
+      to {
+        text-shadow: 0 0 30px #ffd700, 0 0 60px #ff9900;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      background: #ffcc00;
+      color: #000;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #fff;
+      color: #000;
+      transform: scale(1.1);
+    }
+
+    .image-box {
+      margin-top: 50px;
+      animation: fadeIn 2s ease-in-out 1s both;
+    }
+
+    .image-box img {
+      width: 250px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .image-box img:hover {
+      transform: scale(1.05);
+    }
+
+    .app-description {
+      margin-top: 50px;
+      padding: 0 20px;
+    }
+
+    .app-description h2 {
+      font-size: 2em;
+      color: #ffcc00;
+      text-shadow: 0 0 10px #ffcc00;
+      animation: glow 2s infinite alternate;
+      margin-bottom: 20px;
+    }
+
+    .app-description p {
+      font-size: 1.2em;
+      line-height: 1.8;
+      margin: 20px auto;
+      max-width: 800px;
+      color: #f2f2f2;
+    }
+
+    .app-description ul {
+      list-style: none;
+      padding: 0;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: right;
+    }
+
+    .app-description ul li {
+      background: rgba(255, 255, 255, 0.1);
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      position: relative;
+      padding-right: 35px;
+    }
+
+    .app-description ul li::before {
+      content: "★";
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #ffcc00;
+      font-size: 1.2em;
+    }
+
+    .navigation-links {
+      margin-top: 60px;
+    }
+
+    .navigation-links a {
+      margin: 0 10px;
+      color: #ffcc00;
+      text-decoration: none;
+      font-size: 1.1em;
+      transition: 0.3s;
+    }
+
+    .navigation-links a:hover {
+      color: #fff;
+      text-shadow: 0 0 10px #ffcc00;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      font-size: 0.9em;
+      background: rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .image-box img {
+        width: 90%;
+      }
+
+      .btn {
+        font-size: 1em;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>مرحباً بك في MyApp</h1>
+    <p>أول موقع عربي لتحميل التطبيقات وتحديثها بسهولة</p>
+    <a href="https://github.com/greatwishes/myapp/raw/main/music_version.1.1.apk" class="btn">تحميل التطبيق</a>
+  </header>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/refs/heads/main/M%20U%20S%20I%20C.jpg" alt="صورة التطبيق">
+  </div>
+
+  <div class="app-description">
+    <h2>تطبيق الموسيقى "MUSIC"</h2>
+    <p>تطبيق "MUSIC" هو تطبيق مبتكر ومميز لتشغيل الموسيقى والاستمتاع بأفضل الأغاني من جميع الأنواع. يتيح لك التطبيق تجربة صوتية استثنائية مع واجهة مستخدم بسيطة وسهلة الاستخدام، حيث يمكنك الوصول إلى مكتبتك الموسيقية المفضلة بنقرة واحدة. سواء كنت في المنزل أو أثناء التنقل، يضمن لك التطبيق تجربة استماع سلسة دون انقطاع.</p>
+
+    <h3>الميزات الرئيسية للتطبيق:</h3>
+    <ul>
+      <li><strong>تشغيل الموسيقى:</strong> استمتع بتشغيل أغانيك المفضلة في أي وقت وفي أي مكان.</li>
+      <li><strong>واجهة مستخدم سهلة:</strong> تصميم عصري يتيح لك تصفح وتنظيم الموسيقى بكل سهولة.</li>
+      <li><strong>دعم جميع الأنواع الموسيقية:</strong> من الأغاني العربية إلى العالمية، تجد جميع الأنماط التي تحبها.</li>
+      <li><strong>إمكانية إنشاء قوائم تشغيل:</strong> قم بإنشاء قوائم تشغيل خاصة بك وتنظيم الموسيقى كما تشاء.</li>
+      <li><strong>جودة صوت عالية:</strong> استمتع بتجربة صوت نقية وعالية الجودة.</li>
+    </ul>
+
+    <a href="https://github.com/greatwishes/myapp/raw/main/music_version.1.1.apk" class="btn">تحميل التطبيق الآن</a>
+  </div>
+
+  <div class="navigation-links">
+  <a href="#top">العودة للأعلى</a> |
+  <a href="app2.html">تطبيق آخر</a>
+</div>
+<p>
+  <a href="privacy.html" style="color: #ffcc00; text-decoration: none;" 
+     onmouseover="this.style.color='#fff'; this.style.textShadow='0 0 10px #ffcc00';" 
+     onmouseout="this.style.color='#ffcc00'; this.style.textShadow='none';">
+    سياسة الخصوصية
+  </a>
+</p>
+
+<p>
+  للاستفسارات أو أي أسئلة، يُرجى التواصل معنا عبر البريد الإلكتروني التالي:  
+  <a href="mailto:Greatdaylight@gmail.com" style="color: #ffcc00; text-decoration: underline;" 
+     onmouseover="this.style.color='#fff'; this.style.textShadow='0 0 10px #ffcc00';" 
+     onmouseout="this.style.color='#ffcc00'; this.style.textShadow='none';">
+    Greatdaylight@gmail.com
+  </a>
+</p>
+  <footer>
+    &copy; 2025 MyApp | جميع الحقوق محفوظة
+  </footer>
+</body>
+</html>
