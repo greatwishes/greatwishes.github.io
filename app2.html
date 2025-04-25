@@ -58,8 +58,8 @@
     &copy; 2025 MyApp | جميع الحقوق محفوظة
   </footer>
 
-  <!-- إضافة ملف الصوت الخلفي هنا -->
-  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto"></audio>
+  <!-- إضافة ملف الصوت الخلفي هنا مع خاصية التكرار (loop) -->
+  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto" loop></audio>
 
   <!-- إضافة ملف الصوت عند النقر -->
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
@@ -73,15 +73,10 @@
       });
     });
 
-var backgroundSoundPlayed = false; // متغير لتحديد ما إذا تم تشغيل الصوت الخلفي أم لا
-
     // تشغيل الصوت الخلفي عند التمرير عبر الصفحة
     window.addEventListener('scroll', function() {
       var backgroundSound = document.getElementById('backgroundSound');
-      if (!backgroundSoundPlayed) {
-        backgroundSound.play(); // تشغيل الصوت الخلفي عند التمرير
-        backgroundSoundPlayed = true; // تأكيد أن الصوت قد تم تشغيله
-      }
+      backgroundSound.play(); // تشغيل الصوت الخلفي عند التمرير
     });
   </script>
 
