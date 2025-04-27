@@ -115,11 +115,12 @@
         // استخراج رابط الـ APK من البيانات
         const apkUrl = data.apk_url;
 
-        // تحديث رابط الزر ليتضمن النسخة الجديدة
-        const downloadButton = document.querySelector('.btn');  // تأكد من أن الكلاس هو .btn
-        downloadButton.href = apkUrl;  // تحديث الرابط للنسخة الجديدة
+        // تحديث روابط الأزرار ليتضمن النسخة الجديدة
+        const downloadButtons = document.querySelectorAll('.btn');
+        downloadButtons.forEach(function(button) {
+          button.href = apkUrl;  // تحديث الرابط لجميع الأزرار
+        });
 
-        // النص يبقى كما هو ولا يتغير
       })
       .catch(error => console.error('Error fetching update info:', error));  // التعامل مع الأخطاء في حالة فشل جلب البيانات
   </script>
