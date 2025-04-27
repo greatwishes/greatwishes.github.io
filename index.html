@@ -104,6 +104,26 @@
       }
     });
   </script>
+  <script>
+  // تحديد اسم ملف JSON بناءً على التطبيق
+  const appName = 'app1'; // يمكن تغييره تلقائيًا حسب التطبيق الذي تعمل عليه
+  const updateFile = `${appName}_update.json`; // اسم الملف سيصبح app1_update.json أو app2_update.json
+  
+  // جلب بيانات الـ JSON بناءً على اسم الملف
+  fetch(`https://greatwishes.github.io/myapp/${updateFile}`)  
+    .then(response => response.json())  // تحويل الاستجابة إلى JSON
+    .then(data => {
+      // استخراج رابط الـ APK فقط
+      const apkUrl = data.apk_url;
+
+      // تحديث رابط الزر ليتضمن النسخة الجديدة
+      const downloadButton = document.querySelector('.download-button');
+      downloadButton.href = apkUrl;
+
+      // النص يبقى كما هو ولا يتغير
+    })
+    .catch(error => console.error('Error fetching update info:', error));  // التعامل مع الأخطاء في حالة فشل جلب البيانات
+</script>
 
 </body>
 </html>
