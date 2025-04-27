@@ -105,24 +105,24 @@
     });
   </script>
   <script>
-  // اسم الملف الذي يحتوي على بيانات التحديث
-  const updateFile = 'update.json';
+    // اسم الملف الذي يحتوي على بيانات التحديث
+    const updateFile = 'update.json';
 
-  // جلب بيانات الـ JSON بناءً على اسم الملف
-  fetch(`https://greatwishes.github.io/myapp/${updateFile}`)
-    .then(response => response.json())  // تحويل الاستجابة إلى JSON
-    .then(data => {
-      // استخراج رابط الـ APK من البيانات
-      const apkUrl = data.apk_url;
+    // جلب بيانات الـ JSON بناءً على اسم الملف
+    fetch(`https://greatwishes.github.io/myapp/${updateFile}`)
+      .then(response => response.json())  // تحويل الاستجابة إلى JSON
+      .then(data => {
+        // استخراج رابط الـ APK من البيانات
+        const apkUrl = data.apk_url;
 
-      // تحديث رابط الزر ليتضمن النسخة الجديدة
-      const downloadButton = document.querySelector('.btn');  // تحديث الكلاس هنا ليتوافق مع الكلاس في HTML
-      downloadButton.href = apkUrl;  // تحديث الرابط للنسخة الجديدة
+        // تحديث رابط الزر ليتضمن النسخة الجديدة
+        const downloadButton = document.querySelector('.btn');  // تأكد من أن الكلاس هو .btn
+        downloadButton.href = apkUrl;  // تحديث الرابط للنسخة الجديدة
 
-      // النص يبقى كما هو ولا يتغير
-    })
-    .catch(error => console.error('Error fetching update info:', error));  // التعامل مع الأخطاء في حالة فشل جلب البيانات
-</script>
+        // النص يبقى كما هو ولا يتغير
+      })
+      .catch(error => console.error('Error fetching update info:', error));  // التعامل مع الأخطاء في حالة فشل جلب البيانات
+  </script>
 
 </body>
 </html>
