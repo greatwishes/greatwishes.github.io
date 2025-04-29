@@ -18,7 +18,6 @@
 </head>
 <body>
 
-  <!-- تم حذف زر التحميل من هنا -->
   <header>
     <h1>مرحباً بك في Greatwishes</h1>
     <p>أول موقع عربي لتحميل التطبيقات وتحديثها بسهولة</p>
@@ -26,15 +25,16 @@
 
   <!-- هنا تم إضافة اللوجو بالتأثير -->
   <div class="image-box">
-    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes-logo.png" alt="Great Wishes Logo" class="logo">
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/images/greatwishes-logo.png" alt="Great Wishes Logo" class="logo">
   </div>
 
   <!-- زر التحميل تحت اللوجو -->
   <a href="https://github.com/greatwishes/myapp/raw/main/music/music_version.1.1.apk" class="btn">تحميل التطبيق</a>
 
   <div class="image-box">
-  <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="صورة التطبيق">
-</div>
+    <!-- تم تحديث المسار لصورة التطبيق -->
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="صورة التطبيق">
+  </div>
 
   <div class="app-description">
     <h2>تطبيق الموسيقى "MUSIC"</h2>
@@ -78,32 +78,6 @@
     &copy; 2025 Greatwishes | جميع الحقوق محفوظة
   </footer>
 
-  <!-- إضافة ملف الصوت الخلفي هنا -->
-  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto" loop></audio>
-
-  <!-- إضافة ملف الصوت عند النقر -->
-  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
-
-  <!-- إضافة سكربت لتشغيل الصوت عند التمرير عبر الصفحة -->
-  <script>
-    // إضافة حدث للزر لتشغيل الصوت عند النقر
-    document.querySelectorAll('.btn').forEach(function(button) {
-      button.addEventListener('click', function() {
-        document.getElementById('clickSound').play();  // تشغيل الصوت عند النقر
-      });
-    });
-
-    var backgroundSoundPlayed = false; // متغير لتحديد ما إذا تم تشغيل الصوت الخلفي أم لا
-
-    // تشغيل الصوت الخلفي عند التمرير عبر الصفحة
-    window.addEventListener('scroll', function() {
-      var backgroundSound = document.getElementById('backgroundSound');
-      if (!backgroundSoundPlayed) {
-        backgroundSound.play(); // تشغيل الصوت الخلفي عند التمرير
-        backgroundSoundPlayed = true; // تأكيد أن الصوت قد تم تشغيله
-      }
-    });
-  </script>
   <script>
     // اسم الملف الذي يحتوي على بيانات التحديث
     const updateFile = 'update.json';
