@@ -91,7 +91,7 @@
   const updateFile = 'update_voicenotetoword.json';  // تغيير اسم الملف إلى الملف الخاص بتطبيق تحويل الصوت إلى نص
 
   // جلب بيانات الـ JSON بناءً على اسم الملف
-  fetch(`https://greatwishes.github.io/myapp/voicenotetoword${updateFile}`)
+  fetch(`https://greatwishes.github.io/myapp/voicenotetoword/${updateFile}`)
     .then(response => response.json())  // تحويل الاستجابة إلى JSON
     .then(data => {
       // استخراج رابط الـ APK من البيانات
