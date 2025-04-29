@@ -1,3 +1,4 @@
 User-agent: *
-Disallow: https://greatwishes.github.io/myapp
+Allow: /
+
 Sitemap: https://greatwishes.github.io/sitemap.xml
