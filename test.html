@@ -4,40 +4,131 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>الصفحة الرئيسية - GreatWishes</title>
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* استايلات تأثير الشريط المتحرك */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cairo', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
+    }
+
+    .header {
+      padding: 30px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .header h1 {
+      font-size: 2.5em;
+      color: #00e5ff;
+      text-shadow: 0 0 10px #00e5ff;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 1.2em;
+      color: #ccc;
+    }
+
+    .logo-box img {
+      margin-top: 15px;
+      width: 90px;
+      height: auto;
+      filter: drop-shadow(0 0 8px #00e5ff);
+    }
+
     .slider-container {
       overflow: hidden;
       white-space: nowrap;
       margin-top: 40px;
+      padding: 15px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      position: relative;
     }
 
     .slider-track {
       display: inline-block;
-      animation: scroll 30s linear infinite;
+      animation: scroll 25s linear infinite;
+    }
+
+    .slider-track.paused {
+      animation-play-state: paused;
     }
 
     .slider-track a {
       display: inline-block;
-      margin: 0 10px;
+      margin: 0 12px;
     }
 
     .slider-track img {
-      width: 230px;
-      height: 430px;
-      border-radius: 14px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.3);
-      transition: transform 0.3s;
+      width: 200px;
+      height: 360px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .slider-track img:hover {
-      transform: scale(1.05);
+      transform: scale(1.07);
+      box-shadow: 0 0 20px #00e5ff;
     }
 
     @keyframes scroll {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
+    }
+
+    .control-buttons {
+      margin-top: 15px;
+    }
+
+    .control-buttons button {
+      background-color: #00e5ff;
+      border: none;
+      color: #000;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 10px #00e5ff;
+      transition: background 0.3s;
+    }
+
+    .control-buttons button:hover {
+      background-color: #00bcd4;
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #aaa;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 600px) {
+      .slider-track img {
+        width: 150px;
+        height: 270px;
+      }
+
+      .header h1 {
+        font-size: 1.8em;
+      }
+
+      .header p {
+        font-size: 1em;
+      }
     }
   </style>
 </head>
@@ -54,7 +145,7 @@
 
   <!-- شريط التطبيقات مع التأثير -->
   <div class="slider-container">
-    <div class="slider-track">
+    <div class="slider-track" id="sliderTrack">
       <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="App 1"></a>
       <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="Age Calculator"></a>
       <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="App 3"></a>
@@ -63,9 +154,28 @@
     </div>
   </div>
 
+  <!-- أزرار التحكم -->
+  <div class="control-buttons">
+    <button onclick="pauseSlider()">إيقاف التحرك</button>
+    <button onclick="resumeSlider()">تشغيل التحرك</button>
+  </div>
+
+  <!-- الفوتر -->
   <div class="footer">
     &copy; 2025 GreatWishes | جميع الحقوق محفوظة
   </div>
 
+  <script>
+    const slider = document.getElementById('sliderTrack');
+
+    function pauseSlider() {
+      slider.classList.add('paused');
+    }
+
+    function resumeSlider() {
+      slider.classList.remove('paused');
+    }
+  </script>
+
 </body>
-</html>
+  </html>
