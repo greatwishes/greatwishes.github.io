@@ -53,15 +53,12 @@
       border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       background: rgba(255, 255, 255, 0.05);
       position: relative;
+      cursor: grab;
     }
 
     .slider-track {
       display: inline-block;
       animation: scroll 25s linear infinite;
-    }
-
-    .slider-track.paused {
-      animation-play-state: paused;
     }
 
     .slider-track a {
@@ -85,27 +82,6 @@
     @keyframes scroll {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
-    }
-
-    .control-buttons {
-      margin-top: 15px;
-    }
-
-    .control-buttons button {
-      background-color: #00e5ff;
-      border: none;
-      color: #000;
-      padding: 10px 20px;
-      margin: 5px;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 10px #00e5ff;
-      transition: background 0.3s;
-    }
-
-    .control-buttons button:hover {
-      background-color: #00bcd4;
     }
 
     .footer {
@@ -144,7 +120,7 @@
   </div>
 
   <!-- شريط التطبيقات مع التأثير -->
-  <div class="slider-container">
+  <div class="slider-container" id="sliderContainer">
     <div class="slider-track" id="sliderTrack">
       <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="App 1"></a>
       <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="Age Calculator"></a>
@@ -154,28 +130,69 @@
     </div>
   </div>
 
-  <!-- أزرار التحكم -->
-  <div class="control-buttons">
-    <button onclick="pauseSlider()">إيقاف التحرك</button>
-    <button onclick="resumeSlider()">تشغيل التحرك</button>
-  </div>
-
   <!-- الفوتر -->
   <div class="footer">
     &copy; 2025 GreatWishes | جميع الحقوق محفوظة
   </div>
 
   <script>
-    const slider = document.getElementById('sliderTrack');
+    // دعم السحب اليدوي مع الاستمرار في الحركة التلقائية
+    const container = document.getElementById('sliderContainer');
+    const track = document.getElementById('sliderTrack');
 
-    function pauseSlider() {
-      slider.classList.add('paused');
-    }
+    let isDragging = false;
+    let startX, scrollLeft;
 
-    function resumeSlider() {
-      slider.classList.remove('paused');
-    }
+    container.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      track.style.animationPlayState = 'paused';
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+      container.style.cursor = 'grabbing';
+    });
+
+    container.addEventListener('mouseleave', () => {
+      if (isDragging) {
+        isDragging = false;
+        track.style.animationPlayState = 'running';
+        container.style.cursor = 'grab';
+      }
+    });
+
+    container.addEventListener('mouseup', () => {
+      isDragging = false;
+      track.style.animationPlayState = 'running';
+      container.style.cursor = 'grab';
+    });
+
+    container.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
+    });
+
+    // دعم السحب في الشاشات اللمسية
+    container.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      track.style.animationPlayState = 'paused';
+      startX = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('touchend', () => {
+      isDragging = false;
+      track.style.animationPlayState = 'running';
+    });
+
+    container.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const x = e.touches[0].pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
+    });
   </script>
 
 </body>
-  </html>
+</html>
