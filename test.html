@@ -6,42 +6,7 @@
   <title>الصفحة الرئيسية - GreatWishes</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body {
-      font-family: 'Cairo', sans-serif;
-      background-color: #f1f1f1;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-
-    .header {
-      background-color: #ffffff;
-      padding: 30px 10px 10px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .header h1 {
-      margin: 0;
-      font-size: 32px;
-      color: #1e88e5;
-    }
-
-    .header p {
-      margin-top: 5px;
-      font-size: 16px;
-      color: #555;
-    }
-
-    .logo-box {
-      margin: 20px 0;
-    }
-
-    .logo-box img {
-      width: 160px;
-      height: auto;
-    }
-
+    /* استايلات تأثير الشريط المتحرك */
     .slider-container {
       overflow: hidden;
       white-space: nowrap;
@@ -53,10 +18,14 @@
       animation: scroll 30s linear infinite;
     }
 
+    .slider-track a {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
     .slider-track img {
       width: 230px;
       height: 430px;
-      margin: 0 10px;
       border-radius: 14px;
       box-shadow: 0 0 8px rgba(0,0,0,0.3);
       transition: transform 0.3s;
@@ -69,13 +38,6 @@
     @keyframes scroll {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
-    }
-
-    .footer {
-      margin-top: 40px;
-      padding: 10px;
-      font-size: 14px;
-      color: #777;
     }
   </style>
 </head>
@@ -90,7 +52,7 @@
     </div>
   </div>
 
-  <!-- شريط التطبيقات -->
+  <!-- شريط التطبيقات مع التأثير -->
   <div class="slider-container">
     <div class="slider-track">
       <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="App 1"></a>
