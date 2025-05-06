@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الصفحة الرئيسية - GreatWishes</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Cairo', sans-serif;
+      background-color: #f1f1f1;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .header {
+      background-color: #ffffff;
+      padding: 30px 10px 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 32px;
+      color: #1e88e5;
+    }
+
+    .header p {
+      margin-top: 5px;
+      font-size: 16px;
+      color: #555;
+    }
+
+    .logo-box {
+      margin: 20px 0;
+    }
+
+    .logo-box img {
+      width: 160px;
+      height: auto;
+    }
+
+    .slider-container {
+      overflow: hidden;
+      white-space: nowrap;
+      margin-top: 40px;
+    }
+
+    .slider-track {
+      display: inline-block;
+      animation: scroll 30s linear infinite;
+    }
+
+    .slider-track img {
+      width: 230px;
+      height: 430px;
+      margin: 0 10px;
+      border-radius: 14px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+    }
+
+    .slider-track img:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .footer {
+      margin-top: 40px;
+      padding: 10px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- رأس الموقع -->
+  <div class="header">
+    <h1>GreatWishes</h1>
+    <p>منصة تطبيقاتك العربية بتصميم فريد وتجربة استثنائية</p>
+    <div class="logo-box">
+      <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo">
+    </div>
+  </div>
+
+  <!-- شريط التطبيقات -->
+  <div class="slider-container">
+    <div class="slider-track">
+      <a href="app1.html"><img src="app1/app1_image.jpg" alt="App 1"></a>
+      <a href="app2.html"><img src="app2/Age Calculator.jpg" alt="Age Calculator"></a>
+      <a href="app3.html"><img src="app3/app3_image.jpg" alt="App 3"></a>
+      <a href="app4.html"><img src="app4/app4_image.jpg" alt="App 4"></a>
+      <a href="app5.html"><img src="app5/app5_image.jpg" alt="App 5"></a>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 GreatWishes | جميع الحقوق محفوظة
+  </div>
+
+</body>
+</html>
