@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>GreatWishes - أول موقع لتحميل التطبيقات وتحديثها</title>
   
-  <!-- واصف الصفحة -->
   <meta name="description" content="GreatWishes هو موقع شخصي يعرض تطبيقات أندرويد ومشاريع برمجية من تطويري، مع إمكانية التحميل والتحديث بسهولة.">
-  
-  <!-- الكلمات المفتاحية -->
   <meta name="keywords" content="GreatWishes, تطبيقات أندرويد, برمجة, مشاريع برمجية, تصميم, GitHub, android apps, تطبيقات مجانية, موقع تطبيقات, سيرة ذاتية, CV">
-  
-  <!-- اسم المؤلف -->
   <meta name="author" content="GreatWishes">
-  
-  <!-- ضبط الزحف لمحركات البحث -->
   <meta name="robots" content="index, follow">
-  
-  <!-- رابط الصفحة الرسمي (Canonical) -->
   <link rel="canonical" href="https://greatwishes.github.io/app2.html" />
-  
-  <!-- روابط التنسيق -->
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="buttons-style.css">
@@ -33,13 +23,12 @@
     <p>أول موقع عربي لتحميل التطبيقات وتحديثها بسهولة</p>
   </header>
 
-  <!-- هنا تم إضافة اللوجو بالتأثير -->
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <!-- زر التحميل تحت اللوجو -->
-  <a href="https://github.com/greatwishes/myapp/raw/main/agecalculator/agecalculator_version.1.8.apk" class="btn">تحميل التطبيق</a>
+  <!-- زر التحميل بدون رابط ثابت -->
+  <a href="#" class="btn">تحميل التطبيق</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="صورة التطبيق">
@@ -59,7 +48,8 @@
     </ul>
   </div>
 
-  <a href="https://github.com/greatwishes/myapp/raw/main/agecalculator/agecalculator_version.1.8.apk" class="btn">تحميل التطبيق الآن</a>
+  <!-- زر تحميل آخر بدون رابط ثابت -->
+  <a href="#" class="btn">تحميل التطبيق الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">العودة للصفحة الرئيسية</a> |
@@ -70,51 +60,39 @@
     &copy; 2025 Greatwishes | جميع الحقوق محفوظة
   </footer>
 
-  <!-- إضافة ملف الصوت الخلفي هنا مع خاصية التكرار (loop) -->
+  <!-- الأصوات -->
   <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto" loop></audio>
-
-  <!-- إضافة ملف الصوت عند النقر -->
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
-  <!-- إضافة سكربت لتشغيل الصوت عند التمرير عبر الصفحة -->
   <script>
-    // إضافة حدث للزر لتشغيل الصوت عند النقر
+    // تشغيل صوت عند النقر
     document.querySelectorAll('.btn').forEach(function(button) {
       button.addEventListener('click', function() {
-        document.getElementById('clickSound').play();  // تشغيل الصوت عند النقر
+        document.getElementById('clickSound').play();
       });
     });
-
-    var backgroundSoundPlayed = false; // متغير لتحديد ما إذا تم تشغيل الصوت الخلفي أم لا
-
-    // تشغيل الصوت الخلفي عند التمرير عبر الصفحة
-  //  window.addEventListener('scroll', function() {
-     // var backgroundSound = document.getElementById('backgroundSound');
-    //  if (!backgroundSoundPlayed) {
-       // backgroundSound.play(); // تشغيل الصوت الخلفي عند التمرير
-      //  backgroundSoundPlayed = true; // تأكيد أن الصوت قد تم تشغيله
-    //  }
-  //  });
   </script>
+
   <script>
-  // اسم الملف الذي يحتوي على بيانات التحديث
-  const updateFile = 'update_agecalculator.json';  // تغيير اسم الملف إلى الملف الخاص بتطبيق الآلة الحاسبة
+    window.addEventListener('DOMContentLoaded', function () {
+      const updateFile = 'update_agecalculator.json';
 
-  // جلب بيانات الـ JSON بناءً على اسم الملف
-  fetch(`https://greatwishes.github.io/myapp/agecalculator/${updateFile}`)
-    .then(response => response.json())  // تحويل الاستجابة إلى JSON
-    .then(data => {
-      // استخراج رابط الـ APK من البيانات
-      const apkUrl = data.apk_url;
-
-      // تحديث روابط الأزرار ليتضمن النسخة الجديدة
-      const downloadButtons = document.querySelectorAll('.btn');  // التأكد من أن جميع الأزرار التي تحمل الكلاس .btn ستتحدث
-      downloadButtons.forEach(function(button) {
-        button.href = apkUrl;  // تحديث الرابط لجميع الأزرار
-      });
-    })
-    .catch(error => console.error('Error fetching update info:', error));  // التعامل مع الأخطاء في حالة فشل جلب البيانات
+      fetch(`https://greatwishes.github.io/myapp/agecalculator/${updateFile}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('فشل التحميل: ' + response.status);
+          }
+          return response.json();
+        })
+        .then(data => {
+          const apkUrl = data.apk_url;
+          document.querySelectorAll('.btn').forEach(button => {
+            button.href = apkUrl;
+          });
+        })
+        .catch(error => console.error('خطأ في تحميل بيانات التحديث:', error));
+    });
   </script>
 
 </body>
-    </html>
+</html>
