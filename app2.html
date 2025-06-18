@@ -7,7 +7,7 @@
   <title>GreatWishes - أول موقع لتحميل التطبيقات وتحديثها</title>
 
   <meta name="description" content="GreatWishes هو موقع شخصي يعرض تطبيقات أندرويد ومشاريع برمجية من تطويري، مع إمكانية التحميل والتحديث بسهولة.">
-  <meta name="keywords" content="GreatWishes, تطبيقات أندرويد, برمجة, مشاريع برمجية, تصميم, GitHub, android apps, تطبيقات مجانية, موقع تطبيقات, سيرة ذاتية, CV">
+  <meta name="keywords" content="GreatWishes, تطبيقات أندرويد, برمجة, مشاريع برمجية, GitHub, android apps, تطبيقات مجانية">
   <meta name="author" content="GreatWishes">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greatwishes.github.io/app2.html" />
@@ -27,8 +27,8 @@
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <!-- أزرار التحميل، روابطها ستُحدث تلقائياً -->
-  <a href="javascript:void(0)" class="btn">تحميل التطبيق</a>
+  <!-- أزرار التحميل -->
+  <a id="downloadBtn1" href="#" class="btn">تحميل التطبيق</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="صورة التطبيق">
@@ -37,20 +37,20 @@
   <div class="app-description">
     <h2>تطبيق حساب العمر: Age&nbsp;Calculator</h2>
     <p>
-      تطبيق <strong>Age&nbsp;Calculator</strong> هو أداة ذكية وسهلة الاستخدام لحساب عمرك بدقة، واستكشاف معلومات شخصية مميزة بناءً على اسمك وتاريخ ميلادك. يقدم التطبيق واجهة جذابة وبسيطة، ويدعم كلاً من اللغة العربية والإنجليزية لتناسب جميع المستخدمين.
+      تطبيق <strong>Age Calculator</strong> هو أداة ذكية وسهلة الاستخدام لحساب عمرك بدقة، مع خصائص للأبراج وتحليل الأسماء.
     </p>
 
-    <h3>الميزات الرئيسية للتطبيق:</h3>
+    <h3>الميزات:</h3>
     <ul>
-      <li><strong>حساب العمر:</strong> احسب عمرك بالأيام، الشهور، السنوات، وحتى بالساعات والثواني بدقة فائقة.</li>
-      <li><strong>طاقة الأسماء:</strong> تحليل علمي وشيق لطاقة اسمك وتأثيره على حياتك وشخصيتك.</li>
-      <li><strong>معاني الأسماء:</strong> اكتشف المعاني الجميلة والعميقة لأسماء الأولاد والبنات بأسلوب أدبي جذاب.</li>
-      <li><strong>معرفة الأبراج:</strong> حدد برجك الفلكي من تاريخ ميلادك مع شرح مفصل لصفاته وطباعه.</li>
-      <li><strong>التطبيق عربي وإنجليزي:</strong> يدعم التطبيق اللغتين لتجربة استخدام مرنة وسلسة للجميع.</li>
+      <li>حساب دقيق للعمر</li>
+      <li>تحليل طاقة الاسم</li>
+      <li>معاني أسماء</li>
+      <li>تحليل الأبراج</li>
+      <li>يدعم العربية والإنجليزية</li>
     </ul>
   </div>
 
-  <a href="javascript:void(0)" class="btn">تحميل التطبيق الآن</a>
+  <a id="downloadBtn2" href="#" class="btn">تحميل التطبيق الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">العودة للصفحة الرئيسية</a> |
@@ -62,21 +62,18 @@
   </footer>
 
   <!-- الأصوات -->
-  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto" loop></audio>
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
   <script>
-    // تشغيل صوت عند النقر على أي زر تحميل
+    // تشغيل صوت عند النقر على الأزرار
     document.querySelectorAll('.btn').forEach(button => {
       button.addEventListener('click', () => {
-        const clickSound = document.getElementById('clickSound');
-        if (clickSound) clickSound.play();
+        const sound = document.getElementById('clickSound');
+        if (sound) sound.play();
       });
     });
-  </script>
 
-  <script>
-    // تحديث روابط أزرار التحميل من ملف JSON
+    // تحميل رابط APK من JSON
     document.addEventListener('DOMContentLoaded', () => {
       const updateFileUrl = 'https://greatwishes.github.io/myapp/agecalculator/update_agecalculator.json';
 
@@ -88,16 +85,14 @@
         .then(data => {
           const apkUrl = data.apk_url;
           if (apkUrl && typeof apkUrl === 'string') {
-            document.querySelectorAll('.btn').forEach(button => {
-              button.setAttribute('href', apkUrl);
-              button.setAttribute('download', ''); // يساعد على بدء التحميل مباشرة
-            });
+            document.getElementById('downloadBtn1').setAttribute('href', apkUrl);
+            document.getElementById('downloadBtn2').setAttribute('href', apkUrl);
           } else {
-            console.error('رابط apk غير متاح في ملف JSON');
+            console.error('رابط apk غير موجود أو غير صالح');
           }
         })
         .catch(error => {
-          console.error('خطأ في تحميل بيانات التحديث:', error);
+          console.error('خطأ أثناء تحميل ملف JSON:', error);
         });
     });
   </script>
