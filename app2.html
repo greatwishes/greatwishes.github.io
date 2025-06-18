@@ -27,7 +27,8 @@
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <a href="#" class="btn">تحميل التطبيق</a>
+  <!-- أزرار التحميل، روابطها ستُحدث تلقائياً -->
+  <a href="javascript:void(0)" class="btn">تحميل التطبيق</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="صورة التطبيق">
@@ -49,7 +50,7 @@
     </ul>
   </div>
 
-  <a href="#" class="btn">تحميل التطبيق الآن</a>
+  <a href="javascript:void(0)" class="btn">تحميل التطبيق الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">العودة للصفحة الرئيسية</a> |
@@ -75,24 +76,29 @@
   </script>
 
   <script>
-    // تحديث رابط التحميل بناءً على ملف JSON خارجي
-    window.addEventListener('DOMContentLoaded', () => {
+    // تحديث روابط أزرار التحميل من ملف JSON
+    document.addEventListener('DOMContentLoaded', () => {
       const updateFileUrl = 'https://greatwishes.github.io/myapp/agecalculator/update_agecalculator.json';
 
       fetch(updateFileUrl)
         .then(response => {
-          if (!response.ok) throw new Error('فشل في تحميل ملف التحديث');
+          if (!response.ok) throw new Error('فشل تحميل ملف التحديث');
           return response.json();
         })
         .then(data => {
           const apkUrl = data.apk_url;
-          if (apkUrl) {
+          if (apkUrl && typeof apkUrl === 'string') {
             document.querySelectorAll('.btn').forEach(button => {
-              button.href = apkUrl;
+              button.setAttribute('href', apkUrl);
+              button.setAttribute('download', ''); // يساعد على بدء التحميل مباشرة
             });
+          } else {
+            console.error('رابط apk غير متاح في ملف JSON');
           }
         })
-        .catch(error => console.error('خطأ في تحميل بيانات التحديث:', error));
+        .catch(error => {
+          console.error('خطأ في تحميل بيانات التحديث:', error);
+        });
     });
   </script>
 
