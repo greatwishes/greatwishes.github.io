@@ -10,20 +10,20 @@
     <title>GreatWishes - أول موقع لتحميل التطبيقات وتحديثها</title>
     <link rel="canonical" href="https://greatwishes.github.io/app1.html">
     <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> <!-- استايل الموقع -->
-    <link rel="stylesheet" href="buttons-style.css"> <!-- استايل الأزرار -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="buttons-style.css">
 </head>
 <body>
   <header>
     <h1>مرحباً بك في Greatwishes</h1>
     <p>أول موقع عربي لتحميل التطبيقات وتحديثها بسهولة</p>
   </header>
-  
+
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
-  
-  <a href="https://github.com/greatwishes/myapp/raw/main/music/music_version.1.1.apk" class="btn">تحميل التطبيق</a>
+
+  <a href="#" class="btn">تحميل التطبيق</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="صورة التطبيق">
@@ -41,7 +41,7 @@
       <li><strong>جودة صوت عالية:</strong> استمتع بتجربة صوت نقية وعالية الجودة.</li>
     </ul>
 
-    <a href="https://github.com/greatwishes/myapp/raw/main/music/music_version.1.1.apk" class="btn">تحميل التطبيق الآن</a>
+    <a href="#" class="btn">تحميل التطبيق الآن</a>
   </div>
 
   <div class="navigation-links">
@@ -70,52 +70,32 @@
     &copy; 2025 Greatwishes | جميع الحقوق محفوظة
   </footer>
 
-  <!-- إضافة ملف الصوت الخلفي هنا -->
   <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto" loop></audio>
-
-  <!-- إضافة ملف الصوت عند النقر -->
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
-  <!-- إضافة سكربت لتشغيل الصوت عند التمرير عبر الصفحة -->
   <script>
-    // إضافة حدث للزر لتشغيل الصوت عند النقر
+    // تشغيل صوت النقر عند الضغط على الأزرار
     document.querySelectorAll('.btn').forEach(function(button) {
       button.addEventListener('click', function() {
-        document.getElementById('clickSound').play();  // تشغيل الصوت عند النقر
+        document.getElementById('clickSound').play();
       });
     });
-
-    var backgroundSoundPlayed = false; // متغير لتحديد ما إذا تم تشغيل الصوت الخلفي أم لا
-
-    // تشغيل الصوت الخلفي عند التمرير عبر الصفحة
-  //  window.addEventListener('scroll', function() {
-     // var backgroundSound = document.getElementById('backgroundSound');
-    //  if (!backgroundSoundPlayed) {
-      //  backgroundSound.play(); // تشغيل الصوت الخلفي عند التمرير
-      //  backgroundSoundPlayed = true; // تأكيد أن الصوت قد تم تشغيله
-   //   }
- //   });
   </script>
 
   <script>
-  // اسم الملف الذي يحتوي على بيانات التحديث
-  const updateFile = 'update.json';
+    // تحميل رابط التحديث من JSON وتحديث روابط التحميل تلقائياً
+    const updateFileUrl = 'https://raw.githubusercontent.com/greatwishes/myapp/main/music/update.json';
 
-  // جلب بيانات الـ JSON بناءً على اسم الملف
-  fetch(`https://greatwishes.github.io/myapp/music/${updateFile}`)
-    .then(response => response.json())  // تحويل الاستجابة إلى JSON
-    .then(data => {
-      // استخراج رابط الـ APK من البيانات
-      const apkUrl = data.apk_url;
-
-      // تحديث روابط الأزرار ليتضمن النسخة الجديدة
-      const downloadButtons = document.querySelectorAll('.btn');
-      downloadButtons.forEach(function(button) {
-        button.href = apkUrl;  // تحديث الرابط لجميع الأزرار
-      });
-
-    })
-    .catch(error => console.error('Error fetching update info:', error));  // التعامل مع الأخطاء في حالة فشل جلب البيانات
-</script>
+    fetch(updateFileUrl)
+      .then(response => response.json())
+      .then(data => {
+        const apkUrl = data.apk_url;
+        const downloadButtons = document.querySelectorAll('.btn');
+        downloadButtons.forEach(button => {
+          button.href = apkUrl;
+        });
+      })
+      .catch(error => console.error('Error fetching update info:', error));
+  </script>
 </body>
 </html>
