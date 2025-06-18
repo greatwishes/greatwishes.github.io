@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>GreatWishes - أول موقع لتحميل التطبيقات وتحديثها</title>
 
   <meta name="description" content="GreatWishes هو موقع شخصي يعرض تطبيقات أندرويد ومشاريع برمجية من تطويري، مع إمكانية التحميل والتحديث بسهولة.">
@@ -35,11 +34,10 @@
   </div>
 
   <div class="app-description">
-    <h2>تطبيق حساب العمر: Age&nbsp;Calculator</h2>
+    <h2>تطبيق حساب العمر: Age Calculator</h2>
     <p>
       تطبيق <strong>Age Calculator</strong> هو أداة ذكية وسهلة الاستخدام لحساب عمرك بدقة، مع خصائص للأبراج وتحليل الأسماء.
     </p>
-
     <h3>الميزات:</h3>
     <ul>
       <li>حساب دقيق للعمر</li>
@@ -61,40 +59,47 @@
     &copy; 2025 GreatWishes | جميع الحقوق محفوظة
   </footer>
 
-  <!-- الأصوات -->
+  <!-- صوت النقر -->
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
   <script>
-    // تشغيل صوت عند النقر على الأزرار
-    document.querySelectorAll('.btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const sound = document.getElementById('clickSound');
-        if (sound) sound.play();
-      });
-    });
+    let apkUrl = ''; // سيتم تحميله من ملف JSON
 
     // تحميل رابط APK من JSON
     document.addEventListener('DOMContentLoaded', () => {
-      const updateFileUrl = 'https://greatwishes.github.io/myapp/agecalculator/update_agecalculator.json';
-
-      fetch(updateFileUrl)
+      fetch('https://greatwishes.github.io/myapp/agecalculator/update_agecalculator.json')
         .then(response => {
           if (!response.ok) throw new Error('فشل تحميل ملف التحديث');
           return response.json();
         })
         .then(data => {
-          const apkUrl = data.apk_url;
-          if (apkUrl && typeof apkUrl === 'string') {
-            document.getElementById('downloadBtn1').setAttribute('href', apkUrl);
-            document.getElementById('downloadBtn2').setAttribute('href', apkUrl);
+          if (data.apk_url && typeof data.apk_url === 'string') {
+            apkUrl = data.apk_url;
           } else {
-            console.error('رابط apk غير موجود أو غير صالح');
+            console.error('رابط apk غير موجود أو غير صالح في ملف JSON');
           }
         })
         .catch(error => {
           console.error('خطأ أثناء تحميل ملف JSON:', error);
         });
     });
+
+    // تشغيل الصوت وتنفيذ التحميل عند الضغط
+    function handleDownloadClick(event) {
+      event.preventDefault();
+
+      const sound = document.getElementById('clickSound');
+      if (sound) sound.play();
+
+      if (apkUrl) {
+        window.location.href = apkUrl;
+      } else {
+        alert("رابط التحميل غير جاهز بعد. حاول بعد قليل.");
+      }
+    }
+
+    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
+    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
   </script>
 
 </body>
