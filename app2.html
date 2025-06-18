@@ -63,11 +63,13 @@
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
   <script>
-    let apkUrl = ''; // سيتم تحميله من ملف JSON
+    let apkUrl = '';
 
-    // تحميل رابط APK من JSON
+    // تحميل رابط APK من ملف JSON
     document.addEventListener('DOMContentLoaded', () => {
-      fetch('https://greatwishes.github.io/myapp/agecalculator/update_agecalculator.json')
+      const jsonUrl = 'https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/update_agecalculator.json';
+
+      fetch(jsonUrl)
         .then(response => {
           if (!response.ok) throw new Error('فشل تحميل ملف التحديث');
           return response.json();
@@ -76,25 +78,23 @@
           if (data.apk_url && typeof data.apk_url === 'string') {
             apkUrl = data.apk_url;
           } else {
-            console.error('رابط apk غير موجود أو غير صالح في ملف JSON');
+            console.error('رابط apk غير صالح أو مفقود.');
           }
         })
         .catch(error => {
-          console.error('خطأ أثناء تحميل ملف JSON:', error);
+          console.error('خطأ في تحميل JSON:', error);
         });
     });
 
-    // تشغيل الصوت وتنفيذ التحميل عند الضغط
     function handleDownloadClick(event) {
       event.preventDefault();
-
       const sound = document.getElementById('clickSound');
       if (sound) sound.play();
 
       if (apkUrl) {
         window.location.href = apkUrl;
       } else {
-        alert("رابط التحميل غير جاهز بعد. حاول بعد قليل.");
+        alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
       }
     }
 
