@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <title>GreatWishes - أول موقع لتحميل التطبيقات وتحديثها</title>
-  
+
   <meta name="description" content="GreatWishes هو موقع شخصي يعرض تطبيقات أندرويد ومشاريع برمجية من تطويري، مع إمكانية التحميل والتحديث بسهولة.">
   <meta name="keywords" content="GreatWishes, تطبيقات أندرويد, برمجة, مشاريع برمجية, تصميم, GitHub, android apps, تطبيقات مجانية, موقع تطبيقات, سيرة ذاتية, CV">
   <meta name="author" content="GreatWishes">
@@ -19,7 +19,7 @@
 <body>
 
   <header>
-    <h1>مرحباً بك في Greatwishes</h1>
+    <h1>مرحباً بك في GreatWishes</h1>
     <p>أول موقع عربي لتحميل التطبيقات وتحديثها بسهولة</p>
   </header>
 
@@ -27,7 +27,6 @@
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <!-- زر التحميل بدون رابط ثابت -->
   <a href="#" class="btn">تحميل التطبيق</a>
 
   <div class="image-box">
@@ -36,7 +35,9 @@
 
   <div class="app-description">
     <h2>تطبيق حساب العمر: Age&nbsp;Calculator</h2>
-    <p>تطبيق <strong>Age&nbsp;Calculator</strong> هو أداة ذكية وسهلة الاستخدام لحساب عمرك بدقة، واستكشاف معلومات شخصية مميزة بناءً على اسمك وتاريخ ميلادك. يقدم التطبيق واجهة جذابة وبسيطة، ويدعم كلاً من اللغة العربية والإنجليزية لتناسب جميع المستخدمين.</p>
+    <p>
+      تطبيق <strong>Age&nbsp;Calculator</strong> هو أداة ذكية وسهلة الاستخدام لحساب عمرك بدقة، واستكشاف معلومات شخصية مميزة بناءً على اسمك وتاريخ ميلادك. يقدم التطبيق واجهة جذابة وبسيطة، ويدعم كلاً من اللغة العربية والإنجليزية لتناسب جميع المستخدمين.
+    </p>
 
     <h3>الميزات الرئيسية للتطبيق:</h3>
     <ul>
@@ -48,7 +49,6 @@
     </ul>
   </div>
 
-  <!-- زر تحميل آخر بدون رابط ثابت -->
   <a href="#" class="btn">تحميل التطبيق الآن</a>
 
   <div class="navigation-links">
@@ -57,7 +57,7 @@
   </div>
 
   <footer>
-    &copy; 2025 Greatwishes | جميع الحقوق محفوظة
+    &copy; 2025 GreatWishes | جميع الحقوق محفوظة
   </footer>
 
   <!-- الأصوات -->
@@ -65,30 +65,32 @@
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
   <script>
-    // تشغيل صوت عند النقر
-    document.querySelectorAll('.btn').forEach(function(button) {
-      button.addEventListener('click', function() {
-        document.getElementById('clickSound').play();
+    // تشغيل صوت عند النقر على أي زر تحميل
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const clickSound = document.getElementById('clickSound');
+        if (clickSound) clickSound.play();
       });
     });
   </script>
 
   <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      const updateFile = 'update_agecalculator.json';
+    // تحديث رابط التحميل بناءً على ملف JSON خارجي
+    window.addEventListener('DOMContentLoaded', () => {
+      const updateFileUrl = 'https://greatwishes.github.io/myapp/agecalculator/update_agecalculator.json';
 
-      fetch(`https://greatwishes.github.io/myapp/agecalculator/${updateFile}`)
+      fetch(updateFileUrl)
         .then(response => {
-          if (!response.ok) {
-            throw new Error('فشل التحميل: ' + response.status);
-          }
+          if (!response.ok) throw new Error('فشل في تحميل ملف التحديث');
           return response.json();
         })
         .then(data => {
           const apkUrl = data.apk_url;
-          document.querySelectorAll('.btn').forEach(button => {
-            button.href = apkUrl;
-          });
+          if (apkUrl) {
+            document.querySelectorAll('.btn').forEach(button => {
+              button.href = apkUrl;
+            });
+          }
         })
         .catch(error => console.error('خطأ في تحميل بيانات التحديث:', error));
     });
