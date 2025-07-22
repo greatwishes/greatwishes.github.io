@@ -3,12 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الصفحة الرئيسية - GreatWishes</title>
-  <meta name="description" content="GreatWishes - موقع شخصي يعرض تطبيقات ومشاريع برمجية من تطويري في مجالات الأندرويد، التصميم، والبرمجة.">
-  <meta name="keywords" content="تطبيقات أندرويد, برمجة, تصميم, مشاريع برمجية, GitHub, سيرة ذاتية, CV, GreatWishes, تطبيقات مجانية, Android apps">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://greatwishes.github.io/">
+  
+  <title>GreatWishes | تطبيقات أندرويد مجانية ومشاريع برمجية عربية</title>
+  <meta name="description" content="GreatWishes - منصة عربية لعرض تطبيقات أندرويد مجانية ومشاريع  من تطوير شخصي. حمل وجرّب الآن.">
+  <meta name="keywords" content="GreatWishes, تطبيقات أندرويد, برمجة, مشاريع برمجية, Android apps, تطبيقات عربية, GitHub, مطور عربي, تطبيق مجاني">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greatwishes.github.io/">
+
+  <!-- Open Graph tags -->
+  <meta property="og:title" content="GreatWishes - تطبيقات أندرويد مجانية">
+  <meta property="og:description" content="منصة عربية لعرض تطبيقات ومشاريع GreatWishes البرمجية.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png">
+  <meta property="og:url" content="https://greatwishes.github.io">
+  <meta property="og:type" content="website">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "GreatWishes",
+    "url": "https://greatwishes.github.io",
+    "sameAs": [
+      "https://github.com/greatwishes"
+    ],
+    "description": "مطور تطبيقات أندرويد ومشاريع برمجية عربية."
+  }
+  </script>
+
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     * {
       margin: 0;
@@ -130,21 +154,21 @@
 
   <!-- رأس الموقع -->
   <div class="header">
-    <h1>GreatWishes</h1>
+    <h1>مرحبًا بك في GreatWishes - منصتك لتطبيقات أندرويد المجانية</h1>
     <p>منصة تطبيقاتك للاندرويد بتصميم فريد وتجربة استثنائية</p>
     <div class="logo-box">
       <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo">
     </div>
   </div>
 
-  <!-- شريط التطبيقات مع التأثير -->
+  <!-- شريط التطبيقات -->
   <div class="slider-container" id="sliderContainer">
     <div class="slider-track" id="sliderTrack">
-      <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="App 1"></a>
-      <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="Age Calculator"></a>
-      <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="App 3"></a>
-      <a href="app4.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="App 4"></a>
-      <a href="app5.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="App 5"></a>
+      <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"></a>
+      <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر"></a>
+      <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل ملاحظات صوتية إلى نص"></a>
+      <a href="app4.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات"></a>
+      <a href="app5.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية"></a>
     </div>
   </div>
 
@@ -157,11 +181,10 @@
     </div>
   </div>
 
+  <!-- السحب اليدوي واللمسي -->
   <script>
-    // دعم السحب اليدوي مع الاستمرار في الحركة التلقائية
     const container = document.getElementById('sliderContainer');
     const track = document.getElementById('sliderTrack');
-
     let isDragging = false;
     let startX, scrollLeft;
 
@@ -195,7 +218,6 @@
       container.scrollLeft = scrollLeft - walk;
     });
 
-    // دعم السحب في الشاشات اللمسية
     container.addEventListener('touchstart', (e) => {
       isDragging = true;
       track.style.animationPlayState = 'paused';
