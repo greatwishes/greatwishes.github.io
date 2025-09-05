@@ -19,7 +19,6 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 /* السلايدر */
 .slider-container {
   overflow:hidden;
-  position:relative;
   margin:20px auto;
   padding:15px 0;
   border-top:1px solid rgba(255,255,255,0.2);
@@ -29,8 +28,8 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 
 .slider-track {
   display: flex;
-  flex-wrap: nowrap; /* جميع الصور في خط واحد */
-  animation: scrollLoop 30s linear infinite;
+  flex-wrap: nowrap;
+  animation: scrollOnce 15s linear infinite; /* تتحرك مرة واحدة ثم تعود */
 }
 
 .slider-track a {
@@ -51,9 +50,10 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
   box-shadow:0 0 20px #00e5ff;
 }
 
-@keyframes scrollLoop {
+@keyframes scrollOnce {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* يتحرك نصف الطول لتكرار سلس */
+  50% { transform: translateX(calc(-100% + 200px*5)); } /* يتحرك إلى آخر صورة */
+  100% { transform: translateX(0); } /* يرجع للبداية */
 }
 
 .footer {margin-top:40px; padding:20px; background: rgba(255,255,255,0.05); color:#aaa; font-size:0.9em;}
@@ -82,13 +82,6 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 
 <div class="slider-container">
   <div class="slider-track">
-    <!-- النسخة الأولى -->
-    <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"></a>
-    <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر"></a>
-    <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل ملاحظات صوتية إلى نص"></a>
-    <a href="app4.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات"></a>
-    <a href="app5.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية"></a>
-    <!-- النسخة الثانية لتكرار سلس -->
     <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"></a>
     <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر"></a>
     <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل ملاحظات صوتية إلى نص"></a>
@@ -106,4 +99,4 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 </div>
 
 </body>
-                    </html>
+</html>
