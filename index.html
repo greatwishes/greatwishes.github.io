@@ -29,7 +29,7 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 
 .slider-track {
   display: flex;
-  width: max-content;
+  flex-wrap: nowrap; /* جميع الصور في خط واحد */
   animation: scrollLoop 30s linear infinite;
 }
 
@@ -53,7 +53,7 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 
 @keyframes scrollLoop {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); } /* يتحرك بمقدار نصف الطول لتكرار سلس */
+  100% { transform: translateX(-50%); } /* يتحرك نصف الطول لتكرار سلس */
 }
 
 .footer {margin-top:40px; padding:20px; background: rgba(255,255,255,0.05); color:#aaa; font-size:0.9em;}
@@ -106,4 +106,4 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 </div>
 
 </body>
-  </html>
+                    </html>
