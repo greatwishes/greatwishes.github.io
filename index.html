@@ -1,98 +1,126 @@
-<!DOCTYPE html>  <html lang="ar" dir="rtl">  
-<head>  
-  <meta charset="UTF-8">  
-  <meta http-equiv="Content-Language" content="ar">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>GreatWishes | تطبيقات أندرويد مجانية ومشاريع برمجية عربية</title>  
-  <meta name="description" content="GreatWishes - منصة عربية لعرض تطبيقات أندرويد مجانية ومشاريع من تطوير شخصي. حمل وجرّب الآن.">  
-  <meta name="keywords" content="GreatWishes, تطبيقات أندرويد, برمجة, مشاريع برمجية, Android apps, تطبيقات عربية, GitHub, مطور عربي, تطبيق مجاني">  
-  <meta name="robots" content="index, follow">  
-  <link rel="canonical" href="https://greatwishes.github.io/">    <!-- Open Graph tags -->    <meta property="og:title" content="GreatWishes - تطبيقات أندرويد مجانية">  
-  <meta property="og:description" content="منصة عربية لعرض تطبيقات ومشاريع GreatWishes البرمجية.">  
-  <meta property="og:image" content="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png">  
-  <meta property="og:url" content="https://greatwishes.github.io">  
-  <meta property="og:type" content="website">    <!-- Structured Data -->    <script type="application/ld+json">  
-  {  
-    "@context": "https://schema.org",  
-    "@type": "Person",  
-    "name": "GreatWishes",  
-    "url": "https://greatwishes.github.io",  
-    "sameAs": ["https://github.com/greatwishes"],  
-    "description": "مطور تطبيقات أندرويد ومشاريع برمجية عربية."  
-  }  
-  </script>    <!-- الخطوط -->    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">    <!-- ملف CSS خارجي -->    <link rel="stylesheet" href="style.css">  </head>  
-<body>    <!-- رأس الموقع -->    <div class="header">  
-    <h1>مرحبًا بك في GreatWishes - منصتك لتطبيقات أندرويد المجانية</h1>  
-    <p>منصة تطبيقاتك للاندرويد بتصميم فريد وتجربة استثنائية</p>  
-    <div class="logo-box">  
-      <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo">  
-    </div>  
-  </div>    <!-- عنوان التطبيقات -->    <h2>تطبيقات مختارة</h2>    <!-- شريط التطبيقات -->    <div class="slider-container" id="sliderContainer">  
-    <div class="slider-track" id="sliderTrack">  
-      <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"></a>  
-      <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر"></a>  
-      <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل ملاحظات صوتية إلى نص"></a>  
-      <a href="app4.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات"></a>  
-      <a href="app5.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية"></a>  
-    </div>  
-  </div>    <!-- الفوتر -->    <div class="footer">  
-    &copy; 2025 GreatWishes | جميع الحقوق محفوظة  
-    <div class="contact-info">  
-      <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com">Greatdaylight@gmail.com</a></p>  
-      <p><a href="privacy.html">سياسة الخصوصية</a></p>  
-    </div>  
-  </div>    <!-- السحب اليدوي -->    <script>  
-    const container = document.getElementById('sliderContainer');  
-    const track = document.getElementById('sliderTrack');  
-    let isDragging = false;  
-    let startX, scrollLeft;  
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Language" content="ar">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-    container.addEventListener('mousedown', (e) => {  
-      isDragging = true;  
-      track.style.animationPlayState = 'paused';  
-      startX = e.pageX - container.offsetLeft;  
-      scrollLeft = container.scrollLeft;  
-      container.style.cursor = 'grabbing';  
-    });  
-  
-    container.addEventListener('mouseleave', () => {  
-      if (isDragging) {  
-        isDragging = false;  
-        track.style.animationPlayState = 'running';  
-        container.style.cursor = 'grab';  
-      }  
-    });  
-  
-    container.addEventListener('mouseup', () => {  
-      isDragging = false;  
-      track.style.animationPlayState = 'running';  
-      container.style.cursor = 'grab';  
-    });  
-  
-    container.addEventListener('mousemove', (e) => {  
-      if (!isDragging) return;  
-      e.preventDefault();  
-      const x = e.pageX - container.offsetLeft;  
-      const walk = (x - startX) * 2;  
-      container.scrollLeft = scrollLeft - walk;  
-    });  
-  
-    container.addEventListener('touchstart', (e) => {  
-      isDragging = true;  
-      track.style.animationPlayState = 'paused';  
-      startX = e.touches[0].pageX - container.offsetLeft;  
-      scrollLeft = container.scrollLeft;  
-    });  
-  
-    container.addEventListener('touchend', () => {  
-      isDragging = false;  
-      track.style.animationPlayState = 'running';  
-    });  
-  
-    container.addEventListener('touchmove', (e) => {  
-      if (!isDragging) return;  
-      const x = e.touches[0].pageX - container.offsetLeft;  
-      const walk = (x - startX) * 2;  
-      container.scrollLeft = scrollLeft - walk;  
-    });  
-  </script>  </body>  
+  <title>GreatWishes | تطبيقات أندرويد مجانية ومشاريع برمجية عربية</title>
+  <meta name="description" content="GreatWishes - منصة عربية لعرض تطبيقات أندرويد مجانية ومشاريع من تطوير شخصي. حمل وجرّب الآن.">
+  <meta name="keywords" content="GreatWishes, تطبيقات أندرويد, برمجة, مشاريع برمجية, Android apps, تطبيقات عربية, GitHub, مطور عربي, تطبيق مجاني">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greatwishes.github.io/">
+
+  <!-- Open Graph tags -->
+  <meta property="og:title" content="GreatWishes - تطبيقات أندرويد مجانية">
+  <meta property="og:description" content="منصة عربية لعرض تطبيقات ومشاريع GreatWishes البرمجية.">
+  <meta property="og:image" content="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png">
+  <meta property="og:url" content="https://greatwishes.github.io">
+  <meta property="og:type" content="website">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "GreatWishes",
+    "url": "https://greatwishes.github.io",
+    "sameAs": ["https://github.com/greatwishes"],
+    "description": "مطور تطبيقات أندرويد ومشاريع برمجية عربية."
+  }
+  </script>
+
+  <!-- الخطوط -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- ملف CSS خارجي -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+  <!-- رأس الموقع -->
+  <div class="header">
+    <h1>مرحبًا بك في GreatWishes - منصتك لتطبيقات أندرويد المجانية</h1>
+    <p>منصة تطبيقاتك للاندرويد بتصميم فريد وتجربة استثنائية</p>
+    <div class="logo-box">
+      <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo">
+    </div>
+  </div>
+
+  <!-- عنوان التطبيقات -->
+  <h2>تطبيقات مختارة</h2>
+
+  <!-- شريط التطبيقات -->
+  <div class="slider-container" id="sliderContainer">
+    <div class="slider-track" id="sliderTrack">
+      <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"></a>
+      <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر"></a>
+      <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل ملاحظات صوتية إلى نص"></a>
+      <a href="app4.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات"></a>
+      <a href="app5.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية"></a>
+    </div>
+  </div>
+
+  <!-- الفوتر -->
+  <div class="footer">
+    &copy; 2025 GreatWishes | جميع الحقوق محفوظة
+    <div class="contact-info">
+      <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com">Greatdaylight@gmail.com</a></p>
+      <p><a href="privacy.html">سياسة الخصوصية</a></p>
+    </div>
+  </div>
+
+  <!-- السحب اليدوي واللمسي -->
+  <script>
+    const container = document.getElementById('sliderContainer');
+    let isDragging = false;
+    let startX, scrollLeft;
+
+    // ماوس
+    container.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+      container.style.cursor = 'grabbing';
+    });
+
+    container.addEventListener('mouseleave', () => {
+      isDragging = false;
+      container.style.cursor = 'grab';
+    });
+
+    container.addEventListener('mouseup', () => {
+      isDragging = false;
+      container.style.cursor = 'grab';
+    });
+
+    container.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
+    });
+
+    // لمس
+    container.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      startX = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('touchend', () => {
+      isDragging = false;
+    });
+
+    container.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const x = e.touches[0].pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
+    });
+  </script>
+
+</body>
   </html>
