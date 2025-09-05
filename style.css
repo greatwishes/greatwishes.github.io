@@ -169,4 +169,34 @@ footer {
     font-size: 1em;
     padding: 10px 20px;
   }
-      }
+}
+
+/* --- شريط التطبيقات (Slider) --- */
+.slider-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  cursor: grab;
+  scroll-behavior: smooth;
+}
+
+.slider-track a {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.slider-track img {
+  height: 150px;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.slider-track img:hover {
+  transform: scale(1.05);
+}
+
+/* إخفاء الـ scrollbar (اختياري) */
+.slider-container::-webkit-scrollbar {
+  display: none;
+  }
