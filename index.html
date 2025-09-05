@@ -2,10 +2,11 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Language" content="ar">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>GreatWishes | تطبيقات أندرويد مجانية ومشاريع برمجية عربية</title>
-  <meta name="description" content="GreatWishes - منصة عربية لعرض تطبيقات أندرويد مجانية ومشاريع  من تطوير شخصي. حمل وجرّب الآن.">
+  <meta name="description" content="GreatWishes - منصة عربية لعرض تطبيقات أندرويد مجانية ومشاريع من تطوير شخصي. حمل وجرّب الآن.">
   <meta name="keywords" content="GreatWishes, تطبيقات أندرويد, برمجة, مشاريع برمجية, Android apps, تطبيقات عربية, GitHub, مطور عربي, تطبيق مجاني">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greatwishes.github.io/">
@@ -34,7 +35,127 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
-    * {
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif;}
+    body {background: linear-gradient(to top, #0f2027, #203a43, #2c5364); color: white; text-align: center;}
+
+    .header {padding: 30px 20px; background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);}
+    .header h1 {font-size: 2.5em; color: #00e5ff; text-shadow: 0 0 10px #00e5ff; margin-bottom: 10px;}
+    .header p {font-size: 1.2em; color: #ccc;}
+    .logo-box img {margin-top: 15px; width: 90px; height: auto; filter: drop-shadow(0 0 8px #00e5ff);}
+
+    h2 {margin-top: 30px; font-size: 1.8em; color: #00e5ff; text-shadow: 0 0 8px #00e5ff;}
+
+    /* السلايدر */
+    .slider-container {
+      overflow: hidden;
+      position: relative;
+      white-space: nowrap;
+      margin-top: 20px;
+      padding: 15px 0;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+    }
+    .slider-track {
+      display: inline-flex;
+      animation: scrollLoop 30s linear infinite;
+    }
+    .slider-track a {flex: 0 0 auto; margin: 0 12px;}
+    .slider-track img {
+      width: 200px; height: 360px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,229,255,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .slider-track img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 20px #00e5ff;
+    }
+    @keyframes scrollLoop {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .footer {margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.05); color: #aaa; font-size: 0.9em; text-align: center;}
+    .contact-info {margin-top: 10px;}
+    .contact-info a {color: #00e5ff; text-decoration: none;}
+    .contact-info a:hover {text-decoration: underline;}
+
+    #backToTop {
+      position: fixed; bottom: 20px; right: 20px;
+      background: #00e5ff; color: #000;
+      border: none; padding: 10px 15px;
+      border-radius: 50%; font-size: 18px;
+      cursor: pointer; box-shadow: 0 0 10px #00e5ff;
+      display: none;
+    }
+    #backToTop:hover {background: #00bcd4; color: #fff;}
+
+    @media (max-width: 600px) {
+      .slider-track img {width: 150px; height: 270px;}
+      .header h1 {font-size: 1.8em;}
+      .header p {font-size: 1em;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- رأس الموقع -->
+  <div class="header">
+    <h1>مرحبًا بك في GreatWishes - منصتك لتطبيقات أندرويد المجانية</h1>
+    <p>منصة تطبيقاتك للاندرويد بتصميم فريد وتجربة استثنائية</p>
+    <div class="logo-box">
+      <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo" loading="lazy">
+    </div>
+  </div>
+
+  <!-- عنوان التطبيقات -->
+  <h2>تطبيقات مختارة</h2>
+
+  <!-- شريط التطبيقات -->
+  <div class="slider-container">
+    <div class="slider-track">
+      <!-- النسخة الأولى -->
+      <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى" loading="lazy"></a>
+      <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر" loading="lazy"></a>
+      <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل ملاحظات صوتية إلى نص" loading="lazy"></a>
+      <a href="app4.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات" loading="lazy"></a>
+      <a href="app5.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية" loading="lazy"></a>
+
+      <!-- النسخة الثانية (مكررة لعمل loop سلس) -->
+      <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى" loading="lazy"></a>
+      <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر" loading="lazy"></a>
+      <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل ملاحظات صوتية إلى نص" loading="lazy"></a>
+      <a href="app4.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات" loading="lazy"></a>
+      <a href="app5.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية" loading="lazy"></a>
+    </div>
+  </div>
+
+  <!-- الفوتر -->
+  <div class="footer">
+    &copy; 2025 GreatWishes | جميع الحقوق محفوظة
+    <div class="contact-info">
+      <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com">Greatdaylight@gmail.com</a></p>
+      <p><a href="privacy.html">سياسة الخصوصية</a></p>
+    </div>
+  </div>
+
+  <!-- زر العودة للأعلى -->
+  <button id="backToTop">↑</button>
+
+  <!-- سكربت زر العودة للأعلى -->
+  <script>
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.style.display = window.scrollY > 200 ? 'block' : 'none';
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
