@@ -28,9 +28,8 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 }
 
 .slider-track {
-  display: inline-flex;
-  white-space: nowrap;
-  animation: scrollLoop 30s linear infinite;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .slider-track a {
@@ -39,7 +38,8 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 }
 
 .slider-track img {
-  width:200px; height:360px;
+  width:200px;
+  height:360px;
   border-radius:15px;
   box-shadow:0 0 15px rgba(0,229,255,0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -48,11 +48,6 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 .slider-track img:hover {
   transform:scale(1.07);
   box-shadow:0 0 20px #00e5ff;
-}
-
-@keyframes scrollLoop {
-  0% {transform: translateX(0);}
-  100% {transform: translateX(-50%);} /* يتحرك بمقدار نصف الطول لأن الصور مكررة */
 }
 
 .footer {margin-top:40px; padding:20px; background: rgba(255,255,255,0.05); color:#aaa; font-size:0.9em;}
@@ -80,14 +75,7 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 <h2>تطبيقات مختارة</h2>
 
 <div class="slider-container">
-  <div class="slider-track">
-    <!-- النسخة الأولى -->
-    <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"></a>
-    <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر"></a>
-    <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل ملاحظات صوتية إلى نص"></a>
-    <a href="app4.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات"></a>
-    <a href="app5.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية"></a>
-    <!-- النسخة الثانية (مكررة لعمل loop سلس) -->
+  <div class="slider-track" id="sliderTrack">
     <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"></a>
     <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر"></a>
     <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل ملاحظات صوتية إلى نص"></a>
@@ -103,6 +91,25 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
     <p><a href="privacy.html">سياسة الخصوصية</a></p>
   </div>
 </div>
+
+<script>
+// نسخ العناصر ديناميكيًا لتكون الحركة مستمرة
+const track = document.getElementById('sliderTrack');
+const items = track.children;
+for (let i = 0; i < items.length; i++) {
+  track.appendChild(items[i].cloneNode(true));
+}
+
+// تحريك السلايدر بسلاسة
+let scrollAmount = 0;
+function animateSlider() {
+  scrollAmount += 1; // سرعة التحريك
+  if(scrollAmount >= track.scrollWidth / 2) scrollAmount = 0;
+  track.style.transform = `translateX(-${scrollAmount}px)`;
+  requestAnimationFrame(animateSlider);
+}
+animateSlider();
+</script>
 
 </body>
 </html>
