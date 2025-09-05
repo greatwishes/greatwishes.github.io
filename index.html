@@ -25,9 +25,7 @@
     "@type": "Person",
     "name": "GreatWishes",
     "url": "https://greatwishes.github.io",
-    "sameAs": [
-      "https://github.com/greatwishes"
-    ],
+    "sameAs": ["https://github.com/greatwishes"],
     "description": "مطور تطبيقات أندرويد ومشاريع برمجية عربية."
   }
   </script>
@@ -35,6 +33,153 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif;}
+    body {background: linear-gradient(to top, #0f2027, #203a43, #2c5364); color: white; text-align: center;}
+
+    .header {padding: 30px 20px; background: rgba(255, 255, 255, 0.05); box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);}
+    .header h1 {font-size: 2.5em; color: #00e5ff; text-shadow: 0 0 10px #00e5ff; margin-bottom: 10px;}
+    .header p {font-size: 1.2em; color: #ccc;}
+    .logo-box img {margin-top: 15px; width: 90px; height: auto; filter: drop-shadow(0 0 8px #00e5ff);}
+
+    h2 {margin-top: 30px; font-size: 1.8em; color: #00e5ff; text-shadow: 0 0 8px #00e5ff;}
+
+    /* السلايدر */
+    .slider-container {
+      overflow: hidden;
+      white-space: nowrap;
+      margin-top: 20px;
+      padding: 15px 0;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.05);
+      position: relative;
+      cursor: grab;
+    }
+    .slider-track {
+      display: inline-block;
+      animation: scroll 25s linear infinite;
+    }
+    .slider-track a {display: inline-block; margin: 0 12px;}
+    .slider-track img {
+      width: 200px; height: 360px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,229,255,0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .slider-track img:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 20px #00e5ff;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    .footer {margin-top: 40px; padding: 20px; background: rgba(255,255,255,0.05); color: #aaa; font-size: 0.9em; text-align: center;}
+    .contact-info {margin-top: 10px;}
+    .contact-info a {color: #00e5ff; text-decoration: none;}
+    .contact-info a:hover {text-decoration: underline;}
+
+    @media (max-width: 600px) {
+      .slider-track img {width: 150px; height: 270px;}
+      .header h1 {font-size: 1.8em;}
+      .header p {font-size: 1em;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- رأس الموقع -->
+  <div class="header">
+    <h1>مرحبًا بك في GreatWishes - منصتك لتطبيقات أندرويد المجانية</h1>
+    <p>منصة تطبيقاتك للاندرويد بتصميم فريد وتجربة استثنائية</p>
+    <div class="logo-box">
+      <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo">
+    </div>
+  </div>
+
+  <!-- عنوان التطبيقات -->
+  <h2>تطبيقات مختارة</h2>
+
+  <!-- شريط التطبيقات -->
+  <div class="slider-container" id="sliderContainer">
+    <div class="slider-track" id="sliderTrack">
+      <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"></a>
+      <a href="app2.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر"></a>
+      <a href="app3.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل ملاحظات صوتية إلى نص"></a>
+      <a href="app4.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات"></a>
+      <a href="app5.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية"></a>
+    </div>
+  </div>
+
+  <!-- الفوتر -->
+  <div class="footer">
+    &copy; 2025 GreatWishes | جميع الحقوق محفوظة
+    <div class="contact-info">
+      <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com">Greatdaylight@gmail.com</a></p>
+      <p><a href="privacy.html">سياسة الخصوصية</a></p>
+    </div>
+  </div>
+
+  <!-- السحب اليدوي واللمسي -->
+  <script>
+    const container = document.getElementById('sliderContainer');
+    const track = document.getElementById('sliderTrack');
+    let isDragging = false;
+    let startX, scrollLeft;
+
+    container.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      track.style.animationPlayState = 'paused';
+      startX = e.pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+      container.style.cursor = 'grabbing';
+    });
+
+    container.addEventListener('mouseleave', () => {
+      if (isDragging) {
+        isDragging = false;
+        track.style.animationPlayState = 'running';
+        container.style.cursor = 'grab';
+      }
+    });
+
+    container.addEventListener('mouseup', () => {
+      isDragging = false;
+      track.style.animationPlayState = 'running';
+      container.style.cursor = 'grab';
+    });
+
+    container.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
+    });
+
+    container.addEventListener('touchstart', (e) => {
+      isDragging = true;
+      track.style.animationPlayState = 'paused';
+      startX = e.touches[0].pageX - container.offsetLeft;
+      scrollLeft = container.scrollLeft;
+    });
+
+    container.addEventListener('touchend', () => {
+      isDragging = false;
+      track.style.animationPlayState = 'running';
+    });
+
+    container.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      const x = e.touches[0].pageX - container.offsetLeft;
+      const walk = (x - startX) * 2;
+      container.scrollLeft = scrollLeft - walk;
+    });
+  </script>
+
+</body>
+  </html>  <style>
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Cairo', sans-serif;}
     body {background: linear-gradient(to top, #0f2027, #203a43, #2c5364); color: white; text-align: center;}
 
