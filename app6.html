@@ -82,26 +82,24 @@
       //  backgroundSoundPlayed = true; // تأكيد أن الصوت قد تم تشغيله
       //}
     //});
-  </script>
-  <script>
-  // اسم الملف الذي يحتوي على بيانات التحديث
-  const updateFile = 'update_secretnotes.json';  // تغيير اسم الملف إلى الملف الخاص بتطبيق تحويل الصوت إلى نص
+<script>
+  // اسم ملف التحديث الخاص بـ QuizApp
+  const updateFile = 'update_quizapp.json';
 
-  // جلب بيانات الـ JSON بناءً على اسم الملف
-  fetch(`https://greatwishes.github.io/myapp/video/${updateFile}`)
-    .then(response => response.json())  // تحويل الاستجابة إلى JSON
+  // جلب بيانات JSON
+  fetch(`https://greatwishes.github.io/myapp/quizapp/${updateFile}`)
+    .then(response => response.json())
     .then(data => {
-      // استخراج رابط الـ APK من البيانات
+      // استخراج رابط الـ APK
       const apkUrl = data.apk_url;
 
-      // تحديث روابط الأزرار ليتضمن النسخة الجديدة
-      const downloadButtons = document.querySelectorAll('.btn');  // التأكد من أن جميع الأزرار التي تحمل الكلاس .btn ستتحدث
+      // تحديث جميع الأزرار
+      const downloadButtons = document.querySelectorAll('.btn');
       downloadButtons.forEach(function(button) {
-        button.href = apkUrl;  // تحديث الرابط لجميع الأزرار
+        button.href = apkUrl;
       });
     })
-    .catch(error => console.error('Error fetching update info:', error));  // التعامل مع الأخطاء في حالة فشل جلب البيانات
-  </script>
-
+    .catch(error => console.error('Error fetching update info:', error));
+</script>
 </body>
 </html>
