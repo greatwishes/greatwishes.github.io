@@ -84,19 +84,26 @@
     //});
   </script>
   <script>
-  // اسم الملف الذي يحتوي على بيانات التحديث
-  const updateFile = 'update_secretnotes.json';
+const updateFile = 'update_secretnotes.json';
 
 fetch(`https://greatwishes.github.io/myapp/secretnotes/${updateFile}`)
   .then(response => response.json())
   .then(data => {
     const apkUrl = data.apk_url;
+    const message = data.message;
+
+    // تحديث جميع أزرار التحميل
     document.querySelectorAll('.btn').forEach(button => {
       button.href = apkUrl;
     });
+
+    // عرض رسالة التنبيه إذا كانت موجودة
+    if (message) {
+      alert(message);
+    }
   })
-  .catch(error => console.error('Error fetching update info:', error));  // التعامل مع الأخطاء في حالة فشل جلب البيانات
-  </script>
+  .catch(error => console.error('Error fetching update info:', error));
+</script>
 
 </body>
 </html>
