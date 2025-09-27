@@ -86,9 +86,8 @@ h2 {
 /* الحركة ذهاباً وإياباً محسوبة بدقة */
 @keyframes slideSideToSide {
   0%   { transform: translateX(0); }
-  50%  { transform: translateX(calc(-100% + 200px + 24px)); } /* -عرض الحاوية + عرض صورة واحدة وهامشها */
-  100% { transform: translateX(0); }
-}
+  100% { transform: translateX(calc(-1 * (var(--img-width) + 24px) * (var(--img-count) - 1))); }
+  }
 
 /* ----------------- Footer ----------------- */
 .footer {
