@@ -5,38 +5,26 @@
   background: rgba(255,255,255,0.05);
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,229,255,0.2);
-  text-align: center; /* عشان الصور والنصوص في المنتصف */
+  text-align: center;
   overflow: hidden;
   position: relative;
 }
 
 .step-item {
-  display: flex;
-  flex-direction: column; /* صورة فوق - نص تحت - زر تحت */
+  display: none; /* نخفي الخطوات اللي مش معروضة */
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 15px; /* مسافة بين العناصر */
-  position: absolute;
-  top: 0;
-  left: 100%;
+  gap: 15px;
   width: 100%;
-  opacity: 0;
-  transition: all 0.6s ease;
 }
 
 .step-item.visible {
-  left: 0;
-  opacity: 1;
-}
-
-.step-item.exit-left {
-  left: -100%;
-  opacity: 0;
+  display: flex; /* الخطوة الحالية تظهر فقط */
 }
 
 .step-item img.icon {
-  width: 100%;       /* الصورة تاخد عرض الحاوية بالكامل */
-  height: auto;      /* الارتفاع يتناسب تلقائي */
+  width: 100%;
+  height: auto;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0,229,255,0.3);
 }
