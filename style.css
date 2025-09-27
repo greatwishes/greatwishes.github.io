@@ -1,31 +1,132 @@
+/* ===================== CSS عام للصفحة ===================== */
 body {
   margin: 0;
   font-family: 'Cairo', sans-serif;
-  background: linear-gradient(to right, #1f1c2c, #928dab);
   color: #fff;
   text-align: center;
   overflow-x: hidden;
+  background: linear-gradient(to right, #1f1c2c, #928dab);
 }
 
+/* ----------------- CSS الصفحة الرئيسية ----------------- */
+/* الهيدر */
+.header {
+  padding: 30px 20px;
+  background: rgba(255,255,255,0.05);
+  animation: fadeIn 2s ease-in-out;
+}
+
+.header h1 {
+  font-size: 2.5em;
+  color: #00e5ff;
+  text-shadow: 0 0 10px #00e5ff;
+  margin-bottom: 10px;
+  animation: glow 2s infinite alternate;
+}
+
+.header p {
+  font-size: 1.2em;
+  color: #ccc;
+}
+
+.logo-box img.logo {
+  margin-top: 15px;
+  width: 90px;
+  height: auto;
+  border-radius: 20px;
+  filter: drop-shadow(0 0 8px #00e5ff);
+  animation: breathe 4s ease-in-out infinite, glowLogo 3s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+.logo-box img.logo:hover {
+  transform: scale(1.05);
+}
+
+/* العناوين */
+h2 {
+  margin-top: 30px;
+  font-size: 1.8em;
+  color: #00e5ff;
+  text-shadow: 0 0 8px #00e5ff;
+}
+
+/* السلايدر */
+.slider-container {
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+}
+
+.slider-track {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: scrollOnce 15s linear infinite;
+}
+
+.slider-track a {
+  flex: 0 0 auto;
+  margin: 0 12px;
+}
+
+.slider-track img {
+  width: 200px;
+  height: 360px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,229,255,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slider-track img:hover {
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #00e5ff;
+}
+
+@keyframes scrollOnce {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(calc(-100% + 200px*7)); }
+  100% { transform: translateX(0); }
+}
+
+/* الفوتر */
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  color: #aaa;
+  font-size: 0.9em;
+}
+
+.contact-info {
+  margin-top: 10px;
+}
+
+.contact-info a {
+  color: #00e5ff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* ---- CSS قديم موجود ---- */
 header {
   padding: 40px 20px;
-  animation: fadeIn 2s ease-in-out;
 }
 
 h1 {
   font-size: 3em;
   color: #ffcc00;
   text-shadow: 0 0 20px #ffcc00;
-  animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
-  from {
-    text-shadow: 0 0 10px #ffcc00;
-  }
-  to {
-    text-shadow: 0 0 30px #ffd700, 0 0 60px #ff9900;
-  }
+  from { text-shadow: 0 0 10px #ffcc00; }
+  to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ff9900; }
 }
 
 @keyframes fadeIn {
@@ -58,15 +159,6 @@ h1 {
   animation: fadeIn 2s ease-in-out 1s both;
 }
 
-/* --- تأثير الحركة والتوهج للوجو --- */
-.logo {
-  width: 250px;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  animation: breathe 4s ease-in-out infinite, glowLogo 3s ease-in-out infinite;
-  transition: transform 0.3s ease;
-}
-
 @keyframes breathe {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -77,11 +169,6 @@ h1 {
   0% { filter: drop-shadow(0 0 5px #ffcc00); }
   50% { filter: drop-shadow(0 0 20px #ffd700); }
   100% { filter: drop-shadow(0 0 5px #ffcc00); }
-}
-/* --- نهاية تأثير اللوجو --- */
-
-.image-box img:hover {
-  transform: scale(1.05);
 }
 
 .app-description {
@@ -156,17 +243,12 @@ footer {
   background: rgba(0,0,0,0.3);
 }
 
+/* ===== Media Queries ===== */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 2em;
+  h1 { font-size: 2em; }
+  .image-box img { width: 90%; }
+  .btn { font-size: 1em; padding: 10px 20px; }
+  .slider-track img { width: 150px; height: 270px; }
+  .header h1 { font-size: 1.8em; }
+  .header p { font-size: 1em; }
   }
-
-  .image-box img {
-    width: 90%;
-  }
-
-  .btn {
-    font-size: 1em;
-    padding: 10px 20px;
-  }
-      }
