@@ -12,10 +12,9 @@
 
 .step-item {
   display: flex;
-  flex-direction: row; /* بدل column عشان تكون أفقية */
-  align-items: center; /* لمحاذاة الصورة والنص والزر عموديًا */
-  justify-content: flex-start;
-  gap: 15px; /* مسافة بين الصورة والنص والزر */
+  flex-direction: column; /* يخلي العناصر عمودية */
+  align-items: flex-start; /* كل العناصر تبدأ من اليمين */
+  gap: 15px; /* مسافة بين الأيقونة والنص والأزرار */
   position: absolute;
   top: 0;
   left: 100%;
@@ -48,10 +47,16 @@
 .step-item span {
   font-size: 1.2em;
   line-height: 1.6;
+  margin-bottom: 10px; /* مسافة صغيرة بين النص والأزرار */
 }
 
+.step-buttons {
+  display: flex;
+  gap: 10px; /* مسافة بين زر السابق والتالي */
+}
+
+.prev-btn,
 .next-btn {
-  margin-left: auto; /* يدفع الزر لليمين */
   background: #00e5ff;
   color: #000;
   border: none;
@@ -62,6 +67,7 @@
   transition: 0.3s;
 }
 
+.prev-btn:hover,
 .next-btn:hover {
   background: #00c3e0;
-}
+    }
