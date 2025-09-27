@@ -153,37 +153,59 @@
 <script>
   var steps = document.querySelectorAll('#interactive-guide .step-item');
   var currentStep = 0;
+  var intervalTime = 5000; // 5 ثواني لكل خطوة
+  var autoPlay;
 
-  steps[currentStep].classList.add('visible');
-
-  for (var i = 0; i < steps.length; i++) {
-    (function(index) {
-      var step = steps[index];
-      var nextBtn = step.querySelector('.next-btn');
-      var prevBtn = step.querySelector('.prev-btn');
-
-      if (nextBtn) {
-        nextBtn.addEventListener('click', function() {
-          step.classList.remove('visible');
-          step.classList.add('exit-left');
-          currentStep++;
-          if (currentStep < steps.length) {
-            steps[currentStep].classList.add('visible');
-          }
-        });
-      }
-
-      if (prevBtn) {
-        prevBtn.addEventListener('click', function() {
-          step.classList.remove('visible');
-          currentStep--;
-          if (currentStep >= 0) {
-            steps[currentStep].classList.add('visible');
-          }
-        });
-      }
-    })(i);
+  function showStep(index) {
+    // اخفاء الكل
+    steps.forEach(function(step) {
+      step.classList.remove('visible');
+    });
+    // اظهار المطلوب
+    steps[index].classList.add('visible');
   }
+
+  function nextStep() {
+    currentStep++;
+    if (currentStep >= steps.length) {
+      currentStep = 0; // يرجع لأول خطوة (ممكن تخليه يوقف لو حابب)
+    }
+    showStep(currentStep);
+  }
+
+  function prevStep() {
+    currentStep--;
+    if (currentStep < 0) {
+      currentStep = steps.length - 1; // يرجع لآخر خطوة
+    }
+    showStep(currentStep);
+  }
+
+  // زر التالي/السابق
+  steps.forEach(function(step, index) {
+    var nextBtn = step.querySelector('.next-btn');
+    var prevBtn = step.querySelector('.prev-btn');
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function() {
+        clearInterval(autoPlay); // وقف الاوتوماتك مؤقتًا
+        nextStep();
+        autoPlay = setInterval(nextStep, intervalTime); // شغله تاني
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function() {
+        clearInterval(autoPlay);
+        prevStep();
+        autoPlay = setInterval(nextStep, intervalTime);
+      });
+    }
+  });
+
+  // بدء التشغيل التلقائي
+  showStep(currentStep);
+  autoPlay = setInterval(nextStep, intervalTime);
 </script>
 
   </body>
