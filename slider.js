@@ -1,25 +1,16 @@
 const sliderTrack = document.querySelector('.slider-track');
 const slides = Array.from(sliderTrack.children);
 
-// نسخ الصور للتكرار
-slides.forEach(slide => {
-    sliderTrack.appendChild(slide.cloneNode(true));
-});
+// تكرار الصور لتجنب الفراغ
+slides.forEach(slide => sliderTrack.appendChild(slide.cloneNode(true)));
 
-let scrollAmount = 0;
-const speed = 1; // تعديل السرعة حسب الحاجة
+let scroll = 0;
+const speed = 0.5; // تعديل السرعة حسب الرغبة
 
 function animateSlider() {
-    scrollAmount += speed;
-
-    // طول الشريط الأصلي
-    const originalWidth = sliderTrack.scrollWidth / 2;
-
-    if (scrollAmount >= originalWidth) {
-        scrollAmount = 0;
-    }
-
-    sliderTrack.style.transform = `translateX(-${scrollAmount}px)`;
+    scroll += speed;
+    if(scroll >= sliderTrack.scrollWidth / 2) scroll = 0; // إعادة التمرير عند نصف الشريط
+    sliderTrack.style.transform = `translateX(-${scroll}px)`;
     requestAnimationFrame(animateSlider);
 }
 
