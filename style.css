@@ -8,8 +8,7 @@ body {
   background: linear-gradient(to right, #1f1c2c, #928dab);
 }
 
-/* ----------------- CSS الصفحة الرئيسية ----------------- */
-/* الهيدر */
+/* ----------------- Header ----------------- */
 .header {
   padding: 30px 20px;
   background: rgba(255,255,255,0.05);
@@ -43,7 +42,7 @@ body {
   transform: scale(1.05);
 }
 
-/* العناوين */
+/* ----------------- العناوين ----------------- */
 h2 {
   margin-top: 30px;
   font-size: 1.8em;
@@ -51,7 +50,7 @@ h2 {
   text-shadow: 0 0 8px #00e5ff;
 }
 
-/* السلايدر */
+/* ----------------- Slider ----------------- */
 .slider-container {
   overflow: hidden;
   margin: 20px auto;
@@ -64,7 +63,7 @@ h2 {
 .slider-track {
   display: flex;
   flex-wrap: nowrap;
-  animation: scrollOnce 15s linear infinite;
+  animation: slideBackForth 20s linear infinite;
 }
 
 .slider-track a {
@@ -85,13 +84,14 @@ h2 {
   box-shadow: 0 0 20px #00e5ff;
 }
 
-@keyframes scrollOnce {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(calc(-100% + 200px*7)); }
+/* الحركة ذهاب وإياب سلسة */
+@keyframes slideBackForth {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(calc(-50%)); } /* تعديل حسب طول الصور */
   100% { transform: translateX(0); }
 }
 
-/* الفوتر */
+/* ----------------- Footer ----------------- */
 .footer {
   margin-top: 40px;
   padding: 20px;
@@ -113,27 +113,7 @@ h2 {
   text-decoration: underline;
 }
 
-/* ---- CSS قديم موجود ---- */
-header {
-  padding: 40px 20px;
-}
-
-h1 {
-  font-size: 3em;
-  color: #ffcc00;
-  text-shadow: 0 0 20px #ffcc00;
-}
-
-@keyframes glow {
-  from { text-shadow: 0 0 10px #ffcc00; }
-  to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ff9900; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* ----------------- الأزرار والصناديق ----------------- */
 .btn {
   display: inline-block;
   margin-top: 30px;
@@ -159,6 +139,7 @@ h1 {
   animation: fadeIn 2s ease-in-out 1s both;
 }
 
+/* تأثيرات اللوجو */
 @keyframes breathe {
   0% { transform: scale(1); }
   50% { transform: scale(1.05); }
@@ -171,6 +152,7 @@ h1 {
   100% { filter: drop-shadow(0 0 5px #ffcc00); }
 }
 
+/* ----------------- نصوص التطبيقات ----------------- */
 .app-description {
   margin-top: 50px;
   padding: 0 20px;
@@ -219,6 +201,7 @@ h1 {
   font-size: 1.2em;
 }
 
+/* ----------------- روابط التنقل ----------------- */
 .navigation-links {
   margin-top: 60px;
 }
@@ -236,14 +219,7 @@ h1 {
   text-shadow: 0 0 10px #ffcc00;
 }
 
-footer {
-  margin-top: 60px;
-  padding: 20px;
-  font-size: 0.9em;
-  background: rgba(0,0,0,0.3);
-}
-
-/* ===== Media Queries ===== */
+/* ================= Media Queries ================= */
 @media (max-width: 600px) {
   h1 { font-size: 2em; }
   .image-box img { width: 90%; }
