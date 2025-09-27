@@ -6,12 +6,11 @@
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,229,255,0.2);
   text-align: center;
-  overflow: hidden;
-  position: relative;
+  position: relative; /* خليه بس عشان الأزرار */
 }
 
 .step-item {
-  display: none; /* نخفي الخطوات اللي مش معروضة */
+  display: none; /* الخطوات اللي مش معروضة */
   flex-direction: column;
   align-items: center;
   gap: 15px;
@@ -19,14 +18,16 @@
 }
 
 .step-item.visible {
-  display: flex; /* الخطوة الحالية تظهر فقط */
+  display: flex; /* الخطوة الحالية فقط */
 }
 
 .step-item img.icon {
-  width: 100%;
+  max-width: 100%; /* يمنع تجاوز الشاشة */
   height: auto;
   border-radius: 10px;
   box-shadow: 0 0 8px rgba(0,229,255,0.3);
+  display: block;
+  margin: 0 auto;
 }
 
 .step-item span {
@@ -35,6 +36,14 @@
   margin: 10px 0;
 }
 
+.btn-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.prev-btn,
 .next-btn {
   background: #00e5ff;
   color: #000;
@@ -47,6 +56,12 @@
   font-size: 1em;
 }
 
+.prev-btn:disabled {
+  background: #777;
+  cursor: not-allowed;
+}
+
+.prev-btn:hover:not(:disabled),
 .next-btn:hover {
   background: #00c3e0;
 }
