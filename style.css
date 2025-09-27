@@ -89,27 +89,15 @@ box-shadow:0 0 20px #00e5ff;
 100% { transform: translateX(0); }
 }
 
+.footer {margin-top:40px; padding:20px; background: rgba(255,255,255,0.05); color:#aaa; font-size:0.9em;}
+.contact-info {margin-top:10px;}
+.contact-info a {color:#00e5ff; text-decoration:none;}
+.contact-info a:hover {text-decoration:underline;}
 
-/* ----------------- Footer ----------------- */
-.footer {
-  margin-top: 40px;
-  padding: 20px;
-  background: rgba(255,255,255,0.05);
-  color: #aaa;
-  font-size: 0.9em;
-}
-
-.contact-info {
-  margin-top: 10px;
-}
-
-.contact-info a {
-  color: #00e5ff;
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
+@media (max-width:600px) {
+.slider-track img { width:150px; height:270px; }
+.header h1 {font-size:1.8em;}
+.header p {font-size:1em;}
 }
 
 /* ----------------- أزرار وصناديق ----------------- */
