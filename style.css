@@ -1,4 +1,4 @@
-/* ===================== CSS كامل للصفحة - نسخة محسنة ===================== */
+/* ===================== CSS كامل للصفحة ===================== */
 
 /* ----- Reset عام ----- */
 * {
@@ -19,7 +19,6 @@ body {
 .header {
     padding: 30px 20px;
     background: rgba(255,255,255,0.05);
-    animation: fadeIn 2s ease-in-out;
 }
 
 .header h1 {
@@ -67,7 +66,6 @@ h2 {
     display: flex;
     flex-wrap: nowrap;
     gap: 24px;
-    animation: slideSideToSide 20s linear infinite;
 }
 
 .slider-track a {
@@ -85,12 +83,6 @@ h2 {
 .slider-track img:hover {
     transform: scale(1.07);
     box-shadow: 0 0 20px #00e5ff;
-}
-
-/* حركة الشريط ديناميكية */
-@keyframes slideSideToSide {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* تحريك نصف المسار تلقائي */
 }
 
 /* ----- Footer ----- */
@@ -226,4 +218,4 @@ h2 {
     h2 { font-size: 1.5em; }
     .slider-track img { width: 120px; height: 200px; }
     .btn { font-size: 0.9em; padding: 8px 15px; }
-      }
+    }
