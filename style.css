@@ -26,8 +26,8 @@ body {
 
 .header h1 {
   font-size: 2.5em;
-  color: #ff4d4d; /* أحمر واضح */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* ظل خفيف لإبراز العنوان */
+  color: #ffcc00; /* أصفر */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
   margin-bottom: 10px;
 }
 
@@ -92,8 +92,6 @@ body {
 
 .app-description h2 {
   font-size: 2em;
-  color: #ff4d4d; /* أحمر واضح */
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4); /* ظل خفيف */
   margin-bottom: 20px;
 }
 
@@ -168,10 +166,20 @@ body {
   text-decoration: underline;
 }
 
-/* ----- تعديل كل العناوين ----- */
-h1, h2, h3 {
-  color: #ff4d4d; /* أحمر واضح */
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* ظل خفيف للوضوح */
+/* ----- ألوان العناوين حسب المستوى ----- */
+h1 {
+  color: #ffcc00; /* أصفر */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+h2 {
+  color: #ff4d4d; /* أحمر */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+h3 {
+  color: #00e5ff; /* أزرق */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 /* ----- Media Queries ----- */
@@ -191,4 +199,4 @@ h1, h2, h3 {
 
   .header h1 { font-size:1.8em; }
   .header p { font-size:1em; }
-  }
+}
