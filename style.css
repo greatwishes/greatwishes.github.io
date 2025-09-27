@@ -18,7 +18,7 @@ body {
 .header h1 {
   font-size: 2.5em;
   color: #00e5ff;
-  text-shadow: none; /* إزالة أي توهج */
+  text-shadow: none; /* إزالة التوهج */
   margin-bottom: 10px;
 }
 
@@ -51,53 +51,64 @@ h2 {
 
 /* ----------------- Slider ----------------- */
 .slider-container {
-overflow:hidden;
-margin:20px auto;
-padding:15px 0;
-border-top:1px solid rgba(255,255,255,0.2);
-border-bottom:1px solid rgba(255,255,255,0.2);
-background: rgba(255,255,255,0.05);
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
 }
 
 .slider-track {
-display: flex;
-flex-wrap: nowrap;
-animation: scrollOnce 15s linear infinite; /* تتحرك مرة واحدة ثم تعود */
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 24px; /* المسافة بين الصور */
+  animation: slideSideToSide 20s linear infinite alternate;
 }
 
 .slider-track a {
-flex: 0 0 auto;
-margin: 0 12px;
+  flex: 0 0 auto;
 }
 
 .slider-track img {
-width:200px;
-height:360px;
-border-radius:15px;
-box-shadow:0 0 15px rgba(0,229,255,0.4);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 200px;
+  height: 360px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,229,255,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .slider-track img:hover {
-transform:scale(1.07);
-box-shadow:0 0 20px #00e5ff;
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #00e5ff;
 }
 
-@keyframes scrollOnce {
-0% { transform: translateX(0); }
-50% { transform: translateX(calc(-100% + 200px7)); } / 7 صور بدل 5 */
-100% { transform: translateX(0); }
+/* تحريك الصف بالكامل بدون اختفاء */
+@keyframes slideSideToSide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-calc((200px + 24px) * 6)); } /* 6 = عدد الصور - 1 */
 }
 
-.footer {margin-top:40px; padding:20px; background: rgba(255,255,255,0.05); color:#aaa; font-size:0.9em;}
-.contact-info {margin-top:10px;}
-.contact-info a {color:#00e5ff; text-decoration:none;}
-.contact-info a:hover {text-decoration:underline;}
+/* ----------------- Footer ----------------- */
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  background: rgba(255,255,255,0.05);
+  color: #aaa;
+  font-size: 0.9em;
+}
 
-@media (max-width:600px) {
-.slider-track img { width:150px; height:270px; }
-.header h1 {font-size:1.8em;}
-.header p {font-size:1em;}
+.contact-info {
+  margin-top: 10px;
+}
+
+.contact-info a {
+  color: #00e5ff;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
 }
 
 /* ----------------- أزرار وصناديق ----------------- */
@@ -150,7 +161,6 @@ box-shadow:0 0 20px #00e5ff;
   color: #ffcc00;
   text-shadow: 0 0 10px #ffcc00;
   margin-bottom: 20px;
-  animation: glow 2s infinite alternate;
 }
 
 .app-description p {
@@ -217,12 +227,7 @@ box-shadow:0 0 20px #00e5ff;
 }
 
 /* ===== Keyframes إضافية ===== */
-@keyframes glow {
-  from { text-shadow: 0 0 10px #ffcc00; }
-  to { text-shadow: 0 0 30px #ffd700, 0 0 60px #ff9900; }
-}
-
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
-  }
+}
