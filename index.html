@@ -3,70 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GreatWishes | GreatWishes  </title>
+<title>GreatWishes | GreatWishes</title>
+
+<!-- خطوط الموقع -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-<style>
-* {margin:0; padding:0; box-sizing:border-box; font-family:'Cairo',sans-serif;}
-body {background: linear-gradient(to top, #0f2027, #203a43, #2c5364); color:white; text-align:center;}
 
-.header {padding:30px 20px; background: rgba(255,255,255,0.05);}
-.header h1 {font-size:2.5em; color:#00e5ff; text-shadow:0 0 10px #00e5ff; margin-bottom:10px;}
-.header p {font-size:1.2em; color:#ccc;}
-.logo-box img {margin-top:15px; width:90px; height:auto; filter: drop-shadow(0 0 8px #00e5ff);}
+<!-- CSS الرئيسي للموقع -->
+<link rel="stylesheet" href="css/style.css">
 
-h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff;}
+<!-- CSS الدليل التفاعلي -->
+<link rel="stylesheet" href="css/guide.css">
 
-/* السلايدر */
-.slider-container {
-  overflow:hidden;
-  margin:20px auto;
-  padding:15px 0;
-  border-top:1px solid rgba(255,255,255,0.2);
-  border-bottom:1px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.05);
-}
-
-.slider-track {
-  display: flex;
-  flex-wrap: nowrap;
-  animation: scrollOnce 15s linear infinite; /* تتحرك مرة واحدة ثم تعود */
-}
-
-.slider-track a {
-  flex: 0 0 auto;
-  margin: 0 12px;
-}
-
-.slider-track img {
-  width:200px;
-  height:360px;
-  border-radius:15px;
-  box-shadow:0 0 15px rgba(0,229,255,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.slider-track img:hover {
-  transform:scale(1.07);
-  box-shadow:0 0 20px #00e5ff;
-}
-
-@keyframes scrollOnce {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(calc(-100% + 200px*7)); } /* 7 صور بدل 5 */
-  100% { transform: translateX(0); }
-}
-
-.footer {margin-top:40px; padding:20px; background: rgba(255,255,255,0.05); color:#aaa; font-size:0.9em;}
-.contact-info {margin-top:10px;}
-.contact-info a {color:#00e5ff; text-decoration:none;}
-.contact-info a:hover {text-decoration:underline;}
-
-@media (max-width:600px) {
-  .slider-track img { width:150px; height:270px; }
-  .header h1 {font-size:1.8em;}
-  .header p {font-size:1em;}
-}
-</style>
 </head>
 <body>
 
@@ -79,7 +26,6 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
 </div>
 
 <h2>تطبيقات مختارة</h2>
-
 <div class="slider-container">
   <div class="slider-track">
     <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"></a>
@@ -92,6 +38,67 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
   </div>
 </div>
 
+<!-- الدليل التفاعلي -->
+<h2>📱 دليل تثبيت التطبيقات على هاتفك (تفاعلي + أيقونات متحركة)</h2>
+<div class="install-guide" id="interactive-guide">
+  <div class="step-item visible">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/click.png" alt="ضغط" class="icon">
+    <span>اضغط على صورة أو رابط التطبيق الذي تريده من القائمة أعلاه.</span>
+    <button class="next-btn">التالي</button>
+  </div>
+  <div class="step-item">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/download.png" alt="تحميل" class="icon">
+    <span>سيتم نقلك إلى صفحة التطبيق حيث تجد زر التحميل (Download).</span>
+    <button class="next-btn">التالي</button>
+  </div>
+  <div class="step-item">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/file.png" alt="APK" class="icon">
+    <span>بعد تحميل ملف <strong>APK</strong> على هاتفك، افتحه لبدء التثبيت.</span>
+    <button class="next-btn">التالي</button>
+  </div>
+  <div class="step-item">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/settings.png" alt="إعدادات" class="icon">
+    <span>قد يطلب منك الهاتف السماح بالتثبيت من مصادر غير معروفة، قم بتفعيل الخيار من الإعدادات.</span>
+    <button class="next-btn">التالي</button>
+  </div>
+  <div class="step-item">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/install.png" alt="تثبيت" class="icon">
+    <span>اضغط على "تثبيت" وانتظر حتى يكتمل التثبيت.</span>
+    <button class="next-btn">التالي</button>
+  </div>
+  <div class="step-item">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/checkmark.png" alt="تم" class="icon">
+    <span>الآن، افتح التطبيق واستمتع باستخدامه! 🎉</span>
+    <button class="next-btn">التالي</button>
+  </div>
+  <!-- خطوات Google Play Protect -->
+  <div class="step-item">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/settings.png" alt="إعدادات" class="icon">
+    <span>افتح تطبيق <strong>الإعدادات</strong> على هاتفك.</span>
+    <button class="next-btn">التالي</button>
+  </div>
+  <div class="step-item">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/shield.png" alt="الأمان" class="icon">
+    <span>اذهب إلى <strong>الأمان أو Google</strong> حسب نوع هاتفك.</span>
+    <button class="next-btn">التالي</button>
+  </div>
+  <div class="step-item">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/lock.png" alt="Play Protect" class="icon">
+    <span>اختر <strong>Google Play Protect</strong>.</span>
+    <button class="next-btn">التالي</button>
+  </div>
+  <div class="step-item">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/close-window.png" alt="تعطيل" class="icon">
+    <span>قم بإيقاف خيار <strong>فحص التطبيقات باستخدام Play Protect</strong>.</span>
+    <button class="next-btn">التالي</button>
+  </div>
+  <div class="step-item">
+    <img src="https://img.icons8.com/ios-filled/24/00e5ff/checkmark.png" alt="تم" class="icon">
+    <span>الآن يمكنك تثبيت تطبيقات <strong>APK</strong> من خارج متجر Google Play.</span>
+    <p style="color:#ff5555; margin-top:10px;">⚠️ تحذير: إيقاف الحماية قد يجعل هاتفك عرضة للتطبيقات الضارة. قم بالتثبيت فقط من مصادر موثوقة.</p>
+  </div>
+</div>
+
 <div class="footer">
   &copy; 2025 GreatWishes | جميع الحقوق محفوظة
   <div class="contact-info">
@@ -99,6 +106,9 @@ h2 {margin-top:30px; font-size:1.8em; color:#00e5ff; text-shadow:0 0 8px #00e5ff
     <p><a href="privacy.html">سياسة الخصوصية</a></p>
   </div>
 </div>
+
+<!-- JS الدليل -->
+<script src="js/guide.js"></script>
 
 </body>
 </html>
