@@ -25,13 +25,7 @@ body {
   animation: fadeIn 2s ease-in-out;
 }
 
-.header h1 {
-  font-size: 2.5em;
-  color: #00e5ff;
-  text-shadow: 0 0 10px #00e5ff;
-  margin-bottom: 10px;
-  animation: glow 2s infinite alternate;
-}
+
 
 .header p {
   font-size: 1.2em;
