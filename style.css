@@ -2,23 +2,22 @@
 body {
   margin: 0;
   font-family: 'Cairo', sans-serif;
+  background: linear-gradient(to right, #1f1c2c, #928dab);
   color: #fff;
   text-align: center;
   overflow-x: hidden;
-  background: linear-gradient(to right, #1f1c2c, #928dab);
 }
 
 /* ----------------- Header ----------------- */
 .header {
   padding: 30px 20px;
   background: rgba(255,255,255,0.05);
-  animation: fadeIn 2s ease-in-out;
 }
 
 .header h1 {
   font-size: 2.5em;
   color: #00e5ff;
-  text-shadow: none; /* إزالة التوهج */
+  text-shadow: none; /* إزالة أي توهج */
   margin-bottom: 10px;
 }
 
@@ -27,18 +26,11 @@ body {
   color: #ccc;
 }
 
-.logo-box img.logo {
+.logo-box img {
   margin-top: 15px;
   width: 90px;
   height: auto;
-  border-radius: 20px;
   filter: drop-shadow(0 0 8px #00e5ff);
-  animation: breathe 4s ease-in-out infinite, glowLogo 3s ease-in-out infinite;
-  transition: transform 0.3s ease;
-}
-
-.logo-box img.logo:hover {
-  transform: scale(1.05);
 }
 
 /* ----------------- العناوين ----------------- */
@@ -62,8 +54,8 @@ h2 {
 .slider-track {
   display: flex;
   flex-wrap: nowrap;
-  gap: 24px; /* المسافة بين الصور */
-  animation: slideSideToSide 20s linear infinite alternate;
+  gap: 24px;
+  animation: slideSideToSide 15s linear infinite;
 }
 
 .slider-track a {
@@ -83,10 +75,11 @@ h2 {
   box-shadow: 0 0 20px #00e5ff;
 }
 
-/* تحريك الصف بالكامل بدون اختفاء */
+/* الحركة ذهاب وإياب لكل الصور بدون تكرار */
 @keyframes slideSideToSide {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-calc((200px + 24px) * 6)); } /* 6 = عدد الصور - 1 */
+  50%  { transform: translateX(calc(-100% + 200px)); } /* يتحرك حتى آخر صورة */
+  100% { transform: translateX(0); }
 }
 
 /* ----------------- Footer ----------------- */
@@ -134,20 +127,6 @@ h2 {
 
 .image-box {
   margin-top: 50px;
-  animation: fadeIn 2s ease-in-out 1s both;
-}
-
-/* تأثيرات اللوجو */
-@keyframes breathe {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-@keyframes glowLogo {
-  0% { filter: drop-shadow(0 0 5px #ffcc00); }
-  50% { filter: drop-shadow(0 0 20px #ffd700); }
-  100% { filter: drop-shadow(0 0 5px #ffcc00); }
 }
 
 /* ----------------- نصوص التطبيقات ----------------- */
@@ -224,10 +203,4 @@ h2 {
   .slider-track img { width: 150px; height: 270px; }
   .header h1 { font-size: 1.8em; }
   .header p { font-size: 1em; }
-}
-
-/* ===== Keyframes إضافية ===== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
