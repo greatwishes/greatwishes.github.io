@@ -64,7 +64,7 @@ h2 {
   flex-wrap: nowrap;
   --img-width: 200px;   /* عرض كل صورة */
   --img-margin: 24px;   /* هامش الصورة الكلي (يمين + يسار) */
-  --img-count: 7;       /* عدد الصور */
+  --img-count: 7;       /* عدد الصور الفعلي */
   animation: slideBackForth 20s linear infinite alternate;
 }
 
@@ -86,6 +86,7 @@ h2 {
   box-shadow: 0 0 20px #00e5ff;
 }
 
+/* حركة الشريط ذهاباً وإياباً بسلاسة */
 @keyframes slideBackForth {
   0% {
     transform: translateX(0);
