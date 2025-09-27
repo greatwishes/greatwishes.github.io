@@ -5,16 +5,17 @@
   background: rgba(255,255,255,0.05);
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,229,255,0.2);
-  text-align: right;
+  text-align: center; /* عشان الصور والنصوص في المنتصف */
   overflow: hidden;
   position: relative;
 }
 
 .step-item {
   display: flex;
-  flex-direction: column; /* يخلي العناصر عمودية */
-  align-items: flex-start; /* كل العناصر تبدأ من اليمين */
-  gap: 15px; /* مسافة بين الأيقونة والنص والأزرار */
+  flex-direction: column; /* صورة فوق - نص تحت - زر تحت */
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px; /* مسافة بين العناصر */
   position: absolute;
   top: 0;
   left: 100%;
@@ -34,40 +35,30 @@
 }
 
 .step-item img.icon {
-  width: 48px;
-  height: 48px;
-  animation: iconPulse 0.8s ease infinite alternate;
-}
-
-@keyframes iconPulse {
-  0% { transform: scale(1); filter: drop-shadow(0 0 3px #00e5ff); }
-  100% { transform: scale(1.15); filter: drop-shadow(0 0 10px #00e5ff); }
+  width: 100%;       /* الصورة تاخد عرض الحاوية بالكامل */
+  height: auto;      /* الارتفاع يتناسب تلقائي */
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,229,255,0.3);
 }
 
 .step-item span {
   font-size: 1.2em;
-  line-height: 1.6;
-  margin-bottom: 10px; /* مسافة صغيرة بين النص والأزرار */
+  line-height: 1.8;
+  margin: 10px 0;
 }
 
-.step-buttons {
-  display: flex;
-  gap: 10px; /* مسافة بين زر السابق والتالي */
-}
-
-.prev-btn,
 .next-btn {
   background: #00e5ff;
   color: #000;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s;
+  font-size: 1em;
 }
 
-.prev-btn:hover,
 .next-btn:hover {
   background: #00c3e0;
-    }
+}
