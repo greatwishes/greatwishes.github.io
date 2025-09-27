@@ -62,19 +62,16 @@ h2 {
 .slider-track {
   display: flex;
   flex-wrap: nowrap;
-  --img-width: 200px;   /* عرض كل صورة */
-  --img-margin: 24px;   /* هامش الصورة الكلي (يمين + يسار) */
-  --img-count: 7;       /* عدد الصور الفعلي */
-  animation: slideBackForth 20s linear infinite alternate;
+  gap: 24px; /* هامش بين الصور */
+  animation: slideSideToSide 20s linear infinite alternate;
 }
 
 .slider-track a {
   flex: 0 0 auto;
-  margin: 0 12px;
 }
 
 .slider-track img {
-  width: var(--img-width);
+  width: 200px;
   height: 360px;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,229,255,0.4);
@@ -86,14 +83,11 @@ h2 {
   box-shadow: 0 0 20px #00e5ff;
 }
 
-/* حركة الشريط ذهاباً وإياباً بسلاسة */
-@keyframes slideBackForth {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(calc((var(--img-width) + var(--img-margin)) * (var(--img-count) - 1) * -1));
-  }
+/* الحركة ذهاباً وإياباً محسوبة بدقة */
+@keyframes slideSideToSide {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(calc(-100% + 200px + 24px)); } /* -عرض الحاوية + عرض صورة واحدة وهامشها */
+  100% { transform: translateX(0); }
 }
 
 /* ----------------- Footer ----------------- */
