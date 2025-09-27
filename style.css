@@ -18,10 +18,8 @@ body {
 .header h1 {
   font-size: 2.5em;
   color: #00e5ff;
-  text-shadow: 0 0 10px #00e5ff;
+  text-shadow: none; /* إزالة أي توهج */
   margin-bottom: 10px;
-  /* أزل أو عطل السطر التالي */
-  /* animation: glow 2s infinite alternate; */
 }
 
 .header p {
@@ -168,8 +166,8 @@ h2 {
   font-size: 2em;
   color: #ffcc00;
   text-shadow: 0 0 10px #ffcc00;
-  animation: glow 2s infinite alternate;
   margin-bottom: 20px;
+  animation: glow 2s infinite alternate;
 }
 
 .app-description p {
@@ -207,6 +205,7 @@ h2 {
   font-size: 1.2em;
 }
 
+/* ----------------- روابط التنقل ----------------- */
 .navigation-links {
   margin-top: 60px;
 }
@@ -243,4 +242,4 @@ h2 {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
-    }
+  }
