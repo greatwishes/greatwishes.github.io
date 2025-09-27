@@ -63,7 +63,7 @@ h2 {
 .slider-track {
   display: flex;
   flex-wrap: nowrap;
-  animation: slideBackForth 20s linear infinite;
+  animation: slideBackForth 20s linear infinite alternate;
 }
 
 .slider-track a {
@@ -84,13 +84,11 @@ h2 {
   box-shadow: 0 0 20px #00e5ff;
 }
 
-/* الحركة ذهاب وإياب سلسة */
-@keyframes scrollOnce {
-0% { transform: translateX(0); }
-50% { transform: translateX(calc(-100% + 200px7)); } / 7 صور بدل 5 */
-100% { transform: translateX(0); }
+/* الحركة ذهاب وإياب سلسة لجميع الصور */
+@keyframes slideBackForth {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-((200px + 24px) * 6))); }
 }
-
 
 /* ----------------- Footer ----------------- */
 .footer {
