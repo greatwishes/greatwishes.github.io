@@ -85,9 +85,15 @@ h2 {
 }
 
 /* الحركة ذهاب وإياب سلسة لجميع الصور */
+.slider-track {
+  display: flex;
+  flex-wrap: nowrap;
+  animation: slideBackForth 20s linear infinite alternate;
+}
+
 @keyframes slideBackForth {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-((200px + 24px) * 6))); }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-calc((200px + 24px) * 6)); }
 }
 
 /* ----------------- Footer ----------------- */
