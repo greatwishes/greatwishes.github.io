@@ -34,6 +34,6 @@
 
 @keyframes scrollOnce {
   0% { transform: translateX(0); }
-  50% { transform: translateX(calc(-100% + 200px*7)); } /* 7 صور بدل 5 */
+  50% { transform: translateX(calc(-100% + 200px*8)); } /* 7 صور بدل 5 */
   100% { transform: translateX(0); }
 }
