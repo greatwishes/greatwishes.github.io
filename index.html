@@ -7,9 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css"> <!-- ملف CSS العام -->
     <link rel="stylesheet" href="slider.css"> <!-- ملف CSS للسلايدر -->
+    <link rel="stylesheet" href="install-guide.css"> <!-- ملف CSS للدليل التفاعلي -->
   </head>
   <body>
 
+    <!-- الهيدر -->
     <div class="header">
       <h1>مرحبًا بك في GreatWishes - منصتك لتطبيقات أندرويد المجانية</h1>
       <p>منصة تطبيقاتك للاندرويد بتصميم فريد وتجربة استثنائية</p>
@@ -18,8 +20,8 @@
       </div>
     </div>
 
+    <!-- التطبيقات المختارة -->
     <h2>تطبيقات مختارة</h2>
-
     <div class="slider-container">
       <div class="slider-track">
         <a href="app1.html"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"></a>
@@ -32,6 +34,41 @@
       </div>
     </div>
 
+    <!-- الدليل التفاعلي -->
+    <h2>📱 دليل تثبيت التطبيقات على هاتفك (تفاعلي + أيقونات متحركة)</h2>
+    <div class="install-guide" id="interactive-guide">
+      <div class="step-item visible">
+        <img src="https://img.icons8.com/ios-filled/24/00e5ff/click.png" alt="ضغط" class="icon">
+        <span>اضغط على صورة أو رابط التطبيق الذي تريده من القائمة أعلاه.</span>
+        <button class="next-btn">التالي</button>
+      </div>
+      <div class="step-item">
+        <img src="https://img.icons8.com/ios-filled/24/00e5ff/download.png" alt="تحميل" class="icon">
+        <span>سيتم نقلك إلى صفحة التطبيق حيث تجد زر التحميل (Download).</span>
+        <button class="next-btn">التالي</button>
+      </div>
+      <div class="step-item">
+        <img src="https://img.icons8.com/ios-filled/24/00e5ff/file.png" alt="APK" class="icon">
+        <span>بعد تحميل ملف <strong>APK</strong> على هاتفك، افتحه لبدء التثبيت.</span>
+        <button class="next-btn">التالي</button>
+      </div>
+      <div class="step-item">
+        <img src="https://img.icons8.com/ios-filled/24/00e5ff/settings.png" alt="إعدادات" class="icon">
+        <span>قد يطلب منك الهاتف السماح بالتثبيت من مصادر غير معروفة، قم بتفعيل الخيار من الإعدادات.</span>
+        <button class="next-btn">التالي</button>
+      </div>
+      <div class="step-item">
+        <img src="https://img.icons8.com/ios-filled/24/00e5ff/install.png" alt="تثبيت" class="icon">
+        <span>اضغط على "تثبيت" وانتظر حتى يكتمل التثبيت.</span>
+        <button class="next-btn">التالي</button>
+      </div>
+      <div class="step-item">
+        <img src="https://img.icons8.com/ios-filled/24/00e5ff/checkmark.png" alt="تم" class="icon">
+        <span>الآن، افتح التطبيق واستمتع باستخدامه! 🎉</span>
+      </div>
+    </div>
+
+    <!-- الفوتر -->
     <div class="footer">
       &copy; 2025 GreatWishes | جميع الحقوق محفوظة
       <div class="contact-info">
@@ -40,5 +77,32 @@
       </div>
     </div>
 
+    <!-- جافاسكريبت التفاعلي بدون Lambda -->
+<script>
+    var steps = document.querySelectorAll('#interactive-guide .step-item');
+    var currentStep = 0;
+
+    // اظهار الخطوة الأولى
+    steps[currentStep].classList.add('visible');
+
+    // الانتقال للخطوة التالية عند الضغط على الزر
+    for(var i=0; i<steps.length; i++){
+      (function(index){
+        var step = steps[index];
+        var btn = step.querySelector('.next-btn');
+        if(btn){
+          btn.addEventListener('click', function(){
+            step.classList.remove('visible');
+            step.classList.add('exit-left');
+            currentStep++;
+            if(currentStep < steps.length){
+              steps[currentStep].classList.add('visible');
+            }
+          });
+        }
+      })(i);
+    }
+</script>
+
   </body>
-</html>
+  </html>
