@@ -1,4 +1,4 @@
-/* ==================== CSS احترافي مع كروت بارزة للعناوين ==================== */
+/* ==================== CSS احترافي 3D كامل ==================== */
 
 /* ----- Reset عام ----- */
 * {
@@ -12,17 +12,19 @@
 body {
   margin: 0;
   font-family: 'Cairo', sans-serif;
-  background: linear-gradient(to top,#0f2027,#203a43,#2c5364);
+  background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
   color: #e0e0e0;
   text-align: center;
   overflow-x: hidden;
   line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ----- Header ----- */
 .header {
   padding: 50px 20px;
-  background: rgba(255,255,255,0.05);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,40 +35,51 @@ body {
 .header h1 {
   font-size: 3em;
   font-weight: 700;
-  background: linear-gradient(90deg, #ffd700, #ff6b6b);
+  padding: 25px 50px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7), inset 0 0 15px rgba(255,255,255,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header h1 span {
+  background: linear-gradient(90deg, #ffd700, #ff4d4d);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding: 20px 40px;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 10px rgba(255,255,255,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
 }
 
 .header h1:hover {
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.7), inset 0 0 15px rgba(255,255,255,0.15);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.15);
 }
 
 /* ----- وصف أسفل العنوان ----- */
 .header p {
   font-size: 1.2em;
   color: #cfd8dc;
-  max-width: 600px;
+  max-width: 700px;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.1);
 }
 
 /* ----- Logo ----- */
 .logo-box img {
   margin-top: 20px;
-  width: 100px;
+  width: 120px;
   height: auto;
   border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo-box img:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
 }
 
 /* ----- وصف التطبيق ----- */
@@ -74,57 +87,54 @@ body {
   margin-top: 50px;
   padding: 20px;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
+  align-items: center;
 }
 
 /* ----- كروت العناوين ----- */
 .app-description h2, .app-description h3 {
   font-weight: 700;
-  padding: 15px 25px;
+  padding: 20px 30px;
   border-radius: 15px;
   background: rgba(255,255,255,0.05);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.6), inset 0 0 10px rgba(255,255,255,0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 12px rgba(255,255,255,0.1);
+  text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Gradient text للعناوين */
-.app-description h2 {
+/* Gradient text داخل span */
+.app-description h2 span {
   font-size: 2em;
   background: linear-gradient(90deg, #ff6b6b, #ffd700);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
-.app-description h2:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.7), inset 0 0 12px rgba(255,255,255,0.15);
-}
-
-.app-description h3 {
+.app-description h3 span {
   font-size: 1.6em;
   background: linear-gradient(90deg, #00d4ff, #ff6b6b);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
-.app-description h3:hover {
+.app-description h2:hover, .app-description h3:hover {
   transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.7), inset 0 0 12px rgba(255,255,255,0.15);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.7), inset 0 0 15px rgba(255,255,255,0.15);
 }
 
 /* ----- نصوص داخل الكروت ----- */
 .app-description p {
   font-size: 1.2em;
-  line-height: 1.8;
   color: #e0e0e0;
   padding: 15px 20px;
   border-radius: 12px;
   background: rgba(255,255,255,0.03);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,255,255,0.1);
+  text-align: center;
 }
 
 /* ----- List كروت ----- */
@@ -135,19 +145,20 @@ body {
   border-radius: 12px;
   position: relative;
   font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 8px rgba(255,255,255,0.1);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5), inset 0 0 8px rgba(255,255,255,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .app-description ul li:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.6), inset 0 0 10px rgba(255,255,255,0.15);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6), inset 0 0 10px rgba(255,255,255,0.15);
 }
 
 .app-description ul li::before {
   content: "★";
   position: absolute;
-  right: 15px;
+  left: 15px;
   top: 50%;
   transform: translateY(-50%);
   color: #ffd700;
@@ -180,6 +191,7 @@ body {
   color: #b0bec5;
   font-size: 0.95em;
   border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
 }
 
 .contact-info a {
@@ -194,16 +206,14 @@ body {
 
 /* ----- Media Queries ----- */
 @media (max-width: 768px) {
-  .header h1 { font-size: 2.5em; }
-  .app-description h2 { font-size: 1.8em; }
-  .app-description h3 { font-size: 1.4em; }
+  .header h1 span { font-size: 2.5em; }
+  .app-description h2 span { font-size: 1.8em; }
+  .app-description h3 span { font-size: 1.4em; }
   .image-box img { width: 100%; }
-  .btn { font-size: 1em; padding: 12px 25px; }
 }
 
 @media (max-width: 480px) {
-  .header h1 { font-size: 2em; }
-  .app-description h2 { font-size: 1.6em; }
-  .app-description h3 { font-size: 1.2em; }
-  .btn { padding: 10px 20px; }
-  }
+  .header h1 span { font-size: 2em; }
+  .app-description h2 span { font-size: 1.6em; }
+  .app-description h3 span { font-size: 1.2em; }
+                              }
