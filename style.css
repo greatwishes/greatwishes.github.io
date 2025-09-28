@@ -193,14 +193,14 @@ body {
 
 /* ===== Contact / Privacy Links ===== */
 .contact-link {
-  color: #ffcc00;
+  color: #ffcc00; /* أصفر */
   text-decoration: underline;
   transition: all 0.3s ease;
 }
 
 .contact-link:hover {
-  color: #fff;
-  text-shadow: 0 0 10px #ffcc00;
+  color: #fff; /* أبيض عند التحويم */
+  text-shadow: 0 0 10px #ffcc00; /* توهج أصفر */
 }
 
 /* ===== Footer ===== */
