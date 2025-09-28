@@ -9,43 +9,41 @@
   <meta name="author" content="GreatWishes">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greatwishes.github.io/app4.html" />
-  <link rel="stylesheet" href="style.css"> <!-- استايل الموقع -->
-  <link rel="stylesheet" href="buttons-style.css"> <!-- استايل الأزرار -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="buttons-style.css">
 </head>
 <body>
 
-  <header>
+  <header class="header">
     <h1>مرحباً بك في Greatwishes</h1>
     <p>أول موقع عربي لتحميل التطبيقات وتحديثها بسهولة</p>
   </header>
 
-  <!-- هنا تم إضافة اللوجو بالتأثير -->
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <!-- زر التحميل تحت اللوجو -->
-  <a href="https://github.com/greatwishes/myapp/raw/main/video/video_version.1.1.apk" class="btn">تحميل التطبيق</a>
+  <a href="#" id="downloadBtn1" class="btn">تحميل التطبيق</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="صورة التطبيق">
   </div>
 
   <div class="app-description">
-  <h2>تطبيق مشغل الفيديوهات: Videos App</h2>
-  <p>تطبيق <strong>Videos App</strong> هو أداة قوية وسهلة الاستخدام لعرض وتشغيل ملفات الفيديو بجودة عالية. يتميز التطبيق بواجهة بسيطة وأنيقة تدعم تشغيل جميع صيغ الفيديو الشهيرة، مع دعم كامل للغة العربية والإنجليزية لتناسب جميع المستخدمين.</p>
+    <h2>تطبيق مشغل الفيديوهات: Videos App</h2>
+    <p>تطبيق <strong>Videos App</strong> هو أداة قوية وسهلة الاستخدام لعرض وتشغيل ملفات الفيديو بجودة عالية. يتميز التطبيق بواجهة بسيطة وأنيقة تدعم تشغيل جميع صيغ الفيديو الشهيرة، مع دعم كامل للغة العربية والإنجليزية لتناسب جميع المستخدمين.</p>
 
-  <h3>الميزات الرئيسية للتطبيق:</h3>
-  <ul>
-    <li><strong>تشغيل جميع صيغ الفيديو:</strong> يدعم التطبيق معظم صيغ الفيديو الشهيرة مثل MP4، AVI، MKV وغيرها.</li>
-    <li><strong>واجهة مستخدم سهلة:</strong> تصميم بسيط وأنيق يجعل تشغيل الفيديوهات سهلاً وممتعاً.</li>
-    <li><strong>التحكم الكامل:</strong> يمكنك التحكم في الإيقاف والتقديم، وضبط مستوى الصوت وسطوع الشاشة بسهولة.</li>
-    <li><strong>دعم تشغيل الفيديوهات من الهاتف أو الذاكرة الخارجية:</strong> تصفح وشغل ملفات الفيديو أينما كانت مخزنة.</li>
-    <li><strong>دعم اللغة العربية:</strong> تجربة استخدام مرنة وسهلة لأي مستخدم.</li>
-  </ul>
-</div>
+    <h3>الميزات الرئيسية للتطبيق:</h3>
+    <ul>
+      <li><strong>تشغيل جميع صيغ الفيديو:</strong> يدعم التطبيق معظم صيغ الفيديو الشهيرة مثل MP4، AVI، MKV وغيرها.</li>
+      <li><strong>واجهة مستخدم سهلة:</strong> تصميم بسيط وأنيق يجعل تشغيل الفيديوهات سهلاً وممتعاً.</li>
+      <li><strong>التحكم الكامل:</strong> يمكنك التحكم في الإيقاف والتقديم، وضبط مستوى الصوت وسطوع الشاشة بسهولة.</li>
+      <li><strong>دعم تشغيل الفيديوهات من الهاتف أو الذاكرة الخارجية:</strong> تصفح وشغل ملفات الفيديو أينما كانت مخزنة.</li>
+      <li><strong>دعم اللغة العربية:</strong> تجربة استخدام مرنة وسهلة لأي مستخدم.</li>
+    </ul>
+  </div>
 
-  <a href="https://github.com/greatwishes/myapp/raw/main/video/video_version.1.1.apk" class="btn">تحميل التطبيق الآن</a>
+  <a href="#" id="downloadBtn2" class="btn">تحميل التطبيق الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">العودة للصفحة الرئيسية</a> |
@@ -53,55 +51,46 @@
     <a href="javascript:history.back()">الصفحة السابقة</a>
   </div>
 
-  <footer>
+  <footer class="footer">
     &copy; 2025 Greatwishes | جميع الحقوق محفوظة
   </footer>
 
-  <!-- إضافة ملف الصوت الخلفي هنا -->
   <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto" loop></audio>
-
-  <!-- إضافة ملف الصوت عند النقر -->
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
-  <!-- إضافة سكربت لتشغيل الصوت عند التمرير عبر الصفحة -->
   <script>
-    // إضافة حدث للزر لتشغيل الصوت عند النقر
-    document.querySelectorAll('.btn').forEach(function(button) {
-      button.addEventListener('click', function() {
-        document.getElementById('clickSound').play();  // تشغيل الصوت عند النقر
-      });
+    let apkUrl = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const jsonUrl = 'https://greatwishes.github.io/myapp/video/update_video.json';
+
+      fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.apk_url) {
+            apkUrl = data.apk_url;
+          } else {
+            console.error('رابط APK غير موجود.');
+          }
+        })
+        .catch(error => console.error('خطأ في تحميل JSON:', error));
     });
 
-    var backgroundSoundPlayed = false; // متغير لتحديد ما إذا تم تشغيل الصوت الخلفي أم لا
+    function handleDownloadClick(event) {
+      event.preventDefault();
+      const sound = document.getElementById('clickSound');
+      if (sound) sound.play();
 
-    // تشغيل الصوت الخلفي عند التمرير عبر الصفحة
-  //  window.addEventListener('scroll', function() {
-    //  var backgroundSound = document.getElementById('backgroundSound');
-    //  if (!backgroundSoundPlayed) {
-       // backgroundSound.play(); // تشغيل الصوت الخلفي عند التمرير
-       // backgroundSoundPlayed = true; // تأكيد أن الصوت قد تم تشغيله
-    //  }
- //   });
-  </script>
-  <script>
-  // اسم الملف الذي يحتوي على بيانات التحديث
-  const updateFile = 'update_video.json';  // تغيير اسم الملف إلى الملف الخاص بتطبيق تحويل الصوت إلى نص
+      if (apkUrl) {
+        window.location.href = apkUrl;
+      } else {
+        alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
+      }
+    }
 
-  // جلب بيانات الـ JSON بناءً على اسم الملف
-  fetch(`https://greatwishes.github.io/myapp/video/${updateFile}`)
-    .then(response => response.json())  // تحويل الاستجابة إلى JSON
-    .then(data => {
-      // استخراج رابط الـ APK من البيانات
-      const apkUrl = data.apk_url;
-
-      // تحديث روابط الأزرار ليتضمن النسخة الجديدة
-      const downloadButtons = document.querySelectorAll('.btn');  // التأكد من أن جميع الأزرار التي تحمل الكلاس .btn ستتحدث
-      downloadButtons.forEach(function(button) {
-        button.href = apkUrl;  // تحديث الرابط لجميع الأزرار
-      });
-    })
-    .catch(error => console.error('Error fetching update info:', error));  // التعامل مع الأخطاء في حالة فشل جلب البيانات
+    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
+    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
   </script>
 
 </body>
-</html>
+  </html>
