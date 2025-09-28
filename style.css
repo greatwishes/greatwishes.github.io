@@ -113,11 +113,11 @@ body {
 
 .app-description p {
   font-size: 1.2em;
-  color: #cfd8dc;
+  color: #ff9800; /* برتقالي */
   padding: 15px 20px;
   border-radius: 12px;
-  background: rgba(0,150,136,0.05);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 5px rgba(0,150,136,0.15);
+  background: rgba(0,0,0,0.05); /* خلفية شفافة داكنة تناسب البرتقالي */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,152,0,0.15);
   text-align: center;
   max-width: 800px;
 }
