@@ -14,18 +14,16 @@
 </head>
 <body>
 
-  <header>
+  <header class="header">
     <h1>لعبة من سيربح المليون</h1>
     <p>النسخة العربية الأشهر من المسابقة العالمية Millionaire</p>
   </header>
 
-    <!-- هنا تم إضافة اللوجو بالتأثير -->
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <!-- زر التحميل -->
-  <a href="https://github.com/greatwishes/myapp/raw/main/millionaire/millionaire_version.1.0.apk" class="btn">تحميل اللعبة</a>
+  <a href="#" id="downloadBtn1" class="btn">تحميل اللعبة</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png" alt="صورة اللعبة">
@@ -45,7 +43,7 @@
     </ul>
   </div>
 
-  <a href="https://github.com/greatwishes/myapp/raw/main/millionaire/millionaire_version.1.0.apk" class="btn">تحميل اللعبة الآن</a>
+  <a href="#" id="downloadBtn2" class="btn">تحميل اللعبة الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">العودة للصفحة الرئيسية</a> |
@@ -53,42 +51,39 @@
     <a href="javascript:history.back()">الصفحة السابقة</a>
   </div>
 
-  <footer>
+  <footer class="footer">
     &copy; 2025 GreatWishes | جميع الحقوق محفوظة
   </footer>
 
-  <!-- الصوتيات -->
   <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/millionaire_theme.mp3" preload="auto" loop></audio>
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
   <script>
-    document.querySelectorAll('.btn').forEach(function(button) {
-      button.addEventListener('click', function() {
-        document.getElementById('clickSound').play();
-      });
+    let apkUrl = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const jsonUrl = 'https://greatwishes.github.io/myapp/millionaire/update_millionaire.json';
+
+      fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.apk_url) apkUrl = data.apk_url;
+          else console.error('رابط APK غير موجود.');
+        })
+        .catch(error => console.error('خطأ في تحميل JSON:', error));
     });
 
-    var backgroundSoundPlayed = false;
+    function handleDownloadClick(event) {
+      event.preventDefault();
+      const sound = document.getElementById('clickSound');
+      if (sound) sound.play();
+      if (apkUrl) window.location.href = apkUrl;
+      else alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
+    }
 
-</script>    
-  <script> 
-  // اسم ملف التحديث الخاص بـ QuizApp
-  const updateFile = 'update_millionaire.json';
+    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
+    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
+  </script>
 
-  // جلب بيانات JSON
-  fetch(`https://greatwishes.github.io/myapp/millionaire/${updateFile}`)
-    .then(response => response.json())
-    .then(data => {
-      // استخراج رابط الـ APK
-      const apkUrl = data.apk_url;
-
-      // تحديث جميع الأزرار
-      const downloadButtons = document.querySelectorAll('.btn');
-      downloadButtons.forEach(function(button) {
-        button.href = apkUrl;
-      });
-    })
-    .catch(error => console.error('Error fetching update info:', error));
-</script>
 </body>
-</html>
+    </html>
