@@ -9,43 +9,41 @@
   <meta name="author" content="GreatWishes">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greatwishes.github.io/app6.html" />
-  <link rel="stylesheet" href="style.css"> <!-- استايل الموقع -->
-  <link rel="stylesheet" href="buttons-style.css"> <!-- استايل الأزرار -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="buttons-style.css">
 </head>
 <body>
 
-  <header>
+  <header class="header">
     <h1>مرحباً بك في Greatwishes</h1>
     <p>أول موقع عربي لتحميل التطبيقات وتحديثها بسهولة</p>
   </header>
 
-  <!-- هنا تم إضافة اللوجو بالتأثير -->
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <!-- زر التحميل تحت اللوجو -->
-  <a href="https://github.com/greatwishes/myapp/raw/main/quizapp/quizapp_version.1.0.apk" class="btn">تحميل التطبيق</a>
+  <a href="#" id="downloadBtn1" class="btn">تحميل التطبيق</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/quizapp/quizapp.jpg" alt="صورة التطبيق">
   </div>
 
   <div class="app-description">
-  <h2>لعبة QuizApp – أسئلة بثلاثة أحرف</h2>
-  <p>تطبيق <strong>QuizApp</strong> هو لعبة شيقة ومسلية تعتمد على الإجابة الصحيحة باستخدام <strong>ثلاثة أحرف فقط</strong>. اختبر ذكاءك وسرعة بديهتك مع مجموعة متنوعة من الأسئلة في مجالات متعددة.</p>
+    <h2>لعبة QuizApp – أسئلة بثلاثة أحرف</h2>
+    <p>تطبيق <strong>QuizApp</strong> هو لعبة شيقة ومسلية تعتمد على الإجابة الصحيحة باستخدام <strong>ثلاثة أحرف فقط</strong>. اختبر ذكاءك وسرعة بديهتك مع مجموعة متنوعة من الأسئلة في مجالات متعددة.</p>
 
-  <h3>الميزات الرئيسية للعبة:</h3>
-  <ul>
-    <li><strong>إجابات قصيرة:</strong> كل الأسئلة تعتمد على إجابة من ثلاثة أحرف فقط.</li>
-    <li><strong>تنوع في الأسئلة:</strong> تشمل الثقافة العامة، الرياضة، التاريخ، والفن.</li>
-    <li><strong>واجهة بسيطة:</strong> تصميم مريح وسهل الاستخدام يناسب الجميع.</li>
-    <li><strong>تحديات مستمرة:</strong> مستويات مختلفة تزيد من صعوبة اللعبة تدريجيًا.</li>
-    <li><strong>مناسبة للجميع:</strong> متعة وتسلية للأطفال والكبار مع دعم كامل للغة العربية.</li>
-  </ul>
-</div>
+    <h3>الميزات الرئيسية للعبة:</h3>
+    <ul>
+      <li><strong>إجابات قصيرة:</strong> كل الأسئلة تعتمد على إجابة من ثلاثة أحرف فقط.</li>
+      <li><strong>تنوع في الأسئلة:</strong> تشمل الثقافة العامة، الرياضة، التاريخ، والفن.</li>
+      <li><strong>واجهة بسيطة:</strong> تصميم مريح وسهل الاستخدام يناسب الجميع.</li>
+      <li><strong>تحديات مستمرة:</strong> مستويات مختلفة تزيد من صعوبة اللعبة تدريجيًا.</li>
+      <li><strong>مناسبة للجميع:</strong> متعة وتسلية للأطفال والكبار مع دعم كامل للغة العربية.</li>
+    </ul>
+  </div>
 
-  <a href="https://github.com/greatwishes/myapp/raw/main/quizapp/quizapp_version.1.0.apk" class="btn">تحميل التطبيق الآن</a>
+  <a href="#" id="downloadBtn2" class="btn">تحميل التطبيق الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">العودة للصفحة الرئيسية</a> |
@@ -53,54 +51,39 @@
     <a href="javascript:history.back()">الصفحة السابقة</a>
   </div>
 
-  <footer>
+  <footer class="footer">
     &copy; 2025 Greatwishes | جميع الحقوق محفوظة
   </footer>
 
-  <!-- إضافة ملف الصوت الخلفي هنا -->
   <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/background.mp3" preload="auto" loop></audio>
-
-  <!-- إضافة ملف الصوت عند النقر -->
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
-  <!-- إضافة سكربت لتشغيل الصوت عند التمرير عبر الصفحة -->
   <script>
-    // إضافة حدث للزر لتشغيل الصوت عند النقر
-    document.querySelectorAll('.btn').forEach(function(button) {
-      button.addEventListener('click', function() {
-        document.getElementById('clickSound').play();  // تشغيل الصوت عند النقر
-      });
+    let apkUrl = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const jsonUrl = 'https://greatwishes.github.io/myapp/quizapp/update_quizapp.json';
+
+      fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.apk_url) apkUrl = data.apk_url;
+          else console.error('رابط APK غير موجود.');
+        })
+        .catch(error => console.error('خطأ في تحميل JSON:', error));
     });
 
-    var backgroundSoundPlayed = false; // متغير لتحديد ما إذا تم تشغيل الصوت الخلفي أم لا
+    function handleDownloadClick(event) {
+      event.preventDefault();
+      const sound = document.getElementById('clickSound');
+      if (sound) sound.play();
+      if (apkUrl) window.location.href = apkUrl;
+      else alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
+    }
 
-    // تشغيل الصوت الخلفي عند التمرير عبر الصفحة
-   // window.addEventListener('scroll', function() {
-     // var backgroundSound = document.getElementById('backgroundSound');
-    //  if (!backgroundSoundPlayed) {
-       // backgroundSound.play(); // تشغيل الصوت الخلفي عند التمرير
-      //  backgroundSoundPlayed = true; // تأكيد أن الصوت قد تم تشغيله
-      //}
-    //});
-</script>    
-  <script> 
-  // اسم ملف التحديث الخاص بـ QuizApp
-  const updateFile = 'update_quizapp.json';
+    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
+    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
+  </script>
 
-  // جلب بيانات JSON
-  fetch(`https://greatwishes.github.io/myapp/quizapp/${updateFile}`)
-    .then(response => response.json())
-    .then(data => {
-      // استخراج رابط الـ APK
-      const apkUrl = data.apk_url;
-
-      // تحديث جميع الأزرار
-      const downloadButtons = document.querySelectorAll('.btn');
-      downloadButtons.forEach(function(button) {
-        button.href = apkUrl;
-      });
-    })
-    .catch(error => console.error('Error fetching update info:', error));
-</script>
 </body>
-</html>
+      </html>
