@@ -34,13 +34,7 @@ body:not(.inner-page) .header h1 {
   text-align: center;
   display: inline-block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-body:not(.inner-page) .header h1 span {
-  background: linear-gradient(90deg, #ffd700, #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
+  color: #ffd700; /* لون واضح بدل التدرج */
 }
 
 body:not(.inner-page) .header h1:hover {
@@ -50,7 +44,7 @@ body:not(.inner-page) .header h1:hover {
 
 body:not(.inner-page) .header p {
   font-size: 1.2em;
-  color: #cfd8dc;
+  color: #ffffff;
   max-width: 700px;
   text-align: center;
   padding: 10px 20px;
@@ -70,13 +64,7 @@ body.inner-page .header h1 {
   text-align: center;
   display: inline-block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-body.inner-page .header h1 span {
-  font-size: 2em;
-  background: linear-gradient(90deg, #ff6b6b, #ffd700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ff6b6b; /* لون واضح بدل التدرج */
 }
 
 body.inner-page .header h1:hover {
@@ -139,20 +127,7 @@ body.inner-page .header h1:hover {
   text-align: center;
   display: inline-block;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.app-description h2 span {
-  font-size: 2em;
-  background: linear-gradient(90deg, #ff6b6b, #ffd700);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.app-description h3 span {
-  font-size: 1.6em;
-  background: linear-gradient(90deg, #00d4ff, #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ff6b6b; /* لون واضح */
 }
 
 .app-description h2:hover, .app-description h3:hover {
@@ -163,7 +138,7 @@ body.inner-page .header h1:hover {
 /* نصوص داخل الكروت */
 .app-description p {
   font-size: 1.2em;
-  color: #d1d8e0; /* نصوص فاتحة متناسقة مع الخلفية الداكنة */
+  color: #ffffff; /* نصوص واضحة */
   padding: 15px 20px;
   border-radius: 12px;
   background: rgba(255,255,255,0.03);
@@ -180,7 +155,7 @@ body.inner-page .header h1:hover {
   border-radius: 12px;
   position: relative;
   font-weight: 500;
-  color: #f0f0f0; /* النص الرئيسي للعنصر */
+  color: #ffffff; /* النص الرئيسي واضح */
   box-shadow: 0 5px 15px rgba(0,0,0,0.5), inset 0 0 8px rgba(255,255,255,0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
@@ -218,7 +193,7 @@ body.inner-page .header h1:hover {
 }
 
 .navigation-links a:hover {
-  color: #ffdd57; /* عند المرور يتغير اللون */
+  color: #ffdd57;
   text-shadow: 0 0 5px rgba(255,215,0,0.6);
 }
 
@@ -227,33 +202,33 @@ body.inner-page .header h1:hover {
   margin-top: 50px;
   padding: 25px 20px;
   background: rgba(255,255,255,0.05);
-  color: #b0bec5; /* نص فاتح للـ Footer */
+  color: #b0bec5;
   font-size: 0.95em;
   border-top: 1px solid rgba(255,255,255,0.1);
   text-align: center;
 }
 
 .contact-info a {
-  color: #00d4ff; /* روابط الاتصال */
+  color: #00d4ff;
   text-decoration: none;
   font-weight: 500;
 }
 
 .contact-info a:hover {
-  color: #00aaff; /* عند المرور يتغير */
+  color: #00aaff;
   text-decoration: underline;
 }
 
 /* ----- Media Queries ----- */
 @media (max-width: 768px) {
-  .header h1 span { font-size: 2.5em; }
-  .app-description h2 span { font-size: 1.8em; }
-  .app-description h3 span { font-size: 1.4em; }
+  .header h1 { font-size: 2.5em; }
+  .app-description h2 { font-size: 1.8em; }
+  .app-description h3 { font-size: 1.4em; }
   .image-box img { width: 100%; }
 }
 
 @media (max-width: 480px) {
-  .header h1 span { font-size: 2em; }
-  .app-description h2 span { font-size: 1.6em; }
-  .app-description h3 span { font-size: 1.2em; }
+  .header h1 { font-size: 2em; }
+  .app-description h2 { font-size: 1.6em; }
+  .app-description h3 { font-size: 1.2em; }
 }
