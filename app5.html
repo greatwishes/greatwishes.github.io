@@ -88,7 +88,7 @@
   const updateFile = 'update_secretnotes.json';  // تغيير اسم الملف إلى الملف الخاص بتطبيق تحويل الصوت إلى نص
 
   // جلب بيانات الـ JSON بناءً على اسم الملف
-  fetch(`https://greatwishes.github.io/myapp/video/${updateFile}`)
+  fetch(`https://greatwishes.github.io/myapp/secretnotes/${updateFile}`)
     .then(response => response.json())  // تحويل الاستجابة إلى JSON
     .then(data => {
       // استخراج رابط الـ APK من البيانات
