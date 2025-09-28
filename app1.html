@@ -8,13 +8,11 @@
     <meta name="author" content="GreatWishes">
     <meta name="robots" content="index, follow">
     <title>GreatWishes - أول موقع لتحميل التطبيقات وتحديثها</title>
-    <link rel="canonical" href="https://greatwishes.github.io/app1.html">
     <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- <link rel="stylesheet" href="buttons-style.css"> -->
 </head>
 <body>
-  <header>
+  <header class="header">
     <h1>مرحباً بك في Greatwishes</h1>
     <p>أول موقع عربي لتحميل التطبيقات وتحديثها بسهولة</p>
   </header>
@@ -50,23 +48,19 @@
   </div>
 
   <p>
-    <a href="privacy.html" style="color: #ffcc00; text-decoration: none;"
-       onmouseover="this.style.color='#fff'; this.style.textShadow='0 0 10px #ffcc00';"
-       onmouseout="this.style.color='#ffcc00'; this.style.textShadow='none';">
+    <a href="privacy.html" class="contact-link">
       سياسة الخصوصية
     </a>
   </p>
 
   <p>
     للاستفسارات أو أي أسئلة، يُرجى التواصل معنا عبر البريد الإلكتروني التالي:
-    <a href="mailto:Greatdaylight@gmail.com" style="color: #ffcc00; text-decoration: underline;"
-       onmouseover="this.style.color='#fff'; this.style.textShadow='0 0 10px #ffcc00';"
-       onmouseout="this.style.color='#ffcc00'; this.style.textShadow='none';">
+    <a href="mailto:Greatdaylight@gmail.com" class="contact-link">
       Greatdaylight@gmail.com
     </a>
   </p>
 
-  <footer>
+  <footer class="footer">
     &copy; 2025 Greatwishes | جميع الحقوق محفوظة
   </footer>
 
@@ -80,9 +74,7 @@
         document.getElementById('clickSound').play();
       });
     });
-  </script>
 
-  <script>
     // تحميل رابط التحديث من JSON وتحديث روابط التحميل تلقائياً
     const updateFileUrl = 'https://raw.githubusercontent.com/greatwishes/myapp/main/music/update.json';
 
@@ -90,8 +82,7 @@
       .then(response => response.json())
       .then(data => {
         const apkUrl = data.apk_url;
-        const downloadButtons = document.querySelectorAll('.btn');
-        downloadButtons.forEach(button => {
+        document.querySelectorAll('.btn').forEach(button => {
           button.href = apkUrl;
         });
       })
