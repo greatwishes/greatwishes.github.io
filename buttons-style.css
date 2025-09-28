@@ -1,5 +1,5 @@
 /* تأثير حركة الأزرار (تأرجح) */
-@keyframes swing {
+/*@keyframes swing {
   0% { transform: rotate(0deg); }
   25% { transform: rotate(5deg); }
   50% { transform: rotate(0deg); }
@@ -8,7 +8,7 @@
 }
 
 /* تطبيق تأثير الحركة */
-.btn {
+/*.btn {
   display: inline-block;
   margin-top: 30px;
   padding: 15px 30px;
@@ -20,16 +20,16 @@
   cursor: pointer;
   text-decoration: none;
   animation: swing 2s ease-in-out infinite; /* الحركة المستمرة */
-  transition: transform 0.3s ease;
+/*  transition: transform 0.3s ease;
 }
 
 .btn:hover {
   background-color: #fff; /* تغيير اللون عند التمرير */
-  color: #000; /* تغيير النص عند التمرير */
-}
+/*  color: #000; /* تغيير النص عند التمرير */
+/*}
 
 /* تأثير الحركة عند التمرير فوق الزر */
-.btn {
+/*.btn {
   display: inline-block;
   margin-top: 30px;
   padding: 15px 30px;
@@ -44,9 +44,9 @@
 }
 
 /* تأثير الحركة عند التمرير فوق الزر */
-.btn:hover {
+/*.btn:hover {
   transform: translateY(-5px); /* الحركة للأعلى */
-  background-color: #fff; /* تغيير اللون */
-  color: #ffcc00; /* تغيير النص */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* إضافة ظل ناعم */
+/*  background-color: #fff; /* تغيير اللون */
+/*  color: #ffcc00; /* تغيير النص */
+/*  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* إضافة ظل ناعم */
   }
