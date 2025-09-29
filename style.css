@@ -232,3 +232,38 @@ body {
   .app-description h3 { font-size: 1.2em; }
   .image-box img { width: 100%; }
     }
+	
+
+/* ===== Slider التطبيقات المختارة ===== */
+.slider-item {
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.slider-item img {
+  display: block;
+  width: 150px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.slider-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+}
+
+.app-name {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  text-align: center;
+    }
