@@ -236,36 +236,31 @@ body {
 
 /* ===== Slider التطبيقات المختارة ===== */
 .slider-item {
-  position: relative;
   display: inline-block;
   margin: 0 10px;
+  text-align: center; /* الاسم يظهر أسفل الصورة */
 }
 
 .slider-item img {
   display: block;
-  width: 150px;
+  border-radius: 10px;
+  max-width: 150px; /* أو أي حجم مناسب */
   height: auto;
-  border-radius: 8px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-..slider-item {
-  position: relative;
-  display: inline-block;
-  margin: 0 10px;
+  margin-bottom: 5px; /* مسافة بين الصورة والاسم */
 }
 
 .app-name {
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0,0,0,0.6);
-  color: #ffffff !important; /* إجبار اللون الأبيض */
-  -webkit-text-fill-color: #ffffff !important; /* لمنع أي تأثير gradient وراثي */
+  display: block;
+  background: rgba(0,0,0,0.6); /* خلفية شفافة */
+  color: #fff;
   padding: 2px 5px;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 14px;
   text-align: center;
-							}
+  transition: all 0.3s ease; /* إضافة انتقال سلس للتأثير */
+}
+
+.app-name:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+}
