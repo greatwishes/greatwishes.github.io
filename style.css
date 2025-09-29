@@ -235,7 +235,7 @@ body {
 	}
 
 /* ===== Slider التطبيقات المختارة ===== */
-/* ===== اسم التطبيق أسفل الصورة مع توهج ===== */
+/* ===== اسم التطبيق أسفل الصورة مع وضوح وتوهج خفيف ===== */
 .slider-item {
   display: inline-block;
   margin: 0 10px;
@@ -244,7 +244,7 @@ body {
 
 .app-name {
   display: block;
-  background: rgba(0,0,0,0.7) !important; /* خلفية داكنة */
+  background: rgba(0,0,0,0.8) !important; /* خلفية داكنة شفافة */
   color: #ffffff !important;               /* إجبار اللون الأبيض */
   -webkit-text-fill-color: #ffffff !important;
   font-weight: 700 !important;
@@ -253,11 +253,11 @@ body {
   font-size: 14px !important;
   margin-top: 8px !important;              /* مسافة بين الصورة والاسم */
   text-align: center !important;
-  text-shadow: 0 0 5px #ffeb3b, 0 0 10px #ffeb3b, 0 0 15px #ffeb3b !important; /* توهج أصفر */
+  text-shadow: 0 0 2px rgba(255,255,255,0.3) !important; /* توهج خفيف جدًا */
   transition: all 0.3s ease !important;
 }
 
 .app-name:hover {
   transform: translateY(-2px) !important;
   box-shadow: 0 4px 10px rgba(0,0,0,0.8) !important;
-				  }
+}
