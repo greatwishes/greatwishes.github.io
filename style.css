@@ -232,7 +232,7 @@ body {
   .app-description h3 { font-size: 1.2em; }
   .image-box img { width: 100%; }
     }
-	
+	}
 
 /* ===== Slider التطبيقات المختارة ===== */
 .slider-item {
@@ -250,9 +250,10 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.slider-item img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+..slider-item {
+  position: relative;
+  display: inline-block;
+  margin: 0 10px;
 }
 
 .app-name {
@@ -261,9 +262,10 @@ body {
   left: 50%;
   transform: translateX(-50%);
   background: rgba(0,0,0,0.6);
-  color: #fff;
+  color: #ffffff !important; /* إجبار اللون الأبيض */
+  -webkit-text-fill-color: #ffffff !important; /* لمنع أي تأثير gradient وراثي */
   padding: 2px 5px;
   border-radius: 3px;
   font-size: 14px;
   text-align: center;
-    }
+							}
