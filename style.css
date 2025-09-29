@@ -235,20 +235,29 @@ body {
 	}
 
 /* ===== Slider التطبيقات المختارة ===== */
+/* ===== اسم التطبيق أسفل الصورة مع توهج ===== */
+.slider-item {
+  display: inline-block;
+  margin: 0 10px;
+  text-align: center; /* الاسم يظهر أسفل الصورة */
+}
+
 .app-name {
   display: block;
-  background: rgba(0, 0, 0, 0.8); /* خلفية أغمق وأكثر وضوحًا */
-  color: #ffffff;               /* نص أبيض لامع */
-  font-weight: 700;             /* يجعل النص بارز */
-  padding: 4px 8px;             /* مساحة أكبر حول النص */
-  border-radius: 5px;
-  font-size: 14px;
-  text-align: center;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* ظل نص خفيف ليزيد وضوحه */
-  transition: all 0.3s ease;
+  background: rgba(0,0,0,0.7) !important; /* خلفية داكنة */
+  color: #ffffff !important;               /* إجبار اللون الأبيض */
+  -webkit-text-fill-color: #ffffff !important;
+  font-weight: 700 !important;
+  padding: 4px 8px !important;
+  border-radius: 6px !important;
+  font-size: 14px !important;
+  margin-top: 8px !important;              /* مسافة بين الصورة والاسم */
+  text-align: center !important;
+  text-shadow: 0 0 5px #ffeb3b, 0 0 10px #ffeb3b, 0 0 15px #ffeb3b !important; /* توهج أصفر */
+  transition: all 0.3s ease !important;
 }
 
 .app-name:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.7);
-		}
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.8) !important;
+				  }
