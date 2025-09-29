@@ -235,32 +235,20 @@ body {
 	}
 
 /* ===== Slider التطبيقات المختارة ===== */
-.slider-item {
-  display: inline-block;
-  margin: 0 10px;
-  text-align: center; /* الاسم يظهر أسفل الصورة */
-}
-
-.slider-item img {
-  display: block;
-  border-radius: 10px;
-  max-width: 150px; /* أو أي حجم مناسب */
-  height: auto;
-  margin-bottom: 5px; /* مسافة بين الصورة والاسم */
-}
-
 .app-name {
   display: block;
-  background: rgba(0,0,0,0.6); /* خلفية شفافة */
-  color: #fff;
-  padding: 2px 5px;
+  background: rgba(0, 0, 0, 0.8); /* خلفية أغمق وأكثر وضوحًا */
+  color: #ffffff;               /* نص أبيض لامع */
+  font-weight: 700;             /* يجعل النص بارز */
+  padding: 4px 8px;             /* مساحة أكبر حول النص */
   border-radius: 5px;
   font-size: 14px;
   text-align: center;
-  transition: all 0.3s ease; /* إضافة انتقال سلس للتأثير */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* ظل نص خفيف ليزيد وضوحه */
+  transition: all 0.3s ease;
 }
 
 .app-name:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.7);
-}
+		}
