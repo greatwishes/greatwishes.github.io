@@ -176,20 +176,29 @@ h2:hover, h3:hover {
 /* ===== Navigation Links ===== */
 .navigation-links {
   margin-top: 60px;
+  display: flex;
+  justify-content: center; /* توسيط الأزرار أفقياً */
+  gap: 15px; /* مسافة بين كل زر */
+  flex-wrap: wrap; /* إذا الشاشة ضيقة، تنتقل للأعلى */
 }
 
 .navigation-links a {
-  margin: 0 12px;
-  color: #ffcc00;
-  text-decoration: none;
+  display: inline-block;
+  padding: 10px 20px; /* حجم الزر */
+  background: #ffcc00; /* نفس لون النص الأصلي */
+  color: #000; /* لون الخط أسود داخل الزر */
   font-weight: 600;
+  text-decoration: none;
+  border-radius: 12px; /* زوايا مستديرة */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4); /* ظل خفيف للزر */
   transition: all 0.3s ease;
 }
 
 .navigation-links a:hover {
-  color: #ffdd57;
-  text-shadow: 0 0 5px rgba(255,193,7,0.6);
-}
+  color: #000; /* لون النص يبقى واضح */
+  background: #ffdd57; /* اللون عند التحويم */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 10px rgba(255,223,87,0.4); /* ظل أكثر توهجاً */
+	}
 
 /* ===== Contact / Privacy Links ===== */
 .contact-link, 
