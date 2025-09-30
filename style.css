@@ -194,17 +194,22 @@ h2:hover, h3:hover {
 /* ===== Contact / Privacy Links ===== */
 .contact-link, 
 .contact-link:visited, 
-.contact-link:active, 
-.contact-link:hover {
+.contact-link:active {
   color: #ffcc00; /* أصفر */
   text-decoration: underline;
-  text-shadow: none; /* إزالة أي تأثير أزرق أو بنفسجي */
+  text-shadow: 
+    1px 1px 0 #000,    /* ظل أسفل يمين يعطي إحساس بالبروز */
+    2px 2px 3px rgba(0,0,0,0.5), /* ظل أكبر لتقوية البروز */
+    0 0 5px rgba(255,204,0,0.5); /* توهج خفيف */
   transition: all 0.3s ease;
 }
 
 .contact-link:hover {
-  color: #fff; /* أبيض عند التحويم */
-  text-shadow: 0 0 10px #ffcc00; /* توهج أصفر */
+  color: #ffffff; /* أبيض عند التحويم */
+  text-shadow: 
+    2px 2px 0 #000, 
+    4px 4px 6px rgba(0,0,0,0.6), /* زيادة البروز عند التحويم */
+    0 0 10px rgba(255,255,0,0.7); /* توهج أصفر أقوى */
 }
 
 /* ===== Footer ===== */
