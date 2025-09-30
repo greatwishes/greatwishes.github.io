@@ -139,7 +139,7 @@ h2:hover, h3:hover {
 }
 
 .app-description ul li:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.6), inset 0 0 10px rgba(0,188,212,0.15);
 }
 
