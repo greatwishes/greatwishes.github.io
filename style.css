@@ -91,7 +91,7 @@ body {
 }
 
 /* ===== App Description H2 & H3 ===== */
-.app-description h2,
+
 h2, h3 {
   font-weight: 700;
   padding: 20px 30px;
