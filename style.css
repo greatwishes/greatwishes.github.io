@@ -212,7 +212,7 @@ h2:hover, h3:hover {
   margin-top: 50px;
   padding: 25px 20px;
   background: #000000; /* أسود خالص */
-  color: #cccccc;      /* لون النص الرمادي الفاتح */
+  color: #8E0800;      /* لون النص الرمادي الفاتح */
   font-size: 0.95em;
   border-top: 1px solid #330000;
   text-align: center;
@@ -220,7 +220,7 @@ h2:hover, h3:hover {
   /* تأثير محفور ثلاثي الأبعاد */
   text-shadow: 
      2px 2px 0 #111111,   /* ظل داكن أسفل يمين */
-    -2px -2px 0 #ffffff,  /* ظل فاتح أعلى يسار */
+    -2px -2px 0 #A30900,  /* ظل فاتح أعلى يسار */
      1px 1px 1px rgba(0,0,0,0.6),  /* ظل خفيف لإضافة عمق */
     -1px -1px 1px rgba(255,255,255,0.3), /* ظل فاتح لإضاءة */
      0 0 8px rgba(255,255,255,0.05);  /* توهج خفيف لإبراز الحفر */
