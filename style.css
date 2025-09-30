@@ -44,15 +44,14 @@ box-shadow: 0 15px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,204,0,0.25);
 }
 
 .header p {
-font-size: 1.2em;
-.header p {
-color: #970800 !important;
-max-width: 700px;
-padding: 10px 20px;
-border-radius: 12px;
-background: rgba(33,150,243,0.05);
-box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 5px rgba(33,150,243,0.15);
-margin: 20px auto 0 auto;
+  font-size: 1.2em;
+  color: #970800 !important; /* هذا اللون هو الأحمر الغامق */
+  max-width: 700px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: rgba(33,150,243,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 5px rgba(33,150,243,0.15);
+  margin: 20px auto 0 auto;
 }
 
 /* ===== Logo / Images ===== */
