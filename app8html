@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>من سيربح المليون - Millionaire</title>
+  <meta name="description" content="لعبة من سيربح المليون - Millionaire، النسخة العربية المشهورة من المسابقة العالمية بأسئلة عامة ومتنوعة مع أجواء تفاعلية مشوقة.">
+  <meta name="keywords" content="من سيربح المليون, Millionaire, لعبة أسئلة, ثقافة عامة, مسابقات, ألعاب ذكاء, ألعاب مجانية, مسابقات تلفزيونية, أسئلة وأجوبة, ألعاب عربية">
+  <meta name="author" content="GreatWishes">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greatwishes.github.io/app8.html" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="buttons-style.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1>لعبة من سيربح المليون</h1>
+    <p>النسخة العربية الأشهر من المسابقة العالمية Millionaire</p>
+  </header>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
+  </div>
+
+  <a href="#" id="downloadBtn1" class="btn">تحميل اللعبة</a>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg" alt="صورة اللعبة">
+  </div>
+
+  <div class="app-description">
+    <h2>من سيربح المليون – Millionaire</h2>
+    <p>تطبيق <strong>من سيربح المليون</strong> يجلب لك أجواء المسابقة التلفزيونية الشهيرة مباشرة على هاتفك. تحدَّ نفسك بالإجابة على أسئلة متنوعة في <strong>الثقافة العامة، العلوم، الرياضة، التاريخ، والفن</strong> لتصل إلى المليون.</p>
+
+    <h3>مميزات اللعبة:</h3>
+    <ul>
+      <li><strong>أجواء المسابقة الحقيقية:</strong> موسيقى وتأثيرات صوتية تزيد من الإثارة.</li>
+      <li><strong>تنوع كبير في الأسئلة:</strong> أسئلة صعبة وسهلة لتناسب الجميع.</li>
+      <li><strong>وسائل مساعدة:</strong> مثل حذف إجابتين، الاتصال بصديق، أو الاستعانة بالجمهور.</li>
+      <li><strong>تصميم جذاب:</strong> واجهة سهلة وممتعة تحاكي البرنامج الأصلي.</li>
+      <li><strong>مناسبة للجميع:</strong> متعة وتسلية للأطفال والكبار بدعم كامل للغة العربية.</li>
+    </ul>
+  </div>
+
+  <a href="#" id="downloadBtn2" class="btn">تحميل اللعبة الآن</a>
+
+  <div class="navigation-links">
+    <a href="index.html">العودة للصفحة الرئيسية</a> |
+    <a href="index.html">تطبيق آخر</a> |
+    <a href="javascript:history.back()">الصفحة السابقة</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 GreatWishes | جميع الحقوق محفوظة
+  </footer>
+
+  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/fifteen_theme.mp3" preload="auto" loop></audio>
+  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
+
+  <script>
+    let apkUrl = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const jsonUrl = 'https://greatwishes.github.io/myapp/fifteen/update_fifteen.json';
+
+      fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.apk_url) apkUrl = data.apk_url;
+          else console.error('رابط APK غير موجود.');
+        })
+        .catch(error => console.error('خطأ في تحميل JSON:', error));
+    });
+
+    function handleDownloadClick(event) {
+      event.preventDefault();
+      const sound = document.getElementById('clickSound');
+      if (sound) sound.play();
+      if (apkUrl) window.location.href = apkUrl;
+      else alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
+    }
+
+    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
+    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
+  </script>
+
+</body>
+    </html>
