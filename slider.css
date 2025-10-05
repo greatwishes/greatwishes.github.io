@@ -1,17 +1,23 @@
 /* السلايدر */
 .slider-container {
-  overflow:hidden;
-  margin:20px auto;
-  padding:15px 0;
-  border-top:1px solid rgba(255,255,255,0.2);
-  border-bottom:1px solid rgba(255,255,255,0.2);
+  overflow: hidden;
+  margin: 20px auto;
+  padding: 15px 0;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
   background: rgba(255,255,255,0.05);
 }
 
+/* المسار */
 .slider-track {
   display: flex;
   flex-wrap: nowrap;
-  animation: scrollOnce 15s linear infinite; /* تتحرك مرة واحدة ثم تعود */
+  animation: scrollOnce 35s linear infinite; /* أبطأ */
+}
+
+/* عند تفاعل المستخدم يتوقف */
+.slider-container:hover .slider-track {
+  animation-play-state: paused;
 }
 
 .slider-track a {
@@ -20,20 +26,21 @@
 }
 
 .slider-track img {
-  width:200px;
-  height:360px;
-  border-radius:15px;
-  box-shadow:0 0 15px rgba(0,229,255,0.4);
+  width: 200px;
+  height: 360px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,229,255,0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .slider-track img:hover {
-  transform:scale(1.07);
-  box-shadow:0 0 20px #00e5ff;
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #00e5ff;
 }
 
+/* الحركة */
 @keyframes scrollOnce {
   0% { transform: translateX(0); }
-  50% { transform: translateX(calc(-100% + 200px*9)); } /* 7 صور بدل 5 */
+  50% { transform: translateX(calc(-100% + 200px * 9)); } /* تصحيح الخطأ السابق */
   100% { transform: translateX(0); }
 }
