@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لعبة ترتيب الأرقام - Fifteen Puzzle</title>
+  <meta name="description" content="لعبة Fifteen Puzzle، ترتيب الأرقام داخل شبكة 4×4 للوصول إلى الحل النهائي بطريقة مسلية وتفاعلية.">
+  <meta name="keywords" content="Fifteen Puzzle, لعبة ترتيب الأرقام, ألعاب ذكاء, تحدي الأرقام, brain game, ألعاب مجانية, ألعاب عربية">
+  <meta name="author" content="GreatWishes">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greatwishes.github.io/app8.html" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="buttons-style.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1>لعبة ترتيب الأرقام - Fifteen Puzzle</h1>
+    <p>رتب الأرقام داخل الشبكة للوصول إلى الترتيب الصحيح بطريقة مسلية وتفاعلية</p>
+  </header>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
+  </div>
+
+  <a href="#" id="downloadBtn1" class="btn">تحميل اللعبة</a>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg" alt="صورة اللعبة">
+  </div>
+
+  <div class="app-description">
+    <h2>Fifteen Puzzle – ترتيب الأرقام</h2>
+    <p>تطبيق <strong>Fifteen Puzzle</strong> يمنحك تجربة تحدي ذهني ممتع، حيث عليك ترتيب الأرقام من 1 إلى 15 داخل شبكة 4×4. حاول ترتيب كل صف للحصول على ألوان مضيئة وتأثيرات بصرية ممتعة.</p>
+
+    <h3>مميزات اللعبة:</h3>
+    <ul>
+      <li><strong>ألوان مضيئة عند ترتيب الصفوف:</strong> رؤية الصفوف تضيء عند الترتيب الصحيح تضيف متعة وتشويق.</li>
+      <li><strong>تحدي وتركيز:</strong> تحسين مهارات التركيز وحل المشكلات من خلال ترتيب الأرقام.</li>
+      <li><strong>إحصائيات وتحكم بالوقت:</strong> عداد الوقت وسجل الحركات لمتابعة الأداء.</li>
+      <li><strong>تصميم جذاب وبسيط:</strong> واجهة واضحة وسهلة اللعب مع تأثيرات بصرية مميزة.</li>
+      <li><strong>مناسبة للجميع:</strong> لعبة ممتعة للكبار والصغار، وتدعم اللغة العربية بالكامل.</li>
+    </ul>
+  </div>
+
+  <a href="#" id="downloadBtn2" class="btn">تحميل اللعبة الآن</a>
+
+  <div class="navigation-links">
+    <a href="index.html">العودة للصفحة الرئيسية</a> |
+    <a href="index.html">تطبيق آخر</a> |
+    <a href="javascript:history.back()">الصفحة السابقة</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 GreatWishes | جميع الحقوق محفوظة
+  </footer>
+
+  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/fifteen_theme.mp3" preload="auto" loop></audio>
+  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
+
+  <script>
+    let apkUrl = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const jsonUrl = 'https://greatwishes.github.io/myapp/fifteen/update_fifteen.json';
+
+      fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.apk_url) apkUrl = data.apk_url;
+          else console.error('رابط APK غير موجود.');
+        })
+        .catch(error => console.error('خطأ في تحميل JSON:', error));
+    });
+
+    function handleDownloadClick(event) {
+      event.preventDefault();
+      const sound = document.getElementById('clickSound');
+      if (sound) sound.play();
+      if (apkUrl) window.location.href = apkUrl;
+      else alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
+    }
+
+    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
+    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
+  </script>
+
+</body>
+</html>
