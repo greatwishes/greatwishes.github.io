@@ -12,7 +12,7 @@
 .slider-track {
   display: flex;
   flex-wrap: nowrap;
-  animation: scrollOnce 100s linear infinite; /* أبطأ */
+  animation: scrollOnce 80s linear infinite; /* أبطأ */
 }
 
 /* عند تفاعل المستخدم يتوقف */
