@@ -41,6 +41,6 @@
 /* الحركة */
 @keyframes scrollOnce {
   0% { transform: translateX(0); }
-  50% { transform: translateX(calc(-100% + 200px * 9)); } /* تصحيح الخطأ السابق */
+  50% { transform: translateX(calc(-100% + 200px * 10)); } /* تصحيح الخطأ السابق */
   100% { transform: translateX(0); }
 }
