@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل معنا | GreatWishes</title>
+  <meta name="description" content="صفحة تواصل معنا للتواصل مع فريق GreatWishes عبر البريد الإلكتروني أو النموذج المباشر.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="buttons-style.css">
+</head>
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="lang-btn" id="lang-btn">EN</div>
+      <div class="menu-toggle" id="mobile-menu">
+        <div class="ellipsis-container">
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#apps">التطبيقات</a></li>
+        <li><a href="index.html#guide">الدليل</a></li>
+        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Header ===== -->
+  <header class="header">
+    <h1>تواصل معنا</h1>
+    <p>نحن هنا للإجابة على استفساراتك وملاحظاتك</p>
+  </header>
+
+  <!-- نموذج التواصل -->
+  <section id="contact">
+    <div class="contact-form">
+      <h2>أرسل لنا رسالة</h2>
+      <form action="mailto:Greatdaylight@gmail.com" method="post" enctype="text/plain">
+        <label for="name">الاسم:</label>
+        <input type="text" id="name" name="name" required placeholder="أدخل اسمك">
+
+        <label for="email">البريد الإلكتروني:</label>
+        <input type="email" id="email" name="email" required placeholder="أدخل بريدك الإلكتروني">
+
+        <label for="subject">الموضوع:</label>
+        <input type="text" id="subject" name="subject" required placeholder="موضوع الرسالة">
+
+        <label for="message">الرسالة:</label>
+        <textarea id="message" name="message" rows="5" required placeholder="اكتب رسالتك هنا"></textarea>
+
+        <button type="submit" class="btn">إرسال الرسالة</button>
+      </form>
+    </div>
+
+    <!-- طرق التواصل الأخرى -->
+    <div class="contact-info">
+      <h2>طرق التواصل الأخرى</h2>
+      <p>📧 البريد الإلكتروني: <a href="mailto:Greatdaylight@gmail.com" class="contact-link">Greatdaylight@gmail.com</a></p>
+      <p>📱 تابعنا على وسائل التواصل الاجتماعي:</p>
+      <ul class="social-links">
+        <li><a href="#" target="_blank">فيسبوك</a></li>
+        <li><a href="#" target="_blank">تويتر</a></li>
+        <li><a href="#" target="_blank">إنستغرام</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- الفوتر -->
+  <footer class="footer">
+    &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
+  </footer>
+
+  <!-- سكريبت القوائم واللغة -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
+    });
+
+    document.addEventListener('click', e => {
+      if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
+    });
+
+    navLinks.addEventListener('click', e => e.stopPropagation());
+
+    const langBtn = document.getElementById('lang-btn');
+    langBtn.addEventListener('click', () => {
+      if (currentLang === 'ar') {
+        setLanguage('en');
+        langBtn.innerHTML = 'AR';
+      } else {
+        setLanguage('ar');
+        langBtn.innerHTML = 'EN';
+      }
+    });
+  </script>
+
+  <script src="languages/lang_contact.js"></script>
+
+</body>
+</html>
