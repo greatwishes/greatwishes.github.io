@@ -332,8 +332,10 @@ text-shadow: 0 0 5px rgba(255,193,7,0.6);
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  position: relative;
 }
 
+/* تأثير 3D عند التحويم */
 .nav-links li a:hover {
   transform: rotateX(5deg) translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.7);
@@ -341,6 +343,60 @@ text-shadow: 0 0 5px rgba(255,193,7,0.6);
   color: #ffffff;
 }
 
+/* ===== زر القائمة (3 خطوط بيضاء في منتصف الكرت الأسمر) ===== */
+.menu-toggle {
+  display: none;
+  width: 50px; /* نفس حجم زر اللغة */
+  height: 42px;
+  background: rgba(20, 30, 40, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  z-index: 10000;
+  position: relative;
+}
+
+.menu-toggle:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+  background: rgba(33, 45, 60, 0.95);
+}
+
+/* الخطوط الثلاثة */
+.menu-toggle span {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+/* الخط العلوي */
+.menu-toggle span:nth-child(1) {
+  top: 11px;
+}
+
+/* الخط الأوسط */
+.menu-toggle span:nth-child(2) {
+  top: 19px;
+}
+
+/* الخط السفلي */
+.menu-toggle span:nth-child(3) {
+  top: 27px;
+}
+
+/* إظهار الزر في الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}
 /* ===== Mobile Menu Toggle ===== */
 .menu-toggle {
   display: none;
