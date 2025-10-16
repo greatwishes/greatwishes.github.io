@@ -1,4 +1,3 @@
-// lang_contact.js
 const lang = {
   ar: {
     headerTitle: "تواصل معنا",
@@ -20,7 +19,11 @@ const lang = {
     otherContactsTitle: "طرق التواصل الأخرى",
     emailText: "البريد الإلكتروني:",
     socialText: "تابعنا على وسائل التواصل الاجتماعي:",
-    socialLinks: ["فيسبوك", "تويتر", "إنستغرام"]
+    socialLinks: ["فيسبوك", "تويتر", "إنستغرام"],
+    footer: {
+      siteName: "GreatWishes",
+      rights: "جميع الحقوق محفوظة"
+    }
   },
   en: {
     headerTitle: "Contact Us",
@@ -42,13 +45,15 @@ const lang = {
     otherContactsTitle: "Other Contact Methods",
     emailText: "Email:",
     socialText: "Follow us on social media:",
-    socialLinks: ["Facebook", "Twitter", "Instagram"]
+    socialLinks: ["Facebook", "Twitter", "Instagram"],
+    footer: {
+      siteName: "GreatWishes",
+      rights: "All rights reserved"
+    }
   }
 };
 
-// Default language
-let currentLang = 'ar';
-
+// عند تغيير اللغة، نحدث نصوص الفوتر أيضًا
 function setLanguage(langCode) {
   currentLang = langCode;
 
@@ -84,4 +89,7 @@ function setLanguage(langCode) {
   socialLinks.forEach((link, index) => {
     link.innerHTML = lang[langCode].socialLinks[index];
   });
-}
+
+  // Footer
+  document.querySelector('.footer').innerHTML = `&copy; 2025 <span data-lang-key="siteName">${lang[langCode].footer.siteName}</span> | <span data-lang-key="rights">${lang[langCode].footer.rights}</span>`;
+  }
