@@ -77,38 +77,44 @@
     &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
   </footer>
 
-  <!-- تحميل ملف الترجمة أولاً -->
-<script src="languages/lang_contact.js"></script>
+  <!-- تحميل ملف الترجمة -->
+  <script src="languages/lang_contact.js"></script>
 
-<!-- سكريبت القوائم واللغة بعد تحميل lang_contact.js -->
-<script>
-  const menuToggle = document.getElementById('mobile-menu');
-  const navLinks = document.querySelector('.nav-links');
+  <!-- سكريبت القوائم واللغة -->
+  <script>
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
 
-  menuToggle.addEventListener('click', e => {
-    e.stopPropagation();
-    navLinks.classList.toggle('active');
-  });
+    menuToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
+    });
 
-  document.addEventListener('click', e => {
-    if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-    }
-  });
+    document.addEventListener('click', e => {
+      if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
+    });
 
-  navLinks.addEventListener('click', e => e.stopPropagation());
+    navLinks.addEventListener('click', e => e.stopPropagation());
 
-  const langBtn = document.getElementById('lang-btn');
-  langBtn.addEventListener('click', () => {
-    if (currentLang === 'ar') {
-      setLanguage('en');
-      langBtn.innerHTML = 'AR';
-    } else {
-      setLanguage('ar');
-      langBtn.innerHTML = 'EN';
-    }
-  });
-</script>
+    // تفعيل زر الترجمة
+    const langBtn = document.getElementById('lang-btn');
+    langBtn.addEventListener('click', () => {
+      if (currentLang === 'ar') {
+        setLanguage('en');
+        langBtn.innerHTML = 'AR';
+      } else {
+        setLanguage('ar');
+        langBtn.innerHTML = 'EN';
+      }
+    });
+
+    // تطبيق اللغة الافتراضية عند تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang);
+    });
+  </script>
 
 </body>
 </html>
