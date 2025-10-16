@@ -77,11 +77,11 @@
     &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
   </footer>
 
-  <!-- تحميل ملف الترجمة -->
-  <script src="languages/lang_contact.js"></script>
+  
 
   <!-- سكريبت القوائم واللغة -->
-  <script>
+<script>
+    // قائمة الهاتف المتحرك
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
 
@@ -97,9 +97,12 @@
     });
 
     navLinks.addEventListener('click', e => e.stopPropagation());
+  </script>
 
-    // تفعيل زر الترجمة
+  <script src="languages/lang_contact.js"></script>
+  <script>
     const langBtn = document.getElementById('lang-btn');
+
     langBtn.addEventListener('click', () => {
       if (currentLang === 'ar') {
         setLanguage('en');
@@ -108,11 +111,6 @@
         setLanguage('ar');
         langBtn.innerHTML = 'EN';
       }
-    });
-
-    // تطبيق اللغة الافتراضية عند تحميل الصفحة
-    document.addEventListener('DOMContentLoaded', () => {
-      setLanguage(currentLang);
     });
   </script>
 
