@@ -5,7 +5,7 @@ const lang = {
     headerSubtitle: "استمتع بأغانيك المفضلة وقوائم التشغيل المتنوعة",
     appTitle: "تطبيق الموسيقى",
     appDescription: "تطبيق هو تطبيق مبتكر ومميز لتشغيل الموسيقى والاستمتاع بأفضل الأغاني من جميع الأنواع...",
-    featuresTitle: "الميزات الرئيسية للتطبيق:",
+    featuresTitle: "الميزات الرئيسية للتطبيق",
     features: [
       "تشغيل الموسيقى: استمتع بتشغيل أغانيك المفضلة في أي وقت وفي أي مكان.",
       "واجهة مستخدم سهلة: تصميم عصري يتيح لك تصفح وتنظيم الموسيقى بكل سهولة.",
@@ -29,7 +29,7 @@ const lang = {
     headerSubtitle: "Enjoy your favorite songs and diverse playlists",
     appTitle: "Music App",
     appDescription: "This is an innovative and unique music app to play and enjoy the best songs from all genres...",
-    featuresTitle: "Main Features:",
+    featuresTitle: "Main Features",
     features: [
       "Play Music: Enjoy your favorite songs anytime and anywhere.",
       "Easy User Interface: Modern design allows you to browse and organize music easily.",
