@@ -1,4 +1,4 @@
-// تعريف اللغات
+// lang_contact.js
 const lang = {
   ar: {
     headerTitle: "تواصل معنا",
@@ -20,11 +20,7 @@ const lang = {
     otherContactsTitle: "طرق التواصل الأخرى",
     emailText: "البريد الإلكتروني:",
     socialText: "تابعنا على وسائل التواصل الاجتماعي:",
-    socialLinks: ["فيسبوك", "تويتر", "إنستغرام"],
-    footer: {
-      siteName: "GreatWishes",
-      rights: "جميع الحقوق محفوظة"
-    }
+    socialLinks: ["فيسبوك", "تويتر", "إنستغرام"]
   },
   en: {
     headerTitle: "Contact Us",
@@ -46,18 +42,13 @@ const lang = {
     otherContactsTitle: "Other Contact Methods",
     emailText: "Email:",
     socialText: "Follow us on social media:",
-    socialLinks: ["Facebook", "Twitter", "Instagram"],
-    footer: {
-      siteName: "GreatWishes",
-      rights: "All rights reserved"
-    }
+    socialLinks: ["Facebook", "Twitter", "Instagram"]
   }
 };
 
-// تعريف اللغة الافتراضية
+// Default language
 let currentLang = 'ar';
 
-// تحديث جميع النصوص عند تغيير اللغة
 function setLanguage(langCode) {
   currentLang = langCode;
 
@@ -85,33 +76,12 @@ function setLanguage(langCode) {
 
   // Other contacts section
   document.querySelector('.contact-info h2').innerHTML = lang[langCode].otherContactsTitle;
-  document.querySelector('.contact-info p:nth-of-type(1)').innerHTML =
-    `📧 ${lang[langCode].emailText} <a href="mailto:Greatdaylight@gmail.com" class="contact-link">Greatdaylight@gmail.com</a>`;
-  document.querySelector('.contact-info p:nth-of-type(2)').innerHTML =
-    `📱 ${lang[langCode].socialText}`;
+  const emailParagraph = document.querySelector('.contact-info p:nth-of-type(1)');
+  emailParagraph.innerHTML = `📧 ${lang[langCode].emailText} <a href="mailto:Greatdaylight@gmail.com" class="contact-link">Greatdaylight@gmail.com</a>`;
+  const socialParagraph = document.querySelector('.contact-info p:nth-of-type(2)');
+  socialParagraph.innerHTML = `📱 ${lang[langCode].socialText}`;
   const socialLinks = document.querySelectorAll('.social-links li a');
   socialLinks.forEach((link, index) => {
     link.innerHTML = lang[langCode].socialLinks[index];
   });
-
-  // Footer
-  document.querySelector('.footer').innerHTML =
-    `&copy; 2025 <span data-lang-key="siteName">${lang[langCode].footer.siteName}</span> | <span data-lang-key="rights">${lang[langCode].footer.rights}</span>`;
-}
-
-// تفعيل زر الترجمة عند الضغط
-document.addEventListener('DOMContentLoaded', () => {
-  const langBtn = document.getElementById('lang-btn');
-  langBtn.addEventListener('click', () => {
-    if (currentLang === 'ar') {
-      setLanguage('en');
-      langBtn.innerHTML = 'AR';
-    } else {
-      setLanguage('ar');
-      langBtn.innerHTML = 'EN';
     }
-  });
-
-  // تطبيق اللغة الافتراضية عند تحميل الصفحة
-  setLanguage(currentLang);
-});
