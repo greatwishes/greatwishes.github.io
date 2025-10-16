@@ -110,248 +110,6 @@
       .catch(error => console.error('Error fetching update info:', error));
   </script>
 
-  <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreatWishes | تطبيقات أندرويد مجانية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="canonical" href="https://greatwishes.github.io/index.html" />
-    <link rel="stylesheet" href="slider.css"> <!-- ملف CSS للسلايدر -->
-    <link rel="stylesheet" href="install-guide.css"> <!-- ملف CSS للدليل التفاعلي -->
-    <link rel="stylesheet" href="style.css"> <!-- ملف CSS العام -->
-  </head>
-
-  <body>
-
-    <!-- ===== Navigation ===== -->
-<nav class="main-nav">
-  <div class="nav-container">
-    <div class="lang-btn" id="lang-btn">EN</div> <!-- زر اللغة -->
-    
-    <!-- ثلاث خطوط مجسمة 3D -->
-    <div class="menu-toggle" id="mobile-menu">
-      <div class="ellipsis-container">
-        <span class="ellipsis"></span>
-        <span class="ellipsis"></span>
-        <span class="ellipsis"></span>
-      </div>
-    </div>
-    
-    <ul class="nav-links">
-      <li><a href="#home">الرئيسية</a></li>
-      <li><a href="#apps">التطبيقات</a></li>
-      <li><a href="#guide">الدليل</a></li>
-      <li><a href="privacy.html">سياسة الخصوصية</a></li> <!-- صفحة مستقلة -->
-      <li><a href="#contact">تواصل معنا</a></li>
-    </ul>
-  </div>
-</nav>
-
-    <!-- الهيدر -->
-    <div class="header" id="home">
-      <h1>مرحبًا بك في GreatWishes</h1>
-      <p>منصة تطبيقاتك للاندرويد بتصميم فريد وتجربة استثنائية</p>
-      <div class="logo-box">
-        <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo" loading="lazy">
-      </div>
-    </div>
-
-    <!-- التطبيقات المختارة -->
-    <section id="apps">
-      <h2>تطبيقات مختارة</h2>
-      <div class="slider-container">
-        <div class="slider-track">
-          <a href="app1.html" class="slider-item">
-            <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى">
-            <span class="app-name">تطبيق موسيقى</span>
-          </a>
-          <a href="app2.html" class="slider-item">
-            <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر">
-            <span class="app-name">آلة حساب العمر</span>
-          </a>
-          <a href="app3.html" class="slider-item">
-            <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل الصوتية إلى نص">
-            <span class="app-name">تحويل الصوتية إلى نص</span>
-          </a>
-          <a href="app4.html" class="slider-item">
-            <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات">
-            <span class="app-name">تطبيق الفيديوهات</span>
-          </a>
-          <a href="app5.html" class="slider-item">
-            <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية">
-            <span class="app-name">ملاحظات سرية</span>
-          </a>
-          <a href="app6.html" class="slider-item">
-            <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/quizapp/quizapp.jpg" alt="لعبة QuizApp">
-            <span class="app-name">لعبة الثلاث أحرف</span>
-          </a>
-          <a href="app7.html" class="slider-item">
-            <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png" alt="لعبة من سيربح المليون">
-            <span class="app-name">لعبة من سيربح المليون</span>
-          </a>
-          <a href="app8.html" class="slider-item">
-            <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg" alt="لعبة Fifteen Puzzle">
-            <span class="app-name">لعبة ترتيب الأرقام</span>
-          </a>
-          <a href="app9.html" class="slider-item">
-            <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/memory/memory.jpg" alt="لعبة Memory Game">
-            <span class="app-name">لعبة الذاكرة</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- الدليل التفاعلي -->
-    <section id="guide">
-      <h2>📱 دليل تثبيت التطبيقات على هاتفك</h2>
-      <div class="install-guide" id="interactive-guide">
-
-        <!-- 🔒 خطوات حماية جوجل -->
-        <div class="step-item visible">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png" alt="افتح متجر جوجل بلاي" class="icon">
-          <span>افتح تطبيق <strong>جوجل بلاي</strong> على هاتفك.</span>
-          <div class="btn-box">
-            <button class="prev-btn" disabled>السابق</button>
-            <button class="next-btn">التالي</button>
-          </div>
-        </div>
-
-        <div class="step-item">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect2.png" alt="الإعدادات" class="icon">
-          <span>اضغط على صورة حسابك في الأعلى للدخول إلى <strong>الإعدادات</strong>.</span>
-          <div class="btn-box">
-            <button class="prev-btn">السابق</button>
-            <button class="next-btn">التالي</button>
-          </div>
-        </div>
-
-        <div class="step-item">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect3.png" alt="Play Protect" class="icon">
-          <span>اختر <strong>Play Protect</strong> من القائمة.</span>
-          <div class="btn-box">
-            <button class="prev-btn">السابق</button>
-            <button class="next-btn">التالي</button>
-          </div>
-        </div>
-
-        <div class="step-item">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect4.png" alt="الإعدادات" class="icon">
-          <span>اضغط على الترس أعلى اليمين للدخول إلى <strong>الإعدادات</strong>.</span>
-          <div class="btn-box">
-            <button class="prev-btn">السابق</button>
-            <button class="next-btn">التالي</button>
-          </div>
-        </div>
-
-        <div class="step-item">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png" alt="إيقاف الفحص" class="icon">
-          <span>قم بتعطيل خيار <strong>فحص التطبيقات</strong>.</span>
-          <div class="btn-box">
-            <button class="prev-btn">السابق</button>
-            <button class="next-btn">التالي</button>
-          </div>
-        </div>
-
-        <!-- 📥 خطوات التثبيت -->
-        <div class="step-item">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/cursor.png" alt="اختيار التطبيق" class="icon">
-          <span>اضغط على صورة أو رابط التطبيق الذي تريده من القائمة أعلاه.</span>
-          <div class="btn-box">
-            <button class="prev-btn">السابق</button>
-            <button class="next-btn">التالي</button>
-          </div>
-        </div>
-
-        <div class="step-item">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/download.png" alt="تحميل" class="icon">
-          <span>سيتم نقلك إلى صفحة التطبيق حيث تجد زر التحميل (Download).</span>
-          <div class="btn-box">
-            <button class="prev-btn">السابق</button>
-            <button class="next-btn">التالي</button>
-          </div>
-        </div>
-
-        <div class="step-item">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/file.png" alt="APK" class="icon">
-          <span>بعد تحميل ملف <strong>APK</strong> على هاتفك، افتحه لبدء التثبيت.</span>
-          <div class="btn-box">
-            <button class="prev-btn">السابق</button>
-            <button class="next-btn">التالي</button>
-          </div>
-        </div>
-
-        <div class="step-item">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/settings.png" alt="إعدادات" class="icon">
-          <span>قد يطلب منك الهاتف السماح بالتثبيت من مصادر غير معروفة، قم بتفعيل الخيار من الإعدادات.</span>
-          <div class="btn-box">
-            <button class="prev-btn">السابق</button>
-            <button class="next-btn">التالي</button>
-          </div>
-        </div>
-
-        <div class="step-item">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/installing-updates.png" alt="تثبيت" class="icon">
-          <span>اضغط على "تثبيت" وانتظر حتى يكتمل التثبيت.</span>
-          <div class="btn-box">
-            <button class="prev-btn">السابق</button>
-            <button class="next-btn">التالي</button>
-          </div>
-        </div>
-
-        <div class="step-item">
-          <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png" alt="تم" class="icon">
-          <span>الآن، افتح التطبيق واستمتع باستخدامه! 🎉</span>
-          <div class="btn-box">
-            <button class="prev-btn">السابق</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- الفوتر -->
-    <footer id="contact" class="footer">  
-  &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
-  <div class="contact-info">  
-    <p><span data-lang-key="contactText">للتواصل</span>: <a href="mailto:Greatdaylight@gmail.com" class="contact-link">Greatdaylight@gmail.com</a></p>  
-    <p><a href="privacy.html" class="contact-link" data-lang-key="privacyPolicy">سياسة الخصوصية</a></p>  
-  </div>  
-	</footer>
-
-    <!-- سكريبت التفاعل -->
-    <script>
-      var steps = document.querySelectorAll('#interactive-guide .step-item');
-      var currentStep = 0;
-      var intervalTime = 5000;
-      var autoPlay;
-
-      function showStep(index) {
-        steps.forEach(s => s.classList.remove('visible'));
-        steps[index].classList.add('visible');
-      }
-
-      function nextStep() {
-        currentStep = (currentStep + 1) % steps.length;
-        showStep(currentStep);
-      }
-
-      function prevStep() {
-        currentStep = (currentStep - 1 + steps.length) % steps.length;
-        showStep(currentStep);
-      }
-
-      steps.forEach(step => {
-        var nextBtn = step.querySelector('.next-btn');
-        var prevBtn = step.querySelector('.prev-btn');
-        if (nextBtn) nextBtn.addEventListener('click', () => { clearInterval(autoPlay); nextStep(); autoPlay = setInterval(nextStep, intervalTime); });
-        if (prevBtn) prevBtn.addEventListener('click', () => { clearInterval(autoPlay); prevStep(); autoPlay = setInterval(nextStep, intervalTime); });
-      });
-
-      showStep(currentStep);
-      autoPlay = setInterval(nextStep, intervalTime);
-    </script>
-
     <script>
       const menuToggle = document.getElementById('mobile-menu');
       const navLinks = document.querySelector('.nav-links');
