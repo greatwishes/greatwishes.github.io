@@ -17,7 +17,12 @@ const lang = {
     footer: {
       siteName: "GreatWishes",
       rights: "جميع الحقوق محفوظة"
-    }
+    },
+    navLinks: [
+      { text: "الرئيسية", href: "index.html" },
+      { text: "التالي", href: "app2.html" },
+      { text: "الخصوصية", href: "privacy.html" }
+    ]
   },
   en: {
     headerTitle: "Music App",
@@ -36,7 +41,12 @@ const lang = {
     footer: {
       siteName: "GreatWishes",
       rights: "All rights reserved"
-    }
+    },
+    navLinks: [
+      { text: "Home", href: "index.html" },
+      { text: "Next", href: "app2.html" },
+      { text: "Privacy", href: "privacy.html" }
+    ]
   }
 };
 
@@ -74,4 +84,15 @@ function setLanguage(langCode) {
       el.innerHTML = lang[langCode].footer[key];
     }
   });
-}
+
+  // Navigation links
+  const navContainer = document.querySelector('.navigation-links');
+  if (navContainer) {
+    navContainer.innerHTML = lang[langCode].navLinks
+      .map((link, i) => {
+        const separator = i < lang[langCode].navLinks.length - 1 ? " | " : "";
+        return `<a href="${link.href}" class="${link.text === "Privacy" || link.text === "الخصوصية" ? "contact-link" : ""}">${link.text}</a>${separator}`;
+      })
+      .join('');
+  }
+    }
