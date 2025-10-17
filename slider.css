@@ -1,6 +1,7 @@
 /* السلايدر */
 .slider-container {
-  overflow: hidden;
+  overflow-x: auto; /* تمكين التمرير الأفقي */
+  scroll-behavior: smooth; /* تمرير سلس */
   margin: 20px auto;
   padding: 15px 0;
   border-top: 1px solid rgba(255,255,255,0.2);
@@ -16,7 +17,8 @@
 }
 
 /* عند تفاعل المستخدم يتوقف */
-.slider-container:hover .slider-track {
+.slider-container:hover .slider-track,
+.slider-container:active .slider-track {
   animation-play-state: paused;
 }
 
@@ -31,6 +33,11 @@
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0,229,255,0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: grab;
+}
+
+.slider-track img:active {
+  cursor: grabbing;
 }
 
 .slider-track img:hover {
@@ -43,4 +50,4 @@
   0% { transform: translateX(0); }
   50% { transform: translateX(calc(-100% + 200px * 10)); } /* تصحيح الخطأ السابق */
   100% { transform: translateX(0); }
-}
+  }
