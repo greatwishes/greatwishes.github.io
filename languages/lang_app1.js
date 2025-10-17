@@ -1,8 +1,6 @@
 // languages/lang_app1.js
 const lang = {
   ar: {
-    headerTitle: "تطبيق موسيقى",
-    headerSubtitle: "استمتع بأغانيك المفضلة وقوائم التشغيل المتنوعة",
     nav: [
       "الرئيسية",
       "التطبيقات",
@@ -10,7 +8,14 @@ const lang = {
       "سياسة الخصوصية",
       "تواصل معنا"
     ],
+    navLinks: [
+      "الرئيسية",
+      "التالي",
+      "الخصوصية"
+    ],
     downloadBtn: "تحميل التطبيق الآن",
+    headerTitle: "تطبيق موسيقى",
+    headerSubtitle: "استمتع بأغانيك المفضلة وقوائم التشغيل المتنوعة",
     appTitle: "تطبيق الموسيقى",
     appDescription: "تطبيق مبتكر لتشغيل الموسيقى والاستمتاع بأفضل الأغاني من جميع الأنواع.",
     featuresTitle: "الميزات الرئيسية للتطبيق",
@@ -21,19 +26,12 @@ const lang = {
       "إمكانية إنشاء قوائم تشغيل: قم بإنشاء قوائم تشغيل خاصة بك وتنظيم الموسيقى كما تشاء.",
       "جودة صوت عالية: استمتع بتجربة صوت نقية وعالية الجودة."
     ],
-    navLinks: [
-      { text: "الرئيسية", href: "index.html" },
-      { text: "التالي", href: "app2.html" },
-      { text: "الخصوصية", href: "privacy.html" }
-    ],
     footer: {
       siteName: "GreatWishes",
       rights: "جميع الحقوق محفوظة"
     }
   },
   en: {
-    headerTitle: "Music App",
-    headerSubtitle: "Enjoy your favorite songs and diverse playlists",
     nav: [
       "Home",
       "Apps",
@@ -41,9 +39,16 @@ const lang = {
       "Privacy Policy",
       "Contact Us"
     ],
+    navLinks: [
+      "Home",
+      "Next",
+      "Privacy"
+    ],
     downloadBtn: "Download App Now",
+    headerTitle: "Music App",
+    headerSubtitle: "Enjoy your favorite songs and diverse playlists",
     appTitle: "Music App",
-    appDescription: "An innovative app to play music and enjoy the best songs from all genres.",
+    appDescription: "This is an innovative music app to play and enjoy the best songs from all genres.",
     featuresTitle: "Main Features",
     features: [
       "Play Music: Enjoy your favorite songs anytime and anywhere.",
@@ -51,11 +56,6 @@ const lang = {
       "Support All Music Genres: From Arabic to international songs, find all the styles you love.",
       "Create Playlists: Create your own playlists and organize music as you like.",
       "High-Quality Sound: Enjoy a pure and high-quality audio experience."
-    ],
-    navLinks: [
-      { text: "Home", href: "index.html" },
-      { text: "Next", href: "app2.html" },
-      { text: "Privacy", href: "privacy.html" }
     ],
     footer: {
       siteName: "GreatWishes",
@@ -79,16 +79,19 @@ function setLanguage(langCode) {
   document.querySelector('.app-description p').innerHTML = lang[langCode].appDescription;
   document.querySelector('.app-description h3').innerHTML = lang[langCode].featuresTitle;
 
-  // Features list
   const featureItems = document.querySelectorAll('.app-description ul li');
   featureItems.forEach((li, index) => {
     if (lang[langCode].features[index]) {
-      const splitText = lang[langCode].features[index].split(":");
-      li.innerHTML = `<strong>${splitText[0]}:</strong>${splitText[1]}`;
+      li.innerHTML = `<strong>${lang[langCode].features[index].split(":")[0]}:</strong>${lang[langCode].features[index].split(":")[1]}`;
     }
   });
 
-  // Navigation menu
+  // Buttons
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.innerHTML = lang[langCode].downloadBtn;
+  });
+
+  // Navigation menu (القائمة العلوية)
   const navItems = document.querySelectorAll('.nav-links li a');
   navItems.forEach((el, index) => {
     if (lang[langCode].nav[index]) {
@@ -96,20 +99,12 @@ function setLanguage(langCode) {
     }
   });
 
-  // Bottom navigation links
-  const navContainer = document.querySelector('.navigation-links');
-  if (navContainer) {
-    navContainer.innerHTML = lang[langCode].navLinks
-      .map((link, i) => {
-        const separator = i < lang[langCode].navLinks.length - 1 ? " | " : "";
-        return `<a href="${link.href}" class="${link.text === "Privacy" || link.text === "الخصوصية" ? "contact-link" : ""}">${link.text}</a>${separator}`;
-      })
-      .join('');
-  }
-
-  // Buttons
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.innerHTML = lang[langCode].downloadBtn;
+  // Navigation links (الروابط السفلية)
+  const navLinks = document.querySelectorAll('.navigation-links a');
+  navLinks.forEach((el, index) => {
+    if (lang[langCode].navLinks[index]) {
+      el.innerHTML = lang[langCode].navLinks[index];
+    }
   });
 
   // Footer
@@ -120,4 +115,4 @@ function setLanguage(langCode) {
       el.innerHTML = lang[langCode].footer[key];
     }
   });
-    }
+                         }
