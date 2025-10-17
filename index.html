@@ -258,22 +258,20 @@
       navLinks.addEventListener('click', e => e.stopPropagation());
     </script>
 
- <script src="languages/fade.js"></script>
-<script src="languages/lang_index.js"></script>
-<script>
-  const langBtn = document.getElementById('lang-btn');
-
-  langBtn.addEventListener('click', () => {
-    fadeOutInAll(() => { // استدعاء الفادي قبل تغيير اللغة
-      if (currentLang === 'ar') {
-        setLanguage('en');
-        langBtn.innerHTML = 'AR';
-      } else {
-        setLanguage('ar');
-        langBtn.innerHTML = 'EN';
-      }
-    });
-  });
+  <script src="languages/lang_index.js"></script>  <script>  
+  const langBtn = document.getElementById('lang-btn');  
+    
+  langBtn.addEventListener('click', () => {  
+    if (currentLang === 'ar') {  
+      // تغيير اللغة للإنجليزية  
+      setLanguage('en');  
+      langBtn.innerHTML = 'AR'; // زر لتبديل العودة للعربية  
+    } else {  
+      // تغيير اللغة للعربية  
+      setLanguage('ar');  
+      langBtn.innerHTML = 'EN'; // زر لتبديل للإنجليزية  
+    }  
+  });  
 </script>
   </body>
-				</html>
+   </html>
