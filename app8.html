@@ -1,144 +1,118 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لعبة ترتيب الأرقام - Fifteen Puzzle</title>
-  <meta name="description" content="لعبة Fifteen Puzzle، ترتيب الأرقام داخل شبكة 4×4 للوصول إلى الحل النهائي بطريقة مسلية وتفاعلية.">
-  <meta name="keywords" content="Fifteen Puzzle, لعبة ترتيب الأرقام, ألعاب ذكاء, تحدي الأرقام, brain game, ألعاب مجانية, ألعاب عربية">
-  <meta name="author" content="GreatWishes">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://greatwishes.github.io/app8.html" />
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="buttons-style.css">
-</head>
-<body>
-
-  <!-- ===== Navigation ===== -->
-  <nav class="main-nav">
-    <div class="nav-container">
-      <div class="lang-btn" id="lang-btn">EN</div>
-      <div class="menu-toggle" id="mobile-menu">
-        <div class="ellipsis-container">
-          <span class="ellipsis"></span>
-          <span class="ellipsis"></span>
-          <span class="ellipsis"></span>
-        </div>
-      </div>
-
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="index.html#apps">التطبيقات</a></li>
-        <li><a href="index.html#guide">الدليل</a></li>
-        <li><a href="privacy.html">سياسة الخصوصية</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <header class="header">
-    <h1>لعبة ترتيب الأرقام</h1>
-    <p>رتب الأرقام داخل الشبكة للوصول إلى الترتيب الصحيح بطريقة مسلية وتفاعلية</p>
-  </header>
-
-  <div class="image-box">
-    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
-  </div>
-
-  <a href="#" id="downloadBtn1" class="btn">تحميل اللعبة</a>
-
-  <div class="image-box">
-    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg" alt="صورة اللعبة">
-  </div>
-
-  <div class="app-description">
-    <h2>ترتيب الأرقام</h2>
-    <p>تطبيق <strong>ترتيب الارقام</strong> يمنحك تجربة تحدي ذهني ممتع، حيث عليك ترتيب الأرقام من 1 إلى 15 داخل شبكة 4×4. حاول ترتيب كل صف للحصول على ألوان مضيئة وتأثيرات بصرية ممتعة.</p>
-
-    <h3>مميزات اللعبة:</h3>
-    <ul>
-      <li><strong>ألوان مضيئة عند ترتيب الصفوف:</strong> رؤية الصفوف تضيء عند الترتيب الصحيح تضيف متعة وتشويق.</li>
-      <li><strong>تحدي وتركيز:</strong> تحسين مهارات التركيز وحل المشكلات من خلال ترتيب الأرقام.</li>
-      <li><strong>إحصائيات وتحكم بالوقت:</strong> عداد الوقت وسجل الحركات لمتابعة الأداء.</li>
-      <li><strong>تصميم جذاب وبسيط:</strong> واجهة واضحة وسهلة اللعب مع تأثيرات بصرية مميزة.</li>
-      <li><strong>مناسبة للجميع:</strong> لعبة ممتعة للكبار والصغار، وتدعم اللغة العربية بالكامل.</li>
-    </ul>
-  </div>
-
-  <a href="#" id="downloadBtn2" class="btn">تحميل اللعبة الآن</a>
-
-  <div class="navigation-links">
-    <a href="index.html">الرئيسية</a> |
-    <a href="app9.html">التالي</a> |
-    <a href="app7.html">السابق</a> |
-  </div>
-
-  <footer class="footer">
-    &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
-</footer>
-
-  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/fifteen_theme.mp3" preload="auto" loop></audio>
-  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
-
-  <script>
-    let apkUrl = '';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const jsonUrl = 'https://greatwishes.github.io/myapp/fifteen/update_fifteen.json';
-
-      fetch(jsonUrl)
-        .then(response => response.json())
-        .then(data => {
-          if (data.apk_url) apkUrl = data.apk_url;
-          else console.error('رابط APK غير موجود.');
-        })
-        .catch(error => console.error('خطأ في تحميل JSON:', error));
-    });
-
-    function handleDownloadClick(event) {
-      event.preventDefault();
-      const sound = document.getElementById('clickSound');
-      if (sound) sound.play();
-      if (apkUrl) window.location.href = apkUrl;
-      else alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
+// languages/lang_app8.js
+const lang = {
+  ar: {
+    nav: [
+      "الرئيسية",
+      "التطبيقات",
+      "الدليل",
+      "سياسة الخصوصية",
+      "تواصل معنا"
+    ],
+    navLinks: [
+      "الرئيسية",
+      "التالي",
+      "السابق"
+    ],
+    downloadBtn: "تحميل اللعبة الآن",
+    headerTitle: "لعبة ترتيب الأرقام",
+    headerSubtitle: "رتب الأرقام داخل الشبكة للوصول إلى الترتيب الصحيح بطريقة مسلية وتفاعلية",
+    appTitle: "ترتيب الأرقام",
+    appDescription: "تطبيق <strong>ترتيب الأرقام</strong> يمنحك تجربة تحدي ذهني ممتع، حيث عليك ترتيب الأرقام من 1 إلى 15 داخل شبكة 4×4. حاول ترتيب كل صف للحصول على ألوان مضيئة وتأثيرات بصرية ممتعة.",
+    featuresTitle: "مميزات اللعبة",
+    features: [
+      "ألوان مضيئة عند ترتيب الصفوف: رؤية الصفوف تضيء عند الترتيب الصحيح تضيف متعة وتشويق.",
+      "تحدي وتركيز: تحسين مهارات التركيز وحل المشكلات من خلال ترتيب الأرقام.",
+      "إحصائيات وتحكم بالوقت: عداد الوقت وسجل الحركات لمتابعة الأداء.",
+      "تصميم جذاب وبسيط: واجهة واضحة وسهلة اللعب مع تأثيرات بصرية مميزة.",
+      "مناسبة للجميع: لعبة ممتعة للكبار والصغار، وتدعم اللغة العربية بالكامل."
+    ],
+    footer: {
+      siteName: "GreatWishes",
+      rights: "جميع الحقوق محفوظة"
     }
+  },
+  en: {
+    nav: [
+      "Home",
+      "Apps",
+      "Guide",
+      "Privacy Policy",
+      "Contact Us"
+    ],
+    navLinks: [
+      "Home",
+      "Next",
+      "Previous"
+    ],
+    downloadBtn: "Download Game Now",
+    headerTitle: "Fifteen Puzzle",
+    headerSubtitle: "Arrange the numbers in the grid to reach the correct order in a fun and interactive way",
+    appTitle: "Fifteen Puzzle",
+    appDescription: "The <strong>Fifteen Puzzle</strong> app gives you a fun mental challenge, where you must arrange numbers from 1 to 15 in a 4×4 grid. Try to arrange each row to get glowing colors and enjoyable visual effects.",
+    featuresTitle: "Game Features",
+    features: [
+      "Glowing Colors: Rows light up when arranged correctly to add fun and excitement.",
+      "Challenge & Focus: Improve concentration and problem-solving skills through arranging numbers.",
+      "Statistics & Time Control: Track your performance with a timer and move counter.",
+      "Attractive & Simple Design: Clear interface with visual effects for easy and fun gameplay.",
+      "Suitable for All: Enjoyable for children and adults with full Arabic support."
+    ],
+    footer: {
+      siteName: "GreatWishes",
+      rights: "All rights reserved"
+    }
+  }
+};
 
-    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
-    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
-  </script>
+// Default language
+let currentLang = 'ar';
 
-  <script>
-    // قائمة الهاتف المتحرك
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+function setLanguage(langCode) {
+  currentLang = langCode;
 
-    menuToggle.addEventListener('click', e => {
-      e.stopPropagation();
-      navLinks.classList.toggle('active');
-    });
+  // Header
+  document.querySelector('.header h1').innerHTML = lang[langCode].headerTitle;
+  document.querySelector('.header p').innerHTML = lang[langCode].headerSubtitle;
 
-    document.addEventListener('click', e => {
-      if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-      }
-    });
+  // App description
+  document.querySelector('.app-description h2').innerHTML = lang[langCode].appTitle;
+  document.querySelector('.app-description p').innerHTML = lang[langCode].appDescription;
+  document.querySelector('.app-description h3').innerHTML = lang[langCode].featuresTitle;
 
-    navLinks.addEventListener('click', e => e.stopPropagation());
-  </script>
+  const featureItems = document.querySelectorAll('.app-description ul li');
+  featureItems.forEach((li, index) => {
+    if (lang[langCode].features[index]) {
+      li.innerHTML = `<strong>${lang[langCode].features[index].split(":")[0]}:</strong>${lang[langCode].features[index].split(":")[1]}`;
+    }
+  });
 
-  <script src="languages/lang_app8.js"></script>
-  <script>
-    const langBtn = document.getElementById('lang-btn');
+  // Buttons
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.innerHTML = lang[langCode].downloadBtn;
+  });
 
-    langBtn.addEventListener('click', () => {
-      if (currentLang === 'ar') {
-        setLanguage('en');
-        langBtn.innerHTML = 'AR';
-      } else {
-        setLanguage('ar');
-        langBtn.innerHTML = 'EN';
-      }
-    });
-  </script>
-</body>
-</html>
+  // Navigation menu (القائمة العلوية)
+  const navItems = document.querySelectorAll('.nav-links li a');
+  navItems.forEach((el, index) => {
+    if (lang[langCode].nav[index]) {
+      el.innerHTML = lang[langCode].nav[index];
+    }
+  });
+
+  // Navigation links (الروابط السفلية)
+  const navLinks = document.querySelectorAll('.navigation-links a');
+  navLinks.forEach((el, index) => {
+    if (lang[langCode].navLinks[index]) {
+      el.innerHTML = lang[langCode].navLinks[index];
+    }
+  });
+
+  // Footer
+  const footerElements = document.querySelectorAll('[data-lang-key]');
+  footerElements.forEach(el => {
+    const key = el.getAttribute('data-lang-key');
+    if(lang[langCode].footer[key]){
+      el.innerHTML = lang[langCode].footer[key];
+    }
+  });
+}
