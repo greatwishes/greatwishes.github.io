@@ -1,78 +1,83 @@
-
 // lang_app3.js
+let currentLang = 'ar';
+
 const lang = {
   ar: {
+    siteName: "GreatWishes",
+    rights: "جميع الحقوق محفوظة",
     headerTitle: "تحويل الصوت إلى نص",
     headerSubtitle: "حول صوتك إلى نصوص مكتوبة بسرعة وسهولة وحفظه ملف ورد",
-    downloadBtn: "تحميل التطبيق",
-    downloadBtnNow: "تحميل التطبيق الآن",
+    downloadApp: "تحميل التطبيق",
+    downloadNow: "تحميل التطبيق الآن",
     appTitle: "تطبيق تحويل المذكرة الصوتية إلى ملف",
+    appDescription: "تطبيق تحويل الصوت الى نص هو أداة ذكية تساعدك على تحويل التسجيلات الصوتية إلى ملفات نصية بدقة وسرعة، مما يسهل حفظ الأفكار، المحاضرات، والاجتماعات. التطبيق يدعم العربية والإنجليزية.",
     featuresTitle: "الميزات الرئيسية للتطبيق:",
-    featuresList: [
+    features: [
       "تحويل الصوت إلى نص: تسجيل المذكرة الصوتية أو استيراد ملف صوتي وتحويله مباشرة.",
       "دقة عالية في التعرف على الصوت: تقنيات متقدمة لمعالجة الصوت بدقة.",
       "حفظ النصوص: حفظ النتائج بصيغة وورد أو نص عادي.",
       "مشاركة النصوص: مشاركة مباشرة عبر البريد أو التطبيقات المختلفة.",
       "دعم اللغتين العربية والإنجليزية: تجربة استخدام سلسة ومتكاملة."
     ],
-    navigation: ["الرئيسية", "التالي", "السابق"],
-    footer: {
-      siteName: "GreatWishes",
-      rights: "جميع الحقوق محفوظة"
-    }
+    navHome: "الرئيسية",
+    navNext: "التالي",
+    navPrev: "السابق",
+    clickAlert: "رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً."
   },
   en: {
+    siteName: "GreatWishes",
+    rights: "All rights reserved",
     headerTitle: "Voice to Text",
-    headerSubtitle: "Convert your voice into written text quickly and easily, and save it as a Word file",
-    downloadBtn: "Download App",
-    downloadBtnNow: "Download App Now",
-    appTitle: "Voice Note to Word App",
+    headerSubtitle: "Convert your voice to written text quickly and easily and save it as a Word file",
+    downloadApp: "Download App",
+    downloadNow: "Download Now",
+    appTitle: "Voice Note to File App",
+    appDescription: "Voice to Text is a smart tool that helps you convert audio recordings into text files accurately and quickly, making it easy to save ideas, lectures, and meetings. The app supports Arabic and English.",
     featuresTitle: "Main Features:",
-    featuresList: [
-      "Voice to Text: Record a voice note or import audio and convert it instantly.",
-      "High Accuracy: Advanced voice processing techniques for precise results.",
-      "Save Text: Save results as Word or plain text.",
-      "Share Text: Directly share via email or other apps.",
-      "Supports Arabic & English: Smooth and complete user experience."
+    features: [
+      "Voice to Text: Record a voice note or import an audio file and convert it directly.",
+      "High Accuracy Speech Recognition: Advanced audio processing technologies.",
+      "Save Texts: Save results as Word or plain text files.",
+      "Share Texts: Share directly via email or various apps.",
+      "Supports Arabic and English: Smooth and complete user experience."
     ],
-    navigation: ["Home", "Next", "Previous"],
-    footer: {
-      siteName: "GreatWishes",
-      rights: "All rights reserved"
-    }
+    navHome: "Home",
+    navNext: "Next",
+    navPrev: "Previous",
+    clickAlert: "Download link is not ready yet. Please try again later."
   }
 };
 
-// Default language
-let currentLang = 'ar';
-
+// دالة لتغيير اللغة في الصفحة
 function setLanguage(langCode) {
   currentLang = langCode;
 
-  // Header
-  document.querySelector('.header h1').innerHTML = lang[langCode].headerTitle;
-  document.querySelector('.header p').innerHTML = lang[langCode].headerSubtitle;
+  // نصوص الفوتر
+  document.querySelector('[data-lang-key="siteName"]').innerText = lang[langCode].siteName;
+  document.querySelector('[data-lang-key="rights"]').innerText = lang[langCode].rights;
 
-  // Buttons
-  document.getElementById('downloadBtn1').innerHTML = lang[langCode].downloadBtn;
-  document.getElementById('downloadBtn2').innerHTML = lang[langCode].downloadBtnNow;
+  // الهيدر
+  document.querySelector('.header h1').innerText = lang[langCode].headerTitle;
+  document.querySelector('.header p').innerText = lang[langCode].headerSubtitle;
 
-  // App description
-  document.querySelector('.app-description h2').innerHTML = lang[langCode].appTitle;
-  document.querySelector('.app-description h3').innerHTML = lang[langCode].featuresTitle;
+  // أزرار التحميل
+  document.getElementById('downloadBtn1').innerText = lang[langCode].downloadApp;
+  document.getElementById('downloadBtn2').innerText = lang[langCode].downloadNow;
 
-  const featuresItems = document.querySelectorAll('.app-description ul li');
-  featuresItems.forEach((li, index) => {
-    li.innerHTML = lang[langCode].featuresList[index];
+  // وصف التطبيق
+  document.querySelector('.app-description h2').innerText = lang[langCode].appTitle;
+  document.querySelector('.app-description p').innerText = lang[langCode].appDescription;
+  document.querySelector('.app-description h3').innerText = lang[langCode].featuresTitle;
+
+  // قائمة الميزات
+  const featuresList = document.querySelectorAll('.app-description ul li');
+  lang[langCode].features.forEach((text, index) => {
+    if(featuresList[index]) featuresList[index].innerText = text;
   });
 
-  // Navigation links
+  // روابط التنقل
   const navLinks = document.querySelectorAll('.navigation-links a');
-  navLinks.forEach((a, index) => {
-    a.innerHTML = lang[langCode].navigation[index];
-  });
-
-  // Footer
-  document.querySelector('.footer').innerHTML =
-    `&copy; 2025 <span data-lang-key="siteName">${lang[langCode].footer.siteName}</span> | <span data-lang-key="rights">${lang[langCode].footer.rights}</span>`;
-}
+  if(navLinks[0]) navLinks[0].innerText = lang[langCode].navHome;
+  if(navLinks[1]) navLinks[1].innerText = lang[langCode].navNext;
+  if(navLinks[2]) navLinks[2].innerText = lang[langCode].navPrev;
+      }
