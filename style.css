@@ -445,116 +445,139 @@ text-shadow: 0 0 5px rgba(255,193,7,0.6);
 
 
 /* ===== تنسيق نموذج التواصل ===== */
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 50px 60px;
+  background: #fafafa;
+}
+
+.contact-form, .contact-info {
+  flex: 1 1 500px;
+  max-width: 580px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ===== نموذج التواصل ===== */
 .contact-form {
-max-width: 600px;
-margin: 20px auto;
-padding: 25px;
-background-color: #f9f9f9;
-border-radius: 12px;
-box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: #f9f9f9;
+  padding: 30px;
 }
 
 .contact-form h2 {
-text-align: center;
-font-size: 24px;
-margin-bottom: 20px;
-color: #333;
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .contact-form label {
-display: block;
-margin: 10px 0 5px;
-font-weight: bold;
-color: #333;
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #333;
 }
 
 .contact-form input,
 .contact-form textarea {
-width: 100%;
-padding: 12px 15px;
-font-size: 16px;
-border: 1px solid #ccc;
-border-radius: 8px;
-box-sizing: border-box;
-margin-bottom: 15px;
-transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-border-color: #1a73e8;
-box-shadow: 0 0 5px rgba(26, 115, 232, 0.5);
-outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 5px rgba(26,115,232,0.4);
+  outline: none;
 }
 
-/* ===== زر الإرسال ===== */
 .contact-form .btn {
-display: inline-block;
-width: 100%;
-padding: 12px 0;
-font-size: 18px;
-background-color: #1a73e8;
-color: #fff;
-border: none;
-border-radius: 8px;
-cursor: pointer;
-transition: background-color 0.3s ease;
+  display: inline-block;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 18px;
+  background-color: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .contact-form .btn:hover {
-background-color: #0c47a1;
+  background-color: #0c47a1;
 }
 
 /* ===== طرق التواصل الأخرى ===== */
 .contact-info {
-max-width: 600px;
-margin: 20px auto;
-padding: 20px;
-background-color: #eef4ff;
-border-radius: 12px;
-box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  background-color: #eef4ff;
+  padding: 25px;
 }
 
 .contact-info h2 {
-font-size: 22px;
-margin-bottom: 15px;
-color: #333;
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
 }
 
 .contact-info p {
-font-size: 16px;
-margin: 5px 0;
-color: #333;
+  font-size: 16px;
+  margin: 5px 0;
+  color: #333;
 }
 
-/* ===== روابط البريد ووسائل التواصل ===== */
-.contact-form a.contact-link,
+/* ===== الروابط ===== */
 .contact-info a.contact-link,
 .contact-info ul.social-links li a {
-color: #1a73e8;
-font-weight: bold;
-font-size: 16px;
-text-decoration: none;
-transition: color 0.3s ease;
+  color: #1a73e8;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.contact-form a.contact-link:hover,
 .contact-info a.contact-link:hover,
 .contact-info ul.social-links li a:hover {
-color: #0c47a1;
-text-decoration: underline;
+  color: #0c47a1;
+  text-decoration: underline;
 }
 
 /* ===== قائمة وسائل التواصل الاجتماعي ===== */
 .contact-info ul.social-links {
-list-style: none;
-padding: 0;
-display: flex;
-gap: 15px;
-margin-top: 10px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
 }
 
-.contact-info ul.social-links li a {
-font-size: 16px;
-	}
+/* ===== تفاعل بسيط ===== */
+.contact-form:hover,
+.contact-info:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+/* ===== الهاتف ===== */
+@media (max-width: 768px) {
+  #contact {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 25px;
+  }
+
+  .contact-form, .contact-info {
+    max-width: 100%;
+  }
 	}
