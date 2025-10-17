@@ -3,6 +3,14 @@ const lang = {
   ar: {
     headerTitle: "تطبيق موسيقى",
     headerSubtitle: "استمتع بأغانيك المفضلة وقوائم التشغيل المتنوعة",
+    nav: [
+      "الرئيسية",
+      "التطبيقات",
+      "الدليل",
+      "سياسة الخصوصية",
+      "تواصل معنا"
+    ],
+    downloadBtn: "تحميل التطبيق الآن",
     appTitle: "تطبيق الموسيقى",
     appDescription: "تطبيق مبتكر لتشغيل الموسيقى والاستمتاع بأفضل الأغاني من جميع الأنواع.",
     featuresTitle: "الميزات الرئيسية للتطبيق",
@@ -16,12 +24,8 @@ const lang = {
     navLinks: [
       { text: "الرئيسية", href: "index.html" },
       { text: "التالي", href: "app2.html" },
-      { text: "الخصوصية", href: "privacy.html" },
-      { text: "التطبيقات", href: "index.html#apps" },
-      { text: "الدليل", href: "index.html#guide" },
-      { text: "تواصل معنا", href: "#contact" }
+      { text: "الخصوصية", href: "privacy.html" }
     ],
-    downloadBtn: "تحميل التطبيق الآن",
     footer: {
       siteName: "GreatWishes",
       rights: "جميع الحقوق محفوظة"
@@ -30,8 +34,16 @@ const lang = {
   en: {
     headerTitle: "Music App",
     headerSubtitle: "Enjoy your favorite songs and diverse playlists",
+    nav: [
+      "Home",
+      "Apps",
+      "Guide",
+      "Privacy Policy",
+      "Contact Us"
+    ],
+    downloadBtn: "Download App Now",
     appTitle: "Music App",
-    appDescription: "An innovative music app to play and enjoy the best songs from all genres.",
+    appDescription: "An innovative app to play music and enjoy the best songs from all genres.",
     featuresTitle: "Main Features",
     features: [
       "Play Music: Enjoy your favorite songs anytime and anywhere.",
@@ -43,12 +55,8 @@ const lang = {
     navLinks: [
       { text: "Home", href: "index.html" },
       { text: "Next", href: "app2.html" },
-      { text: "Privacy", href: "privacy.html" },
-      { text: "Apps", href: "index.html#apps" },
-      { text: "Guide", href: "index.html#guide" },
-      { text: "Contact", href: "#contact" }
+      { text: "Privacy", href: "privacy.html" }
     ],
-    downloadBtn: "Download App Now",
     footer: {
       siteName: "GreatWishes",
       rights: "All rights reserved"
@@ -56,6 +64,7 @@ const lang = {
   }
 };
 
+// Default language
 let currentLang = 'ar';
 
 function setLanguage(langCode) {
@@ -70,15 +79,33 @@ function setLanguage(langCode) {
   document.querySelector('.app-description p').innerHTML = lang[langCode].appDescription;
   document.querySelector('.app-description h3').innerHTML = lang[langCode].featuresTitle;
 
-  // Features
+  // Features list
   const featureItems = document.querySelectorAll('.app-description ul li');
   featureItems.forEach((li, index) => {
-    const feature = lang[langCode].features[index];
-    if (feature) {
-      const parts = feature.split(":");
-      li.innerHTML = `<strong>${parts[0]}:</strong> ${parts[1]}`;
+    if (lang[langCode].features[index]) {
+      const splitText = lang[langCode].features[index].split(":");
+      li.innerHTML = `<strong>${splitText[0]}:</strong>${splitText[1]}`;
     }
   });
+
+  // Navigation menu
+  const navItems = document.querySelectorAll('.nav-links li a');
+  navItems.forEach((el, index) => {
+    if (lang[langCode].nav[index]) {
+      el.innerHTML = lang[langCode].nav[index];
+    }
+  });
+
+  // Bottom navigation links
+  const navContainer = document.querySelector('.navigation-links');
+  if (navContainer) {
+    navContainer.innerHTML = lang[langCode].navLinks
+      .map((link, i) => {
+        const separator = i < lang[langCode].navLinks.length - 1 ? " | " : "";
+        return `<a href="${link.href}" class="${link.text === "Privacy" || link.text === "الخصوصية" ? "contact-link" : ""}">${link.text}</a>${separator}`;
+      })
+      .join('');
+  }
 
   // Buttons
   document.querySelectorAll('.btn').forEach(btn => {
@@ -86,28 +113,11 @@ function setLanguage(langCode) {
   });
 
   // Footer
-  document.querySelectorAll('[data-lang-key]').forEach(el => {
+  const footerElements = document.querySelectorAll('[data-lang-key]');
+  footerElements.forEach(el => {
     const key = el.getAttribute('data-lang-key');
-    if (lang[langCode].footer[key]) el.innerHTML = lang[langCode].footer[key];
-  });
-
-  // Navigation Links
-  const navContainer = document.querySelector('.navigation-links');
-  if (navContainer) {
-    navContainer.innerHTML = lang[langCode].navLinks
-      .map((link, i) => {
-        const separator = i < lang[langCode].navLinks.length - 1 ? " | " : "";
-        return `<a href="${link.href}">${link.text}</a>${separator}`;
-      })
-      .join('');
-  }
-
-  // Nav menu (for mobile)
-  const navMenuItems = document.querySelectorAll('.nav-links li a');
-  navMenuItems.forEach((a, index) => {
-    if (lang[langCode].navLinks[index]) {
-      a.innerHTML = lang[langCode].navLinks[index].text;
-      a.href = lang[langCode].navLinks[index].href;
+    if(lang[langCode].footer[key]){
+      el.innerHTML = lang[langCode].footer[key];
     }
   });
     }
