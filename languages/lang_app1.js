@@ -4,7 +4,7 @@ const lang = {
     headerTitle: "تطبيق موسيقى",
     headerSubtitle: "استمتع بأغانيك المفضلة وقوائم التشغيل المتنوعة",
     appTitle: "تطبيق الموسيقى",
-    appDescription: "تطبيق هو تطبيق مبتكر ومميز لتشغيل الموسيقى والاستمتاع بأفضل الأغاني من جميع الأنواع...",
+    appDescription: "تطبيق مبتكر ومميز لتشغيل الموسيقى والاستمتاع بأفضل الأغاني من جميع الأنواع، مع واجهة سهلة الاستخدام وميزات متقدمة.",
     featuresTitle: "الميزات الرئيسية للتطبيق",
     features: [
       "تشغيل الموسيقى: استمتع بتشغيل أغانيك المفضلة في أي وقت وفي أي مكان.",
@@ -13,7 +13,6 @@ const lang = {
       "إمكانية إنشاء قوائم تشغيل: قم بإنشاء قوائم تشغيل خاصة بك وتنظيم الموسيقى كما تشاء.",
       "جودة صوت عالية: استمتع بتجربة صوت نقية وعالية الجودة."
     ],
-
     nav: [
       "الرئيسية",
       "التطبيقات",
@@ -36,7 +35,7 @@ const lang = {
     headerTitle: "Music App",
     headerSubtitle: "Enjoy your favorite songs and diverse playlists",
     appTitle: "Music App",
-    appDescription: "This is an innovative and unique music app to play and enjoy the best songs from all genres...",
+    appDescription: "An innovative and unique music app to play and enjoy the best songs from all genres, with an easy-to-use interface and advanced features.",
     featuresTitle: "Main Features",
     features: [
       "Play Music: Enjoy your favorite songs anytime and anywhere.",
@@ -45,7 +44,6 @@ const lang = {
       "Create Playlists: Create your own playlists and organize music as you like.",
       "High-Quality Sound: Enjoy a pure and high-quality audio experience."
     ],
-
     nav: [
       "Home",
       "Apps",
@@ -84,7 +82,7 @@ function setLanguage(langCode) {
   const featureItems = document.querySelectorAll('.app-description ul li');
   featureItems.forEach((li, index) => {
     if (lang[langCode].features[index]) {
-      li.innerHTML = `<strong>${lang[langCode].features[index].split(":")[0]}:</strong> ${lang[langCode].features[index].split(":")[1]}`;
+      li.innerHTML = lang[langCode].features[index]; // عرض النص بالكامل دون تقسيم
     }
   });
 
@@ -111,4 +109,4 @@ function setLanguage(langCode) {
       })
       .join('');
   }
-    }
+  }
