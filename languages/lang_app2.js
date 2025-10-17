@@ -19,6 +19,13 @@ const lang = {
       "تحليل الأبراج",
       "يدعم العربية والإنجليزية"
     ],
+    nav: [
+      "الرئيسية",
+      "التطبيقات",
+      "الدليل",
+      "سياسة الخصوصية",
+      "تواصل معنا"
+    ],
     navHome: "الرئيسية",
     navNext: "التالي",
     navPrev: "السابق",
@@ -40,6 +47,13 @@ const lang = {
       "Name meanings",
       "Zodiac analysis",
       "Supports Arabic and English"
+    ],
+    nav: [
+      "Home",
+      "Apps",
+      "Guide",
+      "Privacy Policy",
+      "Contact Us"
     ],
     navHome: "Home",
     navNext: "Next",
@@ -75,9 +89,17 @@ function setLanguage(langCode) {
     if(featuresList[index]) featuresList[index].innerText = text;
   });
 
-  // روابط التنقل
-  const navLinks = document.querySelectorAll('.navigation-links a');
-  if(navLinks[0]) navLinks[0].innerText = lang[langCode].navHome;
-  if(navLinks[1]) navLinks[1].innerText = lang[langCode].navNext;
-  if(navLinks[2]) navLinks[2].innerText = lang[langCode].navPrev;
-                                  }
+  // ترجمة القوائم الموجودة في الـ nav-links
+  const navItems = document.querySelectorAll('.nav-links li a');
+  navItems.forEach((el, index) => {
+    if(lang[langCode].nav[index]){
+      el.innerText = lang[langCode].nav[index];
+    }
+  });
+
+  // روابط التنقل في أسفل الصفحة إذا كانت موجودة
+  const navigationLinks = document.querySelectorAll('.navigation-links a');
+  if(navigationLinks[0]) navigationLinks[0].innerText = lang[langCode].navHome;
+  if(navigationLinks[1]) navigationLinks[1].innerText = lang[langCode].navNext;
+  if(navigationLinks[2]) navigationLinks[2].innerText = lang[langCode].navPrev;
+       }
