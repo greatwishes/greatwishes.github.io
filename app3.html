@@ -115,23 +115,29 @@
 
 
   <script>
-    // قائمة الهاتف المتحرك
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
 
-    menuToggle.addEventListener('click', e => {
-      e.stopPropagation();
-      navLinks.classList.toggle('active');
+  // فتح / غلق القائمة عند الضغط على زر القائمة
+  menuToggle.addEventListener('click', e => {
+    e.stopPropagation();
+    navLinks.classList.toggle('active');
+  });
+
+  // إغلاق القائمة عند الضغط خارجها
+  document.addEventListener('click', e => {
+    if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+    }
+  });
+
+  // إغلاق القائمة عند الضغط على أي رابط داخلها
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
     });
-
-    document.addEventListener('click', e => {
-      if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-      }
-    });
-
-    navLinks.addEventListener('click', e => e.stopPropagation());
-  </script>
+  });
+</script>
 
   <script src="languages/lang_app3.js"></script>
   <script>
