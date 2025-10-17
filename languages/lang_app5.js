@@ -1,77 +1,83 @@
 // lang_app5.js
+let currentLang = 'ar';
+
 const lang = {
   ar: {
+    siteName: "GreatWishes",
+    rights: "جميع الحقوق محفوظة",
     headerTitle: "ملاحظات سرية",
     headerSubtitle: "احفظ ملاحظاتك الشخصية بسرية تامة مع حماية كاملة",
-    downloadBtn: "تحميل التطبيق",
-    downloadBtnNow: "تحميل التطبيق الآن",
+    downloadApp: "تحميل التطبيق",
+    downloadNow: "تحميل التطبيق الآن",
     appTitle: "تطبيق ملاحظات سرية",
+    appDescription: "تطبيق ملاحظات سرية هو أداة آمنة وسهلة الاستخدام لحفظ ملاحظاتك الشخصية بسرية تامة. يتيح لك التطبيق تدوين الأفكار والمعلومات الحساسة مع حماية كاملة بكلمة مرور، وواجهة بسيطة تدعم العربية.",
     featuresTitle: "الميزات الرئيسية للتطبيق:",
-    featuresList: [
+    features: [
       "حماية بكلمة مرور: يمكنك تأمين ملاحظاتك بكلمة مرور لمنع الوصول غير المصرح به.",
       "واجهة مستخدم سهلة: تصميم بسيط يساعدك على كتابة وتنظيم الملاحظات بسرعة.",
       "دعم النسخ الاحتياطي: حفظ واستعادة الملاحظات بسهولة عند الحاجة.",
       "تصنيفات وألوان: تنظيم الملاحظات باستخدام التصنيفات وتلوينها لسهولة الوصول.",
       "دعم اللغة العربية: تجربة استخدام مرنة وسلسة للمستخدم العربي."
     ],
-    navigation: ["الرئيسية", "التالي", "السابق"],
-    footer: {
-      siteName: "GreatWishes",
-      rights: "جميع الحقوق محفوظة"
-    }
+    navHome: "الرئيسية",
+    navNext: "التالي",
+    navPrev: "السابق",
+    clickAlert: "رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً."
   },
   en: {
+    siteName: "GreatWishes",
+    rights: "All rights reserved",
     headerTitle: "Secret Notes",
-    headerSubtitle: "Keep your personal notes completely secure with full protection",
-    downloadBtn: "Download App",
-    downloadBtnNow: "Download App Now",
+    headerSubtitle: "Keep your personal notes completely private with full protection",
+    downloadApp: "Download App",
+    downloadNow: "Download Now",
     appTitle: "Secret Notes App",
+    appDescription: "Secret Notes is a secure and easy-to-use tool for keeping your personal notes completely private. The app allows you to jot down ideas and sensitive information with full password protection and a simple Arabic-friendly interface.",
     featuresTitle: "Main Features:",
-    featuresList: [
+    features: [
       "Password Protection: Secure your notes with a password to prevent unauthorized access.",
-      "Easy-to-use interface: Simple design to quickly write and organize notes.",
-      "Backup Support: Save and restore notes easily when needed.",
-      "Categories and Colors: Organize notes using categories and color coding for easy access.",
-      "Supports Arabic: Smooth and flexible experience for Arabic users."
+      "Easy-to-Use Interface: Simple design helps you write and organize notes quickly.",
+      "Backup Support: Easily save and restore notes when needed.",
+      "Categories and Colors: Organize notes using categories and color-coding for easy access.",
+      "Arabic Language Support: Flexible and smooth experience for Arabic users."
     ],
-    navigation: ["Home", "Next", "Previous"],
-    footer: {
-      siteName: "GreatWishes",
-      rights: "All rights reserved"
-    }
+    navHome: "Home",
+    navNext: "Next",
+    navPrev: "Previous",
+    clickAlert: "Download link is not ready yet. Please try again later."
   }
 };
 
-// Default language
-let currentLang = 'ar';
-
+// دالة لتغيير اللغة في الصفحة
 function setLanguage(langCode) {
   currentLang = langCode;
 
-  // Header
-  document.querySelector('.header h1').innerHTML = lang[langCode].headerTitle;
-  document.querySelector('.header p').innerHTML = lang[langCode].headerSubtitle;
+  // نصوص الفوتر
+  document.querySelector('[data-lang-key="siteName"]').innerText = lang[langCode].siteName;
+  document.querySelector('[data-lang-key="rights"]').innerText = lang[langCode].rights;
 
-  // Buttons
-  document.getElementById('downloadBtn1').innerHTML = lang[langCode].downloadBtn;
-  document.getElementById('downloadBtn2').innerHTML = lang[langCode].downloadBtnNow;
+  // الهيدر
+  document.querySelector('.header h1').innerText = lang[langCode].headerTitle;
+  document.querySelector('.header p').innerText = lang[langCode].headerSubtitle;
 
-  // App description
-  document.querySelector('.app-description h2').innerHTML = lang[langCode].appTitle;
-  document.querySelector('.app-description h3').innerHTML = lang[langCode].featuresTitle;
+  // أزرار التحميل
+  document.getElementById('downloadBtn1').innerText = lang[langCode].downloadApp;
+  document.getElementById('downloadBtn2').innerText = lang[langCode].downloadNow;
 
-  const featuresItems = document.querySelectorAll('.app-description ul li');
-  featuresItems.forEach((li, index) => {
-    li.innerHTML = lang[langCode].featuresList[index];
+  // وصف التطبيق
+  document.querySelector('.app-description h2').innerText = lang[langCode].appTitle;
+  document.querySelector('.app-description p').innerText = lang[langCode].appDescription;
+  document.querySelector('.app-description h3').innerText = lang[langCode].featuresTitle;
+
+  // قائمة الميزات
+  const featuresList = document.querySelectorAll('.app-description ul li');
+  lang[langCode].features.forEach((text, index) => {
+    if(featuresList[index]) featuresList[index].innerText = text;
   });
 
-  // Navigation links
+  // روابط التنقل
   const navLinks = document.querySelectorAll('.navigation-links a');
-  navLinks.forEach((a, index) => {
-    a.innerHTML = lang[langCode].navigation[index];
-  });
-
-  // Footer
-  document.querySelector('.footer').innerHTML =
-    `&copy; 2025 <span data-lang-key="siteName">${lang[langCode].footer.siteName}</span> | <span data-lang-key="rights">${lang[langCode].footer.rights}</span>`;
+  if(navLinks[0]) navLinks[0].innerText = lang[langCode].navHome;
+  if(navLinks[1]) navLinks[1].innerText = lang[langCode].navNext;
+  if(navLinks[2]) navLinks[2].innerText = lang[langCode].navPrev;
 }
