@@ -1,6 +1,10 @@
 // lang_app8.js
+let currentLang = 'ar';
+
 const lang = {
   ar: {
+    siteName: "GreatWishes",
+    rights: "جميع الحقوق محفوظة",
     headerTitle: "لعبة ترتيب الأرقام",
     headerSubtitle: "رتب الأرقام داخل الشبكة للوصول إلى الترتيب الصحيح بطريقة مسلية وتفاعلية",
     downloadBtn: "تحميل اللعبة",
@@ -14,13 +18,11 @@ const lang = {
       "تصميم جذاب وبسيط: واجهة واضحة وسهلة اللعب مع تأثيرات بصرية مميزة.",
       "مناسبة للجميع: لعبة ممتعة للكبار والصغار، وتدعم اللغة العربية بالكامل."
     ],
-    navigation: ["الرئيسية", "التالي", "السابق"],
-    footer: {
-      siteName: "GreatWishes",
-      rights: "جميع الحقوق محفوظة"
-    }
+    navigation: ["الرئيسية", "التالي", "السابق"]
   },
   en: {
+    siteName: "GreatWishes",
+    rights: "All rights reserved",
     headerTitle: "Fifteen Puzzle",
     headerSubtitle: "Arrange the numbers in the grid to reach the correct order in a fun and interactive way",
     downloadBtn: "Download Game",
@@ -34,44 +36,37 @@ const lang = {
       "Attractive and simple design: Clear interface with enjoyable visual effects.",
       "Suitable for everyone: Fun game for kids and adults with full Arabic support."
     ],
-    navigation: ["Home", "Next", "Previous"],
-    footer: {
-      siteName: "GreatWishes",
-      rights: "All rights reserved"
-    }
+    navigation: ["Home", "Next", "Previous"]
   }
 };
-
-// Default language
-let currentLang = 'ar';
 
 function setLanguage(langCode) {
   currentLang = langCode;
 
   // Header
-  document.querySelector('.header h1').innerHTML = lang[langCode].headerTitle;
-  document.querySelector('.header p').innerHTML = lang[langCode].headerSubtitle;
+  document.querySelector('.header h1').innerText = lang[langCode].headerTitle;
+  document.querySelector('.header p').innerText = lang[langCode].headerSubtitle;
 
   // Buttons
-  document.getElementById('downloadBtn1').innerHTML = lang[langCode].downloadBtn;
-  document.getElementById('downloadBtn2').innerHTML = lang[langCode].downloadBtnNow;
+  document.getElementById('downloadBtn1').innerText = lang[langCode].downloadBtn;
+  document.getElementById('downloadBtn2').innerText = lang[langCode].downloadBtnNow;
 
   // App description
-  document.querySelector('.app-description h2').innerHTML = lang[langCode].appTitle;
-  document.querySelector('.app-description h3').innerHTML = lang[langCode].featuresTitle;
+  document.querySelector('.app-description h2').innerText = lang[langCode].appTitle;
+  document.querySelector('.app-description h3').innerText = lang[langCode].featuresTitle;
 
   const featuresItems = document.querySelectorAll('.app-description ul li');
   featuresItems.forEach((li, index) => {
-    li.innerHTML = lang[langCode].featuresList[index];
+    li.innerText = lang[langCode].featuresList[index];
   });
 
   // Navigation links
   const navLinks = document.querySelectorAll('.navigation-links a');
   navLinks.forEach((a, index) => {
-    a.innerHTML = lang[langCode].navigation[index];
+    a.innerText = lang[langCode].navigation[index];
   });
 
   // Footer
   document.querySelector('.footer').innerHTML =
-    `&copy; 2025 <span data-lang-key="siteName">${lang[langCode].footer.siteName}</span> | <span data-lang-key="rights">${lang[langCode].footer.rights}</span>`;
+    `&copy; 2025 <span data-lang-key="siteName">${lang[langCode].siteName}</span> | <span data-lang-key="rights">${lang[langCode].rights}</span>`;
     }
