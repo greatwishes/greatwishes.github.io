@@ -109,5 +109,38 @@
     document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
   </script>
 
+  <script>
+    // قائمة الهاتف المتحرك
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', e => {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
+    });
+
+    document.addEventListener('click', e => {
+      if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+      }
+    });
+
+    navLinks.addEventListener('click', e => e.stopPropagation());
+  </script>
+
+  <script src="languages/lang_app6.js"></script>
+  <script>
+    const langBtn = document.getElementById('lang-btn');
+
+    langBtn.addEventListener('click', () => {
+      if (currentLang === 'ar') {
+        setLanguage('en');
+        langBtn.innerHTML = 'AR';
+      } else {
+        setLanguage('ar');
+        langBtn.innerHTML = 'EN';
+      }
+    });
+  </script>
 </body>
       </html>
