@@ -8,7 +8,7 @@
   <meta name="keywords" content="من سيربح المليون, Millionaire, لعبة أسئلة, ثقافة عامة, مسابقات, ألعاب ذكاء, ألعاب مجانية, مسابقات تلفزيونية, أسئلة وأجوبة, ألعاب عربية">
   <meta name="author" content="GreatWishes">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://greatwishes.github.io/app7.html" />
+  <link rel="canonical" href="https://greatwishes.github.io/app7.html">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="buttons-style.css">
 </head>
@@ -17,7 +17,10 @@
   <!-- ===== Navigation ===== -->
   <nav class="main-nav">
     <div class="nav-container">
+      <!-- زر اللغة -->
       <div class="lang-btn" id="lang-btn">EN</div>
+
+      <!-- قائمة الهاتف المتحرك (3 خطوط) -->
       <div class="menu-toggle" id="mobile-menu">
         <div class="ellipsis-container">
           <span class="ellipsis"></span>
@@ -26,38 +29,42 @@
         </div>
       </div>
 
+      <!-- روابط التنقل -->
       <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="index.html#apps">التطبيقات</a></li>
-        <li><a href="index.html#guide">الدليل</a></li>
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#apps">التطبيقات</a></li>
+        <li><a href="#guide">الدليل</a></li>
         <li><a href="privacy.html">سياسة الخصوصية</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
       </ul>
     </div>
   </nav>
 
-  <header>
+  <!-- ===== Header ===== -->
+  <header class="header">
     <h1>لعبة من سيربح المليون</h1>
     <p>النسخة العربية الأشهر من المسابقة العالمية من سيربح المليون</p>
   </header>
 
-    <!-- هنا تم إضافة اللوجو بالتأثير -->
+  <!-- ===== Logo ===== -->
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <!-- زر التحميل -->
-  <a href="https://github.com/greatwishes/myapp/raw/main/millionaire/millionaire_version.1.0.apk" class="btn">تحميل اللعبة</a>
+  <!-- ===== Download Button ===== -->
+  <a href="#" id="downloadBtn1" class="btn">تحميل اللعبة</a>
 
+  <!-- ===== Game Image ===== -->
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png" alt="صورة اللعبة">
   </div>
 
+  <!-- ===== App Description ===== -->
   <div class="app-description">
     <h2>من سيربح المليون</h2>
     <p>تطبيق <strong>من سيربح المليون</strong> يجلب لك أجواء المسابقة التلفزيونية الشهيرة مباشرة على هاتفك. تحدَّ نفسك بالإجابة على أسئلة متنوعة في <strong>الثقافة العامة، العلوم، الرياضة، التاريخ، والفن</strong> لتصل إلى المليون.</p>
 
-    <h3>مميزات اللعبة</h3>
+    <h3>مميزات اللعبة:</h3>
     <ul>
       <li><strong>أجواء المسابقة الحقيقية:</strong> موسيقى وتأثيرات صوتية تزيد من الإثارة.</li>
       <li><strong>تنوع كبير في الأسئلة:</strong> أسئلة صعبة وسهلة لتناسب الجميع.</li>
@@ -67,44 +74,51 @@
     </ul>
   </div>
 
-  <a href="https://github.com/greatwishes/myapp/raw/main/millionaire/millionaire_version.1.0.apk" class="btn">تحميل اللعبة الآن</a>
+  <!-- ===== Download Now Button ===== -->
+  <a href="#" id="downloadBtn2" class="btn">تحميل اللعبة الآن</a>
 
+  <!-- ===== Navigation Links ===== -->
   <div class="navigation-links">
     <a href="index.html">الرئيسية</a> |
-    <a href="index.html">التالي</a> |
-    <a href="index.html">السابق</a> |
+    <a href="app8.html">التالي</a> |
+    <a href="app6.html">السابق</a>
   </div>
 
+  <!-- ===== Footer ===== -->
   <footer class="footer">
     &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
   </footer>
 
-  <!-- الصوتيات -->
+  <!-- ===== Audio ===== -->
   <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/millionaire_theme.mp3" preload="auto" loop></audio>
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
+  <!-- ===== Scripts ===== -->
   <script>
-    document.querySelectorAll('.btn').forEach(function(button) {
-      button.addEventListener('click', function() {
-        document.getElementById('clickSound').play();
-      });
+    // تحميل رابط APK من JSON
+    let apkUrl = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const jsonUrl = 'https://greatwishes.github.io/myapp/millionaire/update_millionaire.json';
+      fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.apk_url) apkUrl = data.apk_url;
+          else console.error('رابط APK غير موجود.');
+        })
+        .catch(error => console.error('خطأ في تحميل JSON:', error));
     });
 
-    var backgroundSoundPlayed = false;
-  </script>
+    function handleDownloadClick(event) {
+      event.preventDefault();
+      const sound = document.getElementById('clickSound');
+      if (sound) sound.play();
+      if (apkUrl) window.location.href = apkUrl;
+      else alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
+    }
 
-  <script> 
-    const updateFile = 'update_millionaire.json';
-    fetch(`https://greatwishes.github.io/myapp/millionaire/${updateFile}`)
-      .then(response => response.json())
-      .then(data => {
-        const apkUrl = data.apk_url;
-        const downloadButtons = document.querySelectorAll('.btn');
-        downloadButtons.forEach(function(button) {
-          button.href = apkUrl;
-        });
-      })
-      .catch(error => console.error('Error fetching update info:', error));
+    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
+    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
   </script>
 
   <script>
@@ -126,6 +140,7 @@
     navLinks.addEventListener('click', e => e.stopPropagation());
   </script>
 
+  <!-- ===== Language Script ===== -->
   <script src="languages/lang_app7.js"></script>
   <script>
     const langBtn = document.getElementById('lang-btn');
@@ -140,5 +155,6 @@
       }
     });
   </script>
+
 </body>
-  </html>
+</html>
