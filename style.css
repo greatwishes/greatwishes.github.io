@@ -580,4 +580,56 @@ text-shadow: 0 0 5px rgba(255,193,7,0.6);
   .contact-form, .contact-info {
     max-width: 100%;
   }
+	/* ===== دعم الكمبيوتر ===== */
+@media (min-width: 1024px) {
+  #contact {
+    max-width: 1300px;
+    margin: 80px auto;
+    padding: 80px 100px;
+    background: linear-gradient(145deg, #ffffff, #f2f4f8);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+
+  .contact-form, .contact-info {
+    flex: 1 1 550px;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .contact-form:hover,
+  .contact-info:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+  }
+
+  .contact-form h2,
+  .contact-info h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 17px;
+    padding: 14px 16px;
+  }
+
+  .contact-form .btn {
+    font-size: 20px;
+    padding: 14px 0;
+    border-radius: 10px;
+  }
+
+  .contact-info p {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .contact-info ul.social-links li a {
+    font-size: 18px;
+  }
 	}
