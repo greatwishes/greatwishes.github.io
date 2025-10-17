@@ -115,4 +115,4 @@ function setLanguage(langCode) {
       el.innerHTML = lang[langCode].footer[key];
     }
   });
-      }
+    }
