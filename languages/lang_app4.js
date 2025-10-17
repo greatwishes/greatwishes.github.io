@@ -1,17 +1,24 @@
-// lang_app4.js
-let currentLang = 'ar';
-
+// languages/lang_app4.js
 const lang = {
   ar: {
-    siteName: "GreatWishes",
-    rights: "جميع الحقوق محفوظة",
+    nav: [
+      "الرئيسية",
+      "التطبيقات",
+      "الدليل",
+      "سياسة الخصوصية",
+      "تواصل معنا"
+    ],
+    navLinks: [
+      "الرئيسية",
+      "التالي",
+      "الخصوصية"
+    ],
+    downloadBtn: "تحميل التطبيق الآن",
     headerTitle: "مشغل الفيديو",
     headerSubtitle: "استمتع بمشاهدة أفلامك وفيديوهاتك بجودة عالية وسهولة تشغيل",
-    downloadApp: "تحميل التطبيق",
-    downloadNow: "تحميل التطبيق الآن",
     appTitle: "تطبيق مشغل الفيديوهات",
     appDescription: "تطبيق مشغل الفيديوهات هو أداة قوية وسهلة الاستخدام لعرض وتشغيل ملفات الفيديو بجودة عالية. يتميز التطبيق بواجهة بسيطة وأنيقة تدعم تشغيل جميع صيغ الفيديو الشهيرة، مع دعم كامل للغة العربية والإنجليزية لتناسب جميع المستخدمين.",
-    featuresTitle: "الميزات الرئيسية للتطبيق:",
+    featuresTitle: "الميزات الرئيسية للتطبيق",
     features: [
       "تشغيل جميع صيغ الفيديو: يدعم التطبيق معظم صيغ الفيديو الشهيرة مثل MP4، AVI، MKV وغيرها.",
       "واجهة مستخدم سهلة: تصميم بسيط وأنيق يجعل تشغيل الفيديوهات سهلاً وممتعاً.",
@@ -19,21 +26,30 @@ const lang = {
       "دعم تشغيل الفيديوهات من الهاتف أو الذاكرة الخارجية: تصفح وشغل ملفات الفيديو أينما كانت مخزنة.",
       "دعم اللغة العربية: تجربة استخدام مرنة وسهلة لأي مستخدم."
     ],
-    navHome: "الرئيسية",
-    navNext: "التالي",
-    navPrev: "السابق",
-    clickAlert: "رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً."
+    footer: {
+      siteName: "GreatWishes",
+      rights: "جميع الحقوق محفوظة"
+    }
   },
   en: {
-    siteName: "GreatWishes",
-    rights: "All rights reserved",
+    nav: [
+      "Home",
+      "Apps",
+      "Guide",
+      "Privacy Policy",
+      "Contact Us"
+    ],
+    navLinks: [
+      "Home",
+      "Next",
+      "Privacy"
+    ],
+    downloadBtn: "Download App Now",
     headerTitle: "Video Player",
     headerSubtitle: "Enjoy watching your movies and videos in high quality with easy playback",
-    downloadApp: "Download App",
-    downloadNow: "Download Now",
     appTitle: "Video Player App",
     appDescription: "Video Player is a powerful and easy-to-use tool for viewing and playing video files in high quality. The app features a simple and elegant interface that supports all popular video formats, with full Arabic and English support to suit all users.",
-    featuresTitle: "Main Features:",
+    featuresTitle: "Main Features",
     features: [
       "Play All Video Formats: Supports most popular video formats like MP4, AVI, MKV, and more.",
       "Easy-to-Use Interface: A simple and elegant design that makes video playback easy and enjoyable.",
@@ -41,43 +57,62 @@ const lang = {
       "Play Videos from Phone or External Storage: Browse and play video files wherever they are stored.",
       "Arabic Language Support: Flexible and easy-to-use experience for any user."
     ],
-    navHome: "Home",
-    navNext: "Next",
-    navPrev: "Previous",
-    clickAlert: "Download link is not ready yet. Please try again later."
+    footer: {
+      siteName: "GreatWishes",
+      rights: "All rights reserved"
+    }
   }
 };
 
-// دالة لتغيير اللغة في الصفحة
+// Default language
+let currentLang = 'ar';
+
 function setLanguage(langCode) {
   currentLang = langCode;
 
-  // نصوص الفوتر
-  document.querySelector('[data-lang-key="siteName"]').innerText = lang[langCode].siteName;
-  document.querySelector('[data-lang-key="rights"]').innerText = lang[langCode].rights;
+  // Header
+  document.querySelector('.header h1').innerHTML = lang[langCode].headerTitle;
+  document.querySelector('.header p').innerHTML = lang[langCode].headerSubtitle;
 
-  // الهيدر
-  document.querySelector('.header h1').innerText = lang[langCode].headerTitle;
-  document.querySelector('.header p').innerText = lang[langCode].headerSubtitle;
+  // App description
+  document.querySelector('.app-description h2').innerHTML = lang[langCode].appTitle;
+  document.querySelector('.app-description p').innerHTML = lang[langCode].appDescription;
+  document.querySelector('.app-description h3').innerHTML = lang[langCode].featuresTitle;
 
-  // أزرار التحميل
-  document.getElementById('downloadBtn1').innerText = lang[langCode].downloadApp;
-  document.getElementById('downloadBtn2').innerText = lang[langCode].downloadNow;
-
-  // وصف التطبيق
-  document.querySelector('.app-description h2').innerText = lang[langCode].appTitle;
-  document.querySelector('.app-description p').innerText = lang[langCode].appDescription;
-  document.querySelector('.app-description h3').innerText = lang[langCode].featuresTitle;
-
-  // قائمة الميزات
-  const featuresList = document.querySelectorAll('.app-description ul li');
-  lang[langCode].features.forEach((text, index) => {
-    if(featuresList[index]) featuresList[index].innerText = text;
+  const featureItems = document.querySelectorAll('.app-description ul li');
+  featureItems.forEach((li, index) => {
+    if (lang[langCode].features[index]) {
+      li.innerHTML = `<strong>${lang[langCode].features[index].split(":")[0]}:</strong>${lang[langCode].features[index].split(":")[1]}`;
+    }
   });
 
-  // روابط التنقل
+  // Buttons
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.innerHTML = lang[langCode].downloadBtn;
+  });
+
+  // Navigation menu (القائمة العلوية)
+  const navItems = document.querySelectorAll('.nav-links li a');
+  navItems.forEach((el, index) => {
+    if (lang[langCode].nav[index]) {
+      el.innerHTML = lang[langCode].nav[index];
+    }
+  });
+
+  // Navigation links (الروابط السفلية)
   const navLinks = document.querySelectorAll('.navigation-links a');
-  if(navLinks[0]) navLinks[0].innerText = lang[langCode].navHome;
-  if(navLinks[1]) navLinks[1].innerText = lang[langCode].navNext;
-  if(navLinks[2]) navLinks[2].innerText = lang[langCode].navPrev;
+  navLinks.forEach((el, index) => {
+    if (lang[langCode].navLinks[index]) {
+      el.innerHTML = lang[langCode].navLinks[index];
+    }
+  });
+
+  // Footer
+  const footerElements = document.querySelectorAll('[data-lang-key]');
+  footerElements.forEach(el => {
+    const key = el.getAttribute('data-lang-key');
+    if(lang[langCode].footer[key]){
+      el.innerHTML = lang[langCode].footer[key];
+    }
+  });
     }
