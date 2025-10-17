@@ -434,6 +434,14 @@ text-shadow: 0 0 5px rgba(255,193,7,0.6);
     padding: 12px 20px;
     font-size: 0.85em;
   }
+	.fade-effect {
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+
+.fade-effect.fade-out {
+  opacity: 0;
+}
 	/* ===== تنسيق نموذج التواصل ===== */
 .contact-form {
   max-width: 600px;
