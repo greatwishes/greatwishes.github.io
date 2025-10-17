@@ -1,3 +1,4 @@
+// languages/lang_app1.js
 const lang = {
   ar: {
     headerTitle: "تطبيق موسيقى",
@@ -15,7 +16,10 @@ const lang = {
     navLinks: [
       { text: "الرئيسية", href: "index.html" },
       { text: "التالي", href: "app2.html" },
-      { text: "الخصوصية", href: "privacy.html" }
+      { text: "الخصوصية", href: "privacy.html" },
+      { text: "التطبيقات", href: "index.html#apps" },
+      { text: "الدليل", href: "index.html#guide" },
+      { text: "تواصل معنا", href: "#contact" }
     ],
     downloadBtn: "تحميل التطبيق الآن",
     footer: {
@@ -39,7 +43,10 @@ const lang = {
     navLinks: [
       { text: "Home", href: "index.html" },
       { text: "Next", href: "app2.html" },
-      { text: "Privacy", href: "privacy.html" }
+      { text: "Privacy", href: "privacy.html" },
+      { text: "Apps", href: "index.html#apps" },
+      { text: "Guide", href: "index.html#guide" },
+      { text: "Contact", href: "#contact" }
     ],
     downloadBtn: "Download App Now",
     footer: {
@@ -94,4 +101,13 @@ function setLanguage(langCode) {
       })
       .join('');
   }
-}
+
+  // Nav menu (for mobile)
+  const navMenuItems = document.querySelectorAll('.nav-links li a');
+  navMenuItems.forEach((a, index) => {
+    if (lang[langCode].navLinks[index]) {
+      a.innerHTML = lang[langCode].navLinks[index].text;
+      a.href = lang[langCode].navLinks[index].href;
+    }
+  });
+    }
