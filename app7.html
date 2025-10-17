@@ -1,144 +1,118 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>من سيربح المليون - Millionaire</title>
-  <meta name="description" content="لعبة من سيربح المليون - Millionaire، النسخة العربية المشهورة من المسابقة العالمية بأسئلة عامة ومتنوعة مع أجواء تفاعلية مشوقة.">
-  <meta name="keywords" content="من سيربح المليون, Millionaire, لعبة أسئلة, ثقافة عامة, مسابقات, ألعاب ذكاء, ألعاب مجانية, مسابقات تلفزيونية, أسئلة وأجوبة, ألعاب عربية">
-  <meta name="author" content="GreatWishes">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://greatwishes.github.io/app7.html" />
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="buttons-style.css">
-</head>
-<body>
-
-  <!-- ===== Navigation ===== -->
-  <nav class="main-nav">
-    <div class="nav-container">
-      <div class="lang-btn" id="lang-btn">EN</div>
-      <div class="menu-toggle" id="mobile-menu">
-        <div class="ellipsis-container">
-          <span class="ellipsis"></span>
-          <span class="ellipsis"></span>
-          <span class="ellipsis"></span>
-        </div>
-      </div>
-
-      <ul class="nav-links">
-        <li><a href="index.html">الرئيسية</a></li>
-        <li><a href="index.html#apps">التطبيقات</a></li>
-        <li><a href="index.html#guide">الدليل</a></li>
-        <li><a href="privacy.html">سياسة الخصوصية</a></li>
-        <li><a href="#contact">تواصل معنا</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <header class="header">
-    <h1>لعبة من سيربح المليون</h1>
-    <p>النسخة العربية الأشهر من المسابقة العالمية من سيربح المليون</p>
-  </header>
-
-  <div class="image-box">
-    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
-  </div>
-
-  <a href="#" id="downloadBtn1" class="btn">تحميل اللعبة</a>
-
-  <div class="image-box">
-    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png" alt="صورة اللعبة">
-  </div>
-
-  <div class="app-description">
-    <h2>من سيربح المليون</h2>
-    <p>تطبيق <strong>من سيربح المليون</strong> يجلب لك أجواء المسابقة التلفزيونية الشهيرة مباشرة على هاتفك. تحدَّ نفسك بالإجابة على أسئلة متنوعة في <strong>الثقافة العامة، العلوم، الرياضة، التاريخ، والفن</strong> لتصل إلى المليون.</p>
-
-    <h3>مميزات اللعبة:</h3>
-    <ul>
-      <li><strong>أجواء المسابقة الحقيقية:</strong> موسيقى وتأثيرات صوتية تزيد من الإثارة.</li>
-      <li><strong>تنوع كبير في الأسئلة:</strong> أسئلة صعبة وسهلة لتناسب الجميع.</li>
-      <li><strong>وسائل مساعدة:</strong> مثل حذف إجابتين، الاتصال بصديق، أو الاستعانة بالجمهور.</li>
-      <li><strong>تصميم جذاب:</strong> واجهة سهلة وممتعة تحاكي البرنامج الأصلي.</li>
-      <li><strong>مناسبة للجميع:</strong> متعة وتسلية للأطفال والكبار بدعم كامل للغة العربية.</li>
-    </ul>
-  </div>
-
-  <a href="#" id="downloadBtn2" class="btn">تحميل اللعبة الآن</a>
-
-  <div class="navigation-links">
-    <a href="index.html">الرئيسية</a> |
-    <a href="app8.html">التالي</a> |
-    <a href="app6.html">السابق</a> |
-  </div>
-
-  <footer class="footer">
-    &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
-</footer>
-
-  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/millionaire_theme.mp3" preload="auto" loop></audio>
-  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
-
-  <script>
-    let apkUrl = '';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const jsonUrl = 'https://greatwishes.github.io/myapp/millionaire/update_millionaire.json';
-
-      fetch(jsonUrl)
-        .then(response => response.json())
-        .then(data => {
-          if (data.apk_url) apkUrl = data.apk_url;
-          else console.error('رابط APK غير موجود.');
-        })
-        .catch(error => console.error('خطأ في تحميل JSON:', error));
-    });
-
-    function handleDownloadClick(event) {
-      event.preventDefault();
-      const sound = document.getElementById('clickSound');
-      if (sound) sound.play();
-      if (apkUrl) window.location.href = apkUrl;
-      else alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
+// languages/lang_app7.js
+const lang = {
+  ar: {
+    nav: [
+      "الرئيسية",
+      "التطبيقات",
+      "الدليل",
+      "سياسة الخصوصية",
+      "تواصل معنا"
+    ],
+    navLinks: [
+      "الرئيسية",
+      "التالي",
+      "السابق"
+    ],
+    downloadBtn: "تحميل اللعبة الآن",
+    headerTitle: "لعبة من سيربح المليون",
+    headerSubtitle: "النسخة العربية الأشهر من المسابقة العالمية من سيربح المليون",
+    appTitle: "من سيربح المليون",
+    appDescription: "تطبيق <strong>من سيربح المليون</strong> يجلب لك أجواء المسابقة التلفزيونية الشهيرة مباشرة على هاتفك. تحدَّ نفسك بالإجابة على أسئلة متنوعة في <strong>الثقافة العامة، العلوم، الرياضة، التاريخ، والفن</strong> لتصل إلى المليون.",
+    featuresTitle: "مميزات اللعبة",
+    features: [
+      "أجواء المسابقة الحقيقية: موسيقى وتأثيرات صوتية تزيد من الإثارة.",
+      "تنوع كبير في الأسئلة: أسئلة صعبة وسهلة لتناسب الجميع.",
+      "وسائل مساعدة: مثل حذف إجابتين، الاتصال بصديق، أو الاستعانة بالجمهور.",
+      "تصميم جذاب: واجهة سهلة وممتعة تحاكي البرنامج الأصلي.",
+      "مناسبة للجميع: متعة وتسلية للأطفال والكبار بدعم كامل للغة العربية."
+    ],
+    footer: {
+      siteName: "GreatWishes",
+      rights: "جميع الحقوق محفوظة"
     }
+  },
+  en: {
+    nav: [
+      "Home",
+      "Apps",
+      "Guide",
+      "Privacy Policy",
+      "Contact Us"
+    ],
+    navLinks: [
+      "Home",
+      "Next",
+      "Previous"
+    ],
+    downloadBtn: "Download Game Now",
+    headerTitle: "Who Wants to Be a Millionaire",
+    headerSubtitle: "The famous Arabic version of the global quiz show",
+    appTitle: "Millionaire Game",
+    appDescription: "The <strong>Millionaire Game</strong> brings the famous TV quiz experience directly to your phone. Challenge yourself with questions in <strong>general knowledge, science, sports, history, and arts</strong> to reach a million.",
+    featuresTitle: "Game Features",
+    features: [
+      "Real Show Atmosphere: Music and sound effects increase excitement.",
+      "Wide Variety of Questions: Easy and difficult questions for everyone.",
+      "Help Options: Such as 50:50, phone a friend, or ask the audience.",
+      "Attractive Design: Easy and enjoyable interface simulating the original show.",
+      "Suitable for All: Fun and entertainment for children and adults with full Arabic support."
+    ],
+    footer: {
+      siteName: "GreatWishes",
+      rights: "All rights reserved"
+    }
+  }
+};
 
-    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
-    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
-  </script>
+// Default language
+let currentLang = 'ar';
 
-  <script>
-    // قائمة الهاتف المتحرك
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
+function setLanguage(langCode) {
+  currentLang = langCode;
 
-    menuToggle.addEventListener('click', e => {
-      e.stopPropagation();
-      navLinks.classList.toggle('active');
-    });
+  // Header
+  document.querySelector('.header h1').innerHTML = lang[langCode].headerTitle;
+  document.querySelector('.header p').innerHTML = lang[langCode].headerSubtitle;
 
-    document.addEventListener('click', e => {
-      if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-      }
-    });
+  // App description
+  document.querySelector('.app-description h2').innerHTML = lang[langCode].appTitle;
+  document.querySelector('.app-description p').innerHTML = lang[langCode].appDescription;
+  document.querySelector('.app-description h3').innerHTML = lang[langCode].featuresTitle;
 
-    navLinks.addEventListener('click', e => e.stopPropagation());
-  </script>
+  const featureItems = document.querySelectorAll('.app-description ul li');
+  featureItems.forEach((li, index) => {
+    if (lang[langCode].features[index]) {
+      li.innerHTML = `<strong>${lang[langCode].features[index].split(":")[0]}:</strong>${lang[langCode].features[index].split(":")[1]}`;
+    }
+  });
 
-  <script src="languages/lang_app7.js"></script>
-  <script>
-    const langBtn = document.getElementById('lang-btn');
+  // Buttons
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.innerHTML = lang[langCode].downloadBtn;
+  });
 
-    langBtn.addEventListener('click', () => {
-      if (currentLang === 'ar') {
-        setLanguage('en');
-        langBtn.innerHTML = 'AR';
-      } else {
-        setLanguage('ar');
-        langBtn.innerHTML = 'EN';
-      }
-    });
-  </script>
-</body>
-    </html>
+  // Navigation menu (القائمة العلوية)
+  const navItems = document.querySelectorAll('.nav-links li a');
+  navItems.forEach((el, index) => {
+    if (lang[langCode].nav[index]) {
+      el.innerHTML = lang[langCode].nav[index];
+    }
+  });
+
+  // Navigation links (الروابط السفلية)
+  const navLinks = document.querySelectorAll('.navigation-links a');
+  navLinks.forEach((el, index) => {
+    if (lang[langCode].navLinks[index]) {
+      el.innerHTML = lang[langCode].navLinks[index];
+    }
+  });
+
+  // Footer
+  const footerElements = document.querySelectorAll('[data-lang-key]');
+  footerElements.forEach(el => {
+    const key = el.getAttribute('data-lang-key');
+    if(lang[langCode].footer[key]){
+      el.innerHTML = lang[langCode].footer[key];
+    }
+  });
+}
