@@ -45,6 +45,14 @@ const lang = {
       "Create Playlists: Create your own playlists and organize music as you like.",
       "High-Quality Sound: Enjoy a pure and high-quality audio experience."
     ],
+
+    nav: [
+      "Home",
+      "Apps",
+      "Guide",
+      "Privacy Policy",
+      "Contact Us"
+    ],
     downloadBtn: "Download App Now",
     footer: {
       siteName: "GreatWishes",
