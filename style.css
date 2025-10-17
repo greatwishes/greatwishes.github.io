@@ -633,4 +633,17 @@ text-shadow: 0 0 5px rgba(255,193,7,0.6);
   .contact-info {
     max-width: 750px;
   }
+
+/* فرض وضع الكروت تحت بعض في الكمبيوتر */
+#contact {
+  display: flex;
+  flex-direction: column !important;
+  align-items: center;
 }
+
+.contact-form,
+.contact-info {
+  width: 100%;
+  max-width: 750px;
+	}
+	}
