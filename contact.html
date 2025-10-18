@@ -142,5 +142,19 @@ navLinks.querySelectorAll('a').forEach(link => {
 });
 </script>
 
+  <script src="languages/lang_app1.js"></script>
+  <script>
+    const langBtn = document.getElementById('lang-btn');
+
+    langBtn.addEventListener('click', () => {
+      if (currentLang === 'ar') {
+        setLanguage('en');
+        langBtn.innerHTML = 'AR';
+      } else {
+        setLanguage('ar');
+        langBtn.innerHTML = 'EN';
+      }
+    });
+  </script>
 </body>
   </html>
