@@ -121,6 +121,17 @@ h2:hover, h3:hover {
   text-align: center;
   max-width: 800px;
 }
+.app-description {
+  max-width: 800px; /* أقصى عرض */
+  margin: 40px auto; /* منتصف الصفحة أفقياً */
+  padding: 20px;
+  text-align: center; /* النص في الوسط */
+}
+
+.app-description ul {
+  list-style-position: inside;
+  text-align: right; /* النقاط على اليمين لتصميم RTL */
+}
 
 .app-description ul li {
   background: rgba(0,188,212,0.05);
