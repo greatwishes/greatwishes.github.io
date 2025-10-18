@@ -1,3 +1,4 @@
+// ===== Translation Data =====
 const lang = {
   ar: {
     headerTitle: "تواصل معنا",
@@ -23,6 +24,13 @@ const lang = {
     footer: {
       siteName: "GreatWishes",
       rights: "جميع الحقوق محفوظة"
+    },
+    nav: {
+      home: "الرئيسية",
+      apps: "التطبيقات",
+      guide: "الدليل",
+      privacy: "سياسة الخصوصية",
+      contact: "تواصل معنا"
     }
   },
   en: {
@@ -49,13 +57,21 @@ const lang = {
     footer: {
       siteName: "GreatWishes",
       rights: "All rights reserved"
+    },
+    nav: {
+      home: "Home",
+      apps: "Apps",
+      guide: "Guide",
+      privacy: "Privacy Policy",
+      contact: "Contact Us"
     }
   }
 };
 
-// Default language
+// ===== Default language =====
 let currentLang = 'ar';
 
+// ===== Set Language Function =====
 function setLanguage(langCode) {
   currentLang = langCode;
 
@@ -78,7 +94,7 @@ function setLanguage(langCode) {
   document.getElementById('subject').placeholder = lang[langCode].placeholders.subject;
   document.getElementById('message').placeholder = lang[langCode].placeholders.message;
 
-  // Button
+  // Submit Button
   document.querySelector('.contact-form button').innerHTML = lang[langCode].submitBtn;
 
   // Other contacts section
@@ -92,7 +108,17 @@ function setLanguage(langCode) {
     link.innerHTML = lang[langCode].socialLinks[index];
   });
 
+  // Navigation links
+  document.querySelector('.nav-links li:nth-child(1) a').innerHTML = lang[langCode].nav.home;
+  document.querySelector('.nav-links li:nth-child(2) a').innerHTML = lang[langCode].nav.apps;
+  document.querySelector('.nav-links li:nth-child(3) a').innerHTML = lang[langCode].nav.guide;
+  document.querySelector('.nav-links li:nth-child(4) a').innerHTML = lang[langCode].nav.privacy;
+  document.querySelector('.nav-links li:nth-child(5) a').innerHTML = lang[langCode].nav.contact;
+
   // Footer
   document.querySelector('.footer').innerHTML =
     `&copy; 2025 <span data-lang-key="siteName">${lang[langCode].footer.siteName}</span> | <span data-lang-key="rights">${lang[langCode].footer.rights}</span>`;
 }
+
+// ===== Initialize page =====
+document.addEventListener('DOMContentLoaded', () => setLanguage(currentLang));
