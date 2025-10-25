@@ -10,6 +10,11 @@ const lang = {
       "سياسة الخصوصية",
       "تواصل معنا"
     ],
+    navLinks: [
+      "الرئيسية",
+      "التالي",
+      "السابق"
+    ],
     downloadBtn: "تحميل اللعبة",
     downloadNow: "تحميل اللعبة الآن",
     headerTitle: "📝 دفتر الملاحظات",
@@ -36,6 +41,11 @@ const lang = {
       "Guide",
       "Privacy Policy",
       "Contact Us"
+    ],
+    navLinks: [
+      "Home",
+      "Next",
+      "Previous"
     ],
     downloadBtn: "Download App",
     downloadNow: "Download App Now",
@@ -97,10 +107,16 @@ function setLanguage(langCode) {
     if(lang[langCode].nav[index]) el.innerHTML = lang[langCode].nav[index];
   });
 
+  // Navigation links السفلية (الرئيسية | التالي | السابق)
+  const navLinks = document.querySelectorAll('.navigation-links a');
+  navLinks.forEach((el, index) => {
+    if(lang[langCode].navLinks[index]) el.innerHTML = lang[langCode].navLinks[index];
+  });
+
   // Footer
   const footerElements = document.querySelectorAll('[data-lang-key]');
   footerElements.forEach(el => {
     const key = el.getAttribute('data-lang-key');
     if(lang[langCode].footer[key]) el.innerHTML = lang[langCode].footer[key];
   });
-}
+      }
