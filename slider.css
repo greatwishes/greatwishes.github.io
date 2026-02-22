@@ -48,6 +48,6 @@
 /* الحركة */
 @keyframes scrollOnce {
   0% { transform: translateX(0); }
-  50% { transform: translateX(calc(-100% + 200px * 11)); } /* تصحيح الخطأ السابق */
+  50% { transform: translateX(calc(-100% + 200px * 13)); } /* تصحيح الخطأ السابق */
   100% { transform: translateX(0); }
   }
