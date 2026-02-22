@@ -91,6 +91,10 @@
                     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png" alt="calculator">
                     <span class="app-name">الآلة الحاسبة</span>
                 </a>
+                <a href="app12.html" class="slider-item">
+                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2024/game2024.png" alt="game2024">
+                    <span class="app-name">لعبة 2024</span>
+                </a>
             </div>
         </div>
     </section>
@@ -137,14 +141,12 @@
     <script src="languages/lang_index.js"></script>
     <script src="languages/main.js"></script>
     <script>
-        // كود تشغيل القائمة للموبايل
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         if (menuToggle) {
             menuToggle.onclick = () => navLinks.classList.toggle('active');
         }
 
-        // كود تحريك الدليل التفاعلي
         const steps = document.querySelectorAll('.step-item');
         let currentStep = 0;
         document.querySelectorAll('.next-btn').forEach(btn => {
