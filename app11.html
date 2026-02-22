@@ -3,18 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>دفتر الملاحظات - Notepad</title>
-  <meta name="description" content="تطبيق Notepad لتدوين الملاحظات بسرعة وسهولة، مع تصنيف الملاحظات حسب الفئة وتعيين التذكيرات.">
-  <meta name="keywords" content="Notepad, دفتر الملاحظات, ملاحظات, تذكير, تدوين, تنظيم, تطبيق عربي">
+  <title>الآلة الحاسبة - Calculator</title>
+  <meta name="description" content="تطبيق الآلة الحاسبة الاحترافية لإجراء العمليات الحسابية بسرعة وسهولة مع تصميم عصري وجذاب.">
+  <meta name="keywords" content="Calculator, آلة حاسبة, حاسبة, رياضيات, تطبيق عربي, GreatWishes">
   <meta name="author" content="GreatWishes">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://greatwishes.github.io/app11.html" />
+  <link rel="canonical" href="https://greatwishes.github.io/app_calculator.html" />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="buttons-style.css">
 </head>
 <body>
 
-  <!-- ===== Navigation ===== -->
   <nav class="main-nav">
     <div class="nav-container">
       <div class="lang-btn" id="lang-btn">EN</div>
@@ -37,8 +36,8 @@
   </nav>
 
   <header class="header">
-    <h1>📝 دفتر الملاحظات</h1>
-    <p>دوّن ملاحظاتك بسرعة وسهولة وصنّفها حسب الفئة مع إمكانية ضبط التذكيرات</p>
+    <h1>🔢 الآلة الحاسبة</h1>
+    <p>أجرِ عملياتك الحسابية بدقة وسرعة مع واجهة مستخدم مبتكرة ومريحة</p>
 </header>
 
   <div class="image-box">
@@ -48,20 +47,20 @@
   <a href="#" id="downloadBtn1" class="btn">تحميل الان</a>
 
   <div class="image-box">
-    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/notepad/notepad.png" alt="صورة اللعبة">
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png" alt="صورة التطبيق">
   </div>
 
   <div class="app-description">
-    <h2>دفتر الملاحظات</h2>
-    <p>تطبيق <strong>دفتر الملاحظات</strong> يتيح لك كتابة وتنظيم ملاحظاتك بسرعة وسهولة، مع تصنيفها حسب الفئة وضبط التذكيرات المهمة.</p>
+    <h2>الآلة الحاسبة الذكية</h2>
+    <p>تطبيق <strong>الآلة الحاسبة</strong> يتيح لك القيام بكافة العمليات الحسابية الأساسية والمتقدمة بسلاسة تامة، مع تصميم نيومورفيزم فريد.</p>
 
     <h3>مميزات التطبيق:</h3>
     <ul>
-      <li><strong>تصميم جذاب وبسيط:</strong> واجهة واضحة وسهلة الاستخدام مع كروت 3D لكل ملاحظة.</li>
-      <li><strong>تصنيف الملاحظات:</strong> سهولة تنظيم الملاحظات حسب الفئة: عام، هام، تذكير.</li>
-      <li><strong>تذكيرات قابلة للتخصيص:</strong> ضبط تنبيهات للملاحظات المهمة بمواعيد محددة.</li>
-      <li><strong>مناسبة للجميع:</strong> استخدام سريع وسهل لجميع الأعمار، يدعم اللغة العربية بالكامل.</li>
-      <li><strong>حفظ آمن:</strong> تخزين الملاحظات محليًا مع إمكانية التعديل والحذف بسهولة.</li>
+      <li><strong>تصميم عصري:</strong> واجهة مستخدم مبنية بأسلوب النيومورفيزم الجذاب (Neumorphism).</li>
+      <li><strong>دقة عالية:</strong> حساب النتائج بدقة فائقة وسرعة استجابة فورية.</li>
+      <li><strong>شاشة LCD:</strong> عرض الأرقام والعمليات بخط رقمي مميز يحاكي الواقع.</li>
+      <li><strong>تجربة مريحة:</strong> ألوان متباينة تسهل الوصول للأرقام والعمليات الحسابية المختلفة.</li>
+      <li><strong>خفيف وسريع:</strong> حجم تطبيق صغير جداً ولا يؤثر على أداء الهاتف.</li>
     </ul>
 </div>
 
@@ -70,7 +69,7 @@
   <div class="navigation-links">
     <a href="index.html">الرئيسية</a> |
     <a href="index.html">التالي</a> |
-    <a href="app9.html">السابق</a> |
+    <a href="app10.html">السابق</a> |
   </div>
 
   <footer class="footer">
@@ -84,7 +83,8 @@
     let apkUrl = '';
 
     document.addEventListener('DOMContentLoaded', () => {
-      const jsonUrl = 'https://greatwishes.github.io/myapp/notepad/update_notepad.json';
+      // تعديل مسار الـ JSON الخاص بالآلة الحاسبة
+      const jsonUrl = 'https://greatwishes.github.io/myapp/calculator/update_calculator.json';
 
       fetch(jsonUrl)
         .then(response => response.json())
@@ -111,20 +111,17 @@
   const menuToggle = document.getElementById('mobile-menu');
   const navLinks = document.querySelector('.nav-links');
 
-  // فتح / غلق القائمة عند الضغط على زر القائمة
   menuToggle.addEventListener('click', e => {
     e.stopPropagation();
     navLinks.classList.toggle('active');
   });
 
-  // إغلاق القائمة عند الضغط خارجها
   document.addEventListener('click', e => {
     if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
       navLinks.classList.remove('active');
     }
   });
 
-  // إغلاق القائمة عند الضغط على أي رابط داخلها
   navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('active');
@@ -132,7 +129,7 @@
   });
 </script>
 
-  <script src="languages/lang_app10.js"></script>
+  <script src="languages/lang_calculator.js"></script>
   <script>
     const langBtn = document.getElementById('lang-btn');
 
