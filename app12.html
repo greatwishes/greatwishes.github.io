@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لعبة 2024 - Game 2024</title>
+  <meta name="description" content="لعبة 2024 الشهيرة لدمج الأرقام وتطوير مهارات التفكير الاستراتيجي. ادمج المربعات للوصول إلى الرقم 2024!">
+  <meta name="keywords" content="2024, 2048, لعبة أرقام, ألعاب ذكاء, دمج المربعات, ألغاز, تطبيق عربي">
+  <meta name="author" content="GreatWishes">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greatwishes.github.io/app12.html" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="buttons-style.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="lang-btn" id="lang-btn">EN</div>
+      <div class="menu-toggle" id="mobile-menu">
+        <div class="ellipsis-container">
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#apps">التطبيقات</a></li>
+        <li><a href="index.html#guide">الدليل</a></li>
+        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+        <li><a href="#contact.html">تواصل معنا</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="header">
+    <h1>🎮 لعبة 2024</h1>
+    <p>تحدى ذكاءك في دمج الأرقام المتشابهة للوصول إلى المربع الذهبي 2024</p>
+</header>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
+  </div>
+
+  <a href="#" id="downloadBtn1" class="btn">تحميل الان</a>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2024/game2024.png" alt="صورة اللعبة">
+  </div>
+
+  <div class="app-description">
+    <h2>لعبة 2024 (النسخة الحديثة)</h2>
+    <p>تعتبر <strong>لعبة 2024</strong> واحدة من أكثر ألعاب الألغاز إثارة، حيث تعتمد على تحريك المربعات ودمج الأرقام المتطابقة لمضاعفتها حتى تصل للهدف المنشود.</p>
+
+    <h3>مميزات اللعبة:</h3>
+    <ul>
+      <li><strong>تصميم عصري وجذاب:</strong> واجهة مستخدم مريحة للعين تدعم تقنيات العرض ثلاثية الأبعاد.</li>
+      <li><strong>مستويات تحدي متدرجة:</strong> ابدأ من أرقام بسيطة وحاول السيطرة على الشبكة قبل امتلائها.</li>
+      <li><strong>حفظ تلقائي للتقدم:</strong> يمكنك العودة وإكمال لعبتك من حيث توقفت في أي وقت.</li>
+      <li><strong>مناسبة لجميع الأعمار:</strong> تساعد على تنشيط الذاكرة وسرعة البديهة للكبار والصغار.</li>
+      <li><strong>أداء سلس وسريع:</strong> اللعبة محسنة لتعمل بمرونة عالية على كافة أجهزة الأندرويد.</li>
+    </ul>
+</div>
+
+  <a href="#" id="downloadBtn2" class="btn">تحميل الآن</a>
+
+  <div class="navigation-links">
+    <a href="index.html">الرئيسية</a> |
+    <a href="app11.html">التالي</a> |
+    <a href="app9.html">السابق</a> |
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
+</footer>
+
+  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/fifteen_theme.mp3" preload="auto" loop></audio>
+  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
+
+  <script>
+    let apkUrl = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // تم تغيير مسار JSON ليتناسب مع مجلد اللعبة الجديد
+      const jsonUrl = 'https://greatwishes.github.io/myapp/game2024/update_game2024.json';
+
+      fetch(jsonUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (data.apk_url) apkUrl = data.apk_url;
+          else console.error('رابط APK غير موجود.');
+        })
+        .catch(error => console.error('خطأ في تحميل JSON:', error));
+    });
+
+    function handleDownloadClick(event) {
+      event.preventDefault();
+      const sound = document.getElementById('clickSound');
+      if (sound) sound.play();
+      if (apkUrl) window.location.href = apkUrl;
+      else alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
+    }
+
+    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
+    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
+  </script>
+
+  <script>
+  const menuToggle = document.getElementById('mobile-menu');
+  const navLinks = document.querySelector('.nav-links');
+
+  menuToggle.addEventListener('click', e => {
+    e.stopPropagation();
+    navLinks.classList.toggle('active');
+  });
+
+  document.addEventListener('click', e => {
+    if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+      navLinks.classList.remove('active');
+    }
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+</script>
+
+  <script src="languages/lang_game2024.js"></script>
+  <script>
+    const langBtn = document.getElementById('lang-btn');
+
+    langBtn.addEventListener('click', () => {
+      if (currentLang === 'ar') {
+        setLanguage('en');
+        langBtn.innerHTML = 'AR';
+      } else {
+        setLanguage('ar');
+        langBtn.innerHTML = 'EN';
+      }
+    });
+  </script>
+</body>
+</html>
