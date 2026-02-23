@@ -1,5 +1,5 @@
 /* ============================================================
-   سلايدر محاكي الهواتف الذكية - GreatWishes 2026
+   سلايدر محاكي الهواتف الذكية المطور - GreatWishes 2026
    ============================================================ */
 
 .slider-container {
@@ -9,7 +9,7 @@
     position: relative;
     cursor: grab;
     user-select: none;
-    /* تلاشي جانبي سينمائي */
+    /* تأثير التلاشي الجانبي السينمائي */
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
@@ -20,9 +20,10 @@
 
 .slider-track {
     display: flex;
-    gap: 30px; /* زيادة المسافة بين الهواتف */
+    gap: 30px;
     width: max-content;
-    animation: scrollInfinite 40s linear infinite;
+    /* الأنيميشن الآن ينتهي عند -33.33% لأننا كررنا العناصر 3 مرات */
+    animation: scrollInfinite 60s linear infinite; 
     will-change: transform;
     align-items: center;
 }
@@ -32,26 +33,25 @@
     flex: 0 0 auto;
     width: 200px; 
     text-decoration: none;
-    perspective: 1000px; /* لإضافة عمق بسيط */
+    perspective: 1000px;
 }
 
 .app-card {
     position: relative;
     width: 100%;
     height: 400px; 
-    border-radius: 35px; /* حواف الهاتف الحديثة */
+    border-radius: 35px;
     background: #000;
-    /* إطار الهاتف المعدني */
     border: 4px solid #1a1a1a;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 15px rgba(0, 229, 255, 0.2);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* إضافة لمعة الزجاج على الشاشة */
+/* لمعة الزجاج */
 .app-card::after {
     content: '';
     position: absolute;
@@ -67,13 +67,12 @@
 .app-card img {
     width: 100%;
     height: 100%;
-    /* cover سيجعل الصورة تملأ شاشة الهاتف بالكامل لتظهر كأنها تطبيق حقيقي */
     object-fit: cover; 
     pointer-events: none;
     transition: transform 0.5s ease;
 }
 
-/* تفاصيل الهاتف العلوي (السماعة والكاميرا) */
+/* تفاصيل الهاتف (السماعة) */
 .app-card::before {
     content: '';
     position: absolute;
@@ -87,7 +86,6 @@
     z-index: 4;
 }
 
-/* اسم التطبيق أسفل الهاتف */
 .app-overlay {
     position: absolute;
     bottom: 0;
@@ -99,17 +97,17 @@
 }
 
 .app-name {
-    color: var(--primary-glow);
+    color: var(--primary-glow, #00e5ff);
     font-size: 0.9rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-/* تأثير عند الحوم (Hover) */
+/* تأثير الحوم */
 .slider-item:hover .app-card {
     transform: translateY(-15px) scale(1.05);
-    border-color: var(--primary-glow);
+    border-color: var(--primary-glow, #00e5ff);
     box-shadow: 0 25px 50px rgba(0, 229, 255, 0.3);
 }
 
@@ -117,10 +115,10 @@
     transform: scale(1.1);
 }
 
-/* حركة التمرير */
+/* --- تعديل الأنيميشن ليكون دائرياً بدون فراغ --- */
 @keyframes scrollInfinite {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-33.333%); } /* الثلث لأننا نضاعف العناصر 3 مرات */
 }
 
 /* استجابة الجوال */
