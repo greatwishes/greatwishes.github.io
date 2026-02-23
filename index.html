@@ -57,7 +57,7 @@
     </header>
 
     <section class="apps-section" id="apps">
-        <div class="section-header">
+        <div class="section-header centered">
             <h2 class="section-title">تطبيقات مختارة</h2>
             <p>تطبيقاتنا المفضلة لهذا الأسبوع</p>
         </div>
@@ -141,7 +141,7 @@
     </section>
 
     <section class="guide-section" id="guide">
-        <div class="section-header">
+        <div class="section-header centered">
             <h2 class="section-title">📱 دليل التثبيت</h2>
         </div>
         
@@ -221,7 +221,6 @@
         
         startX = (e.pageX || e.touches[0].pageX);
         
-        // الحصول على موقع التراك الحالي بدقة باستخدام Matrix
         const style = window.getComputedStyle(track);
         const matrix = new WebKitCSSMatrix(style.transform);
         prevTranslate = matrix.m41; 
@@ -241,7 +240,6 @@
         track.style.transform = `translateX(${currentTranslate}px)`;
     };
 
-    // مستمعات الأحداث (الماوس واللمس)
     slider.addEventListener('mousedown', startDragging);
     slider.addEventListener('touchstart', startDragging, {passive: true});
     window.addEventListener('mouseup', stopDragging);
