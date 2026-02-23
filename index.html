@@ -62,7 +62,7 @@
             <p>تطبيقاتنا المفضلة لهذا الأسبوع</p>
         </div>
         
-        <div class="slider-container">
+        <div class="slider-container" id="apps-slider">
             <div class="slider-track">
                 <a href="app1.html" class="slider-item">
                     <div class="app-card">
@@ -198,18 +198,62 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">GreatWishes</div>
-            <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com" style="color:var(--primary-glow)">Greatdaylight@gmail.com</a></p>
+            <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com" style="color:#00e5ff">Greatdaylight@gmail.com</a></p>
             <p class="copyright">&copy; 2026 GreatWishes. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
     <script>
-        // منطق القائمة
+        // 1. منطق القائمة الجوال
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
-        menuToggle.onclick = () => navLinks.classList.toggle('active');
+        if(menuToggle) {
+            menuToggle.onclick = () => navLinks.classList.toggle('active');
+        }
 
-        // منطق الدليل والمحاكي
+        // 2. منطق السلايدر: السحب اليدوي (Drag to Scroll)
+        const slider = document.querySelector('.slider-container');
+        const track = document.querySelector('.slider-track');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        const startDragging = (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            // إيقاف الأنميشن مؤقتاً عند السحب اليدوي لمزيد من التحكم
+            track.style.animationPlayState = 'paused';
+            startX = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        };
+
+        const stopDragging = () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+            // إعادة تشغيل الأنميشن عند ترك السلايدر
+            track.style.animationPlayState = 'running';
+        };
+
+        const move = (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
+            const walk = (x - startX) * 2; // سرعة التمرير
+            slider.scrollLeft = scrollLeft - walk;
+        };
+
+        // أحداث الماوس
+        slider.addEventListener('mousedown', startDragging);
+        slider.addEventListener('mouseleave', stopDragging);
+        slider.addEventListener('mouseup', stopDragging);
+        slider.addEventListener('mousemove', move);
+
+        // أحداث اللمس للجوال
+        slider.addEventListener('touchstart', startDragging);
+        slider.addEventListener('touchend', stopDragging);
+        slider.addEventListener('touchmove', move);
+
+        // 3. منطق الدليل التفاعلي
         const steps = document.querySelectorAll('.step-item');
         const dots = document.querySelectorAll('.dot');
         const stepImg = document.getElementById('current-step-img');
