@@ -190,75 +190,99 @@
         </div>
     </footer>
 
-    <script>
-    // --- 1. القائمة العلوية للجوال ---
-    const menuToggle = document.getElementById('mobile-menu');
-    const navLinks = document.querySelector('.nav-links');
-    if(menuToggle) {
-        menuToggle.onclick = () => navLinks.classList.toggle('active');
-    }
+<script>
+// --- 1. القائمة العلوية للجوال ---
+const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+if(menuToggle) {
+    menuToggle.onclick = () => navLinks.classList.toggle('active');
+}
 
-    // --- 2. السلايدر الاحترافي (حل الفراغ والسحب) ---
-    const slider = document.querySelector('.slider-container');
-    const track = document.querySelector('.slider-track');
+// --- 2. السلايدر المطور لـ 12 تطبيق ---
+const slider = document.querySelector('.slider-container');
+const track = document.querySelector('.slider-track');
+
+// مضاعفة العناصر مرتين فقط (12 + 12 = 24 عنصر)
+function setupSlider() {
+    if (!track) return;
     
-    // مضاعفة العناصر برمجياً 3 مرات لضمان تغطية أي شاشة عريضة
-    function initializeSlider() {
-        const items = track.innerHTML;
-        track.innerHTML = items + items + items; 
-    }
-    initializeSlider();
+    // حفظ العناصر الأصلية (12 تطبيق)
+    const originalItems = track.innerHTML;
+    
+    // مضاعفة العناصر مرة واحدة فقط (تصبح 24)
+    track.innerHTML = originalItems + originalItems;
+}
 
-    let isDown = false;
-    let startX;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
+// تنفيذ الإعداد
+setupSlider();
 
-    const startDragging = (e) => {
-        isDown = true;
-        slider.style.cursor = 'grabbing';
-        track.style.animationPlayState = 'paused';
-        
-        startX = (e.pageX || e.touches[0].pageX);
-        
-        const style = window.getComputedStyle(track);
-        const matrix = new WebKitCSSMatrix(style.transform);
-        prevTranslate = matrix.m41; 
-    };
+// التحكم في السحب
+let isDown = false;
+let startX;
+let scrollLeft;
 
-    const stopDragging = () => {
-        isDown = false;
-        slider.style.cursor = 'grab';
-        track.style.animationPlayState = 'running';
-    };
+// بدء السحب
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('dragging');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = track.scrollLeft;
+});
 
-    const move = (e) => {
-        if (!isDown) return;
-        const x = (e.pageX || e.touches[0].pageX);
-        const walk = (x - startX);
-        currentTranslate = prevTranslate + walk;
-        track.style.transform = `translateX(${currentTranslate}px)`;
-    };
+// إنهاء السحب
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('dragging');
+});
 
-    slider.addEventListener('mousedown', startDragging);
-    slider.addEventListener('touchstart', startDragging, {passive: true});
-    window.addEventListener('mouseup', stopDragging);
-    window.addEventListener('touchend', stopDragging);
-    slider.addEventListener('mousemove', move);
-    slider.addEventListener('touchmove', move, {passive: false});
+slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('dragging');
+});
 
-    // --- 3. الدليل التفاعلي ---
-    const steps = document.querySelectorAll('.step-item');
-    const dots = document.querySelectorAll('.dot');
-    const stepImg = document.getElementById('current-step-img');
-    let currentStep = 0;
+// حركة السحب
+slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+    track.scrollLeft = scrollLeft - walk;
+});
 
-    const images = [
-        "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
-        "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
-        "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
-    ];
+// دعم شاشات اللمس
+slider.addEventListener('touchstart', (e) => {
+    isDown = true;
+    slider.classList.add('dragging');
+    startX = e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = track.scrollLeft;
+});
 
+slider.addEventListener('touchend', () => {
+    isDown = false;
+    slider.classList.remove('dragging');
+});
+
+slider.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+    track.scrollLeft = scrollLeft - walk;
+});
+
+// --- 3. الدليل التفاعلي (بدون تغيير) ---
+const steps = document.querySelectorAll('.step-item');
+const dots = document.querySelectorAll('.dot');
+const stepImg = document.getElementById('current-step-img');
+let currentStep = 0;
+
+const images = [
+    "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
+    "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
+    "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
+];
+
+if(document.getElementById('nextStep')) {
     document.getElementById('nextStep').onclick = () => {
         if (currentStep < steps.length - 1) {
             steps[currentStep].classList.remove('visible');
@@ -282,11 +306,19 @@
             updateButtons();
         }
     };
+}
 
-    function updateButtons() {
-        document.getElementById('prevStep').disabled = (currentStep === 0);
-        document.getElementById('nextStep').innerText = (currentStep === steps.length - 1) ? 'إنهاء' : 'التالي';
-    }
+function updateButtons() {
+    document.getElementById('prevStep').disabled = (currentStep === 0);
+    document.getElementById('nextStep').innerText = (currentStep === steps.length - 1) ? 'إنهاء' : 'التالي';
+}
+
+// إغلاق القائمة عند النقر على رابط
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
 </script>
 
 </body>
