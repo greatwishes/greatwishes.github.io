@@ -265,12 +265,96 @@ slider.addEventListener('touchend', () => {
 slider.addEventListener('touchmove', (e) => {
     if (!isDown) return;
     e.preventDefault();
+    const x = e.touches[0].pageX - slider.offset<script>
+// --- 1. القائمة العلوية للجوال ---
+const menuToggle = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+if(menuToggle) {
+    menuToggle.onclick = () => navLinks.classList.toggle('active');
+}
+
+// --- 2. السلايدر السحري - الحل النهائي ---
+const slider = document.querySelector('.slider-container');
+const track = document.querySelector('.slider-track');
+
+function fixSlider() {
+    if (!track) return;
+    
+    // 1. خذ العناصر الأصلية (12 تطبيق)
+    const originalItems = track.innerHTML;
+    
+    // 2. نظف المسار أولاً
+    track.innerHTML = '';
+    
+    // 3. أضف العناصر 4 مرات (12 × 4 = 48 عنصر)
+    // هذا يضمن سلاسة لا نهائية
+    track.innerHTML = originalItems + originalItems + originalItems + originalItems;
+    
+    console.log('تم تهيئة السلايدر بـ 48 عنصر');
+}
+
+// تنفيذ الإصلاح
+fixSlider();
+
+// التحكم في السحب
+let isDown = false;
+let startX;
+let scrollLeft;
+
+// ماوس
+slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('dragging');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = track.scrollLeft;
+});
+
+slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('dragging');
+});
+
+slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('dragging');
+});
+
+slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2;
+    track.scrollLeft = scrollLeft - walk;
+});
+
+// شاشات اللمس
+slider.addEventListener('touchstart', (e) => {
+    isDown = true;
+    slider.classList.add('dragging');
+    startX = e.touches[0].pageX - slider.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    e.preventDefault();
+});
+
+slider.addEventListener('touchend', () => {
+    isDown = false;
+    slider.classList.remove('dragging');
+});
+
+slider.addEventListener('touchmove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
     const x = e.touches[0].pageX - slider.offsetLeft;
     const walk = (x - startX) * 2;
     track.scrollLeft = scrollLeft - walk;
 });
 
-// --- 3. الدليل التفاعلي (بدون تغيير) ---
+// منع التحديد أثناء السحب
+slider.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+});
+
+// --- 3. الدليل التفاعلي ---
 const steps = document.querySelectorAll('.step-item');
 const dots = document.querySelectorAll('.dot');
 const stepImg = document.getElementById('current-step-img');
@@ -313,13 +397,12 @@ function updateButtons() {
     document.getElementById('nextStep').innerText = (currentStep === steps.length - 1) ? 'إنهاء' : 'التالي';
 }
 
-// إغلاق القائمة عند النقر على رابط
+// إغلاق القائمة عند النقر
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
         navLinks.classList.remove('active');
     });
 });
 </script>
-
 </body>
 </html>
