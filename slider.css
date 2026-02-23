@@ -1,124 +1,298 @@
-/* ============================================================
-   إصلاح أبعاد الصور والأنيميشن وسلاسة السحب - النسخة المطورّة 2026
-   (تم تعديل الأسماء بتباين عالي تحت الكروت)
-   ============================================================ */
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreatWishes | تطبيقات أندرويد مجانية</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="canonical" href="https://greatwishes.github.io/index.html" />
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="install-guide.css">
+</head>
+<body>
 
-.apps-section {
-    padding: 60px 0;
-    background: transparent;
-}
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="lang-btn" id="lang-btn">EN</div>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="active">الرئيسية</a></li>
+                <li><a href="#apps">التطبيقات</a></li>
+                <li><a href="#guide">الدليل</a></li>
+                <li><a href="privacy.html">الخصوصية</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
 
-.slider-container {
-    width: 100%;
-    padding: 20px 0 130px 0; /* مساحة أكبر للظلال والانعكاس */
-    overflow: hidden;
-    position: relative;
-    cursor: grab;
-    touch-action: pan-y;
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-}
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-.slider-container:active { cursor: grabbing; }
+    <header class="hero-section" id="home">
+        <div class="hero-container">
+            <div class="hero-text-content">
+                <span class="badge">إصدار 2026 الجديد</span>
+                <h1>مرحبًا بك في <span>GreatWishes</span></h1>
+                <p>منصة تطبيقاتك للاندرويد بتصميم فريد وتجربة استثنائية. اكتشف عالم التميز مع تطبيقاتنا المجانية.</p>
+                <div class="hero-btns">
+                    <a href="#apps" class="btn-primary">تصفح التطبيقات</a>
+                    <a href="#guide" class="btn-secondary">كيفية التثبيت؟</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="floating-logo-box">
+                    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo">
+                </div>
+            </div>
+        </div>
+    </header>
 
-.slider-track {
-    display: flex;
-    gap: 30px;
-    width: max-content;
-    animation: scrollInfinite 40s linear infinite;
-    will-change: transform;
-}
+    <section class="apps-section" id="apps">
+        <div class="section-header centered"> 
+            <h2 class="section-title">تطبيقات مختارة</h2>
+            <p>تطبيقاتنا المفضلة لهذا الأسبوع</p>
+        </div>
+        
+        <div class="slider-container" id="apps-slider">
+            <div class="slider-track">
+                <a href="app1.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">تطبيق موسيقى</span></div>
+                </a>
+                <a href="app2.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">آلة حساب العمر</span></div>
+                </a>
+                <a href="app3.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل الصوتية">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">تحويل الصوتية</span></div>
+                </a>
+                <a href="app4.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">تطبيق الفيديوهات</span></div>
+                </a>
+                <a href="app5.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">ملاحظات سرية</span></div>
+                </a>
+                <a href="app6.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/quizapp/quizapp.jpg" alt="لعبة الثلاث أحرف">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">لعبة الثلاث أحرف</span></div>
+                </a>
+                <a href="app7.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png" alt="من سيربح المليون">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">من سيربح المليون</span></div>
+                </a>
+                <a href="app8.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg" alt="ترتيب الأرقام">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">ترتيب الأرقام</span></div>
+                </a>
+                <a href="app9.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/memory/memory.jpg" alt="لعبة الذاكرة">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">لعبة الذاكرة</span></div>
+                </a>
+                <a href="app10.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/notepad/notepad.png" alt="notepad">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">دفتر الملاحظات</span></div>
+                </a>
+                <a href="app11.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png" alt="calculator">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">الآلة الحاسبة</span></div>
+                </a>
+                <a href="app12.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2048/game2048.png" alt="game2048">
+                    </div>
+                    <div class="app-overlay"><span class="app-name">لعبة 2048</span></div>
+                </a>
+            </div>
+        </div>
+    </section>
 
-.slider-container:hover .slider-track { animation-play-state: running; }
+    <section class="guide-section" id="guide">
+        <div class="section-header centered">
+            <h2 class="section-title">📱 دليل التثبيت</h2>
+        </div>
+        
+        <div class="guide-container">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png" alt="Step 1" id="current-step-img">
+                </div>
+            </div>
 
-.slider-item {
-    flex: 0 0 auto;
-    width: 200px;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    gap: 12px;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
+            <div class="guide-content">
+                <div class="steps-progress">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                
+                <div class="step-text-container">
+                    <div class="step-item visible">
+                        <h3>01. افتح متجر جوجل</h3>
+                        <p>ابدأ بفتح تطبيق <strong>جوجل بلاي</strong> على هاتفك للوصول للإعدادات.</p>
+                    </div>
+                    <div class="step-item">
+                        <h3>02. إعدادات الحماية</h3>
+                        <p>انتقل إلى Play Protect وقم بتعطيل <strong>فحص التطبيقات</strong> مؤقتاً.</p>
+                    </div>
+                    <div class="step-item">
+                        <h3>03. جاهز للاستخدام</h3>
+                        <p>الآن، افتح التطبيق المثبت واستمتع بكافة المميزات! 🎉</p>
+                    </div>
+                </div>
 
-.app-card {
-    position: relative;
-    width: 100%;
-    height: 380px;
-    border-radius: 25px;
-    background: #0a0a0a;
-    border: 2px solid rgba(0, 229, 255, 0.2);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    -webkit-box-reflect: below 10px linear-gradient(transparent 80%, rgba(255,255,255,0.05));
-    transition: all 0.3s ease;
-}
+                <div class="guide-nav-btns">
+                    <button class="prev-btn" id="prevStep" disabled>السابق</button>
+                    <button class="next-btn" id="nextStep">التالي</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-.app-card img {
-    width: 92%;
-    height: 92%;
-    object-fit: contain; 
-    border-radius: 12px;
-}
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">GreatWishes</div>
+            <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com" style="color:#00e5ff">Greatdaylight@gmail.com</a></p>
+            <p class="copyright">&copy; 2026 GreatWishes. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
 
-/* ----- منطقة الاسم بتباين عالي (مثل الإصدار الأول) ----- */
-.app-overlay {
-    position: static; 
-    width: 100%;
-    /* خلفية متدرجة سوداء داكنة لبروز النص */
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.9), transparent);
-    padding: 10px 0;
-    text-align: center;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
+    <script>
+        // 1. القائمة الجوال
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if(menuToggle) {
+            menuToggle.onclick = () => navLinks.classList.toggle('active');
+        }
 
-.app-name {
-    color: var(--primary-glow); /* اللون الفيروزي الأصلي */
-    font-size: 0.95rem;
-    font-weight: 900; /* خط عريض جداً للتباين */
-    text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: block;
-    transition: all 0.3s ease;
-}
+        // 2. منطق السلايدر المتطور
+        const slider = document.querySelector('.slider-container');
+        const track = document.querySelector('.slider-track');
+        
+        function initSlider() {
+            const content = track.innerHTML;
+            track.innerHTML = content + content + content;
+        }
+        initSlider();
 
-/* ----- تأثيرات التفاعل (Hover) ----- */
-.slider-item:hover {
-    transform: translateY(-12px);
-}
+        let isDown = false, isScrolling = false;
+        let startX, startY, prevTranslate = 0, currentTranslate = 0;
 
-.slider-item:hover .app-card {
-    border-color: var(--primary-glow);
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
-}
+        const startDragging = (e) => {
+            isDown = true;
+            isScrolling = false;
+            slider.style.cursor = 'grabbing';
+            track.style.animationPlayState = 'paused';
+            
+            startX = (e.pageX || e.touches[0].pageX);
+            startY = (e.pageY || e.touches[0].pageY);
+            
+            const style = window.getComputedStyle(track);
+            const matrix = new WebKitCSSMatrix(style.transform);
+            prevTranslate = matrix.m41;
+        };
 
-.slider-item:hover .app-overlay {
-    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.15), transparent);
-    border-color: rgba(0, 229, 255, 0.3);
-}
+        const stopDragging = () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+            track.style.animationPlayState = 'running';
+        };
 
-.slider-item:hover .app-name {
-    color: #fff;
-    text-shadow: 0 0 20px var(--primary-glow);
-    transform: scale(1.05);
-}
+        const move = (e) => {
+            if (!isDown || isScrolling) return;
 
-/* حركة التمرير */
-@keyframes scrollInfinite {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(33.333%); }
-}
+            const x = (e.pageX || e.touches[0].pageX);
+            const y = (e.pageY || e.touches[0].pageY);
+            
+            const walkX = x - startX;
+            const walkY = y - startY;
 
-/* ضبط الجوال */
-@media (max-width: 480px) {
-    .slider-item { width: 160px; }
-    .app-card { height: 320px; }
-    .slider-track { gap: 20px; }
-    .app-name { font-size: 0.85rem; letter-spacing: 0.5px; }
-}
+            if (!isScrolling) {
+                if (Math.abs(walkY) > Math.abs(walkX)) {
+                    isScrolling = true;
+                    return;
+                }
+            }
+
+            if (e.cancelable) e.preventDefault(); 
+            currentTranslate = prevTranslate + walkX;
+            track.style.transform = `translateX(${currentTranslate}px)`;
+        };
+
+        slider.addEventListener('mousedown', startDragging);
+        slider.addEventListener('touchstart', startDragging, {passive: false});
+        window.addEventListener('mouseup', stopDragging);
+        window.addEventListener('touchend', stopDragging);
+        slider.addEventListener('mousemove', move);
+        slider.addEventListener('touchmove', move, {passive: false});
+
+        // 3. الدليل التفاعلي
+        const steps = document.querySelectorAll('.step-item');
+        const dots = document.querySelectorAll('.dot');
+        const stepImg = document.getElementById('current-step-img');
+        let currentStep = 0;
+
+        const images = [
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
+        ];
+
+        function updateStep(index) {
+            steps[currentStep].classList.remove('visible');
+            dots[currentStep].classList.remove('active');
+            currentStep = index;
+            steps[currentStep].classList.add('visible');
+            dots[currentStep].classList.add('active');
+            stepImg.src = images[currentStep];
+            updateButtons();
+        }
+
+        document.getElementById('nextStep').onclick = () => {
+            if (currentStep < steps.length - 1) updateStep(currentStep + 1);
+        };
+
+        document.getElementById('prevStep').onclick = () => {
+            if (currentStep > 0) updateStep(currentStep - 1);
+        };
+
+        function updateButtons() {
+            document.getElementById('prevStep').disabled = (currentStep === 0);
+            document.getElementById('nextStep').innerText = (currentStep === steps.length - 1) ? 'إنهاء' : 'التالي';
+        }
+    </script>
+</body>
+</html>
