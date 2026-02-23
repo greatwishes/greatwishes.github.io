@@ -1,94 +1,101 @@
 /* ============================================================
-   إصلاح أبعاد الصور والأنيميشن - النسخة الاحترافية المحدثة
+   إصلاح السلايدر النهائي - GreatWishes Fix
    ============================================================ */
 
 .apps-section {
-    padding: 60px 0;
+    padding: 80px 0;
+    overflow: hidden;
     background: transparent;
 }
 
 .slider-container {
     width: 100%;
-    padding: 20px 0 100px 0;
+    padding: 40px 0 120px 0;
     overflow: hidden;
     position: relative;
-    /* تأثير التلاشي الجانبي */
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    /* لضمان استمرارية الحركة حتى عند التفاعل */
-    pointer-events: auto;
+    /* إضافة لمسة احترافية بإخفاء الأطراف */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 .slider-track {
     display: flex;
-    gap: 20px;
-    width: max-content;
-    animation: scrollInfinite 35s linear infinite;
+    width: max-content; /* يضمن تمدد المسار ليشمل كل الصور بجانب بعضها */
+    gap: 30px; /* المسافة بين كل تطبيق والآخر */
+    animation: scrollInfinite 40s linear infinite;
     will-change: transform;
+    cursor: grab; /* يوضح للمستخدم أنه يمكنه سحب السلايدر */
 }
 
-/* لضمان عدم توقف السلايدر نهائياً */
-.slider-container:hover .slider-track,
-.slider-container:active .slider-track,
-.slider-track:hover {
-    animation-play-state: running !important;
+/* حل مشكلة توقف السلايدر: قمنا بإزالة "animation-play-state: paused" لكي لا يقف عند اللمس */
+.slider-container:active .slider-track {
+    cursor: grabbing;
 }
 
 .slider-item {
-    flex: 0 0 auto;
-    width: 200px; /* عرض ثابت لضمان عدم تداخل الصور */
+    flex: 0 0 auto; /* منع انكماش الصور نهائياً */
+    width: 220px; /* العرض الثابت لضمان اكتمال الصورة */
     text-decoration: none;
+    transition: transform 0.3s ease;
 }
 
 .app-card {
     position: relative;
     width: 100%;
-    height: 400px; /* زيادة الارتفاع ليتناسب مع صور تطبيقاتك الطولية */
-    border-radius: 25px;
-    background: #0a0a0a; /* خلفية داكنة جداً تبرز الصور */
-    border: 2px solid rgba(0, 229, 255, 0.2);
+    height: 380px; /* طول مناسب ليظهر المحتوى كاملاً */
+    border-radius: 20px;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* تأثير الانعكاس */
-    -webkit-box-reflect: below 10px linear-gradient(transparent 75%, rgba(255,255,255,0.1));
-    transition: transform 0.3s ease;
+    background: #1a1a1a;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    /* تأثير المرآة السفلي */
+    -webkit-box-reflect: below 10px linear-gradient(transparent 70%, rgba(255,255,255,0.1));
 }
 
 .app-card img {
-    width: 92%;
-    height: 92%;
-    /* السر هنا: contain يضمن ظهور صور الـ Screenshots كاملة بدون قص */
-    object-fit: contain; 
-    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* يضمن امتلاء الكرت بالصورة دون تشويه */
+    display: block;
 }
 
+/* تحسين ظهور الاسم */
 .app-overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: linear-gradient(transparent, rgba(0,0,0,0.85));
-    padding: 20px 5px;
+    padding: 20px 10px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
     text-align: center;
 }
 
 .app-name {
     color: #00e5ff;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    font-weight: bold;
+    font-size: 0.95rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-/* حركة التمرير - تعتمد على تكرار العناصر في الـ HTML */
+/* حركة التمرير اللانهائية الدقيقة */
 @keyframes scrollInfinite {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(50%); }
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* نتحرك لليسار (RTL) بمقدار 50% من طول المسار الإجمالي */
+        /* بما أننا كررنا الـ 12 صورة، فـ 50% تعني الانتقال لنهاية المجموعة الأولى والبدء في الثانية */
+        transform: translateX(50%); 
+    }
 }
 
-/* ضبط للجوالات (لضمان ظهور أكثر من تطبيق في الشاشة) */
-@media (max-width: 480px) {
-    .slider-item { width: 160px; }
-    .app-card { height: 320px; }
-    .slider-track { gap: 15px; }
+/* إصلاح للجوال لضمان عدم قص الصور */
+@media (max-width: 768px) {
+    .slider-item {
+        width: 160px; /* حجم أصغر قليلاً للهواتف */
+    }
+    .app-card {
+        height: 280px;
+    }
+    .slider-track {
+        animation-duration: 25s; /* سرعة أكبر قليلاً في الشاشات الصغيرة */
+    }
 }
