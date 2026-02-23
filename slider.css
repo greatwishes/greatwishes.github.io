@@ -1,4 +1,4 @@
-/* ===== السلايدر ===== */
+/* ===== السلايدر المحترف - نسخة 12 تطبيق ===== */
 .slider-container {
     width: 100%;
     padding: 40px 0;
@@ -6,8 +6,9 @@
     position: relative;
     cursor: grab;
     user-select: none;
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    /* تأثير التلاشي الجانبي */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
 .slider-container:active {
@@ -18,21 +19,27 @@
     display: flex;
     gap: 25px;
     width: max-content;
-    animation: scrollInfinite 60s linear infinite;
+    animation: scrollInfinite 50s linear infinite;
+    animation-play-state: running;
     will-change: transform;
-    align-items: center;
 }
 
-/* === إضافة الحركة المفقودة === */
+/* إيقاف الحركة عند السحب */
+.slider-container.dragging .slider-track {
+    animation-play-state: paused !important;
+}
+
+/* === حركة السلايدر المستمرة - مخصصة لـ 12 تطبيق === */
 @keyframes scrollInfinite {
     0% {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-33.333%);
+        transform: translateX(calc(-200px * 12 - 25px * 12)); /* عرض 12 عنصر + المسافات */
     }
 }
 
+/* بطاقات التطبيقات */
 .slider-item {
     flex: 0 0 auto;
     width: 200px;
@@ -49,7 +56,7 @@
     border: 4px solid #1a1a1a;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     overflow: hidden;
-    transition: all 0.4s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .app-card::before {
@@ -79,6 +86,7 @@
     background: linear-gradient(transparent, rgba(0,0,0,0.9));
     padding: 20px 10px;
     text-align: center;
+    z-index: 2;
 }
 
 .app-name {
@@ -99,7 +107,7 @@
     transform: scale(1.1);
 }
 
-/* ===== تحسينات الجوال ===== */
+/* تحسينات الجوال */
 @media (max-width: 768px) {
     .slider-item {
         width: 160px;
@@ -112,5 +120,11 @@
     
     .slider-track {
         gap: 15px;
+    }
+    
+    @keyframes scrollInfinite {
+        100% {
+            transform: translateX(calc(-160px * 12 - 15px * 12));
+        }
     }
 }
