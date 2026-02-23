@@ -1,5 +1,6 @@
 /* ============================================================
-   إصلاح أبعاد الصور والأنيميشن وسلاسة السحب - النسخة النهائية
+   إصلاح أبعاد الصور والأنيميشن وسلاسة السحب - النسخة المطورّة 2026
+   (تم تعديل الأسماء بتباين عالي تحت الكروت)
    ============================================================ */
 
 .apps-section {
@@ -9,103 +10,115 @@
 
 .slider-container {
     width: 100%;
-    padding: 20px 0 100px 0;
+    padding: 20px 0 130px 0; /* مساحة أكبر للظلال والانعكاس */
     overflow: hidden;
     position: relative;
     cursor: grab;
-    /* السماح بالسحب العمودي للمتصفح ومنع الأفقي لتجنب التعارض */
     touch-action: pan-y;
-    /* تأثير التلاشي الجانبي السينمائي */
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-.slider-container:active {
-    cursor: grabbing;
-}
+.slider-container:active { cursor: grabbing; }
 
 .slider-track {
     display: flex;
-    gap: 20px;
+    gap: 30px;
     width: max-content;
-    /* سرعة الأنيميشن واتجاهه ليناسب لغة الموقع */
     animation: scrollInfinite 40s linear infinite;
     will-change: transform;
 }
 
-/* لضمان عدم توقف السلايدر عند التفاعل إلا إذا برمجنا ذلك بالـ JS */
-.slider-container:hover .slider-track {
-    animation-play-state: running;
-}
+.slider-container:hover .slider-track { animation-play-state: running; }
 
 .slider-item {
     flex: 0 0 auto;
-    width: 200px; /* عرض ثابت لمنع التداخل */
+    width: 200px;
     text-decoration: none;
-    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .app-card {
     position: relative;
     width: 100%;
-    height: 400px; /* ارتفاع مثالي لصور الـ Screenshots الطولية */
+    height: 380px;
     border-radius: 25px;
-    background: #0a0a0a; /* خلفية داكنة تبرز شاشة التطبيق */
+    background: #0a0a0a;
     border: 2px solid rgba(0, 229, 255, 0.2);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* تأثير الانعكاس السفلي الجمالي */
-    -webkit-box-reflect: below 10px linear-gradient(transparent 75%, rgba(255,255,255,0.1));
+    -webkit-box-reflect: below 10px linear-gradient(transparent 80%, rgba(255,255,255,0.05));
     transition: all 0.3s ease;
 }
 
 .app-card img {
     width: 92%;
     height: 92%;
-    /* السحر هنا: يضمن ظهور لقطة الشاشة كاملة داخل إطار الهاتف بدون قص */
     object-fit: contain; 
     border-radius: 12px;
 }
 
+/* ----- منطقة الاسم بتباين عالي (مثل الإصدار الأول) ----- */
 .app-overlay {
-    position: absolute;
-    bottom: 0;
+    position: static; 
     width: 100%;
-    background: linear-gradient(transparent, rgba(0,0,0,0.85));
-    padding: 20px 5px;
+    /* خلفية متدرجة سوداء داكنة لبروز النص */
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.9), transparent);
+    padding: 10px 0;
     text-align: center;
-    z-index: 5;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 .app-name {
-    color: #00e5ff;
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    color: var(--primary-glow); /* اللون الفيروزي الأصلي */
+    font-size: 0.95rem;
+    font-weight: 900; /* خط عريض جداً للتباين */
+    text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
     text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    transition: all 0.3s ease;
 }
 
-/* تأثير عند الحوم فوق كارت التطبيق */
+/* ----- تأثيرات التفاعل (Hover) ----- */
 .slider-item:hover {
-    transform: translateY(-10px);
+    transform: translateY(-12px);
 }
 
 .slider-item:hover .app-card {
-    border-color: #00e5ff;
-    box-shadow: 0 0 20px rgba(0, 229, 255, 0.3);
+    border-color: var(--primary-glow);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
 }
 
-/* حركة التمرير - تم ضبط القيمة لتناسب مضاعفة العناصر 3 مرات في الـ HTML */
+.slider-item:hover .app-overlay {
+    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.15), transparent);
+    border-color: rgba(0, 229, 255, 0.3);
+}
+
+.slider-item:hover .app-name {
+    color: #fff;
+    text-shadow: 0 0 20px var(--primary-glow);
+    transform: scale(1.05);
+}
+
+/* حركة التمرير */
 @keyframes scrollInfinite {
     0% { transform: translateX(0); }
-    100% { transform: translateX(33.333%); } /* التحرك لليمين بنسبة الثلث لسلاسة التكرار */
+    100% { transform: translateX(33.333%); }
 }
 
-/* ضبط استجابة الشاشات الصغيرة (الموبايل) */
+/* ضبط الجوال */
 @media (max-width: 480px) {
     .slider-item { width: 160px; }
-    .app-card { height: 320px; border-radius: 20px; }
-    .slider-track { gap: 15px; }
+    .app-card { height: 320px; }
+    .slider-track { gap: 20px; }
+    .app-name { font-size: 0.85rem; letter-spacing: 0.5px; }
 }
