@@ -1,25 +1,27 @@
 /* ============================================================
-   إصلاح أبعاد الصور والأنيميشن وسلاسة السحب - النسخة المطورّة 2026
-   (تم تعديل الأسماء بتباين عالي تحت الكروت)
+   إعادة الألوان الكلاسيكية (الشريط الشفاف) مع التباين العالي 2026
    ============================================================ */
 
 .apps-section {
     padding: 60px 0;
-    background: transparent;
+    /* إعادة الخلفية الشفافة والحدود كما كانت في الكود القديم */
+    background: rgba(255, 255, 255, 0.05); 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 40px 0;
 }
 
 .slider-container {
     width: 100%;
-    padding: 20px 0 130px 0; /* مساحة أكبر للظلال والانعكاس */
+    padding: 40px 0 100px 0; 
     overflow: hidden;
     position: relative;
     cursor: grab;
     touch-action: pan-y;
+    /* تأثير التلاشي الجانبي */
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
-
-.slider-container:active { cursor: grabbing; }
 
 .slider-track {
     display: flex;
@@ -29,84 +31,71 @@
     will-change: transform;
 }
 
-.slider-container:hover .slider-track { animation-play-state: running; }
-
 .slider-item {
     flex: 0 0 auto;
     width: 200px;
     text-decoration: none;
     display: flex;
     flex-direction: column; 
-    align-items: center;
-    gap: 12px;
+    align-items: center; /* التوسيط الأفقي لكل محتوى العنصر */
+    gap: 15px;
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .app-card {
     position: relative;
     width: 100%;
-    height: 380px;
-    border-radius: 25px;
-    background: #0a0a0a;
+    height: 360px; /* الارتفاع الكلاسيكي */
+    border-radius: 15px; /* الانحناء القديم */
+    background: #000;
     border: 2px solid rgba(0, 229, 255, 0.2);
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    -webkit-box-reflect: below 10px linear-gradient(transparent 80%, rgba(255,255,255,0.05));
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4); /* الظل الفيروزي الأصلي */
     transition: all 0.3s ease;
 }
 
 .app-card img {
-    width: 92%;
-    height: 92%;
-    object-fit: contain; 
-    border-radius: 12px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* لملء الكارت بالصورة كما في القديم */
 }
 
-/* ----- منطقة الاسم بتباين عالي (مثل الإصدار الأول) ----- */
+/* ----- منطقة الاسم بتباين عالي وتوسط تام ----- */
 .app-overlay {
-    position: static; 
     width: 100%;
-    /* خلفية متدرجة سوداء داكنة لبروز النص */
-    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.9), transparent);
-    padding: 10px 0;
-    text-align: center;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    /* خلفية داكنة جداً لبروز النص الفيروزي */
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.95), transparent);
+    padding: 8px 0;
+    text-align: center; /* توسيط النص */
+    border-radius: 8px;
 }
 
 .app-name {
-    color: var(--primary-glow); /* اللون الفيروزي الأصلي */
-    font-size: 0.95rem;
-    font-weight: 900; /* خط عريض جداً للتباين */
-    text-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+    color: #00e5ff; /* اللون الفيروزي الفاقع */
+    font-size: 1rem;
+    font-weight: 900;
+    text-shadow: 0 0 12px rgba(0, 229, 255, 0.7);
     text-transform: uppercase;
-    letter-spacing: 1px;
     display: block;
-    transition: all 0.3s ease;
+    width: 100%;
 }
 
 /* ----- تأثيرات التفاعل (Hover) ----- */
 .slider-item:hover {
-    transform: translateY(-12px);
+    transform: translateY(-10px) scale(1.05); /* دمج الارتفاع مع التكبير القديم */
 }
 
 .slider-item:hover .app-card {
-    border-color: var(--primary-glow);
-    box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
-}
-
-.slider-item:hover .app-overlay {
-    background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.15), transparent);
-    border-color: rgba(0, 229, 255, 0.3);
+    border-color: #00e5ff;
+    box-shadow: 0 0 25px #00e5ff;
 }
 
 .slider-item:hover .app-name {
     color: #fff;
-    text-shadow: 0 0 20px var(--primary-glow);
-    transform: scale(1.05);
+    text-shadow: 0 0 20px #00e5ff;
 }
 
 /* حركة التمرير */
@@ -118,7 +107,6 @@
 /* ضبط الجوال */
 @media (max-width: 480px) {
     .slider-item { width: 160px; }
-    .app-card { height: 320px; }
-    .slider-track { gap: 20px; }
-    .app-name { font-size: 0.85rem; letter-spacing: 0.5px; }
+    .app-card { height: 280px; }
+    .app-name { font-size: 0.85rem; }
 }
