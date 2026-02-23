@@ -3,137 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GreatWishes | تطبيقات أندرويد مجانية</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <title>GreatWishes | عالم تطبيقات الأندرويد</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="canonical" href="https://greatwishes.github.io/index.html" />
+    
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="slider.css">
     <link rel="stylesheet" href="install-guide.css">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body { font-family: 'Cairo', sans-serif; }
-    </style>
 </head>
 <body>
 
     <nav class="main-nav">
         <div class="nav-container">
             <div class="lang-btn" id="lang-btn">EN</div>
-            <div class="menu-toggle" id="mobile-menu">
-                <div class="ellipsis-container">
-                    <span class="ellipsis"></span>
-                    <span class="ellipsis"></span>
-                    <span class="ellipsis"></span>
-                </div>
-            </div>
+            
             <ul class="nav-links">
-                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#home" class="active">الرئيسية</a></li>
                 <li><a href="#apps">التطبيقات</a></li>
-                <li><a href="#guide">الدليل</a></li>
-                <li><a href="privacy.html">سياسة الخصوصية</a></li>
+                <li><a href="#guide">دليل التثبيت</a></li>
+                <li><a href="privacy.html">الخصوصية</a></li>
                 <li><a href="contact.html">تواصل معنا</a></li>
             </ul>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <div class="header" id="home">
-        <h1>مرحبًا بك في GreatWishes</h1>
-        <p>منصة تطبيقاتك للاندرويد بتصميم فريد وتجربة استثنائية</p>
-        <div class="logo-box">
-            <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo" loading="lazy">
+    <header class="hero-section" id="home">
+        <div class="hero-container">
+            <div class="hero-text-content">
+                <span class="badge">إصدار 2025 الجديد</span>
+                <h1>اجعل هاتفك <span>أذكـى</span> مع GreatWishes</h1>
+                <p>اكتشف مجموعة مختارة من تطبيقات الأندرويد الفريدة، المصممة خصيصاً لتمنحك أفضل تجربة مستخدم مع تصاميم عصرية وأداء خارق.</p>
+                <div class="hero-btns">
+                    <a href="#apps" class="btn-primary">تصفح التطبيقات</a>
+                    <a href="#guide" class="btn-secondary">كيفية التثبيت؟</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="blob-animation"></div>
+                <div class="floating-logo-box">
+                    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo">
+                </div>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <section id="apps">
-        <h2>تطبيقات مختارة</h2>
+    <section class="apps-section" id="apps">
+        <div class="section-header">
+            <h2 class="section-title">تطبيقات مختارة</h2>
+            <p>تطبيقاتنا المفضلة لهذا الأسبوع</p>
+        </div>
+        
         <div class="slider-container">
             <div class="slider-track">
                 <a href="app1.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى">
-                    <span class="app-name">تطبيق موسيقى</span>
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى" loading="lazy">
+                        <div class="app-overlay">
+                            <span class="app-name">تطبيق موسيقى</span>
+                        </div>
+                    </div>
                 </a>
                 <a href="app2.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر">
-                    <span class="app-name">آلة حساب العمر</span>
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر" loading="lazy">
+                        <div class="app-overlay">
+                            <span class="app-name">آلة حساب العمر</span>
+                        </div>
+                    </div>
                 </a>
                 <a href="app3.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل الصوتية إلى نص">
-                    <span class="app-name">تحويل الصوتية إلى نص</span>
-                </a>
-                <a href="app4.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات">
-                    <span class="app-name">تطبيق الفيديوهات</span>
-                </a>
-                <a href="app5.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية">
-                    <span class="app-name">ملاحظات سرية</span>
-                </a>
-                <a href="app6.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/quizapp/quizapp.jpg" alt="لعبة الثلاث أحرف">
-                    <span class="app-name">لعبة الثلاث أحرف</span>
-                </a>
-                <a href="app7.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png" alt="لعبة من سيربح المليون">
-                    <span class="app-name">لعبة من سيربح المليون</span>
-                </a>
-                <a href="app8.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg" alt="لعبة Fifteen Puzzle">
-                    <span class="app-name">لعبة ترتيب الأرقام</span>
-                </a>
-                <a href="app9.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/memory/memory.jpg" alt="لعبة Memory Game">
-                    <span class="app-name">لعبة الذاكرة</span>
-                </a>
-                <a href="app10.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/notepad/notepad.png" alt="notepad">
-                    <span class="app-name">دفتر الملاحظات</span>
-                </a>
-                <a href="app11.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png" alt="calculator">
-                    <span class="app-name">الآلة الحاسبة</span>
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل الصوتية إلى نص" loading="lazy">
+                        <div class="app-overlay">
+                            <span class="app-name">تحويل الصوتية</span>
+                        </div>
+                    </div>
                 </a>
                 <a href="app12.html" class="slider-item">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2048/game2048.png" alt="game2048">
-                    <span class="app-name">لعبة 2048</span>
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2048/game2048.png" alt="game2048" loading="lazy">
+                        <div class="app-overlay">
+                            <span class="app-name">لعبة 2048</span>
+                        </div>
+                    </div>
                 </a>
+                <a href="app1.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى">
+                    </div>
+                </a>
+                </div>
+        </div>
+    </section>
+
+    <section class="guide-section" id="guide">
+        <div class="section-header">
+            <h2 class="section-title">خطوات التثبيت السهلة</h2>
+        </div>
+        
+        <div class="guide-container">
+            <div class="phone-mockup">
+                <div class="phone-frame">
+                    <div class="phone-screen" id="phone-screen-content">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png" alt="Step 1" id="current-step-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-content" id="interactive-guide">
+                <div class="steps-progress">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+                
+                <div class="step-text-container">
+                    <div class="step-item visible" data-step="1">
+                        <h3>01. افتح متجر جوجل</h3>
+                        <p>ابدأ بفتح تطبيق <strong>جوجل بلاي</strong> على هاتفك الأندرويد للوصول للإعدادات الأمنية.</p>
+                    </div>
+                    <div class="step-item" data-step="2">
+                        <h3>02. إعدادات الحماية</h3>
+                        <p>انتقل إلى Play Protect وقم بتعطيل <strong>فحص التطبيقات</strong> مؤقتاً لتثبيت تطبيقاتنا بأمان.</p>
+                    </div>
+                    <div class="step-item" data-step="3">
+                        <h3>03. استمتع بالتجربة</h3>
+                        <p>مبروك! الآن يمكنك فتح التطبيق والاستمتاع بكافة المميزات الرائعة. 🎉</p>
+                    </div>
+                </div>
+
+                <div class="guide-nav-btns">
+                    <button class="prev-btn" id="prevStep" disabled>السابق</button>
+                    <button class="next-btn" id="nextStep">التالي</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="guide">
-        <h2>📱 دليل تثبيت التطبيقات على هاتفك</h2>
-        <div class="install-guide" id="interactive-guide">
-            <div class="step-item visible">
-                <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png" alt="Step 1" class="icon">
-                <span>افتح تطبيق <strong>جوجل بلاي</strong> على هاتفك.</span>
-                <div class="btn-box">
-                    <button class="prev-btn" disabled>السابق</button>
-                    <button class="next-btn">التالي</button>
-                </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">GreatWishes</div>
+            <div class="footer-links">
+                <a href="privacy.html">سياسة الخصوصية</a>
+                <a href="contact.html">تواصل معنا</a>
             </div>
-            <div class="step-item">
-                <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png" alt="Step 5" class="icon">
-                <span>قم بتعطيل خيار <strong>فحص التطبيقات</strong> بـ Play Protect.</span>
-                <div class="btn-box">
-                    <button class="prev-btn">السابق</button>
-                    <button class="next-btn">التالي</button>
-                </div>
-            </div>
-            <div class="step-item">
-                <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png" alt="Done" class="icon">
-                <span>الآن، افتح التطبيق واستمتع باستخدامه! 🎉</span>
-                <div class="btn-box">
-                    <button class="prev-btn">السابق</button>
-                </div>
-            </div>
+            <p class="copyright">&copy; 2026 GreatWishes. جميع الحقوق محفوظة بكل حب.</p>
         </div>
-    </section>
-
-    <footer id="contact" class="footer">  
-        &copy; 2025 GreatWishes | جميع الحقوق محفوظة
-        <div class="contact-info">  
-            <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com" class="contact-link">Greatdaylight@gmail.com</a></p>  
-            <p><a href="privacy.html" class="contact-link">سياسة الخصوصية</a></p>  
-        </div>  
     </footer>
 
     <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
@@ -141,28 +166,54 @@
     <script src="languages/lang_index.js"></script>
     <script src="languages/main.js"></script>
     <script>
+        // منطق القائمة في الجوال
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
-        if (menuToggle) {
-            menuToggle.onclick = () => navLinks.classList.toggle('active');
-        }
+        menuToggle.onclick = () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('is-active');
+        };
 
+        // منطق تحريك الدليل مع محاكي الهاتف
         const steps = document.querySelectorAll('.step-item');
-        let currentStep = 0;
-        document.querySelectorAll('.next-btn').forEach(btn => {
-            btn.onclick = () => {
-                steps[currentStep].classList.remove('visible');
-                currentStep++;
-                steps[currentStep].classList.add('visible');
-            };
-        });
-        document.querySelectorAll('.prev-btn').forEach(btn => {
-            btn.onclick = () => {
-                steps[currentStep].classList.remove('visible');
-                currentStep--;
-                steps[currentStep].classList.add('visible');
-            };
-        });
+        const dots = document.querySelectorAll('.dot');
+        const stepImg = document.getElementById('current-step-img');
+        let current = 0;
+
+        const images = [
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
+        ];
+
+        document.getElementById('nextStep').onclick = () => {
+            if (current < steps.length - 1) {
+                steps[current].classList.remove('visible');
+                dots[current].classList.remove('active');
+                current++;
+                steps[current].classList.add('visible');
+                dots[current].classList.add('active');
+                stepImg.src = images[current];
+                updateButtons();
+            }
+        };
+
+        document.getElementById('prevStep').onclick = () => {
+            if (current > 0) {
+                steps[current].classList.remove('visible');
+                dots[current].classList.remove('active');
+                current--;
+                steps[current].classList.add('visible');
+                dots[current].classList.add('active');
+                stepImg.src = images[current];
+                updateButtons();
+            }
+        };
+
+        function updateButtons() {
+            document.getElementById('prevStep').disabled = (current === 0);
+            document.getElementById('nextStep').style.display = (current === steps.length - 1) ? 'none' : 'inline-block';
+        }
     </script>
 </body>
 </html>
