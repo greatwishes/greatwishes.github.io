@@ -234,13 +234,20 @@
             track.style.animationPlayState = 'running';
         };
 
-        const move = (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
-            const walk = (x - startX) * 2; // سرعة التمرير
-            slider.scrollLeft = scrollLeft - walk;
-        };
+            const move = (e) => {
+        if (!isDown) return;
+
+        // حساب المسافة الأفقية والعمودية
+        const x = (e.pageX || e.touches[0].pageX);
+        const y = (e.pageY || e.touches[0].pageY);
+        
+        // المسافة اللي إيدك مشيتها من ساعة ما لمست الشاشة
+        const walkX = (x - startX); 
+
+        // تحريك السلايدر أفقياً
+        currentTranslate = prevTranslate + walkX;
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    };
 
         // أحداث الماوس
         slider.addEventListener('mousedown', startDragging);
