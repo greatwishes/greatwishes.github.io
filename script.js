@@ -1,4 +1,4 @@
-// script.js - ملف JavaScript الموحد والمطور
+// script.js - ملف JavaScript الموحد
 
 document.addEventListener('DOMContentLoaded', function() {
     'use strict';
@@ -10,12 +10,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', function() {
             navLinks.classList.toggle('active');
-            // Animating the hamburger icon
-            const spans = this.querySelectorAll('span');
-            spans.forEach(span => span.classList.toggle('active'));
         });
 
-        // Close menu when clicking on a link
+        // إغلاق القائمة عند النقر على رابط
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -32,81 +29,69 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========== 3. الدليل التفاعلي ==========
-    class GuideSteps {
-        constructor() {
-            this.steps = document.querySelectorAll('.step-item');
-            this.dots = document.querySelectorAll('.dot');
-            this.stepImg = document.getElementById('current-step-img');
-            this.prevBtn = document.getElementById('prevStep');
-            this.nextBtn = document.getElementById('nextStep');
-            this.currentStep = 0;
+    const steps = document.querySelectorAll('.step-item');
+    const dots = document.querySelectorAll('.dot');
+    const stepImg = document.getElementById('current-step-img');
+    const prevBtn = document.getElementById('prevStep');
+    const nextBtn = document.getElementById('nextStep');
+    
+    if (steps.length && nextBtn) {
+        let currentStep = 0;
+
+        const images = [
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
+        ];
+
+        function goToStep(stepIndex) {
+            // إخفاء الخطوة الحالية
+            steps[currentStep].classList.remove('visible');
+            dots[currentStep].classList.remove('active');
             
-            this.images = [
-                "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
-                "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
-                "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
-            ];
+            // تحديث إلى الخطوة الجديدة
+            currentStep = stepIndex;
             
-            if (!this.steps.length || !this.nextBtn) return;
+            // إظهار الخطوة الجديدة
+            steps[currentStep].classList.add('visible');
+            dots[currentStep].classList.add('active');
             
-            this.init();
+            // تحديث الصورة
+            if (stepImg && images[currentStep]) {
+                stepImg.src = images[currentStep];
+            }
+            
+            // تحديث الأزرار
+            updateButtons();
         }
 
-        init() {
-            this.nextBtn.addEventListener('click', () => this.next());
-            this.prevBtn.addEventListener('click', () => this.prev());
-            this.updateButtons();
-        }
-
-        next() {
-            if (this.currentStep < this.steps.length - 1) {
-                this.goToStep(this.currentStep + 1);
+        function updateButtons() {
+            if (prevBtn) {
+                prevBtn.disabled = currentStep === 0;
+            }
+            if (nextBtn) {
+                nextBtn.textContent = currentStep === steps.length - 1 ? 'إنهاء' : 'التالي';
             }
         }
 
-        prev() {
-            if (this.currentStep > 0) {
-                this.goToStep(this.currentStep - 1);
+        nextBtn.addEventListener('click', function() {
+            if (currentStep < steps.length - 1) {
+                goToStep(currentStep + 1);
             }
-        }
+        });
 
-        goToStep(stepIndex) {
-            // Remove current classes
-            this.steps[this.currentStep].classList.remove('visible');
-            this.dots[this.currentStep].classList.remove('active');
-            
-            // Update to new step
-            this.currentStep = stepIndex;
-            
-            // Add new classes
-            this.steps[this.currentStep].classList.add('visible');
-            this.dots[this.currentStep].classList.add('active');
-            
-            // Update image
-            if (this.stepImg && this.images[this.currentStep]) {
-                this.stepImg.src = this.images[this.currentStep];
-                this.stepImg.alt = `دليل التثبيت - الخطوة ${this.currentStep + 1}`;
-            }
-            
-            this.updateButtons();
-        }
-
-        updateButtons() {
-            if (this.prevBtn) {
-                this.prevBtn.disabled = this.currentStep === 0;
-            }
-            if (this.nextBtn) {
-                this.nextBtn.textContent = this.currentStep === this.steps.length - 1 ? 'إنهاء' : 'التالي';
-            }
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                if (currentStep > 0) {
+                    goToStep(currentStep - 1);
+                }
+            });
         }
     }
 
-    // Initialize guide
-    new GuideSteps();
-
-    // ========== 4. Smooth scrolling for anchor links ==========
+    // ========== 4. التمرير السلس للروابط ==========
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
             if (href === '#') return;
             
@@ -121,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ========== 5. Active nav link on scroll ==========
+    // ========== 5. تحديث الرابط النشط عند التمرير ==========
     const sections = document.querySelectorAll('section[id], header[id]');
     
     function updateActiveNavLink() {
@@ -144,5 +129,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     window.addEventListener('scroll', updateActiveNavLink);
-    updateActiveNavLink(); // Call initially
+    updateActiveNavLink();
 });
