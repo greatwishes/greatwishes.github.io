@@ -5,22 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GreatWishes | تطبيقات أندرويد مجانية</title>
     
-    <!-- تحسين الخطوط -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
     <link rel="canonical" href="https://greatwishes.github.io/index.html" />
     
-    <!-- ملف CSS الموحد -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="slider.css">
+    <link rel="stylesheet" href="install-guide.css">
 </head>
 <body>
 
-    <!-- القائمة العائمة -->
     <nav class="main-nav">
         <div class="nav-container">
-            <button class="lang-btn" id="lang-btn">EN</button>
+            <div class="lang-btn" id="lang-btn">EN</div>
             
             <ul class="nav-links">
                 <li><a href="#home" class="active">الرئيسية</a></li>
@@ -30,15 +28,14 @@
                 <li><a href="contact.html">تواصل معنا</a></li>
             </ul>
 
-            <button class="menu-toggle" id="mobile-menu" aria-label="القائمة">
+            <div class="menu-toggle" id="mobile-menu">
                 <span></span>
                 <span></span>
                 <span></span>
-            </button>
+            </div>
         </div>
     </nav>
 
-    <!-- قسم الهيرو -->
     <header class="hero-section" id="home">
         <div class="hero-container">
             <div class="hero-text-content">
@@ -59,7 +56,6 @@
         </div>
     </header>
 
-    <!-- قسم التطبيقات مع السلايدر -->
     <section class="apps-section" id="apps">
         <div class="section-header centered">
             <h2 class="section-title">تطبيقات مختارة</h2>
@@ -68,119 +64,82 @@
         
         <div class="slider-container" id="apps-slider">
             <div class="slider-track">
-                <!-- تطبيق 1 -->
                 <a href="app1.html" class="slider-item">
                     <div class="app-card">
                         <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى">
-                        <div class="app-overlay">
-                            <span class="app-name">تطبيق موسيقى</span>
-                        </div>
+                        <div class="app-overlay"><span class="app-name">تطبيق موسيقى</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 2 -->
                 <a href="app2.html" class="slider-item">
                     <div class="app-card">
                         <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر">
-                        <div class="app-overlay">
-                            <span class="app-name">آلة حساب العمر</span>
-                        </div>
+                        <div class="app-overlay"><span class="app-name">آلة حساب العمر</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 3 -->
                 <a href="app3.html" class="slider-item">
                     <div class="app-card">
                         <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل الصوتية">
-                        <div class="app-overlay">
-                            <span class="app-name">تحويل الصوتية</span>
-                        </div>
+                        <div class="app-overlay"><span class="app-name">تحويل الصوتية</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 4 -->
                 <a href="app4.html" class="slider-item">
                     <div class="app-card">
                         <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات">
-                        <div class="app-overlay">
-                            <span class="app-name">تطبيق الفيديوهات</span>
-                        </div>
+                        <div class="app-overlay"><span class="app-name">تطبيق الفيديوهات</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 5 -->
                 <a href="app5.html" class="slider-item">
                     <div class="app-card">
                         <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية">
-                        <div class="app-overlay">
-                            <span class="app-name">ملاحظات سرية</span>
-                        </div>
+                        <div class="app-overlay"><span class="app-name">ملاحظات سرية</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 6 -->
                 <a href="app6.html" class="slider-item">
                     <div class="app-card">
                         <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/quizapp/quizapp.jpg" alt="لعبة الثلاث أحرف">
-                        <div class="app-overlay">
-                            <span class="app-name">لعبة الثلاث أحرف</span>
-                        </div>
+                        <div class="app-overlay"><span class="app-name">لعبة الثلاث أحرف</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 7 -->
                 <a href="app7.html" class="slider-item">
                     <div class="app-card">
                         <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png" alt="لعبة من سيربح المليون">
-                        <div class="app-overlay">
-                            <span class="app-name">من سيربح المليون</span>
-                        </div>
+                        <div class="app-overlay"><span class="app-name">من سيربح المليون</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 8 -->
                 <a href="app8.html" class="slider-item">
                     <div class="app-card">
                         <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg" alt="لعبة Fifteen Puzzle">
-                        <div class="app-overlay">
-                            <span class="app-name">ترتيب الأرقام</span>
-                        </div>
+                        <div class="app-overlay"><span class="app-name">ترتيب الأرقام</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 9 -->
                 <a href="app9.html" class="slider-item">
                     <div class="app-card">
                         <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/memory/memory.jpg" alt="لعبة الذاكرة">
-                        <div class="app-overlay">
-                            <span class="app-name">لعبة الذاكرة</span>
-                        </div>
+                        <div class="app-overlay"><span class="app-name">لعبة الذاكرة</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 10 -->
                 <a href="app10.html" class="slider-item">
                     <div class="app-card">
-                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/notepad/notepad.png" alt="دفتر الملاحظات">
-                        <div class="app-overlay">
-                            <span class="app-name">دفتر الملاحظات</span>
-                        </div>
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/notepad/notepad.png" alt="notepad">
+                        <div class="app-overlay"><span class="app-name">دفتر الملاحظات</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 11 -->
                 <a href="app11.html" class="slider-item">
                     <div class="app-card">
-                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png" alt="الآلة الحاسبة">
-                        <div class="app-overlay">
-                            <span class="app-name">الآلة الحاسبة</span>
-                        </div>
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png" alt="calculator">
+                        <div class="app-overlay"><span class="app-name">الآلة الحاسبة</span></div>
                     </div>
                 </a>
-                <!-- تطبيق 12 -->
                 <a href="app12.html" class="slider-item">
                     <div class="app-card">
-                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2048/game2048.png" alt="لعبة 2048">
-                        <div class="app-overlay">
-                            <span class="app-name">لعبة 2048</span>
-                        </div>
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2048/game2048.png" alt="game2048">
+                        <div class="app-overlay"><span class="app-name">لعبة 2048</span></div>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- قسم الدليل التفاعلي -->
     <section class="guide-section" id="guide">
         <div class="section-header centered">
             <h2 class="section-title">📱 دليل التثبيت</h2>
@@ -189,7 +148,7 @@
         <div class="guide-container">
             <div class="phone-mockup">
                 <div class="phone-screen">
-                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png" alt="دليل التثبيت - الخطوة 1" id="current-step-img">
+                    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png" alt="Step 1" id="current-step-img">
                 </div>
             </div>
 
@@ -207,7 +166,7 @@
                     </div>
                     <div class="step-item">
                         <h3>02. إعدادات الحماية</h3>
-                        <p>انتقل إلى <strong>Play Protect</strong> وقم بتعطيل <strong>فحص التطبيقات</strong> مؤقتاً.</p>
+                        <p>انتقل إلى Play Protect وقم بتعطيل <strong>فحص التطبيقات</strong> مؤقتاً.</p>
                     </div>
                     <div class="step-item">
                         <h3>03. جاهز للاستخدام</h3>
@@ -223,16 +182,112 @@
         </div>
     </section>
 
-    <!-- الفوتر -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">GreatWishes</div>
-            <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com">Greatdaylight@gmail.com</a></p>
+            <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com" style="color:#00e5ff">Greatdaylight@gmail.com</a></p>
             <p class="copyright">&copy; 2026 GreatWishes. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
 
-    <!-- ملف JavaScript -->
-    <script src="script.js"></script>
+    <script>
+    // --- 1. القائمة العلوية للجوال ---
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    if(menuToggle) {
+        menuToggle.onclick = () => navLinks.classList.toggle('active');
+    }
+
+    // --- 2. السلايدر الاحترافي (حل الفراغ والسحب) ---
+    const slider = document.querySelector('.slider-container');
+    const track = document.querySelector('.slider-track');
+    
+    // مضاعفة العناصر برمجياً 3 مرات لضمان تغطية أي شاشة عريضة
+    function initializeSlider() {
+        const items = track.innerHTML;
+        track.innerHTML = items + items + items; 
+    }
+    initializeSlider();
+
+    let isDown = false;
+    let startX;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+
+    const startDragging = (e) => {
+        isDown = true;
+        slider.style.cursor = 'grabbing';
+        track.style.animationPlayState = 'paused';
+        
+        startX = (e.pageX || e.touches[0].pageX);
+        
+        const style = window.getComputedStyle(track);
+        const matrix = new WebKitCSSMatrix(style.transform);
+        prevTranslate = matrix.m41; 
+    };
+
+    const stopDragging = () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+        track.style.animationPlayState = 'running';
+    };
+
+    const move = (e) => {
+        if (!isDown) return;
+        const x = (e.pageX || e.touches[0].pageX);
+        const walk = (x - startX);
+        currentTranslate = prevTranslate + walk;
+        track.style.transform = `translateX(${currentTranslate}px)`;
+    };
+
+    slider.addEventListener('mousedown', startDragging);
+    slider.addEventListener('touchstart', startDragging, {passive: true});
+    window.addEventListener('mouseup', stopDragging);
+    window.addEventListener('touchend', stopDragging);
+    slider.addEventListener('mousemove', move);
+    slider.addEventListener('touchmove', move, {passive: false});
+
+    // --- 3. الدليل التفاعلي ---
+    const steps = document.querySelectorAll('.step-item');
+    const dots = document.querySelectorAll('.dot');
+    const stepImg = document.getElementById('current-step-img');
+    let currentStep = 0;
+
+    const images = [
+        "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
+        "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
+        "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
+    ];
+
+    document.getElementById('nextStep').onclick = () => {
+        if (currentStep < steps.length - 1) {
+            steps[currentStep].classList.remove('visible');
+            dots[currentStep].classList.remove('active');
+            currentStep++;
+            steps[currentStep].classList.add('visible');
+            dots[currentStep].classList.add('active');
+            stepImg.src = images[currentStep];
+            updateButtons();
+        }
+    };
+
+    document.getElementById('prevStep').onclick = () => {
+        if (currentStep > 0) {
+            steps[currentStep].classList.remove('visible');
+            dots[currentStep].classList.remove('active');
+            currentStep--;
+            steps[currentStep].classList.add('visible');
+            dots[currentStep].classList.add('active');
+            stepImg.src = images[currentStep];
+            updateButtons();
+        }
+    };
+
+    function updateButtons() {
+        document.getElementById('prevStep').disabled = (currentStep === 0);
+        document.getElementById('nextStep').innerText = (currentStep === steps.length - 1) ? 'إنهاء' : 'التالي';
+    }
+</script>
+
 </body>
 </html>
