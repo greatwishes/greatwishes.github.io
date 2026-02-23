@@ -62,7 +62,7 @@
             <p>تطبيقاتنا المفضلة لهذا الأسبوع</p>
         </div>
         
-        <div class="slider-container">
+        <div class="slider-container" id="apps-slider">
             <div class="slider-track">
                 <a href="app1.html" class="slider-item">
                     <div class="app-card">
@@ -198,7 +198,7 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">GreatWishes</div>
-            <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com" style="color:var(--primary-glow)">Greatdaylight@gmail.com</a></p>
+            <p>للتواصل: <a href="mailto:Greatdaylight@gmail.com" style="color:#00e5ff">Greatdaylight@gmail.com</a></p>
             <p class="copyright">&copy; 2026 GreatWishes. جميع الحقوق محفوظة.</p>
         </div>
     </footer>
@@ -208,6 +208,11 @@
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         menuToggle.onclick = () => navLinks.classList.toggle('active');
+
+        // منطق السلايدر: التأكد من استمرار الحركة
+        const sliderTrack = document.querySelector('.slider-track');
+        // هذا السطر يضمن استمرارية الحركة برمجياً كدعم إضافي للـ CSS
+        sliderTrack.style.animationPlayState = 'running';
 
         // منطق الدليل والمحاكي
         const steps = document.querySelectorAll('.step-item');
