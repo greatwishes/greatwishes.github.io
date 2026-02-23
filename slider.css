@@ -1,11 +1,12 @@
 /* ============================================================
-   MODERN 3D SLIDER WITH REFLECTION - GreatWishes 2026
+   MODERN 3D SLIDER (FIXED VERSION) - GreatWishes 2026
    ============================================================ */
 
 .apps-section {
     padding: 80px 0;
     overflow: hidden;
     position: relative;
+    background: transparent;
 }
 
 .section-header {
@@ -20,120 +21,104 @@
     margin-bottom: 10px;
 }
 
-.section-header p {
-    color: var(--primary-glow);
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
 /* حاوية السلايدر */
 .slider-container {
     width: 100%;
-    padding: 40px 0 100px 0; /* مساحة سفلية للانعكاس */
+    padding: 40px 0 120px 0; /* زيادة المساحة للانعكاس */
     display: flex;
     overflow: hidden;
-    /* تأثير تلاشي عند الأطراف لجعل الحركة تبدو طبيعية */
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    position: relative;
+    /* تأثير التلاشي عند الأطراف */
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 }
 
 /* المسار المتحرك */
 .slider-track {
     display: flex;
-    gap: 30px;
+    gap: 25px;
     width: max-content;
-    animation: scrollInfinite 40s linear infinite;
+    /* الحركة مستمرة دائماً */
+    animation: scrollInfinite 45s linear infinite; 
     will-change: transform;
 }
 
-/* توقف الحركة عند لمس السلايدر */
-.slider-container:hover .slider-track {
-    animation-play-state: paused;
-}
+/* --- إصلاح مشكلة التوقف: حذفنا سطر animation-play-state تماماً --- */
 
 .slider-item {
     flex: 0 0 auto;
+    width: 220px; /* عرض ثابت لضمان عدم قص الصور */
     text-decoration: none;
-    perspective: 1000px; /* لتمكين التأثيرات ثلاثية الأبعاد */
+    perspective: 1000px;
 }
 
 /* كرت التطبيق */
 .app-card {
     position: relative;
-    width: 200px;
-    height: 350px;
-    border-radius: 20px;
+    width: 100%;
+    height: 380px; /* ارتفاع ثابت يضمن ظهور الصورة كاملة */
+    border-radius: 24px;
     overflow: hidden;
-    transition: var(--transition);
+    background: #151b22;
     border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
     
     /* تأثير الانعكاس السفلي */
-    -webkit-box-reflect: below 10px linear-gradient(transparent 60%, rgba(255,255,255,0.1));
+    -webkit-box-reflect: below 12px linear-gradient(transparent 70%, rgba(255,255,255,0.1));
 }
 
 .app-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    object-fit: cover; /* يضمن بقاء الصورة بداخل الكرت دون تشوه */
 }
 
-/* طبقة الاسم عند الحوم */
+/* الاسم يظهر بوضوح تحت */
 .app-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 20px;
+    padding: 25px 15px;
     background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    opacity: 0;
-    transition: 0.3s ease;
 }
 
 .app-name {
-    color: var(--primary-glow);
+    color: #00e5ff;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 1rem;
     text-align: center;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
-/* تأثيرات التفاعل (Hover) */
+/* تأثيرات التفاعل عند التحويم (اختياري وجميل) */
 .slider-item:hover .app-card {
-    transform: translateY(-15px) rotateY(10deg);
-    border-color: var(--primary-glow);
-    box-shadow: 0 15px 40px rgba(0, 229, 255, 0.3);
+    transform: translateY(-10px);
+    border-color: #00e5ff;
+    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
 }
 
-.slider-item:hover .app-overlay {
-    opacity: 1;
-}
-
-.slider-item:hover img {
-    transform: scale(1.1);
-}
-
-/* حركة التمرير اللانهائية */
+/* حركة التمرير اللانهائية (RTL) */
 @keyframes scrollInfinite {
     0% {
         transform: translateX(0);
     }
     100% {
-        /* نتحرك بمقدار نصف العرض لأننا كررنا العناصر في الـ HTML */
+        /* بما أننا كررنا الـ 12 صورة، نتحرك بمقدار 50% من العرض الكلي للمسار */
         transform: translateX(50%);
     }
 }
 
-/* تحسينات للجوال */
+/* تحسينات للجوال (Responsive) */
 @media (max-width: 768px) {
-    .app-card {
-        width: 150px;
-        height: 260px;
+    .slider-item {
+        width: 170px; /* حجم أصغر يناسب الجوال */
     }
-    .slider-track {
-        animation-duration: 25s; /* أسرع قليلاً في الجوال */
+    .app-card {
+        height: 280px;
     }
     .section-title {
         font-size: 1.8rem;
