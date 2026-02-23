@@ -30,7 +30,7 @@ body {
     scroll-behavior: smooth;
 }
 
-/* ----- القائمة العائمة (Floating Nav) ----- */
+/* ----- القائمة العائمة ----- */
 .main-nav {
     position: fixed;
     top: 20px;
@@ -113,7 +113,7 @@ body {
     transition: var(--transition);
 }
 
-/* ----- واجهة الهيرو (Hero Section) ----- */
+/* ----- واجهة الهيرو ----- */
 .hero-section {
     min-height: 100vh;
     display: flex;
@@ -266,10 +266,7 @@ body {
     padding: 80px 5%;
 }
 
-/* ============================================================
-   سلايدر محاكي الهواتف الذكية المطور - GreatWishes 2026
-   ============================================================ */
-
+/* ----- سلايدر محاكي الهواتف ----- */
 .slider-container {
     width: 100%;
     padding: 40px 0 100px 0;
@@ -277,7 +274,6 @@ body {
     position: relative;
     cursor: grab;
     user-select: none;
-    /* تأثير التلاشي الجانبي السينمائي */
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
@@ -290,13 +286,11 @@ body {
     display: flex;
     gap: 30px;
     width: max-content;
-    /* الأنيميشن الآن ينتهي عند -33.33% لأننا كررنا العناصر 3 مرات */
     animation: scrollInfinite 60s linear infinite; 
     will-change: transform;
     align-items: center;
 }
 
-/* الكارت المصمم كمحاكي هاتف */
 .slider-item {
     flex: 0 0 auto;
     width: 200px; 
@@ -319,7 +313,6 @@ body {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* لمعة الزجاج */
 .app-card::after {
     content: '';
     position: absolute;
@@ -340,7 +333,6 @@ body {
     transition: transform 0.5s ease;
 }
 
-/* تفاصيل الهاتف (السماعة) */
 .app-card::before {
     content: '';
     position: absolute;
@@ -372,7 +364,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* تأثير الحوم */
 .slider-item:hover .app-card {
     transform: translateY(-15px) scale(1.05);
     border-color: var(--primary-glow);
@@ -383,16 +374,12 @@ body {
     transform: scale(1.1);
 }
 
-/* --- تعديل الأنيميشن ليكون دائرياً بدون فراغ --- */
 @keyframes scrollInfinite {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-33.333%); } /* الثلث لأننا نضاعف العناصر 3 مرات */
+    100% { transform: translateX(-33.333%); }
 }
 
-/* ============================================================
-   INTERACTIVE INSTALL GUIDE - Phone Mockup Version
-   ============================================================ */
-
+/* ----- الدليل التفاعلي ----- */
 .guide-section {
     padding: 100px 5%;
     background: rgba(0, 0, 0, 0.2);
@@ -408,7 +395,6 @@ body {
     margin: 0 auto;
 }
 
-/* ----- تصميم محاكي الهاتف الذكي ----- */
 .phone-mockup {
     position: relative;
     width: 280px;
@@ -423,7 +409,6 @@ body {
     z-index: 5;
 }
 
-/* سماعة الهاتف والحساسات */
 .phone-mockup::before {
     content: '';
     position: absolute;
@@ -455,7 +440,6 @@ body {
     transition: opacity 0.5s ease-in-out, transform 0.5s ease;
 }
 
-/* ----- محتوى النصوص والأزرار ----- */
 .guide-content {
     text-align: right;
 }
@@ -508,7 +492,6 @@ body {
     line-height: 1.8;
 }
 
-/* ----- أزرار التحكم ----- */
 .guide-nav-btns {
     display: flex;
     gap: 15px;
@@ -585,7 +568,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* ----- تحسينات الجوال المتجاوبة ----- */
+/* ----- تحسينات الجوال ----- */
 @media (max-width: 992px) {
     .main-nav { 
         width: 95%; 
