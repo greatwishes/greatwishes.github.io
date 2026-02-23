@@ -1,126 +1,84 @@
 /* ============================================================
-   MODERN 3D SLIDER (FIXED VERSION) - GreatWishes 2026
+   إصلاح أبعاد الصور والأنيميشن - النسخة الاحترافية
    ============================================================ */
 
-.apps-section {
-    padding: 80px 0;
-    overflow: hidden;
-    position: relative;
-    background: transparent;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 10px;
-}
-
-/* حاوية السلايدر */
 .slider-container {
     width: 100%;
-    padding: 40px 0 120px 0; /* زيادة المساحة للانعكاس */
-    display: flex;
+    padding: 20px 0 80px 0;
     overflow: hidden;
     position: relative;
-    /* تأثير التلاشي عند الأطراف */
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    /* تأثير التلاشي الجانبي */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-/* المسار المتحرك */
 .slider-track {
     display: flex;
-    gap: 25px;
+    gap: 20px;
     width: max-content;
-    /* الحركة مستمرة دائماً */
-    animation: scrollInfinite 45s linear infinite; 
-    will-change: transform;
+    animation: scrollInfinite 35s linear infinite;
+    /* إلغاء توقف الأنيميشن تماماً لضمان استمرارية الحركة */
 }
 
-/* --- إصلاح مشكلة التوقف: حذفنا سطر animation-play-state تماماً --- */
+/* لضمان عدم توقف السلايدر عند اللمس في الجوال */
+.slider-container:hover .slider-track,
+.slider-container:active .slider-track {
+    animation-play-state: running !important;
+}
 
 .slider-item {
     flex: 0 0 auto;
-    width: 220px; /* عرض ثابت لضمان عدم قص الصور */
+    width: 180px; /* عرض مناسب لشاشة الجوال */
     text-decoration: none;
-    perspective: 1000px;
 }
 
-/* كرت التطبيق */
 .app-card {
     position: relative;
     width: 100%;
-    height: 380px; /* ارتفاع ثابت يضمن ظهور الصورة كاملة */
-    border-radius: 24px;
+    height: 320px; /* ارتفاع متناسق */
+    border-radius: 25px;
+    background: #121212; /* خلفية داكنة للصور */
+    border: 2px solid rgba(0, 229, 255, 0.3);
     overflow: hidden;
-    background: #151b22;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.4s ease;
-    
-    /* تأثير الانعكاس السفلي */
-    -webkit-box-reflect: below 12px linear-gradient(transparent 70%, rgba(255,255,255,0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* تأثير الانعكاس */
+    -webkit-box-reflect: below 8px linear-gradient(transparent 80%, rgba(255,255,255,0.1));
+    transition: transform 0.3s ease;
 }
 
 .app-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* يضمن بقاء الصورة بداخل الكرت دون تشوه */
+    width: 95%;
+    height: 95%;
+    /* السر هنا: contain يضمن ظهور الصورة كاملة بدون قص */
+    object-fit: contain; 
+    border-radius: 15px;
 }
 
-/* الاسم يظهر بوضوح تحت */
 .app-overlay {
     position: absolute;
     bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 25px 15px;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    width: 100%;
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    padding: 15px 5px;
+    text-align: center;
 }
 
 .app-name {
     color: #00e5ff;
-    font-weight: 700;
-    font-size: 1rem;
-    text-align: center;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    font-size: 0.85rem;
+    font-weight: bold;
 }
 
-/* تأثيرات التفاعل عند التحويم (اختياري وجميل) */
-.slider-item:hover .app-card {
-    transform: translateY(-10px);
-    border-color: #00e5ff;
-    box-shadow: 0 10px 30px rgba(0, 229, 255, 0.2);
-}
-
-/* حركة التمرير اللانهائية (RTL) */
+/* حركة التمرير */
 @keyframes scrollInfinite {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* بما أننا كررنا الـ 12 صورة، نتحرك بمقدار 50% من العرض الكلي للمسار */
-        transform: translateX(50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
 }
 
-/* تحسينات للجوال (Responsive) */
-@media (max-width: 768px) {
-    .slider-item {
-        width: 170px; /* حجم أصغر يناسب الجوال */
-    }
-    .app-card {
-        height: 280px;
-    }
-    .section-title {
-        font-size: 1.8rem;
-    }
+/* ضبط إضافي للجوالات الصغيرة */
+@media (max-width: 480px) {
+    .slider-item { width: 140px; }
+    .app-card { height: 250px; }
 }
