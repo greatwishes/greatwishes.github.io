@@ -1,53 +1,141 @@
-/* السلايدر */
+/* ============================================================
+   MODERN 3D SLIDER WITH REFLECTION - GreatWishes 2026
+   ============================================================ */
+
+.apps-section {
+    padding: 80px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: var(--primary-glow);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* حاوية السلايدر */
 .slider-container {
-  overflow-x: auto; /* تمكين التمرير الأفقي */
-/*  scroll-behavior: smooth; /* تمرير سلس */
-  margin: 20px auto;
-  padding: 15px 0;
-  border-top: 1px solid rgba(255,255,255,0.2);
-  border-bottom: 1px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.05);
+    width: 100%;
+    padding: 40px 0 100px 0; /* مساحة سفلية للانعكاس */
+    display: flex;
+    overflow: hidden;
+    /* تأثير تلاشي عند الأطراف لجعل الحركة تبدو طبيعية */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-/* المسار */
+/* المسار المتحرك */
 .slider-track {
-  display: flex;
-  flex-wrap: nowrap;
-  animation: scrollOnce 80s linear infinite; /* أبطأ */
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    animation: scrollInfinite 40s linear infinite;
+    will-change: transform;
 }
 
-/* عند تفاعل المستخدم يتوقف */
-.slider-container:hover .slider-track,
-.slider-container:active .slider-track {
-  animation-play-state: paused;
+/* توقف الحركة عند لمس السلايدر */
+.slider-container:hover .slider-track {
+    animation-play-state: paused;
 }
 
-.slider-track a {
-  flex: 0 0 auto;
-  margin: 0 12px;
+.slider-item {
+    flex: 0 0 auto;
+    text-decoration: none;
+    perspective: 1000px; /* لتمكين التأثيرات ثلاثية الأبعاد */
 }
 
-.slider-track img {
-  width: 200px;
-  height: 360px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,229,255,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: grab;
+/* كرت التطبيق */
+.app-card {
+    position: relative;
+    width: 200px;
+    height: 350px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* تأثير الانعكاس السفلي */
+    -webkit-box-reflect: below 10px linear-gradient(transparent 60%, rgba(255,255,255,0.1));
 }
 
-.slider-track img:active {
-  cursor: grabbing;
+.app-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.slider-track img:hover {
-  transform: scale(1.07);
-  box-shadow: 0 0 20px #00e5ff;
+/* طبقة الاسم عند الحوم */
+.app-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    opacity: 0;
+    transition: 0.3s ease;
 }
 
-/* الحركة */
-@keyframes scrollOnce {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(calc(-100% + 200px * 13)); } /* تصحيح الخطأ السابق */
-  100% { transform: translateX(0); }
-  }
+.app-name {
+    color: var(--primary-glow);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* تأثيرات التفاعل (Hover) */
+.slider-item:hover .app-card {
+    transform: translateY(-15px) rotateY(10deg);
+    border-color: var(--primary-glow);
+    box-shadow: 0 15px 40px rgba(0, 229, 255, 0.3);
+}
+
+.slider-item:hover .app-overlay {
+    opacity: 1;
+}
+
+.slider-item:hover img {
+    transform: scale(1.1);
+}
+
+/* حركة التمرير اللانهائية */
+@keyframes scrollInfinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* نتحرك بمقدار نصف العرض لأننا كررنا العناصر في الـ HTML */
+        transform: translateX(50%);
+    }
+}
+
+/* تحسينات للجوال */
+@media (max-width: 768px) {
+    .app-card {
+        width: 150px;
+        height: 260px;
+    }
+    .slider-track {
+        animation-duration: 25s; /* أسرع قليلاً في الجوال */
+    }
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
