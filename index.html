@@ -136,19 +136,6 @@
                         <div class="app-overlay"><span class="app-name">لعبة 2048</span></div>
                     </div>
                 </a>
-
-                <a href="app1.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg"></div></a>
-                <a href="app2.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg"></div></a>
-                <a href="app3.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg"></div></a>
-                <a href="app4.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg"></div></a>
-                <a href="app5.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg"></div></a>
-                <a href="app6.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/quizapp/quizapp.jpg"></div></a>
-                <a href="app7.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png"></div></a>
-                <a href="app8.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg"></div></a>
-                <a href="app9.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/memory/memory.jpg"></div></a>
-                <a href="app10.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/notepad/notepad.png"></div></a>
-                <a href="app11.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png"></div></a>
-                <a href="app12.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2048/game2048.png"></div></a>
             </div>
         </div>
     </section>
@@ -204,76 +191,69 @@
     </footer>
 
     <script>
-    // 1. منطق القائمة الجوال
+    // --- 1. القائمة العلوية للجوال ---
     const menuToggle = document.getElementById('mobile-menu');
     const navLinks = document.querySelector('.nav-links');
     if(menuToggle) {
         menuToggle.onclick = () => navLinks.classList.toggle('active');
     }
 
-    // 2. منطق السلايدر المطور (حل مشكلة الفراغ والتحميل)
+    // --- 2. السلايدر الاحترافي (حل الفراغ والسحب) ---
     const slider = document.querySelector('.slider-container');
     const track = document.querySelector('.slider-track');
     
-    // وظيفة لمضاعفة العناصر لضمان عدم وجود فراغ (Infinite Loop)
+    // مضاعفة العناصر برمجياً 3 مرات لضمان تغطية أي شاشة عريضة
     function initializeSlider() {
         const items = track.innerHTML;
-        track.innerHTML = items + items; // نضاعف المحتوى مرتين
+        track.innerHTML = items + items + items; 
     }
     initializeSlider();
 
     let isDown = false;
     let startX;
-    let scrollLeft;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
 
-    // تعطيل الأنميشن CSS عند البدء بالسحب اليدوي لعدم حدوث تضارب
     const startDragging = (e) => {
         isDown = true;
         slider.style.cursor = 'grabbing';
-        track.style.animationPlayState = 'paused'; // إيقاف الحركة التلقائية
+        track.style.animationPlayState = 'paused';
         
-        // حساب نقطة البداية
-        const pageX = e.pageX || e.touches[0].pageX;
-        startX = pageX - track.offsetLeft;
+        startX = (e.pageX || e.touches[0].pageX);
         
-        // الحصول على القيمة الحالية للـ Transform
+        // الحصول على موقع التراك الحالي بدقة باستخدام Matrix
         const style = window.getComputedStyle(track);
         const matrix = new WebKitCSSMatrix(style.transform);
-        scrollLeft = matrix.m41; 
+        prevTranslate = matrix.m41; 
     };
 
     const stopDragging = () => {
         isDown = false;
         slider.style.cursor = 'grab';
-        track.style.animationPlayState = 'running'; // استئناف الحركة التلقائية
+        track.style.animationPlayState = 'running';
     };
 
     const move = (e) => {
         if (!isDown) return;
-        e.preventDefault();
-        const pageX = e.pageX || e.touches[0].pageX;
-        const x = pageX - track.offsetLeft;
-        const walk = (x - startX); 
-        
-        track.style.transform = `translateX(${scrollLeft + walk}px)`;
+        const x = (e.pageX || e.touches[0].pageX);
+        const walk = (x - startX);
+        currentTranslate = prevTranslate + walk;
+        track.style.transform = `translateX(${currentTranslate}px)`;
     };
 
-    // أحداث الماوس واللمس
+    // مستمعات الأحداث (الماوس واللمس)
     slider.addEventListener('mousedown', startDragging);
-    slider.addEventListener('touchstart', startDragging);
-    
+    slider.addEventListener('touchstart', startDragging, {passive: true});
     window.addEventListener('mouseup', stopDragging);
     window.addEventListener('touchend', stopDragging);
-    
     slider.addEventListener('mousemove', move);
-    slider.addEventListener('touchmove', move);
+    slider.addEventListener('touchmove', move, {passive: false});
 
-
-    // 3. منطق الدليل التفاعلي (كما هو)
+    // --- 3. الدليل التفاعلي ---
     const steps = document.querySelectorAll('.step-item');
     const dots = document.querySelectorAll('.dot');
     const stepImg = document.getElementById('current-step-img');
-    let current = 0;
+    let currentStep = 0;
 
     const images = [
         "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
@@ -282,32 +262,32 @@
     ];
 
     document.getElementById('nextStep').onclick = () => {
-        if (current < steps.length - 1) {
-            steps[current].classList.remove('visible');
-            dots[current].classList.remove('active');
-            current++;
-            steps[current].classList.add('visible');
-            dots[current].classList.add('active');
-            stepImg.src = images[current];
+        if (currentStep < steps.length - 1) {
+            steps[currentStep].classList.remove('visible');
+            dots[currentStep].classList.remove('active');
+            currentStep++;
+            steps[currentStep].classList.add('visible');
+            dots[currentStep].classList.add('active');
+            stepImg.src = images[currentStep];
             updateButtons();
         }
     };
 
     document.getElementById('prevStep').onclick = () => {
-        if (current > 0) {
-            steps[current].classList.remove('visible');
-            dots[current].classList.remove('active');
-            current--;
-            steps[current].classList.add('visible');
-            dots[current].classList.add('active');
-            stepImg.src = images[current];
+        if (currentStep > 0) {
+            steps[currentStep].classList.remove('visible');
+            dots[currentStep].classList.remove('active');
+            currentStep--;
+            steps[currentStep].classList.add('visible');
+            dots[currentStep].classList.add('active');
+            stepImg.src = images[currentStep];
             updateButtons();
         }
     };
 
     function updateButtons() {
-        document.getElementById('prevStep').disabled = (current === 0);
-        document.getElementById('nextStep').innerText = (current === steps.length - 1) ? 'إنهاء' : 'التالي';
+        document.getElementById('prevStep').disabled = (currentStep === 0);
+        document.getElementById('nextStep').innerText = (currentStep === steps.length - 1) ? 'إنهاء' : 'التالي';
     }
 </script>
 
