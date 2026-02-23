@@ -204,95 +204,112 @@
     </footer>
 
     <script>
-        // 1. منطق القائمة الجوال
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        if(menuToggle) {
-            menuToggle.onclick = () => navLinks.classList.toggle('active');
+    // 1. منطق القائمة الجوال
+    const menuToggle = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+    if(menuToggle) {
+        menuToggle.onclick = () => navLinks.classList.toggle('active');
+    }
+
+    // 2. منطق السلايدر المطور (حل مشكلة الفراغ والتحميل)
+    const slider = document.querySelector('.slider-container');
+    const track = document.querySelector('.slider-track');
+    
+    // وظيفة لمضاعفة العناصر لضمان عدم وجود فراغ (Infinite Loop)
+    function initializeSlider() {
+        const items = track.innerHTML;
+        track.innerHTML = items + items; // نضاعف المحتوى مرتين
+    }
+    initializeSlider();
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    // تعطيل الأنميشن CSS عند البدء بالسحب اليدوي لعدم حدوث تضارب
+    const startDragging = (e) => {
+        isDown = true;
+        slider.style.cursor = 'grabbing';
+        track.style.animationPlayState = 'paused'; // إيقاف الحركة التلقائية
+        
+        // حساب نقطة البداية
+        const pageX = e.pageX || e.touches[0].pageX;
+        startX = pageX - track.offsetLeft;
+        
+        // الحصول على القيمة الحالية للـ Transform
+        const style = window.getComputedStyle(track);
+        const matrix = new WebKitCSSMatrix(style.transform);
+        scrollLeft = matrix.m41; 
+    };
+
+    const stopDragging = () => {
+        isDown = false;
+        slider.style.cursor = 'grab';
+        track.style.animationPlayState = 'running'; // استئناف الحركة التلقائية
+    };
+
+    const move = (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const pageX = e.pageX || e.touches[0].pageX;
+        const x = pageX - track.offsetLeft;
+        const walk = (x - startX); 
+        
+        track.style.transform = `translateX(${scrollLeft + walk}px)`;
+    };
+
+    // أحداث الماوس واللمس
+    slider.addEventListener('mousedown', startDragging);
+    slider.addEventListener('touchstart', startDragging);
+    
+    window.addEventListener('mouseup', stopDragging);
+    window.addEventListener('touchend', stopDragging);
+    
+    slider.addEventListener('mousemove', move);
+    slider.addEventListener('touchmove', move);
+
+
+    // 3. منطق الدليل التفاعلي (كما هو)
+    const steps = document.querySelectorAll('.step-item');
+    const dots = document.querySelectorAll('.dot');
+    const stepImg = document.getElementById('current-step-img');
+    let current = 0;
+
+    const images = [
+        "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
+        "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
+        "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
+    ];
+
+    document.getElementById('nextStep').onclick = () => {
+        if (current < steps.length - 1) {
+            steps[current].classList.remove('visible');
+            dots[current].classList.remove('active');
+            current++;
+            steps[current].classList.add('visible');
+            dots[current].classList.add('active');
+            stepImg.src = images[current];
+            updateButtons();
         }
+    };
 
-        // 2. منطق السلايدر: السحب اليدوي (Drag to Scroll)
-        const slider = document.querySelector('.slider-container');
-        const track = document.querySelector('.slider-track');
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        const startDragging = (e) => {
-            isDown = true;
-            slider.style.cursor = 'grabbing';
-            // إيقاف الأنميشن مؤقتاً عند السحب اليدوي لمزيد من التحكم
-            track.style.animationPlayState = 'paused';
-            startX = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
-            scrollLeft = slider.scrollLeft;
-        };
-
-        const stopDragging = () => {
-            isDown = false;
-            slider.style.cursor = 'grab';
-            // إعادة تشغيل الأنميشن عند ترك السلايدر
-            track.style.animationPlayState = 'running';
-        };
-
-        const move = (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
-            const walk = (x - startX) * 2; // سرعة التمرير
-            slider.scrollLeft = scrollLeft - walk;
-        };
-
-        // أحداث الماوس
-        slider.addEventListener('mousedown', startDragging);
-        slider.addEventListener('mouseleave', stopDragging);
-        slider.addEventListener('mouseup', stopDragging);
-        slider.addEventListener('mousemove', move);
-
-        // أحداث اللمس للجوال
-        slider.addEventListener('touchstart', startDragging);
-        slider.addEventListener('touchend', stopDragging);
-        slider.addEventListener('touchmove', move);
-
-        // 3. منطق الدليل التفاعلي
-        const steps = document.querySelectorAll('.step-item');
-        const dots = document.querySelectorAll('.dot');
-        const stepImg = document.getElementById('current-step-img');
-        let current = 0;
-
-        const images = [
-            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
-            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
-            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
-        ];
-
-        document.getElementById('nextStep').onclick = () => {
-            if (current < steps.length - 1) {
-                steps[current].classList.remove('visible');
-                dots[current].classList.remove('active');
-                current++;
-                steps[current].classList.add('visible');
-                dots[current].classList.add('active');
-                stepImg.src = images[current];
-                updateButtons();
-            }
-        };
-
-        document.getElementById('prevStep').onclick = () => {
-            if (current > 0) {
-                steps[current].classList.remove('visible');
-                dots[current].classList.remove('active');
-                current--;
-                steps[current].classList.add('visible');
-                dots[current].classList.add('active');
-                stepImg.src = images[current];
-                updateButtons();
-            }
-        };
-
-        function updateButtons() {
-            document.getElementById('prevStep').disabled = (current === 0);
-            document.getElementById('nextStep').innerText = (current === steps.length - 1) ? 'إنهاء' : 'التالي';
+    document.getElementById('prevStep').onclick = () => {
+        if (current > 0) {
+            steps[current].classList.remove('visible');
+            dots[current].classList.remove('active');
+            current--;
+            steps[current].classList.add('visible');
+            dots[current].classList.add('active');
+            stepImg.src = images[current];
+            updateButtons();
         }
-    </script>
+    };
+
+    function updateButtons() {
+        document.getElementById('prevStep').disabled = (current === 0);
+        document.getElementById('nextStep').innerText = (current === steps.length - 1) ? 'إنهاء' : 'التالي';
+    }
+</script>
+
 </body>
 </html>
