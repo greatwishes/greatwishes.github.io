@@ -204,17 +204,56 @@
     </footer>
 
     <script>
-        // منطق القائمة
+        // 1. منطق القائمة الجوال
         const menuToggle = document.getElementById('mobile-menu');
         const navLinks = document.querySelector('.nav-links');
-        menuToggle.onclick = () => navLinks.classList.toggle('active');
+        if(menuToggle) {
+            menuToggle.onclick = () => navLinks.classList.toggle('active');
+        }
 
-        // منطق السلايدر: التأكد من استمرار الحركة
-        const sliderTrack = document.querySelector('.slider-track');
-        // هذا السطر يضمن استمرارية الحركة برمجياً كدعم إضافي للـ CSS
-        sliderTrack.style.animationPlayState = 'running';
+        // 2. منطق السلايدر: السحب اليدوي (Drag to Scroll)
+        const slider = document.querySelector('.slider-container');
+        const track = document.querySelector('.slider-track');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
 
-        // منطق الدليل والمحاكي
+        const startDragging = (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            // إيقاف الأنميشن مؤقتاً عند السحب اليدوي لمزيد من التحكم
+            track.style.animationPlayState = 'paused';
+            startX = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        };
+
+        const stopDragging = () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+            // إعادة تشغيل الأنميشن عند ترك السلايدر
+            track.style.animationPlayState = 'running';
+        };
+
+        const move = (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
+            const walk = (x - startX) * 2; // سرعة التمرير
+            slider.scrollLeft = scrollLeft - walk;
+        };
+
+        // أحداث الماوس
+        slider.addEventListener('mousedown', startDragging);
+        slider.addEventListener('mouseleave', stopDragging);
+        slider.addEventListener('mouseup', stopDragging);
+        slider.addEventListener('mousemove', move);
+
+        // أحداث اللمس للجوال
+        slider.addEventListener('touchstart', startDragging);
+        slider.addEventListener('touchend', stopDragging);
+        slider.addEventListener('touchmove', move);
+
+        // 3. منطق الدليل التفاعلي
         const steps = document.querySelectorAll('.step-item');
         const dots = document.querySelectorAll('.dot');
         const stepImg = document.getElementById('current-step-img');
