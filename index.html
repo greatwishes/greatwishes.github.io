@@ -8,19 +8,19 @@
     <!-- تحسين الخطوط -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
     <link rel="canonical" href="https://greatwishes.github.io/index.html" />
     
-    <!-- ملفات CSS الموحدة -->
+    <!-- ملف CSS الموحد -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- تم تحسين شريط التنقل -->
+    <!-- القائمة العائمة -->
     <nav class="main-nav">
         <div class="nav-container">
-            <div class="lang-btn" id="lang-btn" role="button" tabindex="0">EN</div>
+            <button class="lang-btn" id="lang-btn">EN</button>
             
             <ul class="nav-links">
                 <li><a href="#home" class="active">الرئيسية</a></li>
@@ -38,12 +38,12 @@
         </div>
     </nav>
 
-    <!-- قسم الهيدر الرئيسي -->
+    <!-- قسم الهيرو -->
     <header class="hero-section" id="home">
         <div class="hero-container">
             <div class="hero-text-content">
                 <span class="badge">إصدار 2026 الجديد</span>
-                <h1>مرحبًا بك في <span class="highlight">GreatWishes</span></h1>
+                <h1>مرحبًا بك في <span>GreatWishes</span></h1>
                 <p>منصة تطبيقاتك للاندرويد بتصميم فريد وتجربة استثنائية. اكتشف عالم التميز مع تطبيقاتنا المجانية.</p>
                 <div class="hero-btns">
                     <a href="#apps" class="btn-primary">تصفح التطبيقات</a>
@@ -53,7 +53,6 @@
             
             <div class="hero-visual">
                 <div class="floating-logo-box">
-                    <!-- تم إضافة alt وصفي للصورة -->
                     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="GreatWishes Logo">
                 </div>
             </div>
@@ -68,28 +67,117 @@
         </div>
         
         <div class="slider-container" id="apps-slider">
-            <button class="slider-nav prev" aria-label="السابق">❮</button>
-            <div class="slider-track-wrapper">
-                <div class="slider-track">
-                    <!-- تم إضافة alt لكل الصور -->
-                    <a href="app1.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى"><span class="app-name">تطبيق موسيقى</span></a>
-                    <a href="app2.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر"><span class="app-name">آلة حساب العمر</span></a>
-                    <a href="app3.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل الصوتية"><span class="app-name">تحويل الصوتية</span></a>
-                    <a href="app4.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات"><span class="app-name">تطبيق الفيديوهات</span></a>
-                    <a href="app5.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية"><span class="app-name">ملاحظات سرية</span></a>
-                    <a href="app6.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/quizapp/quizapp.jpg" alt="لعبة الثلاث أحرف"><span class="app-name">لعبة الثلاث أحرف</span></a>
-                    <a href="app7.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png" alt="لعبة من سيربح المليون"><span class="app-name">من سيربح المليون</span></a>
-                    <a href="app8.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg" alt="لعبة Fifteen Puzzle"><span class="app-name">ترتيب الأرقام</span></a>
-                    <a href="app9.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/memory/memory.jpg" alt="لعبة الذاكرة"><span class="app-name">لعبة الذاكرة</span></a>
-                    <a href="app10.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/notepad/notepad.png" alt="notepad"><span class="app-name">دفتر الملاحظات</span></a>
-                    <a href="app11.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png" alt="calculator"><span class="app-name">الآلة الحاسبة</span></a>
-                    <a href="app12.html" class="slider-item"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2048/game2048.png" alt="game2048"><span class="app-name">لعبة 2048</span></a>
-                </div>
+            <div class="slider-track">
+                <!-- تطبيق 1 -->
+                <a href="app1.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="تطبيق موسيقى">
+                        <div class="app-overlay">
+                            <span class="app-name">تطبيق موسيقى</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 2 -->
+                <a href="app2.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="آلة حساب العمر">
+                        <div class="app-overlay">
+                            <span class="app-name">آلة حساب العمر</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 3 -->
+                <a href="app3.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg" alt="تحويل الصوتية">
+                        <div class="app-overlay">
+                            <span class="app-name">تحويل الصوتية</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 4 -->
+                <a href="app4.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg" alt="تطبيق الفيديوهات">
+                        <div class="app-overlay">
+                            <span class="app-name">تطبيق الفيديوهات</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 5 -->
+                <a href="app5.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg" alt="ملاحظات سرية">
+                        <div class="app-overlay">
+                            <span class="app-name">ملاحظات سرية</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 6 -->
+                <a href="app6.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/quizapp/quizapp.jpg" alt="لعبة الثلاث أحرف">
+                        <div class="app-overlay">
+                            <span class="app-name">لعبة الثلاث أحرف</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 7 -->
+                <a href="app7.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png" alt="لعبة من سيربح المليون">
+                        <div class="app-overlay">
+                            <span class="app-name">من سيربح المليون</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 8 -->
+                <a href="app8.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg" alt="لعبة Fifteen Puzzle">
+                        <div class="app-overlay">
+                            <span class="app-name">ترتيب الأرقام</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 9 -->
+                <a href="app9.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/memory/memory.jpg" alt="لعبة الذاكرة">
+                        <div class="app-overlay">
+                            <span class="app-name">لعبة الذاكرة</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 10 -->
+                <a href="app10.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/notepad/notepad.png" alt="دفتر الملاحظات">
+                        <div class="app-overlay">
+                            <span class="app-name">دفتر الملاحظات</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 11 -->
+                <a href="app11.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png" alt="الآلة الحاسبة">
+                        <div class="app-overlay">
+                            <span class="app-name">الآلة الحاسبة</span>
+                        </div>
+                    </div>
+                </a>
+                <!-- تطبيق 12 -->
+                <a href="app12.html" class="slider-item">
+                    <div class="app-card">
+                        <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2048/game2048.png" alt="لعبة 2048">
+                        <div class="app-overlay">
+                            <span class="app-name">لعبة 2048</span>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <button class="slider-nav next" aria-label="التالي">❯</button>
         </div>
-        <!-- مؤشرات السلايدر (الدوائر) -->
-        <div class="slider-dots"></div>
     </section>
 
     <!-- قسم الدليل التفاعلي -->
@@ -113,15 +201,15 @@
                 </div>
                 
                 <div class="step-text-container">
-                    <div class="step-item visible" id="step1">
+                    <div class="step-item visible">
                         <h3>01. افتح متجر جوجل</h3>
                         <p>ابدأ بفتح تطبيق <strong>جوجل بلاي</strong> على هاتفك للوصول للإعدادات.</p>
                     </div>
-                    <div class="step-item" id="step2">
+                    <div class="step-item">
                         <h3>02. إعدادات الحماية</h3>
                         <p>انتقل إلى <strong>Play Protect</strong> وقم بتعطيل <strong>فحص التطبيقات</strong> مؤقتاً.</p>
                     </div>
-                    <div class="step-item" id="step3">
+                    <div class="step-item">
                         <h3>03. جاهز للاستخدام</h3>
                         <p>الآن، افتح التطبيق المثبت واستمتع بكافة المميزات! 🎉</p>
                     </div>
@@ -135,7 +223,7 @@
         </div>
     </section>
 
-    <!-- تذييل الصفحة -->
+    <!-- الفوتر -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-logo">GreatWishes</div>
@@ -144,7 +232,7 @@
         </div>
     </footer>
 
-    <!-- ملف JavaScript الموحد (يتم تحميله في النهاية) -->
+    <!-- ملف JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
