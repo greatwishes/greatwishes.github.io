@@ -92,3 +92,7 @@
     .app-card { height: 320px; }
     .slider-track { gap: 15px; }
 }
+.slider-container {
+    /* ... الأكواد القديمة ... */
+    touch-action: pan-y; /* يسمح بالتمرير العمودي ويمنع التمرير الأفقي الافتراضي للمتصفح */
+}
