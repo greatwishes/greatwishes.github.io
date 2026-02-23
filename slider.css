@@ -1,101 +1,84 @@
 /* ============================================================
-   إصلاح السلايدر النهائي - GreatWishes Fix
+   إصلاح أبعاد الصور والأنيميشن - النسخة الاحترافية
    ============================================================ */
-
-.apps-section {
-    padding: 80px 0;
-    overflow: hidden;
-    background: transparent;
-}
 
 .slider-container {
     width: 100%;
-    padding: 40px 0 120px 0;
+    padding: 20px 0 80px 0;
     overflow: hidden;
     position: relative;
-    /* إضافة لمسة احترافية بإخفاء الأطراف */
-    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    /* تأثير التلاشي الجانبي */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
 .slider-track {
     display: flex;
-    width: max-content; /* يضمن تمدد المسار ليشمل كل الصور بجانب بعضها */
-    gap: 30px; /* المسافة بين كل تطبيق والآخر */
-    animation: scrollInfinite 40s linear infinite;
-    will-change: transform;
-    cursor: grab; /* يوضح للمستخدم أنه يمكنه سحب السلايدر */
+    gap: 20px;
+    width: max-content;
+    animation: scrollInfinite 35s linear infinite;
+    /* إلغاء توقف الأنيميشن تماماً لضمان استمرارية الحركة */
 }
 
-/* حل مشكلة توقف السلايدر: قمنا بإزالة "animation-play-state: paused" لكي لا يقف عند اللمس */
+/* لضمان عدم توقف السلايدر عند اللمس في الجوال */
+.slider-container:hover .slider-track,
 .slider-container:active .slider-track {
-    cursor: grabbing;
+    animation-play-state: running !important;
 }
 
 .slider-item {
-    flex: 0 0 auto; /* منع انكماش الصور نهائياً */
-    width: 220px; /* العرض الثابت لضمان اكتمال الصورة */
+    flex: 0 0 auto;
+    width: 180px; /* عرض مناسب لشاشة الجوال */
     text-decoration: none;
-    transition: transform 0.3s ease;
 }
 
 .app-card {
     position: relative;
     width: 100%;
-    height: 380px; /* طول مناسب ليظهر المحتوى كاملاً */
-    border-radius: 20px;
+    height: 320px; /* ارتفاع متناسق */
+    border-radius: 25px;
+    background: #121212; /* خلفية داكنة للصور */
+    border: 2px solid rgba(0, 229, 255, 0.3);
     overflow: hidden;
-    background: #1a1a1a;
-    border: 1px solid rgba(0, 229, 255, 0.2);
-    /* تأثير المرآة السفلي */
-    -webkit-box-reflect: below 10px linear-gradient(transparent 70%, rgba(255,255,255,0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* تأثير الانعكاس */
+    -webkit-box-reflect: below 8px linear-gradient(transparent 80%, rgba(255,255,255,0.1));
+    transition: transform 0.3s ease;
 }
 
 .app-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* يضمن امتلاء الكرت بالصورة دون تشويه */
-    display: block;
+    width: 95%;
+    height: 95%;
+    /* السر هنا: contain يضمن ظهور الصورة كاملة بدون قص */
+    object-fit: contain; 
+    border-radius: 15px;
 }
 
-/* تحسين ظهور الاسم */
 .app-overlay {
     position: absolute;
     bottom: 0;
     width: 100%;
-    padding: 20px 10px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    background: linear-gradient(transparent, rgba(0,0,0,0.9));
+    padding: 15px 5px;
     text-align: center;
 }
 
 .app-name {
     color: #00e5ff;
+    font-size: 0.85rem;
     font-weight: bold;
-    font-size: 0.95rem;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-/* حركة التمرير اللانهائية الدقيقة */
+/* حركة التمرير */
 @keyframes scrollInfinite {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        /* نتحرك لليسار (RTL) بمقدار 50% من طول المسار الإجمالي */
-        /* بما أننا كررنا الـ 12 صورة، فـ 50% تعني الانتقال لنهاية المجموعة الأولى والبدء في الثانية */
-        transform: translateX(50%); 
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
 }
 
-/* إصلاح للجوال لضمان عدم قص الصور */
-@media (max-width: 768px) {
-    .slider-item {
-        width: 160px; /* حجم أصغر قليلاً للهواتف */
-    }
-    .app-card {
-        height: 280px;
-    }
-    .slider-track {
-        animation-duration: 25s; /* سرعة أكبر قليلاً في الشاشات الصغيرة */
-    }
+/* ضبط إضافي للجوالات الصغيرة */
+@media (max-width: 480px) {
+    .slider-item { width: 140px; }
+    .app-card { height: 250px; }
 }
