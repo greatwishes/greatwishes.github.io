@@ -57,7 +57,7 @@
     </header>
 
     <section class="apps-section" id="apps">
-        <div class="section-header centered">
+        <div class="section-header">
             <h2 class="section-title">تطبيقات مختارة</h2>
             <p>تطبيقاتنا المفضلة لهذا الأسبوع</p>
         </div>
@@ -136,12 +136,25 @@
                         <div class="app-overlay"><span class="app-name">لعبة 2048</span></div>
                     </div>
                 </a>
+
+                <a href="app1.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg"></div></a>
+                <a href="app2.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg"></div></a>
+                <a href="app3.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/V%20N%20T.jpg"></div></a>
+                <a href="app4.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/video/VIDEOS.jpg"></div></a>
+                <a href="app5.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/secretnotes/secretnotes.jpg"></div></a>
+                <a href="app6.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/quizapp/quizapp.jpg"></div></a>
+                <a href="app7.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png"></div></a>
+                <a href="app8.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/fifteen/fifteen.jpg"></div></a>
+                <a href="app9.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/memory/memory.jpg"></div></a>
+                <a href="app10.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/notepad/notepad.png"></div></a>
+                <a href="app11.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png"></div></a>
+                <a href="app12.html" class="slider-item"><div class="app-card"><img src="https://raw.githubusercontent.com/greatwishes/myapp/main/game2048/game2048.png"></div></a>
             </div>
         </div>
     </section>
 
     <section class="guide-section" id="guide">
-        <div class="section-header centered">
+        <div class="section-header">
             <h2 class="section-title">📱 دليل التثبيت</h2>
         </div>
         
@@ -190,219 +203,96 @@
         </div>
     </footer>
 
-<script>
-// --- 1. القائمة العلوية للجوال ---
-const menuToggle = document.getElementById('mobile-menu');
-const navLinks = document.querySelector('.nav-links');
-if(menuToggle) {
-    menuToggle.onclick = () => navLinks.classList.toggle('active');
-}
-
-// --- 2. السلايدر المطور لـ 12 تطبيق ---
-const slider = document.querySelector('.slider-container');
-const track = document.querySelector('.slider-track');
-
-// مضاعفة العناصر مرتين فقط (12 + 12 = 24 عنصر)
-function setupSlider() {
-    if (!track) return;
-    
-    // حفظ العناصر الأصلية (12 تطبيق)
-    const originalItems = track.innerHTML;
-    
-    // مضاعفة العناصر مرة واحدة فقط (تصبح 24)
-    track.innerHTML = originalItems + originalItems;
-}
-
-// تنفيذ الإعداد
-setupSlider();
-
-// التحكم في السحب
-let isDown = false;
-let startX;
-let scrollLeft;
-
-// بدء السحب
-slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    slider.classList.add('dragging');
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = track.scrollLeft;
-});
-
-// إنهاء السحب
-slider.addEventListener('mouseleave', () => {
-    isDown = false;
-    slider.classList.remove('dragging');
-});
-
-slider.addEventListener('mouseup', () => {
-    isDown = false;
-    slider.classList.remove('dragging');
-});
-
-// حركة السحب
-slider.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-    track.scrollLeft = scrollLeft - walk;
-});
-
-// دعم شاشات اللمس
-slider.addEventListener('touchstart', (e) => {
-    isDown = true;
-    slider.classList.add('dragging');
-    startX = e.touches[0].pageX - slider.offsetLeft;
-    scrollLeft = track.scrollLeft;
-});
-
-slider.addEventListener('touchend', () => {
-    isDown = false;
-    slider.classList.remove('dragging');
-});
-
-slider.addEventListener('touchmove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.touches[0].pageX - slider.offset<script>
-// --- 1. القائمة العلوية للجوال ---
-const menuToggle = document.getElementById('mobile-menu');
-const navLinks = document.querySelector('.nav-links');
-if(menuToggle) {
-    menuToggle.onclick = () => navLinks.classList.toggle('active');
-}
-
-// --- 2. السلايدر السحري - الحل النهائي ---
-const slider = document.querySelector('.slider-container');
-const track = document.querySelector('.slider-track');
-
-function fixSlider() {
-    if (!track) return;
-    
-    // 1. خذ العناصر الأصلية (12 تطبيق)
-    const originalItems = track.innerHTML;
-    
-    // 2. نظف المسار أولاً
-    track.innerHTML = '';
-    
-    // 3. أضف العناصر 4 مرات (12 × 4 = 48 عنصر)
-    // هذا يضمن سلاسة لا نهائية
-    track.innerHTML = originalItems + originalItems + originalItems + originalItems;
-    
-    console.log('تم تهيئة السلايدر بـ 48 عنصر');
-}
-
-// تنفيذ الإصلاح
-fixSlider();
-
-// التحكم في السحب
-let isDown = false;
-let startX;
-let scrollLeft;
-
-// ماوس
-slider.addEventListener('mousedown', (e) => {
-    isDown = true;
-    slider.classList.add('dragging');
-    startX = e.pageX - slider.offsetLeft;
-    scrollLeft = track.scrollLeft;
-});
-
-slider.addEventListener('mouseleave', () => {
-    isDown = false;
-    slider.classList.remove('dragging');
-});
-
-slider.addEventListener('mouseup', () => {
-    isDown = false;
-    slider.classList.remove('dragging');
-});
-
-slider.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-    track.scrollLeft = scrollLeft - walk;
-});
-
-// شاشات اللمس
-slider.addEventListener('touchstart', (e) => {
-    isDown = true;
-    slider.classList.add('dragging');
-    startX = e.touches[0].pageX - slider.offsetLeft;
-    scrollLeft = track.scrollLeft;
-    e.preventDefault();
-});
-
-slider.addEventListener('touchend', () => {
-    isDown = false;
-    slider.classList.remove('dragging');
-});
-
-slider.addEventListener('touchmove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.touches[0].pageX - slider.offsetLeft;
-    const walk = (x - startX) * 2;
-    track.scrollLeft = scrollLeft - walk;
-});
-
-// منع التحديد أثناء السحب
-slider.addEventListener('dragstart', (e) => {
-    e.preventDefault();
-});
-
-// --- 3. الدليل التفاعلي ---
-const steps = document.querySelectorAll('.step-item');
-const dots = document.querySelectorAll('.dot');
-const stepImg = document.getElementById('current-step-img');
-let currentStep = 0;
-
-const images = [
-    "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
-    "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
-    "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
-];
-
-if(document.getElementById('nextStep')) {
-    document.getElementById('nextStep').onclick = () => {
-        if (currentStep < steps.length - 1) {
-            steps[currentStep].classList.remove('visible');
-            dots[currentStep].classList.remove('active');
-            currentStep++;
-            steps[currentStep].classList.add('visible');
-            dots[currentStep].classList.add('active');
-            stepImg.src = images[currentStep];
-            updateButtons();
+    <script>
+        // 1. منطق القائمة الجوال
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if(menuToggle) {
+            menuToggle.onclick = () => navLinks.classList.toggle('active');
         }
-    };
 
-    document.getElementById('prevStep').onclick = () => {
-        if (currentStep > 0) {
-            steps[currentStep].classList.remove('visible');
-            dots[currentStep].classList.remove('active');
-            currentStep--;
-            steps[currentStep].classList.add('visible');
-            dots[currentStep].classList.add('active');
-            stepImg.src = images[currentStep];
-            updateButtons();
+        // 2. منطق السلايدر: السحب اليدوي (Drag to Scroll)
+        const slider = document.querySelector('.slider-container');
+        const track = document.querySelector('.slider-track');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        const startDragging = (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            // إيقاف الأنميشن مؤقتاً عند السحب اليدوي لمزيد من التحكم
+            track.style.animationPlayState = 'paused';
+            startX = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        };
+
+        const stopDragging = () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+            // إعادة تشغيل الأنميشن عند ترك السلايدر
+            track.style.animationPlayState = 'running';
+        };
+
+        const move = (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = (e.pageX || e.touches[0].pageX) - slider.offsetLeft;
+            const walk = (x - startX) * 2; // سرعة التمرير
+            slider.scrollLeft = scrollLeft - walk;
+        };
+
+        // أحداث الماوس
+        slider.addEventListener('mousedown', startDragging);
+        slider.addEventListener('mouseleave', stopDragging);
+        slider.addEventListener('mouseup', stopDragging);
+        slider.addEventListener('mousemove', move);
+
+        // أحداث اللمس للجوال
+        slider.addEventListener('touchstart', startDragging);
+        slider.addEventListener('touchend', stopDragging);
+        slider.addEventListener('touchmove', move);
+
+        // 3. منطق الدليل التفاعلي
+        const steps = document.querySelectorAll('.step-item');
+        const dots = document.querySelectorAll('.dot');
+        const stepImg = document.getElementById('current-step-img');
+        let current = 0;
+
+        const images = [
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect1.png",
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/playprotect5.png",
+            "https://raw.githubusercontent.com/greatwishes/myapp/main/icons/checked.png"
+        ];
+
+        document.getElementById('nextStep').onclick = () => {
+            if (current < steps.length - 1) {
+                steps[current].classList.remove('visible');
+                dots[current].classList.remove('active');
+                current++;
+                steps[current].classList.add('visible');
+                dots[current].classList.add('active');
+                stepImg.src = images[current];
+                updateButtons();
+            }
+        };
+
+        document.getElementById('prevStep').onclick = () => {
+            if (current > 0) {
+                steps[current].classList.remove('visible');
+                dots[current].classList.remove('active');
+                current--;
+                steps[current].classList.add('visible');
+                dots[current].classList.add('active');
+                stepImg.src = images[current];
+                updateButtons();
+            }
+        };
+
+        function updateButtons() {
+            document.getElementById('prevStep').disabled = (current === 0);
+            document.getElementById('nextStep').innerText = (current === steps.length - 1) ? 'إنهاء' : 'التالي';
         }
-    };
-}
-
-function updateButtons() {
-    document.getElementById('prevStep').disabled = (currentStep === 0);
-    document.getElementById('nextStep').innerText = (currentStep === steps.length - 1) ? 'إنهاء' : 'التالي';
-}
-
-// إغلاق القائمة عند النقر
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-    });
-});
-</script>
+    </script>
 </body>
 </html>
