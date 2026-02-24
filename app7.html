@@ -9,12 +9,11 @@
   <meta name="author" content="GreatWishes">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greatwishes.github.io/app7.html">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="buttons-style.css">
+  
+  <link rel="stylesheet" href="home-features.css"> <link rel="stylesheet" href="apps-style.css">    <link rel="stylesheet" href="buttons-style.css">
 </head>
 <body>
 
-  <!-- ===== Navigation ===== -->
   <nav class="main-nav">
     <div class="nav-container">
       <div class="lang-btn" id="lang-btn">EN</div>
@@ -36,26 +35,21 @@
     </div>
   </nav>
 
-  <!-- ===== Header ===== -->
   <header class="header">
     <h1>لعبة من سيربح المليون</h1>
     <p>النسخة العربية الأشهر من المسابقة العالمية من سيربح المليون</p>
   </header>
 
-  <!-- ===== Logo ===== -->
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <!-- ===== Download Button ===== -->
-  <a href="#" id="downloadBtn1" class="btn">تحميل الان</a>
+  <a href="#" class="btn download-btn">تحميل الان</a>
 
-  <!-- ===== Game Image ===== -->
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/millionaire/millionaire.png" alt="صورة اللعبة">
   </div>
 
-  <!-- ===== App Description ===== -->
   <div class="app-description">
     <h2>من سيربح المليون</h2>
     <p>تطبيق <strong>من سيربح المليون</strong> يجلب لك أجواء المسابقة التلفزيونية الشهيرة مباشرة على هاتفك. تحدَّ نفسك بالإجابة على أسئلة متنوعة في <strong>الثقافة العامة، العلوم، الرياضة، التاريخ، والفن</strong> لتصل إلى المليون.</p>
@@ -70,92 +64,45 @@
     </ul>
   </div>
 
-  <!-- ===== Download Now Button ===== -->
-  <a href="#" id="downloadBtn2" class="btn">تحميل الآن</a>
+  <a href="#" class="btn download-btn">تحميل الآن</a>
 
-  <!-- ===== Navigation Links ===== -->
   <div class="navigation-links">
     <a href="index.html">الرئيسية</a> |
     <a href="app8.html">التالي</a> |
     <a href="app6.html">السابق</a>
   </div>
 
-  <!-- ===== Footer ===== -->
   <footer class="footer">
     &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
   </footer>
 
-  <!-- ===== Audio ===== -->
   <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/millionaire_theme.mp3" preload="auto" loop></audio>
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
-  <!-- ===== Scripts ===== -->
-  <script>
-    // تحميل رابط APK من JSON
-    let apkUrl = '';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const jsonUrl = 'https://greatwishes.github.io/myapp/millionaire/update_millionaire.json';
-      fetch(jsonUrl)
-        .then(response => response.json())
-        .then(data => {
-          if (data.apk_url) apkUrl = data.apk_url;
-          else console.error('رابط APK غير موجود.');
-        })
-        .catch(error => console.error('خطأ في تحميل JSON:', error));
-    });
-
-    function handleDownloadClick(event) {
-      event.preventDefault();
-      const sound = document.getElementById('clickSound');
-      if (sound) sound.play();
-      if (apkUrl) window.location.href = apkUrl;
-      else alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
-    }
-
-    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
-    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
-  </script>
-
-  <script>
-  const menuToggle = document.getElementById('mobile-menu');
-  const navLinks = document.querySelector('.nav-links');
-
-  // فتح / غلق القائمة عند الضغط على زر القائمة
-  menuToggle.addEventListener('click', e => {
-    e.stopPropagation();
-    navLinks.classList.toggle('active');
-  });
-
-  // إغلاق القائمة عند الضغط خارجها
-  document.addEventListener('click', e => {
-    if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-    }
-  });
-
-  // إغلاق القائمة عند الضغط على أي رابط داخلها
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-    });
-  });
-</script>
-
-  <!-- ===== Language Script ===== -->
   <script src="languages/lang_app7.js"></script>
-  <script>
-    const langBtn = document.getElementById('lang-btn');
 
-    langBtn.addEventListener('click', () => {
-      if (currentLang === 'ar') {
-        setLanguage('en');
-        langBtn.innerHTML = 'AR';
-      } else {
-        setLanguage('ar');
-        langBtn.innerHTML = 'EN';
-      }
-    });
+  <script src="main.js"></script>
+
+  <script>
+    const jsonUrl = 'https://greatwishes.github.io/myapp/millionaire/update_millionaire.json';
+
+    fetch(jsonUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.apk_url) {
+          document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.href = data.apk_url;
+            // التحقق عند الضغط
+            btn.addEventListener('click', (e) => {
+              if(!data.apk_url || data.apk_url === "#") {
+                e.preventDefault();
+                alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
+              }
+            });
+          });
+        }
+      })
+      .catch(error => console.error('خطأ في تحميل رابط التحميل:', error));
   </script>
 
 </body>
