@@ -28,8 +28,6 @@
   animation-play-state: running !important; 
 }
 
-/* تم حذف كود الـ Hover Pause لضمان عدم توقف الحركة عند اللمس */
-
 /* الكارت الأساسي */
 .slider-track a {
   flex: 0 0 auto;
@@ -108,7 +106,30 @@
 }
 
 /* =========================================
-   تعديلات الموبايل (Responsive Design)
+   قسم خاص للكمبيوتر فقط (علاج الرعشة)
+   ========================================= */
+@media (min-width: 769px) {
+    .slider-track a {
+        /* إجبار المتصفح على معالجة الكروت بنعومة قصوى في الكمبيوتر */
+        backface-visibility: hidden;
+        -webkit-font-smoothing: subpixel-antialiased;
+        will-change: transform, opacity;
+    }
+    
+    .slider-track a.active {
+        /* تنعيم حركة التكبير والرجوع */
+        transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.6s ease;
+    }
+    
+    .slider-track img {
+        /* منع اهتزاز الصور داخل الإطارات */
+        image-rendering: -webkit-optimize-contrast;
+        backface-visibility: hidden;
+    }
+}
+
+/* =========================================
+   تعديلات الموبايل (Responsive Design) كما هي
    ========================================= */
 @media (max-width: 768px) {
     .slider-track a {
