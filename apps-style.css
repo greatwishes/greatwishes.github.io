@@ -1,0 +1,183 @@
+/* ==================== app-details.css ==================== */
+/* الكود الخاص بتنسيق محتوى صفحات التطبيقات الفرعية */
+
+/* ===== Header ===== */
+.header {
+  padding: 50px 20px;
+}
+
+.header h1 {
+  font-size: 3em;
+  font-weight: 700;
+  padding: 25px 50px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ffcc00, #ff6f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; /* لإظهار gradient */
+  color: #ffcc00; /* fallback */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.7), inset 0 0 15px rgba(255,204,0,0.15);
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header h1:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,204,0,0.25);
+}
+
+.header p {
+  font-size: 1.4em;
+  color: #ffff99 !important; /* نص منور */
+  text-shadow: 0 0 5px #ffff99, 0 0 10px #ffff99; /* توهج للنص */
+  max-width: 700px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  background: rgba(33,150,243,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 5px rgba(33,150,243,0.15);
+  margin: 20px auto 0 auto;
+}
+
+/* ===== Logo / Images ===== */
+.logo-box img, .image-box img.logo {
+  margin-top: 20px;
+  width: 120px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-box {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.image-box img {
+  border-radius: 15px;
+  max-width: 300px;
+  height: auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image-box img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+}
+
+/* ===== App Description H2 & H3 ===== */
+h2, h3 {
+  font-weight: 700;
+  padding: 20px 30px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ff5722, #ff9800);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #ff5722; /* fallback */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6), inset 0 0 12px rgba(255,87,34,0.15);
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+h2:hover, h3:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.7), inset 0 0 15px rgba(255,87,34,0.25);
+}
+
+.app-description p {
+  font-size: 1.2em;
+  color: #ff9800; /* برتقالي */
+  padding: 15px 20px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5), inset 0 0 5px rgba(255,152,0,0.15);
+  text-align: center;
+  max-width: 800px;
+}
+
+.app-description {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.app-description ul {
+  list-style-position: inside;
+  text-align: right;
+}
+
+.app-description ul li {
+  background: rgba(0,188,212,0.05);
+  margin: 10px 0;
+  padding: 15px 25px;
+  border-radius: 12px;
+  position: relative;
+  font-weight: 500;
+  color: #cfd8dc;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5), inset 0 0 8px rgba(0,188,212,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-description ul li::before {
+  content: "★";
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffc107;
+  font-size: 1.2em;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  margin: 20px 0;
+  font-weight: 600;
+  font-size: 1em;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ffcc00, #ff6f00);
+  color: #000;
+  text-decoration: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.5), inset 0 0 8px rgba(255,204,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6), inset 0 0 12px rgba(255,204,0,0.3);
+}
+
+/* ===== Navigation Links (Bottom) ===== */
+.navigation-links {
+  margin-top: 60px;
+}
+
+.navigation-links a {
+  margin: 0 12px;
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+/* ===== Contact / Privacy Links ===== */
+.contact-link {
+  color: #ffcc00;
+  text-decoration: underline;
+  text-shadow: 1px 1px 0 #000, 2px 2px 3px rgba(0,0,0,0.5);
+}
+
+/* ===== Media Queries ===== */
+@media (max-width: 768px) {
+  .header h1 { font-size: 2.5em; }
+  .image-box img { width: 100%; }
+}
