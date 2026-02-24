@@ -9,7 +9,9 @@
   <meta name="author" content="GreatWishes">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greatwishes.github.io/app_calculator.html" />
-  <link rel="stylesheet" href="style.css">
+  
+  <link rel="stylesheet" href="home-features.css"> 
+  <link rel="stylesheet" href="apps-style.css">   
   <link rel="stylesheet" href="buttons-style.css">
 </head>
 <body>
@@ -30,7 +32,7 @@
         <li><a href="index.html#apps">التطبيقات</a></li>
         <li><a href="index.html#guide">الدليل</a></li>
         <li><a href="privacy.html">سياسة الخصوصية</a></li>
-        <li><a href="#contact.html">تواصل معنا</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
       </ul>
     </div>
   </nav>
@@ -38,13 +40,13 @@
   <header class="header">
     <h1>🔢 الآلة الحاسبة</h1>
     <p>أجرِ عملياتك الحسابية بدقة وسرعة مع واجهة مستخدم مبتكرة ومريحة</p>
-</header>
+  </header>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <a href="#" id="downloadBtn1" class="btn">تحميل الان</a>
+  <a href="#" class="btn download-btn">تحميل الان</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/calculator/calculator.png" alt="صورة التطبيق">
@@ -62,86 +64,48 @@
       <li><strong>تجربة مريحة:</strong> ألوان متباينة تسهل الوصول للأرقام والعمليات الحسابية المختلفة.</li>
       <li><strong>خفيف وسريع:</strong> حجم تطبيق صغير جداً ولا يؤثر على أداء الهاتف.</li>
     </ul>
-</div>
+  </div>
 
-  <a href="#" id="downloadBtn2" class="btn">تحميل الآن</a>
+  <a href="#" class="btn download-btn">تحميل الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">الرئيسية</a> |
     <a href="index.html">التالي</a> |
-    <a href="app10.html">السابق</a> |
+    <a href="app10.html">السابق</a>
   </div>
 
   <footer class="footer">
     &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
-</footer>
+  </footer>
 
   <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/fifteen_theme.mp3" preload="auto" loop></audio>
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
-  <script>
-    let apkUrl = '';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      // تعديل مسار الـ JSON الخاص بالآلة الحاسبة
-      const jsonUrl = 'https://greatwishes.github.io/myapp/calculator/update_calculator.json';
-
-      fetch(jsonUrl)
-        .then(response => response.json())
-        .then(data => {
-          if (data.apk_url) apkUrl = data.apk_url;
-          else console.error('رابط APK غير موجود.');
-        })
-        .catch(error => console.error('خطأ في تحميل JSON:', error));
-    });
-
-    function handleDownloadClick(event) {
-      event.preventDefault();
-      const sound = document.getElementById('clickSound');
-      if (sound) sound.play();
-      if (apkUrl) window.location.href = apkUrl;
-      else alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
-    }
-
-    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
-    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
-  </script>
-
-  <script>
-  const menuToggle = document.getElementById('mobile-menu');
-  const navLinks = document.querySelector('.nav-links');
-
-  menuToggle.addEventListener('click', e => {
-    e.stopPropagation();
-    navLinks.classList.toggle('active');
-  });
-
-  document.addEventListener('click', e => {
-    if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-    }
-  });
-
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-    });
-  });
-</script>
-
   <script src="languages/lang_calculator.js"></script>
-  <script>
-    const langBtn = document.getElementById('lang-btn');
 
-    langBtn.addEventListener('click', () => {
-      if (currentLang === 'ar') {
-        setLanguage('en');
-        langBtn.innerHTML = 'AR';
-      } else {
-        setLanguage('ar');
-        langBtn.innerHTML = 'EN';
-      }
-    });
+  <script src="main.js"></script>
+
+  <script>
+    const jsonUrl = 'https://greatwishes.github.io/myapp/calculator/update_calculator.json';
+
+    fetch(jsonUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.apk_url) {
+          document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.href = data.apk_url;
+            // إضافة حدث للتنبيه إذا لم يكن الرابط جاهزاً (اختياري)
+            btn.onclick = (e) => {
+              if(!data.apk_url) {
+                e.preventDefault();
+                alert("رابط التحميل غير جاهز بعد.");
+              }
+            };
+          });
+        }
+      })
+      .catch(error => console.error('خطأ في تحميل رابط التحميل:', error));
   </script>
+
 </body>
 </html>
