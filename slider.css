@@ -1,0 +1,134 @@
+/* السلايدر - الحاوية */
+.slider-container {
+  overflow: hidden; 
+  margin: 20px auto;
+  padding: 60px 0 150px 0; 
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  perspective: 1500px; 
+  scrollbar-width: none;
+  direction: ltr;
+  /* منع أي تداخل للمس مع الحاوية الأساسية */
+  touch-action: pan-y; 
+}
+
+.slider-container::-webkit-scrollbar { display: none; }
+
+/* المسار وتحريكه */
+.slider-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content; 
+  animation: scrollInfiniteRight 40s linear infinite; 
+  transform-style: preserve-3d;
+  /* إجبار الأنيميشن على الاستمرار في العمل دائماً */
+  animation-play-state: running !important; 
+}
+
+/* تم حذف كود الـ Hover Pause لضمان عدم توقف الحركة عند اللمس */
+
+/* الكارت الأساسي */
+.slider-track a {
+  flex: 0 0 auto;
+  margin: 0 -15px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease-out; 
+  -webkit-box-reflect: below 8px linear-gradient(transparent, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+  transform: rotateY(45deg) scale(0.7) translateZ(-100px);
+  opacity: 0.4; 
+  transform-style: preserve-3d;
+  /* منع تمييز الرابط عند اللمس في الموبايل */
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* هيكل الهاتف (الصورة) */
+.slider-track img {
+  width: 200px;
+  height: 420px; 
+  object-fit: contain; 
+  padding: 15px; 
+  box-sizing: border-box; 
+  border-radius: 35px;
+  border: 6px solid #1a1a1a;
+  outline: 2px solid rgba(0, 229, 255, 0.5);
+  background: #000;
+  box-shadow: 0 0 20px rgba(0,229,255,0.3);
+  transition: all 0.3s ease;
+  /* منع الصورة من التقاط أحداث السحب لتسهيل حركة المسار */
+  pointer-events: auto; 
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* =========================================
+   تأثير "عليه الدور" (النشط)
+   ========================================= */
+.slider-track a.active {
+  transform: rotateY(0deg) scale(1.15) translateZ(100px);
+  opacity: 1;
+  z-index: 100;
+  margin: 0 45px; 
+}
+
+.slider-track a.active img {
+  outline: 3px solid #00e5ff;
+  box-shadow: 0 0 50px rgba(0,229,255,0.8);
+  padding: 10px;
+}
+
+.slider-track a.active .app-name {
+  transform: translateY(15px) scale(1.1);
+  color: #fff;
+  opacity: 1;
+  text-shadow: 0 0 15px #00e5ff;
+}
+
+.app-name {
+  margin-top: 25px;
+  color: #00e5ff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-shadow: 0 0 12px rgba(0, 229, 255, 0.9);
+  transition: all 0.4s ease;
+  opacity: 0.6;
+}
+
+/* =========================================
+   حركة التمرير الدائري اللانهائي لليمين
+   ========================================= */
+@keyframes scrollInfiniteRight {
+    0% { transform: translateX(-50%); } 
+    100% { transform: translateX(0); } 
+}
+
+/* =========================================
+   تعديلات الموبايل (Responsive Design)
+   ========================================= */
+@media (max-width: 768px) {
+    .slider-track a {
+        transform: rotateY(40deg) scale(0.75) translateZ(-50px);
+        margin: 0 -10px;
+    }
+
+    .slider-track a.active {
+        transform: rotateY(0deg) scale(1.1) translateZ(50px);
+        margin: 0 25px;
+    }
+
+    .slider-track img {
+        width: 135px;
+        height: 280px; 
+    }
+
+    .slider-track {
+        /* ضمان استمرار الحركة في الموبايل حتى مع اللمس */
+        animation: scrollInfiniteRight 25s linear infinite !important;
+        animation-play-state: running !important;
+    }
+}
