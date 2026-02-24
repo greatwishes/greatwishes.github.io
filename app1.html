@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MUSIC - تطبيق الموسيقى</title>
   <meta name="description" content="تطبيق MUSIC للاستماع للموسيقى العربية والعالمية، مع قوائم تشغيل متنوعة وتجربة مستخدم مميزة.">
+  <meta name="keywords" content="MUSIC, تطبيق موسيقى, استماع للأغاني, قوائم تشغيل, موسيقى عربية, موسيقى عالمية, تطبيقات أندرويد, تطبيقات مجانية">
+  <meta name="author" content="GreatWishes">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greatwishes.github.io/app1.html" />
   
-  <link rel="stylesheet" href="home-features.css">      
-  <link rel="stylesheet" href="app-details.css"> 
+  <link rel="stylesheet" href="home-features.css">   
+  <link rel="stylesheet" href="app-details.css">
+  <link rel="stylesheet" href="buttons-style.css">
 </head>
 <body>
 
@@ -16,9 +20,11 @@
     <div class="nav-container">
       <div class="lang-btn" id="lang-btn">EN</div>
       <div class="menu-toggle" id="mobile-menu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <div class="ellipsis-container">
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+        </div>
       </div>
 
       <ul class="nav-links">
@@ -40,7 +46,7 @@
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <a href="#" class="btn download-link">تحميل الآن</a>
+  <a href="#" class="btn download-btn">تحميل الآن</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/music/MUSIC.jpg" alt="صورة التطبيق">
@@ -52,12 +58,14 @@
 
     <h3>الميزات الرئيسية للتطبيق</h3>
     <ul>
-      <li><strong>تشغيل الموسيقى:</strong> استمتع بتشغيل أغانيك المفضلة في أي وقت.</li>
-      <li><strong>واجهة مستخدم سهلة:</strong> تصميم عصري وبسيط.</li>
-      <li><strong>جودة صوت عالية:</strong> تجربة صوت نقية.</li>
+      <li><strong>تشغيل الموسيقى:</strong> استمتع بتشغيل أغانيك المفضلة في أي وقت وفي أي مكان.</li>
+      <li><strong>واجهة مستخدم سهلة:</strong> تصميم عصري يتيح لك تصفح وتنظيم الموسيقى بكل سهولة.</li>
+      <li><strong>دعم جميع الأنواع الموسيقية:</strong> من الأغاني العربية إلى العالمية، تجد جميع الأنماط التي تحبها.</li>
+      <li><strong>إمكانية إنشاء قوائم تشغيل:</strong> قم بإنشاء قوائم تشغيل خاصة بك وتنظيم الموسيقى كما تشاء.</li>
+      <li><strong>جودة صوت عالية:</strong> استمتع بتجربة صوت نقية وعالية الجودة.</li>
     </ul>
 
-    <a href="#" class="btn download-link">تحميل الآن</a>
+    <a href="#" class="btn download-btn">تحميل الآن</a>
   </div>
 
   <div class="navigation-links">
@@ -67,11 +75,10 @@
   </div>
 
   <footer class="footer">
-    &copy; 2025 GreatWishes | جميع الحقوق محفوظة
+    &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
   </footer>
 
-  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
-
+  
   <script src="languages/lang_app1.js"></script>
 
   <script src="main.js"></script>
@@ -79,11 +86,14 @@
   <script>
     const updateFileUrl = 'https://raw.githubusercontent.com/greatwishes/myapp/main/music/update.json';
     fetch(updateFileUrl)
-      .then(res => res.json())
+      .then(response => response.json())
       .then(data => {
-        document.querySelectorAll('.download-link').forEach(btn => btn.href = data.apk_url);
+        const apkUrl = data.apk_url;
+        document.querySelectorAll('.download-btn').forEach(button => {
+          button.href = apkUrl;
+        });
       })
-      .catch(err => console.error('Update Error:', err));
+      .catch(error => console.error('Error fetching update info:', error));
   </script>
 
 </body>
