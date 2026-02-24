@@ -10,7 +10,9 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greatwishes.github.io/app3.html" />
   
-  <link rel="stylesheet" href="home-features.css"> <link rel="stylesheet" href="apps-style.css">   <link rel="stylesheet" href="buttons-style.css">
+  <link rel="stylesheet" href="home-features.css"> 
+  <link rel="stylesheet" href="apps-style.css">   
+  <link rel="stylesheet" href="buttons-style.css">
 </head>
 <body>
 
@@ -80,29 +82,40 @@
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
   <script src="languages/lang_app3.js"></script>
-
   <script src="main.js"></script>
 
   <script>
+    // الرابط المباشر للملف الخام
     const jsonUrl = 'https://raw.githubusercontent.com/greatwishes/myapp/main/voicenotetoword/update_voicenotetoword.json';
+    // الرابط الاحتياطي في حال فشل السيرفر
+    const fallbackApkUrl = 'https://greatwishes.github.io/myapp/voicenotetoword/voicenotetoword_version.1.0.apk';
 
+    function setDownloadUrl(url) {
+      const buttons = document.querySelectorAll('.download-btn');
+      buttons.forEach(btn => {
+        btn.href = url;
+        btn.onclick = null; // إزالة أي تنبيهات خطأ
+      });
+    }
+
+    // محاولة جلب الرابط من JSON
     fetch(jsonUrl)
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error('Network error');
+        return response.json();
+      })
       .then(data => {
         if (data.apk_url) {
-          document.querySelectorAll('.download-btn').forEach(btn => {
-            btn.href = data.apk_url;
-            // التحقق عند الضغط إذا لم يكن الرابط جاهزاً
-            btn.addEventListener('click', (e) => {
-              if(!data.apk_url || data.apk_url === "#") {
-                e.preventDefault();
-                alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
-              }
-            });
-          });
+          setDownloadUrl(data.apk_url);
+          console.log("تم تحديث الرابط من السيرفر");
+        } else {
+          throw new Error('Invalid JSON');
         }
       })
-      .catch(error => console.error('خطأ في تحميل رابط التحميل:', error));
+      .catch(error => {
+        console.error('فشل الجلب، استخدام الرابط الاحتياطي:', error);
+        setDownloadUrl(fallbackApkUrl);
+      });
   </script>
 
 </body>
