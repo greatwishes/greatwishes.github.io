@@ -9,12 +9,13 @@
   <meta name="author" content="GreatWishes">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greatwishes.github.io/app2.html" />
-  <link rel="stylesheet" href="style.css">
+  
+  <link rel="stylesheet" href="home-features.css"> 
+  <link rel="stylesheet" href="apps-style.css">  
   <link rel="stylesheet" href="buttons-style.css">
 </head>
 <body>
 
-  <!-- ===== Navigation ===== -->
   <nav class="main-nav">
     <div class="nav-container">
       <div class="lang-btn" id="lang-btn">EN</div>
@@ -35,18 +36,17 @@
       </ul>
     </div>
   </nav>
-  <!-- ===== Header ===== -->
+
   <header class="header">
     <h1>حساب العمر والأبراج</h1>
     <p>اكتشف عمرك وبرجك بسهولة مع نصائح يومية ممتعة</p>
-</header>
+  </header>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <!-- أزرار التحميل -->
-  <a id="downloadBtn1" href="#" class="btn">تحميل الان</a>
+  <a href="#" class="btn download-btn">تحميل الان</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/Age%20Calculator.jpg" alt="صورة التطبيق">
@@ -67,101 +67,47 @@
     </ul>
   </div>
 
-  <a id="downloadBtn2" href="#" class="btn">تحميل الآن</a>
+  <a href="#" class="btn download-btn">تحميل الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">الرئيسية</a> |
     <a href="app3.html">التالي</a> |
-    <a href="app1.html">السابق</a> |
-
-  
+    <a href="app1.html">السابق</a>
+  </div>
 
   <footer class="footer">
     &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
-      </footer>
+  </footer>
 
-  <!-- صوت النقر -->
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
-  <script>
-    let apkUrl = '';
-
-    // تحميل رابط APK من ملف JSON
-    document.addEventListener('DOMContentLoaded', () => {
-      const jsonUrl = 'https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/update_agecalculator.json';
-
-      fetch(jsonUrl)
-        .then(response => {
-          if (!response.ok) throw new Error('فشل تحميل ملف التحديث');
-          return response.json();
-        })
-        .then(data => {
-          if (data.apk_url && typeof data.apk_url === 'string') {
-            apkUrl = data.apk_url;
-          } else {
-            console.error('رابط apk غير صالح أو مفقود.');
-          }
-        })
-        .catch(error => {
-          console.error('خطأ في تحميل JSON:', error);
-        });
-    });
-
-    function handleDownloadClick(event) {
-      event.preventDefault();
-      const sound = document.getElementById('clickSound');
-      if (sound) sound.play();
-
-      if (apkUrl) {
-        window.location.href = apkUrl;
-      } else {
-        alert("رابط التحميل غير جاهز بعد. يرجى المحاولة لاحقاً.");
-      }
-    }
-
-    document.getElementById('downloadBtn1').addEventListener('click', handleDownloadClick);
-    document.getElementById('downloadBtn2').addEventListener('click', handleDownloadClick);
-  
-</script>
-
-    <script>
-  const menuToggle = document.getElementById('mobile-menu');
-  const navLinks = document.querySelector('.nav-links');
-
-  // فتح / غلق القائمة عند الضغط على زر القائمة
-  menuToggle.addEventListener('click', e => {
-    e.stopPropagation();
-    navLinks.classList.toggle('active');
-  });
-
-  // إغلاق القائمة عند الضغط خارجها
-  document.addEventListener('click', e => {
-    if (!navLinks.contains(e.target) && navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-    }
-  });
-
-  // إغلاق القائمة عند الضغط على أي رابط داخلها
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
-    });
-  });
-</script>
-
   <script src="languages/lang_app2.js"></script>
-  <script>
-    const langBtn = document.getElementById('lang-btn');
 
-    langBtn.addEventListener('click', () => {
-      if (currentLang === 'ar') {
-        setLanguage('en');
-        langBtn.innerHTML = 'AR';
-      } else {
-        setLanguage('ar');
-        langBtn.innerHTML = 'EN';
-      }
-    });
+  <script src="main.js"></script>
+
+  <script>
+    const jsonUrl = 'https://raw.githubusercontent.com/greatwishes/myapp/main/agecalculator/update_agecalculator.json';
+
+    fetch(jsonUrl)
+      .then(response => {
+        if (!response.ok) throw new Error('فشل تحميل ملف التحديث');
+        return response.json();
+      })
+      .then(data => {
+        if (data.apk_url) {
+          document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.href = data.apk_url;
+            // التحقق عند الضغط
+            btn.addEventListener('click', (e) => {
+              if(!data.apk_url) {
+                e.preventDefault();
+                alert("رابط التحميل غير جاهز بعد.");
+              }
+            });
+          });
+        }
+      })
+      .catch(error => console.error('Error fetching download link:', error));
   </script>
     
 </body>
