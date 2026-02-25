@@ -56,11 +56,11 @@
 
     <h3 style="text-align: center;"><b>مميزات التطبيق:</b></h3>
     <ul>
+      <li><strong>تصميم عصري وجذاب:</strong> واجهة مستخدم مريحة للعين تعتمد على أسلوب النيومورفيك الأنيق.</li>
       <li><strong>إدارة شاملة للمجموعات:</strong> تنظيم الطلاب حسب المرحلة الدراسية والمواعيد بسهولة تامة.</li>
-      <li><strong>رصد الحضور والغياب:</strong> واجهة سريعة لتسجيل حضور الطلاب بلمسة واحدة.</li>
-      <li><strong>سجل مالي دقيق:</strong> متابعة المصاريف والمدفوعات لكل طالب بشكل منظم.</li>
-      <li><strong>تصميم نيومورفيك عصري:</strong> واجهة مستخدم مريحة للعين تدعم التفاعل السلس.</li>
-      <li><strong>أداء سريع وآمن:</strong> التطبيق مصمم ليعمل بكفاءة عالية مع حفظ بيانات الطلاب بأمان.</li>
+      <li><strong>رصد الحضور والغياب:</strong> واجهة سريعة لتسجيل حضور الطلاب بلمسة واحدة وحفظ التقدم.</li>
+      <li><strong>مناسبة لجميع المعلمين:</strong> تساعد على توفير الوقت والجهد في المتابعة اليومية والمالية.</li>
+      <li><strong>أداء سلس وسريع:</strong> التطبيق محسن ليعمل بمرونة عالية على كافة أجهزة الأندرويد.</li>
     </ul>
   </div>
 
@@ -84,7 +84,6 @@
   <script src="main.js"></script>
 
   <script>
-    // استخدام رابط الـ JSON الخاص بالتطبيق الجديد
     const jsonUrl = 'https://greatwishes.github.io/myapp/studenttracker/Update_studenttracker.json';
 
     fetch(jsonUrl)
@@ -93,7 +92,7 @@
         if (data.apk_url) {
           document.querySelectorAll('.download-btn').forEach(btn => {
             btn.href = data.apk_url;
-            // التحقق من الرابط عند الضغط
+            // التحقق من الرابط عند الضغط - نفس منطق صفحة 12
             btn.addEventListener('click', (e) => {
               if(!data.apk_url) {
                 e.preventDefault();
