@@ -44,7 +44,7 @@
     <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
   </div>
 
-  <a href="#" class="btn download-btn">تحميل الان</a>
+  <a href="javascript:void(0);" class="btn download-btn">تحميل الان</a>
 
   <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/studenttracker/studenttracker.png" alt="صورة تطبيق متابع الطلاب">
@@ -64,7 +64,7 @@
     </ul>
   </div>
 
-  <a href="#" class="btn download-btn">تحميل الآن</a>
+  <a href="javascript:void(0);" class="btn download-btn">تحميل الآن</a>
 
   <div class="navigation-links">
     <a href="index.html">الرئيسية</a> |
@@ -80,11 +80,11 @@
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
   <script src="languages/lang_studenttracker.js"></script>
-
   <script src="main.js"></script>
 
   <script>
-    const jsonUrl = 'https://greatwishes.github.io/myapp/studenttracker/Update_studenttracker.json';
+    // تم تعديل الحرف الأول ليكون u صغير ليطابق الملف المرفوع
+    const jsonUrl = 'https://greatwishes.github.io/myapp/studenttracker/update_studenttracker.json';
 
     fetch(jsonUrl)
       .then(response => response.json())
@@ -92,9 +92,8 @@
         if (data.apk_url) {
           document.querySelectorAll('.download-btn').forEach(btn => {
             btn.href = data.apk_url;
-            // التحقق من الرابط عند الضغط - نفس منطق صفحة 12
             btn.addEventListener('click', (e) => {
-              if(!data.apk_url) {
+              if(!data.apk_url || data.apk_url === "javascript:void(0);") {
                 e.preventDefault();
                 alert("رابط التحميل غير جاهز بعد.");
               }
