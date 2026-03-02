@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متابع الطلاب برو - Student Tracker Pro</title>
+  <meta name="description" content="تطبيق متابع الطلاب برو لإدارة المجموعات التعليمية ورصد الحضور والغياب والمالية بكل سهولة واحترافية.">
+  <meta name="keywords" content="متابع الطلاب, إدارة المعلمين, رصد الغياب, تطبيق تعليمي, حضور وغياب, GreatWishes">
+  <meta name="author" content="GreatWishes">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greatwishes.github.io/app13.html" />
+  
+  <link rel="stylesheet" href="home-features.css"> <link rel="stylesheet" href="apps-style.css">   <link rel="stylesheet" href="buttons-style.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="lang-btn" id="lang-btn">EN</div>
+      <div class="menu-toggle" id="mobile-menu">
+        <div class="ellipsis-container">
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#apps">التطبيقات</a></li>
+        <li><a href="index.html#guide">الدليل</a></li>
+        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="header">
+    <h1 style="text-align: center;"><b>📝 متابع الطلاب برو</b></h1>
+    <p>الأداة المتكاملة للمعلم لإدارة المجموعات ورصد الحضور والغياب باحترافية</p>
+  </header>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
+  </div>
+
+  <a href="javascript:void(0);" class="btn download-btn">تحميل الان</a>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/studenttracker/studenttracker.png" alt="صورة تطبيق متابع الطلاب">
+  </div>
+
+  <div class="app-description">
+    <h2 style="text-align: center;"><b>تطبيق متابع الطلاب برو</b></h2>
+    <p>يعتبر <strong>تطبيق متابع الطلاب</strong> الحل الأمثل للمعلمين لتنظيم سجلات الطلاب، رصد الغياب والحضور، ومتابعة الأمور المالية للمجموعات في مكان واحد.</p>
+
+    <h3 style="text-align: center;"><b>مميزات التطبيق:</b></h3>
+    <ul>
+      <li><strong>تصميم عصري وجذاب:</strong> واجهة مستخدم مريحة للعين تعتمد على أسلوب النيومورفيك الأنيق.</li>
+      <li><strong>إدارة شاملة للمجموعات:</strong> تنظيم الطلاب حسب المرحلة الدراسية والمواعيد بسهولة تامة.</li>
+      <li><strong>رصد الحضور والغياب:</strong> واجهة سريعة لتسجيل حضور الطلاب بلمسة واحدة وحفظ التقدم.</li>
+      <li><strong>مناسبة لجميع المعلمين:</strong> تساعد على توفير الوقت والجهد في المتابعة اليومية والمالية.</li>
+      <li><strong>أداء سلس وسريع:</strong> التطبيق محسن ليعمل بمرونة عالية على كافة أجهزة الأندرويد.</li>
+    </ul>
+  </div>
+
+  <a href="javascript:void(0);" class="btn download-btn">تحميل الآن</a>
+
+  <div class="navigation-links">
+    <a href="index.html">الرئيسية</a> |
+    <a href="app1.html">التالي</a> | 
+    <a href="app12.html">السابق</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2026 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
+  </footer>
+
+  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/fifteen_theme.mp3" preload="auto" loop></audio>
+  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
+
+  <script src="languages/lang_studenttracker.js"></script>
+  <script src="main.js"></script>
+
+  <script>
+    // تم تعديل الحرف الأول ليكون u صغير ليطابق الملف المرفوع
+    const jsonUrl = 'https://greatwishes.github.io/myapp/studenttracker/update_studenttracker.json';
+
+    fetch(jsonUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.apk_url) {
+          document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.href = data.apk_url;
+            btn.addEventListener('click', (e) => {
+              if(!data.apk_url || data.apk_url === "javascript:void(0);") {
+                e.preventDefault();
+                alert("رابط التحميل غير جاهز بعد.");
+              }
+            });
+          });
+        }
+      })
+      .catch(error => console.error('Error fetching download link:', error));
+  </script>
+
+</body>
+  </html>
