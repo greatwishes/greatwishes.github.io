@@ -48,7 +48,7 @@
 
   <a href="javascript:void(0);" class="btn download-btn">تحميل الان</a>
 
-    <div class="image-box">
+  <div class="image-box">
     <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/pharmacy/pharmacy.png" alt="صورة تطبيق متابع المشتريات">
   </div>
 
@@ -58,11 +58,12 @@
 
     <h3 style="text-align: center;"><b>مميزات التطبيق:</b></h3>
     <ul>
+      <li><strong>التعرف على النصوص:</strong> إمكانية قراءة بيانات الفواتير والمشتريات آلياً عبر الكاميرا لتوفير وقت الإدخال اليدوي.</li>
       <li><strong>نظام الأرشفة الشهرية:</strong> إمكانية إنشاء سجلات منفصلة لكل شهر لتسهيل مراجعة المشتريات السابقة.</li>
       <li><strong>تتبع المبالغ والديون:</strong> رصد دقيق لجميع المبالغ المدفوعة والمتبقية مع حساب إجمالي الديون تلقائياً.</li>
-      <li><strong>توثيق العمليات:</strong> تسجيل دقيق لوقت وتاريخ كل عملية تعديل أو دفع أو مرتجع لضمان المتابعة الصحيحة.</li>
+      <li><strong>توثيق العمليات:</strong> تسجيل دقيق لوقت وتاريخ كل عملية تعديل أو دفع لضمان المتابعة الصحيحة.</li>
       <li><strong>إدارة شاملة للمحتوى:</strong> سهولة إضافة وتعديل وحذف المشتريات مع إمكانية إضافة ملاحظات خاصة لكل عملية.</li>
-      <li><strong>البحث السريع والفورى:</strong> العثور على أي صنف أو مورد داخل الأرشيف بلمحة بصر عبر محرك بحث ذكي.</li>
+      <li><strong>البحث السريع والفوري:</strong> العثور على أي صنف أو مورد داخل الأرشيف بلمحة بصر عبر محرك بحث ذكي.</li>
     </ul>
   </div>
 
@@ -81,11 +82,11 @@
   <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/fifteen_theme.mp3" preload="auto" loop></audio>
   <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
 
-  <script src="languages/lang_studenttracker.js"></script>
   <script src="main.js"></script>
 
   <script>
-    const jsonUrl = 'https://greatwishes.github.io/myapp/studenttracker/update_studenttracker.json';
+    // تم التعديل ليشير لملف الـ JSON الخاص بالصيدلية
+    const jsonUrl = 'https://greatwishes.github.io/myapp/pharmacy/update_pharmacy.json';
 
     fetch(jsonUrl)
       .then(response => response.json())
