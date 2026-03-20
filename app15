@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متابع المشتريات - My Pharmacy Debt</title>
+  <meta name="description" content="تطبيق متابع المشتريات والديون لإدارة سجلات المشتريات الشهرية بكل سهولة واحترافية.">
+  <meta name="keywords" content="متابع المشتريات, إدارة الديون, سجل المشتريات, تطبيق تجاري, حسابات صيدلية, GreatWishes">
+  <meta name="author" content="GreatWishes">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greatwishes.github.io/app14.html" />
+  
+  <link rel="stylesheet" href="home-features.css"> 
+  <link rel="stylesheet" href="apps-style.css">   
+  <link rel="stylesheet" href="buttons-style.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="lang-btn" id="lang-btn">EN</div>
+      <div class="menu-toggle" id="mobile-menu">
+        <div class="ellipsis-container">
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#apps">التطبيقات</a></li>
+        <li><a href="index.html#guide">الدليل</a></li>
+        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="header">
+    <h1 style="text-align: center;"><b>📝 متابع المشتريات</b></h1>
+    <p>الأداة المتكاملة لإدارة المشتريات الشهرية وتتبع الديون باحترافية</p>
+  </header>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
+  </div>
+
+  <a href="javascript:void(0);" class="btn download-btn">تحميل الان</a>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/pharmacy/pharmacy.png" alt="صورة تطبيق متابع المشتريات">
+  </div>
+
+  <div class="app-description">
+    <h2 style="text-align: center;"><b>تطبيق متابع المشتريات</b></h2>
+    <p>يعتبر <strong>تطبيق متابع المشتريات</strong> الحل الأمثل لتنظيم السجلات التجارية، متابعة المبالغ المستحقة، وجرد المشتريات الشهرية في واجهة واحدة منظمة.</p>
+
+    <h3 style="text-align: center;"><b>مميزات التطبيق:</b></h3>
+    <ul>
+      <li><strong>التعرف على النصوص:</strong> إمكانية قراءة بيانات الفواتير والمشتريات آلياً عبر الكاميرا لتوفير وقت الإدخال اليدوي.</li>
+      <li><strong>نظام الأرشفة الشهرية:</strong> إمكانية إنشاء سجلات منفصلة لكل شهر لتسهيل مراجعة المشتريات السابقة.</li>
+      <li><strong>تتبع المبالغ والديون:</strong> رصد دقيق لجميع المبالغ المدفوعة والمتبقية مع حساب إجمالي الديون تلقائياً.</li>
+      <li><strong>توثيق العمليات:</strong> تسجيل دقيق لوقت وتاريخ كل عملية تعديل أو دفع لضمان المتابعة الصحيحة.</li>
+      <li><strong>إدارة شاملة للمحتوى:</strong> سهولة إضافة وتعديل وحذف المشتريات مع إمكانية إضافة ملاحظات خاصة لكل عملية.</li>
+      <li><strong>البحث السريع والفوري:</strong> العثور على أي صنف أو مورد داخل الأرشيف بلمحة بصر عبر محرك بحث ذكي.</li>
+    </ul>
+  </div>
+
+  <a href="javascript:void(0);" class="btn download-btn">تحميل الآن</a>
+
+  <div class="navigation-links">
+    <a href="index.html">الرئيسية</a> |
+    <a href="app1.html">التالي</a> | 
+    <a href="app13.html">السابق</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2026 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
+  </footer>
+
+  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/fifteen_theme.mp3" preload="auto" loop></audio>
+  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
+
+  <script src="main.js"></script>
+
+  <script>
+    // تم التعديل ليشير لملف الـ JSON الخاص بالصيدلية
+    const jsonUrl = 'https://greatwishes.github.io/myapp/pharmacy/update_pharmacy.json';
+
+    fetch(jsonUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.apk_url) {
+          document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.href = data.apk_url;
+            btn.addEventListener('click', (e) => {
+              if(!data.apk_url || data.apk_url === "javascript:void(0);") {
+                e.preventDefault();
+                alert("رابط التحميل غير جاهز بعد.");
+              }
+            });
+          });
+        }
+      })
+      .catch(error => console.error('Error fetching download link:', error));
+  </script>
+
+</body>
+</html>
