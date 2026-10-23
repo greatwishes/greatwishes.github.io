@@ -1,1 +1,111 @@
-hhg
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المساعد الذكي للمسابقات - Smart Quiz Helper</title>
+  <meta name="description" content="تطبيق المساعد الذكي لتنظيم المسابقات التفاعلية وطرح الأسئلة بشكل سلس وسريع.">
+  <meta name="keywords" content="منظم مسابقات, طرح أسئلة, مساعد ذكي, إدارة تحديات, GreatWishes">
+  <meta name="author" content="GreatWishes">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://greatwishes.github.io/app15.html" />
+  
+  <link rel="stylesheet" href="home-features.css"> 
+  <link rel="stylesheet" href="apps-style.css">   
+  <link rel="stylesheet" href="buttons-style.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+    <div class="nav-container">
+      <div class="lang-btn" id="lang-btn">EN</div>
+      <div class="menu-toggle" id="mobile-menu">
+        <div class="ellipsis-container">
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+          <span class="ellipsis"></span>
+        </div>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">الرئيسية</a></li>
+        <li><a href="index.html#apps">التطبيقات</a></li>
+        <li><a href="index.html#guide">الدليل</a></li>
+        <li><a href="privacy.html">سياسة الخصوصية</a></li>
+        <li><a href="contact.html">تواصل معنا</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="header">
+    <h1 style="text-align: center;"><b>🤖 المساعد الذكي للمسابقات</b></h1>
+    <p>الأداة الأسهل لتنظيم الأنشطة التفاعلية وطرح الأسئلة بسرعة واحترافية</p>
+  </header>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png" alt="Great Wishes" class="logo">
+  </div>
+
+  <a href="javascript:void(0);" class="btn download-btn">تحميل التطبيق الآن</a>
+
+  <div class="image-box">
+    <img src="https://raw.githubusercontent.com/greatwishes/myapp/main/paltalkbot/paltalkbot.png" alt="واجهة المساعد الذكي للمسابقات">
+  </div>
+
+  <div class="app-description">
+    <h2 style="text-align: center;"><b>حول تطبيق المساعد الذكي</b></h2>
+    <p>يعتبر <strong>المساعد الذكي</strong> الحل المبتكر لتنظيم جولات المسابقات المختلفة، حيث يسهل عليك إدارة عملية طرح الأسئلة، ترتيب المشاركات، وإعلان النتائج في واجهة عصرية وبسيطة.</p>
+
+    <h3 style="text-align: center;"><b>أهم مميزات التطبيق:</b></h3>
+    <ul>
+      <li><strong>التنظيم الآلي:</strong> يقوم التطبيق بتنظيم دورة الأسئلة وعرضها بشكل متتابع لضمان سير المسابقة دون توقف.</li>
+      <li><strong>دقة المتابعة:</strong> سرعة فائقة في رصد المشاركات وتحديد صاحب أسرع إجابة صحيحة بكل دقة.</li>
+      <li><strong>لوحة النتائج:</strong> حساب تلقائي للنقاط مع إمكانية عرض قائمة بأسماء المتصدرين لتعزيز الحماس.</li>
+      <li><strong>سهولة التحكم:</strong> واجهة مرنة تتيح لك إضافة بنوك أسئلة متنوعة والتحكم الكامل في وقت ظهورها.</li>
+      <li><strong>تصميم مريح:</strong> واجهة مستخدم مبسطة تدعم وضع الرؤية الكاملة لضمان تجربة استخدام ممتعة ومنظمة.</li>
+      <li><strong>استقرار الأداء:</strong> تطبيق خفيف ومحسن ليعمل بكفاءة عالية على مختلف الأجهزة دون أي تعقيدات.</li>
+    </ul>
+  </div>
+
+  <a href="javascript:void(0);" class="btn download-btn">تنزيل الآن</a>
+
+  <div class="navigation-links">
+    <a href="index.html">الرئيسية</a> |
+    <a href="index.html#apps">التطبيقات</a> | 
+    <a href="app14.html">السابق</a>
+  </div>
+
+  <footer class="footer">
+    &copy; 2026 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
+  </footer>
+
+  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/fifteen_theme.mp3" preload="auto" loop></audio>
+  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
+
+  <script src="main.js"></script>
+
+  <script>
+    // الرابط يشير الآن لمجلد quiz ليكون مستقلاً عن تطبيقات الصيدلية
+    const jsonUrl = 'https://greatwishes.github.io/myapp/paltalkbot/update_paltalkbot.json';
+
+    fetch(jsonUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.apk_url) {
+          document.querySelectorAll('.download-btn').forEach(btn => {
+            btn.href = data.apk_url;
+            btn.addEventListener('click', (e) => {
+              if(!data.apk_url || data.apk_url === "javascript:void(0);") {
+                e.preventDefault();
+                alert("رابط التحميل قيد التجهيز.");
+              }
+            });
+          });
+        }
+      })
+      .catch(error => console.error('Error fetching data:', error));
+  </script>
+
+</body>
+</html>
