@@ -117,7 +117,7 @@ function setLanguage(langCode) {
 
   // Footer
   document.querySelector('.footer').innerHTML =
-    `&copy; 2025 <span data-lang-key="siteName">${lang[langCode].footer.siteName}</span> | <span data-lang-key="rights">${lang[langCode].footer.rights}</span>`;
+    `&copy; 2026 <span data-lang-key="siteName">${lang[langCode].footer.siteName}</span> | <span data-lang-key="rights">${lang[langCode].footer.rights}</span>`;
 }
 
 // ===== Initialize page =====

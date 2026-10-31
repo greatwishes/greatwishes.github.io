@@ -78,8 +78,7 @@ function setLanguage(langCode) {
 
   // Buttons
   document.querySelectorAll('.btn').forEach(btn => {
-    if(btn.id === "downloadBtn1") btn.innerHTML = lang[langCode].downloadBtn;
-    if(btn.id === "downloadBtn2") btn.innerHTML = lang[langCode].downloadNow;
+    btn.innerHTML = lang[langCode].downloadBtn;
   });
 
   // App description
