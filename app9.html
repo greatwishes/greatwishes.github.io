@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
+  <script>
+    (function(){
+      try {
+        const saved = localStorage.getItem('gw_lang');
+        if (saved === 'en') {
+          document.documentElement.lang = 'en';
+          document.documentElement.dir = 'ltr';
+        }
+      } catch(e) {}
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>لعبة الذاكرة - Memory Game</title>
@@ -10,7 +21,8 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://greatwishes.github.io/app9.html" />
   
-  <link rel="stylesheet" href="home-features.css"> <link rel="stylesheet" href="apps-style.css">   <link rel="stylesheet" href="buttons-style.css">
+  <link rel="stylesheet" href="home-features.css"> <link rel="stylesheet" href="apps-style.css">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png">
 </head>
 <body>
 
@@ -36,7 +48,7 @@
   </nav>
 
   <header class="header">
-    <h1>🃏 لعبة الذاكرة</h1>
+    <h1 style="text-align: center;"><b>🃏 لعبة الذاكرة</b></h1>
     <p>اختبر ذاكرتك وحاول تذكر مواقع البطاقات المطابقة بطريقة ممتعة وتفاعلية</p>
   </header>
 
@@ -73,13 +85,10 @@
   </div>
 
   <footer class="footer">
-    &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
+    &copy; 2026 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
   </footer>
 
-  <audio id="backgroundSound" src="https://raw.githubusercontent.com/greatwishes/files/main/fifteen_theme.mp3" preload="auto" loop></audio>
-  <audio id="clickSound" src="https://raw.githubusercontent.com/greatwishes/files/main/click-sound.mp3" preload="auto"></audio>
-
-  <script src="languages/lang_app9.js"></script>
+<script src="languages/lang_app9.js"></script>
 
   <script src="main.js"></script>
 
@@ -105,5 +114,16 @@
       .catch(error => console.error('خطأ في تحميل رابط التحميل:', error));
   </script>
 
+  <button id="scrollToTopBtn" title="العودة للأعلى" style="display:none; position:fixed; bottom:20px; left:20px; z-index:9999; background:linear-gradient(135deg,#ffcc00,#ff6f00); color:#000; border:none; border-radius:50%; width:45px; height:45px; font-size:20px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.5); transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">↑</button>
+  <script>
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) { scrollBtn.style.display = 'block'; }
+      else { scrollBtn.style.display = 'none'; }
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>

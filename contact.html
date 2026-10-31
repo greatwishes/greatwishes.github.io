@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>تواصل معنا | GreatWishes</title>
 <meta name="description" content="صفحة تواصل معنا للتواصل مع فريق GreatWishes عبر البريد الإلكتروني أو النموذج المباشر.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://greatwishes.github.io/contact.html" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="تواصل معنا | GreatWishes">
+    <meta property="og:description" content="صفحة تواصل معنا للتواصل مع فريق GreatWishes عبر البريد الإلكتروني.">
+    <meta property="og:url" content="https://greatwishes.github.io/contact.html">
+    <meta property="og:image" content="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png">
 
 <style>
 /* ----- Reset عام ----- */
@@ -36,7 +43,7 @@ body { background: linear-gradient(to top, #0f2027, #203a43, #2c5364); color:#cf
 .nav-links li a:hover { transform: rotateX(5deg) translateY(-5px); box-shadow:0 10px 25px rgba(0,0,0,0.7); background: rgba(33,45,60,0.95); color:#fff; }
 .menu-toggle { display:none; width:50px; height:42px; background: rgba(20,30,40,0.95); border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.5); cursor:pointer; position:relative; transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease; }
 .menu-toggle span { position:absolute; left:50%; transform:translateX(-50%); width:26px; height:3px; background:#fff; border-radius:3px; box-shadow:0 2px 4px rgba(0,0,0,0.4); transition: all 0.3s ease; }
-.menu-toggle span:nth-child(1){ top:11px; } span:nth-child(2){ top:19px; } span:nth-child(3){ top:27px; }
+.menu-toggle span:nth-child(1){ top:11px; } .menu-toggle span:nth-child(2){ top:19px; } .menu-toggle span:nth-child(3){ top:27px; }
 
 /* ===== Contact Section ===== */
 #contact { display:flex; flex-direction:column; align-items:center; gap:40px; padding:50px 20px; }
@@ -57,11 +64,12 @@ body { background: linear-gradient(to top, #0f2027, #203a43, #2c5364); color:#cf
 .contact-info a:hover { color:#fff; text-shadow:0 0 10px #ffeb3b; }
 
 /* ===== Footer ===== */
-.footer { margin-top:50px; padding:25px 20px; background:#000; color:#8E0800; font-size:0.95em; border-top:1px solid #330000; text-align:center; text-shadow:1px 1px 0 #FF4D4D,-1px -1px 0 #330000,0 2px 3px rgba(0,0,0,0.6); }
+.footer { margin-top:50px; padding:25px 20px; background:#000; color:#ffcc00; font-size:0.95em; border-top:1px solid #330000; text-align:center; text-shadow:1px 1px 0 #000,-1px -1px 0 #330000,0 2px 3px rgba(0,0,0,0.6); }
 
 /* ===== Responsive ===== */
 @media (max-width:768px){ .nav-links{ flex-direction:column; position:fixed; top:60px; left:-100%; width:90%; margin-left:5%; padding:10px 0; gap:12px; background:transparent; transition:left 0.3s ease; z-index:9999; } .nav-links.active{ left:0; } .nav-links li a{ width:100%; padding:12px 20px; font-size:0.85em; } .menu-toggle{ display:block; } }
 </style>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png">
 </head>
 <body>
 
@@ -87,7 +95,7 @@ body { background: linear-gradient(to top, #0f2027, #203a43, #2c5364); color:#cf
 <section id="contact">
   <div class="contact-form">
     <h2>أرسل لنا رسالة</h2>
-    <form action="mailto:Greatdaylight@gmail.com" method="post" enctype="text/plain">
+    <form id="contactForm">
       <label for="name">الاسم:</label>
       <input type="text" id="name" name="name" required placeholder="أدخل اسمك">
 
@@ -117,7 +125,7 @@ body { background: linear-gradient(to top, #0f2027, #203a43, #2c5364); color:#cf
 </section>
 
 <footer class="footer">
-  &copy; 2025 GreatWishes | جميع الحقوق محفوظة
+  &copy; 2026 GreatWishes | جميع الحقوق محفوظة
 </footer>
 
 <script>
@@ -144,16 +152,53 @@ navLinks.querySelectorAll('a').forEach(link => {
 
   <script src="languages/lang_contact.js"></script>
   <script>
+    function applyLangMeta(langCode) {
+      document.documentElement.lang = langCode;
+      document.documentElement.dir = (langCode === 'ar') ? 'rtl' : 'ltr';
+      try { localStorage.setItem('gw_lang', langCode); } catch (e) {}
+    }
     const langBtn = document.getElementById('lang-btn');
 
     langBtn.addEventListener('click', () => {
-      if (currentLang === 'ar') {
-        setLanguage('en');
-        langBtn.innerHTML = 'AR';
-      } else {
-        setLanguage('ar');
-        langBtn.innerHTML = 'EN';
+      const next = (currentLang === 'ar') ? 'en' : 'ar';
+      setLanguage(next);
+      applyLangMeta(next);
+      langBtn.innerHTML = (next === 'ar') ? 'EN' : 'AR';
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      let saved = null;
+      try { saved = localStorage.getItem('gw_lang'); } catch (e) {}
+      if (saved && saved !== currentLang) {
+        setLanguage(saved);
+        applyLangMeta(saved);
+        langBtn.innerHTML = (saved === 'ar') ? 'EN' : 'AR';
       }
+    });
+
+    // إرسال الرسالة عبر تطبيق البريد الافتراضي
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+        const body = `الاسم: ${name}\nالبريد الإلكتروني: ${email}\n\n${message}`;
+        window.location.href = `mailto:Greatdaylight@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      });
+    }
+  </script>
+  <button id="scrollToTopBtn" title="العودة للأعلى" style="display:none; position:fixed; bottom:20px; left:20px; z-index:9999; background:linear-gradient(135deg,#ffcc00,#ff6f00); color:#000; border:none; border-radius:50%; width:45px; height:45px; font-size:20px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.5); transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">↑</button>
+  <script>
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) { scrollBtn.style.display = 'block'; }
+      else { scrollBtn.style.display = 'none'; }
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>

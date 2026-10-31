@@ -1,5 +1,5 @@
 /* ================= main.js ================= */
-/* الحاجات المشتركة لجميع صفحات الموقع + منطق السلايدر */
+/* الحاجات المشتركة لجميع صفحات الموقع */
 
 const menuToggle = document.getElementById('mobile-menu');
 const navLinks = document.querySelector('.nav-links');
@@ -9,7 +9,7 @@ if (menuToggle && navLinks) {
         e.stopPropagation();
         navLinks.classList.toggle('active');
     };
-    
+
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.onclick = () => {
             navLinks.classList.remove('active');
@@ -23,61 +23,33 @@ if (menuToggle && navLinks) {
     });
 }
 
-// ===== زر تغيير اللغة =====
+// ===== إدارة اللغة (تغيير الاتجاه + الحفظ بين الصفحات) =====
+function applyLangMeta(langCode) {
+    document.documentElement.lang = langCode;
+    document.documentElement.dir = (langCode === 'ar') ? 'rtl' : 'ltr';
+    try { localStorage.setItem('gw_lang', langCode); } catch (e) {}
+}
+
+function getSavedLang() {
+    try { return localStorage.getItem('gw_lang'); } catch (e) { return null; }
+}
+
 const langBtn = document.getElementById('lang-btn');
 if (langBtn) {
     langBtn.addEventListener('click', () => {
-      if (typeof currentLang !== 'undefined') {
-          if (currentLang === 'ar') {
-            setLanguage('en');
-            langBtn.innerHTML = 'AR';
-          } else {
-            setLanguage('ar');
-            langBtn.innerHTML = 'EN';
-          }
-      }
+        if (typeof currentLang === 'undefined' || typeof setLanguage !== 'function') return;
+        const next = (currentLang === 'ar') ? 'en' : 'ar';
+        setLanguage(next);
+        applyLangMeta(next);
+        langBtn.innerHTML = (next === 'ar') ? 'EN' : 'AR';
     });
 }
 
-// ===== منطق السلايدر الذكي لمنع الارتداد =====
-function updateActiveCard() {
-    const sliderTrack = document.querySelector('.slider-track');
-    if (!sliderTrack) return;
-
-    const cards = sliderTrack.querySelectorAll('a');
-    const containerRect = document.querySelector('.slider-container').getBoundingClientRect();
-    const centerX = containerRect.left + containerRect.width / 2;
-
-    let closestCard = null;
-    let minDistance = Infinity;
-
-    cards.forEach(card => {
-        const rect = card.getBoundingClientRect();
-        const cardCenter = rect.left + rect.width / 2;
-        const distance = Math.abs(centerX - cardCenter);
-
-        if (distance < minDistance) {
-            minDistance = distance;
-            closestCard = card;
-        }
-    });
-
-    // تحديث الكلاسات فقط إذا تغير الكارت النشط
-    if (closestCard && !closestCard.classList.contains('active')) {
-        cards.forEach(c => c.classList.remove('active'));
-        closestCard.classList.add('active');
-    }
-}
-
-// تشغيل التحديث مع كل فريم من الأنميشن لضمان النعومة القصوى
-function animateSlider() {
-    updateActiveCard();
-    requestAnimationFrame(animateSlider);
-}
-
-// بدء التشغيل عند تحميل الصفحة
-window.addEventListener('DOMContentLoaded', () => {
-    if (document.querySelector('.slider-track')) {
-        requestAnimationFrame(animateSlider);
+document.addEventListener('DOMContentLoaded', () => {
+    const saved = getSavedLang();
+    if (saved && typeof currentLang !== 'undefined' && saved !== currentLang && typeof setLanguage === 'function') {
+        setLanguage(saved);
+        applyLangMeta(saved);
+        if (langBtn) langBtn.innerHTML = (saved === 'ar') ? 'EN' : 'AR';
     }
 });

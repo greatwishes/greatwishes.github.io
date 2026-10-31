@@ -4,69 +4,110 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
   <loc>https://greatwishes.github.io/</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
+  <lastmod>2026-10-31</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
+  <loc>https://greatwishes.github.io/index.html</loc>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.90</priority>
+</url>
+<url>
   <loc>https://greatwishes.github.io/app1.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
+  <lastmod>2026-10-31</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://greatwishes.github.io/app2.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
+  <lastmod>2026-10-31</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://greatwishes.github.io/app3.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
+  <lastmod>2026-10-31</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://greatwishes.github.io/app4.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
+  <lastmod>2026-10-31</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://greatwishes.github.io/app5.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
+  <lastmod>2026-10-31</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://greatwishes.github.io/app6.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
+  <lastmod>2026-10-31</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://greatwishes.github.io/app7.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
+  <lastmod>2026-10-31</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://greatwishes.github.io/app8.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
+  <lastmod>2026-10-31</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://greatwishes.github.io/app9.html</loc>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://greatwishes.github.io/app10.html</loc>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://greatwishes.github.io/app11.html</loc>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://greatwishes.github.io/app12.html</loc>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://greatwishes.github.io/app13.html</loc>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://greatwishes.github.io/app14.html</loc>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://greatwishes.github.io/app15.html</loc>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://greatwishes.github.io/app16.html</loc>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://greatwishes.github.io/contact.html</loc>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.60</priority>
 </url>
 <url>
   <loc>https://greatwishes.github.io/privacy.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://greatwishes.github.io/index.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
-  <priority>0.64</priority>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.50</priority>
 </url>
 <url>
   <loc>https://greatwishes.github.io/privacy2.html</loc>
-  <lastmod>2025-10-07T23:33:13+00:00</lastmod>
-  <priority>0.64</priority>
+  <lastmod>2026-10-31</lastmod>
+  <priority>0.50</priority>
 </url>
-
-
 </urlset>

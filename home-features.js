@@ -39,21 +39,46 @@ if (steps.length > 0) {
 
 // --- ثانياً: نظام السلايدر الـ 3D المطور ---
 const sliderContainer = document.querySelector('.slider-container');
+const sliderTrack = document.querySelector('.slider-track');
 const sliderCards = document.querySelectorAll('.slider-track a');
 
-if (sliderContainer && sliderCards.length > 0) {
+if (sliderContainer && sliderTrack && sliderCards.length > 0) {
+    let activeCard = null;
+
     const updateActiveCard = () => {
         const containerRect = sliderContainer.getBoundingClientRect();
         const containerCenterX = containerRect.left + containerRect.width / 2;
-        
+
+        let closest = null;
+        let minDistance = Infinity;
+
         sliderCards.forEach((card) => {
             const cardRect = card.getBoundingClientRect();
             const cardCenterX = cardRect.left + cardRect.width / 2;
             const distance = Math.abs(containerCenterX - cardCenterX);
-            if (distance < 100) card.classList.add('active');
-            else card.classList.remove('active');
+            if (distance < minDistance) {
+                minDistance = distance;
+                closest = card;
+            }
         });
+
+        if (closest && closest !== activeCard) {
+            if (activeCard) activeCard.classList.remove('active');
+            closest.classList.add('active');
+            activeCard = closest;
+        }
+
         requestAnimationFrame(updateActiveCard);
     };
     requestAnimationFrame(updateActiveCard);
+
+    // إيقاف الحركة مؤقتاً عند الهوفر أو اللمس لتسهيل اختيار التطبيق
+    const pauseSlider = () => sliderTrack.classList.add('paused');
+    const resumeSlider = () => sliderTrack.classList.remove('paused');
+
+    sliderContainer.addEventListener('mouseenter', pauseSlider);
+    sliderContainer.addEventListener('mouseleave', resumeSlider);
+    sliderContainer.addEventListener('touchstart', pauseSlider, { passive: true });
+    sliderContainer.addEventListener('touchend', resumeSlider);
+    sliderContainer.addEventListener('touchcancel', resumeSlider);
 }

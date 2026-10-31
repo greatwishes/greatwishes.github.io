@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>سياسة الخصوصية - Greatwishes</title>
   <link rel="canonical" href="https://greatwishes.github.io/privacy.html" />
+  <meta name="description" content="سياسة الخصوصية الخاصة بموقع GreatWishes وتطبيقاته: كيفية جمع البيانات واستخدامها وحماية خصوصية المستخدم.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="سياسة الخصوصية - GreatWishes">
+  <meta property="og:description" content="سياسة الخصوصية الخاصة بموقع GreatWishes وتطبيقاته.">
+  <meta property="og:url" content="https://greatwishes.github.io/privacy.html">
+  <meta property="og:image" content="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png">
   <style>
     body {
       margin: 0;
@@ -247,6 +254,7 @@
     }
 
   </style>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/greatwishes/files/main/greatwishes.png">
 </head>
 <body>
 
@@ -305,8 +313,8 @@
     <a href="index.html" class="btn">الرجوع للصفحة الرئيسية</a>
   </div>
 
-  <footer">
-    &copy; 2025 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
+  <footer>
+    &copy; 2026 <span data-lang-key="siteName">GreatWishes</span> | <span data-lang-key="rights">جميع الحقوق محفوظة</span>
   </footer>
 <script>
   const menuToggle = document.getElementById('mobile-menu');
@@ -335,18 +343,41 @@
 
   <script src="languages/lang_privacy.js"></script>
   <script>
+    function applyLangMeta(langCode) {
+      document.documentElement.lang = langCode;
+      document.documentElement.dir = (langCode === 'ar') ? 'rtl' : 'ltr';
+      try { localStorage.setItem('gw_lang', langCode); } catch (e) {}
+    }
     const langBtn = document.getElementById('lang-btn');
 
     langBtn.addEventListener('click', () => {
-      if (currentLang === 'ar') {
-        setLanguage('en');
-        langBtn.innerHTML = 'AR';
-      } else {
-        setLanguage('ar');
-        langBtn.innerHTML = 'EN';
+      const next = (currentLang === 'ar') ? 'en' : 'ar';
+      setLanguage(next);
+      applyLangMeta(next);
+      langBtn.innerHTML = (next === 'ar') ? 'EN' : 'AR';
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      let saved = null;
+      try { saved = localStorage.getItem('gw_lang'); } catch (e) {}
+      if (saved && saved !== currentLang) {
+        setLanguage(saved);
+        applyLangMeta(saved);
+        langBtn.innerHTML = (saved === 'ar') ? 'EN' : 'AR';
       }
     });
   </script>
   
+  <button id="scrollToTopBtn" title="العودة للأعلى" style="display:none; position:fixed; bottom:20px; left:20px; z-index:9999; background:linear-gradient(135deg,#ffcc00,#ff6f00); color:#000; border:none; border-radius:50%; width:45px; height:45px; font-size:20px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.5); transition:transform 0.3s ease;" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">↑</button>
+  <script>
+    const scrollBtn = document.getElementById('scrollToTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) { scrollBtn.style.display = 'block'; }
+      else { scrollBtn.style.display = 'none'; }
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
   </html>

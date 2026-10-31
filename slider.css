@@ -71,7 +71,11 @@
   transform: rotateY(0deg) scale(1.15) translateZ(100px);
   opacity: 1;
   z-index: 100;
-  margin: 0 45px; 
+}
+
+/* إيقاف الحركة مؤقتاً عند التفاعل */
+.slider-track.paused {
+  animation-play-state: paused !important;
 }
 
 .slider-track a.active img {
@@ -139,7 +143,6 @@
 
     .slider-track a.active {
         transform: rotateY(0deg) scale(1.1) translateZ(50px);
-        margin: 0 25px;
     }
 
     .slider-track img {
